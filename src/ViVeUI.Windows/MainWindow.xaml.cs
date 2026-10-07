@@ -27,6 +27,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     readonly DispatcherTimer searchTimer = new() { Interval = TimeSpan.FromMilliseconds(160) };
     Dictionary<uint, string> observations = [];
     string? observationError;
+    string? statusKey;
     public ObservableCollection<Change> Staged { get; } = [];
     public IEnumerable<object> ReviewRows => Staged.Select(c => new { c.Id, c.Name, Before = StateLabel(c.Before), After = StateLabel(c.After) });
     public ImageSource? Illustration => Selected?.Illustrated == true ? (ImageSource)FindResource(Selected.Category + "Illustration") : null;
@@ -39,7 +40,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public Visibility CompactVisibility => compact ? Visibility.Visible : Visibility.Collapsed;
     AppRelease? release;
     public string Search { get => search; set { search = value; Changed(); searchTimer.Stop(); searchTimer.Start(); } }
-    public string Category { get => category; set { category = value ?? "All"; Filter(); } }
+    public string Category { get => category; set { category = value ?? "All"; Changed(); Filter(); } }
     public Feature? Selected { get => selected; set { selected = value; Changed(); RefreshDetail(); } }
     public OverrideState Desired { get => desired; set { desired = value; Changed(); } }
     public string ModeText => L[demo ? "Demo" : "Local"];
@@ -125,7 +126,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         catch (Exception e) { observationError = e.Message; SetStatus(L["ObservationError"] + ": " + e.Message); }
         RefreshDetail();
     }
-    void SetStatus(string text) { StatusText = text; Changed(nameof(StatusText)); }
+    void SetStatus(string text) { statusKey = Locale.Text.Keys.FirstOrDefault(key => L[key] == text); StatusText = text; Changed(nameof(StatusText)); }
     void SetBusy(bool value) { busy = value; Changed(nameof(NotBusy)); Changed(nameof(CanApply)); Changed(nameof(CanDownload)); }
     void ShowPage(UIElement page) { foreach (var p in new UIElement[] { ExplorePage, ChangesPage, UpdatesPage, SettingsPage }) p.Visibility = p == page ? Visibility.Visible : Visibility.Collapsed; }
     void ExploreClick(object sender, RoutedEventArgs e) => ShowPage(ExplorePage);
@@ -140,7 +141,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (before == after) { SetStatus(L["Unchanged"]); return; }
         var existing = Staged.FirstOrDefault(c => c.Id == Selected.Id); if (existing is not null) Staged.Remove(existing);
         if (Staged.Count >= 100) throw new InvalidOperationException("Review is limited to 100 changes.");
-        Staged.Add(new(Selected.Id, Selected.Name, before, after)); SetStatus(QueueText);
+        Staged.Add(new(Selected.Id, Selected.Name, before, after)); SetStatus("");
     }
     void InspectClick(object sender, RoutedEventArgs e) => Safe(() =>
     {
@@ -243,9 +244,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void LanguageChanged(object sender, SelectionChangedEventArgs e)
     {
         if (LanguageBox?.SelectedItem is not ComboBoxItem item) return;
+        var previousCategory = category; var previousState = Desired;
+        var previousStatus = statusKey;
         L.Set(item.Tag?.ToString() ?? "en"); CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(L.Language == "zh" ? "zh-CN" : L.Language);
         foreach (var name in new[] { nameof(Categories), nameof(States), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
         RefreshDetail(); LoadHistory(); SaveSettings();
+        if (previousStatus is not null) SetStatus(L[previousStatus]);
+        Dispatcher.BeginInvoke(() => { CategoryBox.SelectedValue = previousCategory; StateBox.SelectedValue = previousState; }, DispatcherPriority.DataBind);
     }
     void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) { Root.LayoutTransform = new ScaleTransform(e.NewValue, e.NewValue); if (initialized) UpdateLayoutMode(); } }
     void SaveSettings()

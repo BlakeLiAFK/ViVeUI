@@ -27,7 +27,7 @@
        <TextBlock Text="{Binding Description}" Margin="0,12,0,2" FontSize="13"/>
        <TextBlock Text="{Binding L[Observed]}" Style="{StaticResource Label}"/><TextBlock Text="{Binding ObservationText}" FontWeight="SemiBold"/>
        <TextBlock Text="{Binding L[UserOverride]}" Style="{StaticResource Label}"/><TextBlock Text="{Binding OverrideText}" FontWeight="SemiBold"/>
-       <ComboBox ItemsSource="{Binding States}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding Desired}" AutomationProperties.Name="{Binding L[UserOverride]}" Margin="0,16,0,8"/>
+       <ComboBox x:Name="StateBox" ItemsSource="{Binding States}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding Desired}" AutomationProperties.Name="{Binding L[UserOverride]}" Margin="0,16,0,8"/>
        <TextBlock Text="{Binding L[DefaultHelp]}" FontSize="12" Foreground="{DynamicResource MutedBrush}"/>
        <Button Content="{Binding L[Stage]}" Style="{StaticResource Primary}" Click="StageClick" Margin="0,15,0,4" AutomationProperties.AutomationId="StageButton"/>
        <WrapPanel><Button Content="{Binding L[Source]}" Click="SourceClick" Padding="8,5" FontSize="12"/><Button Content="{Binding L[HistoricalSource]}" Click="HistoricalClick" Padding="8,5" FontSize="12" Visibility="{Binding HistoricalVisibility}"/></WrapPanel>
