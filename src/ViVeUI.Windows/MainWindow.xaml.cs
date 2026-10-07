@@ -20,6 +20,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public Locale L { get; } = new();
     readonly IReadOnlyList<Feature> catalog = Catalog.Load();
     readonly IFeatureStore store;
+    IReadOnlyList<Feature> discovered = [];
     readonly bool demo;
     readonly string folder;
     readonly UpdateService updater = new();
@@ -27,12 +28,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     Dictionary<uint, string> observations = [];
     string? observationError;
     public ObservableCollection<Change> Staged { get; } = [];
+    public IEnumerable<object> ReviewRows => Staged.Select(c => new { c.Id, c.Name, Before = StateLabel(c.Before), After = StateLabel(c.After) });
+    public ImageSource? Illustration => Selected?.Illustrated == true ? (ImageSource)FindResource(Selected.Category + "Illustration") : null;
     public ObservableCollection<HistoryRow> History { get; } = [];
     public IReadOnlyList<Feature> Filtered { get; private set; } = [];
     public Dictionary<string, string> Categories => new[] { "All", "Explorer", "Widgets", "System", "Catalog" }.ToDictionary(k => k, k => L[k]);
     public Dictionary<OverrideState, string> States => Enum.GetValues<OverrideState>().ToDictionary(k => k, k => L[k.ToString()]);
     string search = "", category = "All"; Feature? selected; OverrideState desired;
-    bool busy, acknowledged, initialized, autoCheck, autoDownload;
+    bool busy, acknowledged, initialized, autoCheck, autoDownload, compact, detailOpen;
+    public Visibility CompactVisibility => compact ? Visibility.Visible : Visibility.Collapsed;
     AppRelease? release;
     public string Search { get => search; set { search = value; searchTimer.Stop(); searchTimer.Start(); } }
     public string Category { get => category; set { category = value ?? "All"; Filter(); } }
@@ -64,22 +68,39 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), demo ? "ViVeUI-Demo" : "ViVeUI");
         InitializeComponent(); DataContext = this;
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); Filter(); };
-        Staged.CollectionChanged += (_, _) => { Acknowledged = false; Changed(nameof(QueueText)); Changed(nameof(CanApply)); };
+        Staged.CollectionChanged += (_, _) => { Acknowledged = false; Changed(nameof(QueueText)); Changed(nameof(ReviewRows)); Changed(nameof(CanApply)); };
         LoadSettings(); initialized = true; ApplyContrast(); Filter(); LoadHistory();
+        SizeChanged += (_, _) => UpdateLayoutMode();
+        SystemParameters.StaticPropertyChanged += SystemPreferenceChanged;
         Loaded += async (_, _) => { await RefreshObservations(); if (AutoCheck && !demo) await CheckUpdates(); };
-        Closed += (_, _) => { searchTimer.Stop(); updater.Dispose(); };
+        Closed += (_, _) => { searchTimer.Stop(); updater.Dispose(); SystemParameters.StaticPropertyChanged -= SystemPreferenceChanged; };
         PreviewKeyDown += (_, e) => { if (e.Key == System.Windows.Input.Key.F && System.Windows.Input.Keyboard.Modifiers == System.Windows.Input.ModifierKeys.Control) { ShowPage(ExplorePage); SearchBox.Focus(); SearchBox.SelectAll(); e.Handled = true; } };
     }
+    void SystemPreferenceChanged(object? sender, PropertyChangedEventArgs e) { if (e.PropertyName == nameof(SystemParameters.HighContrast)) Dispatcher.Invoke(ApplyContrast); }
     void ApplyContrast()
     {
-        if (!SystemParameters.HighContrast) return;
+        if (!SystemParameters.HighContrast) { foreach (var key in new[] { "SidebarBrush", "SidebarTextBrush", "SidebarMutedBrush", "CanvasBrush", "PaperBrush", "InkBrush", "MutedBrush", "LineBrush", "AccentBrush" }) Resources.Remove(key); return; }
+        Resources["SidebarBrush"] = SystemColors.WindowBrush; Resources["SidebarTextBrush"] = SystemColors.WindowTextBrush; Resources["SidebarMutedBrush"] = SystemColors.WindowTextBrush;
         Resources["CanvasBrush"] = SystemColors.WindowBrush; Resources["PaperBrush"] = SystemColors.WindowBrush;
         Resources["InkBrush"] = SystemColors.WindowTextBrush; Resources["MutedBrush"] = SystemColors.WindowTextBrush;
         Resources["LineBrush"] = SystemColors.WindowTextBrush; Resources["AccentBrush"] = SystemColors.HighlightBrush;
     }
+    void UpdateLayoutMode()
+    {
+        var scale = Root.LayoutTransform is ScaleTransform t ? t.ScaleX : 1;
+        var next = ActualWidth / scale < 1120;
+        if (next != compact) detailOpen = false;
+        compact = next; Changed(nameof(CompactVisibility));
+        Grid.SetColumn(DetailPane, compact ? 0 : 2); Grid.SetColumnSpan(DetailPane, compact ? 3 : 1);
+        Grid.SetColumnSpan(CatalogPane, compact ? 3 : 1);
+        CatalogPane.Visibility = compact && detailOpen ? Visibility.Collapsed : Visibility.Visible;
+        DetailPane.Visibility = !compact || detailOpen ? Visibility.Visible : Visibility.Collapsed;
+    }
+    void OpenDetailClick(object sender, RoutedEventArgs e) { detailOpen = true; UpdateLayoutMode(); }
+    void BackClick(object sender, RoutedEventArgs e) { detailOpen = false; UpdateLayoutMode(); }
     void Filter()
     {
-        Filtered = Catalog.Search(catalog, search, category).ToArray(); Changed(nameof(Filtered)); Changed(nameof(CountText)); Changed(nameof(EmptyVisibility));
+        Filtered = Catalog.Search(catalog.Concat(discovered), search, category).ToArray(); Changed(nameof(Filtered)); Changed(nameof(CountText)); Changed(nameof(EmptyVisibility));
         if (Selected is null || !Filtered.Contains(Selected)) Selected = Filtered.FirstOrDefault();
     }
     string StateLabel(Snapshot snapshot) => !snapshot.Exists ? L["Default"] : L[snapshot.State.ToString()];
@@ -87,7 +108,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         try { var state = Selected is null ? Snapshot.Default : store.Read(Selected.Id); OverrideText = StateLabel(state); Desired = state.State; }
         catch (Exception e) { OverrideText = L["Error"]; SetStatus(L["Diagnostics"] + ": " + e.Message); }
-        foreach (var name in new[] { nameof(OverrideText), nameof(ObservationText), nameof(IllustrationAlt), nameof(Description), nameof(HistoricalVisibility) }) Changed(name);
+        foreach (var name in new[] { nameof(Illustration), nameof(OverrideText), nameof(ObservationText), nameof(IllustrationAlt), nameof(Description), nameof(HistoricalVisibility) }) Changed(name);
     }
     async Task RefreshObservations()
     {
@@ -96,6 +117,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             if (demo) observations = new() { [37634385] = "Enabled · DEMO", [39420424] = "Default · DEMO" };
             else { if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer required."); observations = await Task.Run(WindowsStore.Observe); }
             observationError = null;
+            var known = catalog.Select(f => f.Id).ToHashSet();
+            discovered = observations.Keys.Where(id => !known.Contains(id)).Select(id => new Feature(id, L["UnknownId"])).ToArray();
+            Filter();
         }
         catch (Exception e) { observationError = e.Message; SetStatus(L["ObservationError"] + ": " + e.Message); }
         RefreshDetail();
@@ -133,7 +157,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             ChangeEngine.Validate(receipt.Changes);
             // Persist intentions and exact snapshots BEFORE requesting elevation.
             SaveReceipt(receipt);
-            var response = demo ? new WorkerResponse(ChangeEngine.Apply(store, receipt.Changes), null) : await Program.ElevateAsync(receipt.Changes);
+            var response = demo ? new WorkerResponse(ChangeEngine.Apply(store, receipt.Changes), null) : await Program.ElevateAsync(receipt.Changes, L.Language);
             if (response.Error is not null) throw new InvalidOperationException(response.Error);
             receipt = receipt with { Results = response.Results }; SaveReceipt(receipt);
             Staged.Clear();
@@ -217,10 +241,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         if (LanguageBox?.SelectedItem is not ComboBoxItem item) return;
         L.Set(item.Tag?.ToString() ?? "en"); CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(L.Language == "zh" ? "zh-CN" : L.Language);
-        foreach (var name in new[] { nameof(Categories), nameof(States), nameof(ModeText), nameof(QueueText), nameof(UpdateText), nameof(CountText) }) Changed(name);
+        foreach (var name in new[] { nameof(Categories), nameof(States), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
         RefreshDetail(); LoadHistory(); SaveSettings();
     }
-    void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) Root.LayoutTransform = new ScaleTransform(e.NewValue, e.NewValue); }
+    void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) { Root.LayoutTransform = new ScaleTransform(e.NewValue, e.NewValue); if (initialized) UpdateLayoutMode(); } }
     void SaveSettings()
     {
         if (!initialized) return;
@@ -250,7 +274,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         LanguageBox.SelectedIndex = 1; ShowPage(ExplorePage); await Capture("explore-zh.png");
         LanguageBox.SelectedIndex = 2; ShowPage(SettingsPage); await Capture("settings-es.png");
         ShowPage(UpdatesPage); await Capture("updates.png");
-        File.WriteAllText("smoke-result.txt", "PASS: WPF startup, catalog search, selection, stage, fake apply/readback, scoped undo, language switch, 5 rendered previews. No Windows settings were modified.");
+        LanguageBox.SelectedIndex = 0; Width = 900; ShowPage(ExplorePage); UpdateLayoutMode();
+        await Capture("compact-catalog.png"); OpenDetailClick(this, new()); await Capture("compact-detail.png");
+        File.WriteAllText("smoke-result.txt", "PASS: WPF startup, catalog search, selection, stage, fake apply/readback, scoped undo, language switch, 7 rendered previews. No Windows settings were modified.");
     }
     async Task Capture(string filename)
     {

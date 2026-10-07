@@ -8,6 +8,7 @@ public sealed class Locale : INotifyPropertyChanged
     public string this[string key] => Text.TryGetValue(key, out var row) ? row[Language == "zh" ? 1 : Language == "es" ? 2 : 0] : key;
     public static readonly Dictionary<string, string[]> Text = new()
     {
+        ["OpenDetails"] = ["Open details", "打开详情", "Abrir detalles"], ["Back"] = ["Back to catalog", "返回目录", "Volver al catálogo"],
         ["Explore"] = ["Explore", "探索", "Explorar"], ["Changes"] = ["My changes", "我的更改", "Mis cambios"], ["Updates"] = ["Updates", "更新", "Actualizaciones"], ["Settings"] = ["Settings & about", "设置与关于", "Ajustes y detalles"],
         ["Tagline"] = ["Windows, thoughtfully explored.", "从容探索 Windows。", "Explora Windows con criterio."],
         ["ExploreTitle"] = ["A little more possibility.", "探索更多可能。", "Un mundo de posibilidades."],

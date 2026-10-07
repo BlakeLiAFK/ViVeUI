@@ -11,6 +11,7 @@ void Assert(bool value) { if (!value) throw new Exception("Assertion failed"); }
 void Throws<T>(Action test) where T : Exception { try { test(); } catch (T) { return; } throw new Exception("Expected " + typeof(T).Name); }
 async Task ThrowsAsync<T>(Func<Task> test) where T : Exception { try { await test(); } catch (T) { return; } throw new Exception("Expected " + typeof(T).Name); }
 var catalog = Catalog.Load();
+Test("Embedded catalog exact pinned SHA-256", () => { using var input = typeof(Catalog).Assembly.GetManifestResourceStream("ViVeUI.Core.FeatureDictionary.pfs")!; Assert(Convert.ToHexString(SHA256.HashData(input)).Equals("8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828", StringComparison.OrdinalIgnoreCase)); });
 Test("Pinned dictionary: exactly 17,000 unique nonzero entries", () => Assert(catalog.Count == 17000 && catalog.Select(f => f.Id).Distinct().Count() == 17000 && catalog.All(f => f.Id > 0)));
 Test("Search by ID", () => Assert(Catalog.Search(catalog, "37634385").Single().Name == "TIFE"));
 Test("Search is case-insensitive", () => Assert(Catalog.Search(catalog, "tife").Any(f => f.Id == 37634385)));

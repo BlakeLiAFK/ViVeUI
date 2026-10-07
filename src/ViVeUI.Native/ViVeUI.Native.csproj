@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net8.0-windows</TargetFramework><AllowUnsafeBlocks>true</AllowUnsafeBlocks><Nullable>disable</Nullable></PropertyGroup><ItemGroup><Compile Include="../../vendor/ViVe/ViVe/*.cs" Link="Upstream/%(Filename)%(Extension)"/></ItemGroup></Project>

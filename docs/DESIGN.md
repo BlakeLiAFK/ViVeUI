@@ -29,8 +29,8 @@ support basic accessibility. English, Simplified Chinese and Spanish are include
 identifiers, build strings and original OS diagnostics are intentionally unchanged.
 No image contains translated text. WPF supports flow direction but a full RTL
 translation is not shipped; RTL and Narrator behavior still require human validation.
-At compact widths the detail panel scrolls; minimum width is 880 logical pixels.
-A fully separate narrow-screen detail page is a future usability improvement.
+At compact widths the catalog and detail become separate pages with explicit
+Open details / Back controls; minimum width is 880 logical pixels.
 
 Guidance:
 - https://learn.microsoft.com/en-us/windows/apps/design/accessibility/accessibility-checklist

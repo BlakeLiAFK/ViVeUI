@@ -11,10 +11,14 @@ public static class Program
     public static void Main(string[] args)
     {
         if (args.Length == 2 && args[0] == "--worker") { RunWorker(args[1]); return; }
+        var smoke = args.Contains("--smoke");
         var app = new Application();
-        app.DispatcherUnhandledException += (_, e) => { MessageBox.Show(e.Exception.Message, "ViVeUI", MessageBoxButton.OK, MessageBoxImage.Error); e.Handled = true; };
+        app.DispatcherUnhandledException += (_, e) => { if (smoke) { File.WriteAllText("smoke-error.txt", e.Exception.ToString()); e.Handled = true; app.Shutdown(1); return; }
+            MessageBox.Show(e.Exception.Message, "ViVeUI", MessageBoxButton.OK, MessageBoxImage.Error); e.Handled = true; };
         app.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Theme.xaml", UriKind.Relative) });
-        var window = new MainWindow(args.Contains("--demo") || args.Contains("--smoke"));
+        MainWindow window;
+        try { window = new MainWindow(args.Contains("--demo") || smoke); }
+        catch (Exception e) { File.WriteAllText(smoke ? "smoke-error.txt" : Path.Combine(Path.GetTempPath(), "ViVeUI-startup-error.txt"), e.ToString()); if (!smoke) MessageBox.Show(e.Message, "ViVeUI"); Environment.ExitCode = 1; return; }
         if (args.Contains("--smoke"))
             window.ContentRendered += async (_, _) =>
             {
@@ -34,13 +38,15 @@ public static class Program
             using var writer = new StreamWriter(pipe, leaveOpen: true) { AutoFlush = true };
             var line = reader.ReadLine();
             if (line is null || line.Length > 100_000) throw new InvalidDataException("Invalid worker request.");
-            var changes = JsonSerializer.Deserialize<List<Change>>(line) ?? throw new InvalidDataException("Empty request.");
+            var request = JsonSerializer.Deserialize<WorkerRequest>(line) ?? throw new InvalidDataException("Empty request.");
+            var changes = request.Changes;
+            var locale = new Locale(); locale.Set(request.Language);
             ChangeEngine.Validate(changes);
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
             // The elevated process also displays the exact scope. IPC never accepts file paths,
             // registry paths, commands, executables or download locations.
-            var details = string.Join("\n", changes.Select(x => $"{x.Id}: {x.Before.Label} → {x.After.Label}"));
-            if (MessageBox.Show("ViVeUI · User boot overrides / 用户启动覆盖\n\n" + details + "\n\nRestart required / 需要重启\nApply these changes? / 应用更改？", "ViVeUI — Confirm / 确认", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
+            var details = string.Join("\n", changes.Select(x => $"{x.Id}: {locale[x.Before.Exists ? x.Before.State.ToString() : "Default"]} → {locale[x.After.Exists ? x.After.State.ToString() : "Default"]}"));
+            if (MessageBox.Show(locale["UserOverride"] + "\n\n" + details + "\n\n" + locale["DefaultHelp"], "ViVeUI — " + locale["Review"], MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
             { writer.WriteLine(JsonSerializer.Serialize(new WorkerResponse(null, "Change canceled."))); return; }
             List<ChangeResult>? result = null; string? error = null;
             try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = e.Message; }
@@ -48,7 +54,7 @@ public static class Program
         }
         catch (Exception e) { MessageBox.Show(e.Message, "ViVeUI worker", MessageBoxButton.OK, MessageBoxImage.Error); }
     }
-    public static async Task<WorkerResponse> ElevateAsync(List<Change> changes)
+    public static async Task<WorkerResponse> ElevateAsync(List<Change> changes, string language)
     {
         var name = "ViVeUI-" + Guid.NewGuid().ToString("N");
         using var pipe = new NamedPipeServerStream(name, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous | PipeOptions.CurrentUserOnly);
@@ -60,9 +66,11 @@ public static class Program
         await connected;
         using var reader = new StreamReader(pipe, leaveOpen: true);
         using var writer = new StreamWriter(pipe, leaveOpen: true) { AutoFlush = true };
-        await writer.WriteLineAsync(JsonSerializer.Serialize(changes));
+        await writer.WriteLineAsync(JsonSerializer.Serialize(new WorkerRequest(changes, language)));
         var response = await reader.ReadLineAsync(timeout.Token) ?? throw new IOException("Worker disconnected. Review pending history before retrying.");
         return JsonSerializer.Deserialize<WorkerResponse>(response) ?? throw new IOException("Invalid worker response.");
     }
 }
 public sealed record WorkerResponse(List<ChangeResult>? Results, string? Error);
+
+public sealed record WorkerRequest(List<Change> Changes, string Language);

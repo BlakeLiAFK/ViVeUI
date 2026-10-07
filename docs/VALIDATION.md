@@ -9,7 +9,7 @@ path traversal, truncation, cancellation and successful verified downloads.
 
 Windows Actions builds actual WPF markup and code, then runs `--smoke` against
 an in-memory backend. It exercises search, selection, staging, fake apply/read-back,
-scoped restore, language switching, and captures five PNGs from the actual WPF
+scoped restore, language switching, and captures seven PNGs from the actual WPF
 window. It then publishes x64 and ARM64 packages with exact-commit source.
 
 The authoring host is macOS. Cross-compilation and Windows hosted-runner rendering
