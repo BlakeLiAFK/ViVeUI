@@ -1,4 +1,4 @@
-<Window x:Class="ViVeUI.Windows.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="ViVeUI · Windows feature explorer" Width="1440" Height="960" MinWidth="880" MinHeight="650" WindowStartupLocation="CenterScreen">
+<Window x:Class="ViVeUI.Windows.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{StaticResource {x:Type Window}}" Title="ViVeUI · Windows feature explorer" Width="1440" Height="960" MinWidth="880" MinHeight="650" WindowStartupLocation="CenterScreen">
  <Grid x:Name="Root"><Grid.ColumnDefinitions><ColumnDefinition Width="196"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
   <Border Background="{DynamicResource SidebarBrush}" Padding="20,30"><DockPanel LastChildFill="True">
    <StackPanel DockPanel.Dock="Top"><TextBlock Text="ViVeUI" FontSize="29" FontWeight="SemiBold" Foreground="{DynamicResource SidebarTextBrush}"/><TextBlock Text="FEATURE EXPLORER" FontSize="10" Foreground="{DynamicResource SidebarMutedBrush}" Margin="0,6,0,34"/>

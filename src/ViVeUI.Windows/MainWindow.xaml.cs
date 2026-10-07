@@ -38,7 +38,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     bool busy, acknowledged, initialized, autoCheck, autoDownload, compact, detailOpen;
     public Visibility CompactVisibility => compact ? Visibility.Visible : Visibility.Collapsed;
     AppRelease? release;
-    public string Search { get => search; set { search = value; searchTimer.Stop(); searchTimer.Start(); } }
+    public string Search { get => search; set { search = value; Changed(); searchTimer.Stop(); searchTimer.Start(); } }
     public string Category { get => category; set { category = value ?? "All"; Filter(); } }
     public Feature? Selected { get => selected; set { selected = value; Changed(); RefreshDetail(); } }
     public OverrideState Desired { get => desired; set { desired = value; Changed(); } }
@@ -282,7 +282,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle); UpdateLayout();
         Directory.CreateDirectory("previews");
-        var bitmap = new RenderTargetBitmap((int)ActualWidth, (int)ActualHeight, 96, 96, PixelFormats.Pbgra32); bitmap.Render(this);
+        var bitmap = new RenderTargetBitmap((int)Root.ActualWidth, (int)Root.ActualHeight, 96, 96, PixelFormats.Pbgra32); bitmap.Render(Root);
         var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap)); using var stream = File.Create(Path.Combine("previews", filename)); encoder.Save(stream);
     }
 }
