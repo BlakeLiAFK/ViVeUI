@@ -29,9 +29,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     string? observationError;
     string? statusKey;
     public ObservableCollection<Change> Staged { get; } = [];
-    public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, c.Name); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"], L["BeforeLabel"], L["AfterLabel"], L["TechnicalDetails"], L["Remove"]); });
-    public IEnumerable<FeatureCard> Cards => new uint[] { 37634385, 39420424, 34300186, 36354489 }.Select(id => { var f = catalog.First(x => x.Id == id); return new FeatureCard(f, FeatureEditorial.Title(f, L), FeatureEditorial.Description(f, L), L[f.Category], FeatureImage(f), L["Unverified"], L["LearnMore"] + "  ›", Selected?.Id == id); });
-    ImageSource? FeatureImage(Feature f) => f.Illustrated ? (ImageSource)FindResource(f.Category + "Illustration") : null;
+    public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, c.Name); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"], L["BeforeLabel"], L["AfterLabel"], L["TechnicalDetails"], L["Remove"], L["CopyId"]); });
+    public IEnumerable<FeatureCard> Cards => new uint[] { 37634385, 39420424, 34300186, 36354489 }.Select(id => { var f = catalog.First(x => x.Id == id); return new FeatureCard(f, FeatureEditorial.Title(f, L), FeatureEditorial.Description(f, L), L[f.Category], FeatureImage(f), L["Unverified"], L["LearnMore"] + "  ›", Selected?.Id == id, L["HistoricalBadge"]); });
+    ImageSource? FeatureImage(Feature f) => f.Illustrated ? (ImageSource)FindResource((FeatureEditorial.Key(f.Id) == "Navigation" ? "Navigation" : f.Category) + "Illustration") : null;
     public string SelectedTitle => Selected is null ? L["Detail"] : FeatureEditorial.Title(Selected, L);
     public string SelectedDescription => Selected is null ? L["UnknownDescription"] : FeatureEditorial.Description(Selected, L);
     public string VersionText => "ViVeUI " + BuildInfo.VersionText;
@@ -53,7 +53,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public bool IsDefault { get => Desired == OverrideState.Default; set { if (value) Desired = OverrideState.Default; } }
     public bool IsEnabledOverride { get => Desired == OverrideState.Enabled; set { if (value) Desired = OverrideState.Enabled; } }
     public bool IsDisabledOverride { get => Desired == OverrideState.Disabled; set { if (value) Desired = OverrideState.Disabled; } }
-    public ImageSource? Illustration => Selected?.Illustrated == true ? (ImageSource)FindResource(Selected.Category + "Illustration") : null;
+    public ImageSource? Illustration => Selected is not null ? FeatureImage(Selected) : null;
     public ObservableCollection<HistoryRow> History { get; } = [];
     public IReadOnlyList<Feature> Filtered { get; private set; } = [];
     public IReadOnlyList<Choice<string>> Categories { get; }
@@ -169,6 +169,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         foreach (var name in new[] { nameof(IsExplore), nameof(IsChanges), nameof(IsUpdates), nameof(IsSettings), nameof(ReviewVisibility), nameof(BrowseFooterVisibility) }) Changed(name);
     }
     void CardClick(object sender, RoutedEventArgs e) { if (sender is Button { Tag: Feature feature }) { Selected = feature; if (compact) { detailOpen = true; UpdateLayoutMode(); } } }
+    void CopyIdClick(object sender, RoutedEventArgs e) => Safe(() => { if (sender is Button { Tag: uint id }) Clipboard.SetText(id.ToString(CultureInfo.InvariantCulture)); });
     void RemoveClick(object sender, RoutedEventArgs e) { if (!busy && sender is Button { Tag: uint id }) { var existing = Staged.FirstOrDefault(c => c.Id == id); if (existing is not null) Staged.Remove(existing); RefreshDetail(); } }
     void ExploreClick(object sender, RoutedEventArgs e) => ShowPage(ExplorePage);
     void ChangesClick(object sender, RoutedEventArgs e) => ShowPage(ChangesPage);

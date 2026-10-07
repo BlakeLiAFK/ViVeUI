@@ -9,6 +9,8 @@ public sealed class Locale : INotifyPropertyChanged
     public string State(ViVeUI.Core.Snapshot value) => this[value.Exists && value.State == ViVeUI.Core.OverrideState.Default ? "PresentDefault" : value.Exists ? value.State.ToString() : "Default"];
     public static readonly Dictionary<string, string[]> Text = new()
     {
+        ["CatalogCountChip"] = ["17,000 known IDs", "17,000 个已知 ID", "17.000 ID conocidos"],
+        ["HistoricalBadge"] = ["Historical experiment", "历史实验", "Experimento histórico"], ["CopyId"] = ["Copy ID", "复制 ID", "Copiar ID"], ["RecoveryReminder"] = ["Prepare recovery before experimenting. Save your work; this app does not create a Windows restore point.", "实验前请准备恢复方式并保存工作。本应用不会创建 Windows 还原点。", "Prepara la recuperación y guarda tu trabajo. Esta app no crea un punto de restauración de Windows."],
         ["Appearance"] = ["Appearance", "外观", "Apariencia"], ["SystemTheme"] = ["System", "跟随系统", "Sistema"], ["LightTheme"] = ["Light", "浅色", "Claro"], ["DarkTheme"] = ["Dark", "深色", "Oscuro"],
         ["BeforeLabel"] = ["Before", "更改前", "Antes"], ["AfterLabel"] = ["After", "更改后", "Después"], ["TechnicalDetails"] = ["Technical details", "技术详情", "Detalles técnicos"], ["RestartRow"] = ["Restart required · you decide when", "需要重启 · 由你决定时间", "Reinicio necesario · tú decides cuándo"],
         ["License"] = ["Read license", "查看许可证", "Leer licencia"], ["ReleasePage"] = ["Release downloads", "发行版本下载", "Descargas de versiones"],
