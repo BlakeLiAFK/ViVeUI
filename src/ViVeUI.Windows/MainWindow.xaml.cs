@@ -104,7 +104,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Filtered = Catalog.Search(catalog.Concat(discovered), search, category).ToArray(); Changed(nameof(Filtered)); Changed(nameof(CountText)); Changed(nameof(EmptyVisibility));
         if (Selected is null || !Filtered.Contains(Selected)) Selected = Filtered.FirstOrDefault();
     }
-    string StateLabel(Snapshot snapshot) => !snapshot.Exists ? L["Default"] : L[snapshot.State.ToString()];
+    string StateLabel(Snapshot snapshot) => L.State(snapshot);
     void RefreshDetail()
     {
         try { var state = Selected is null ? Snapshot.Default : store.Read(Selected.Id); OverrideText = StateLabel(state); Desired = state.State; }
@@ -292,20 +292,29 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         // Detach for an offscreen layout: a hosted desktop may be only 1024px wide.
         // Rendering a still-parented root would inherit its window's clip.
         Content = null;
+        UpdateLayout();
+        await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
+        if (VisualTreeHelper.GetParent(Root) is not null) throw new InvalidOperationException("Preview root did not detach from its desktop window.");
+        var host = new Border { Width = Root.Width, Height = Root.Height, Child = Root, DataContext = this };
         try
         {
             Root.DataContext = this;
             System.Windows.Documents.TextElement.SetFontFamily(Root, FontFamily);
             System.Windows.Documents.TextElement.SetFontSize(Root, FontSize);
             System.Windows.Documents.TextElement.SetForeground(Root, Foreground);
+            await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
             var size = new Size(Root.Width, Root.Height);
-            Root.Measure(size); Root.Arrange(new Rect(size)); Root.UpdateLayout();
+            Root.InvalidateMeasure(); Root.InvalidateArrange();
+            host.Measure(size); host.Arrange(new Rect(size)); host.UpdateLayout();
+            await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
+            host.UpdateLayout();
+            if (Math.Abs(Root.ActualWidth - size.Width) > 1 || Math.Abs(Root.ActualHeight - size.Height) > 1) throw new InvalidOperationException("Preview viewport was clipped.");
             var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
-            bitmap.Render(Root);
+            bitmap.Render(host);
             var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
             using var stream = File.Create(Path.Combine("previews", filename)); encoder.Save(stream);
         }
-        finally { Content = Root; }
+        finally { host.Child = null; Content = Root; }
 
     }
 }
@@ -314,5 +323,5 @@ public sealed class HistoryRow(Receipt receipt, Locale locale)
 {
     public Receipt Receipt { get; } = receipt;
     public string Summary => $"{Receipt.At:g} · {Receipt.Changes.Count} · {locale[Receipt.Results is null ? "Pending" : Receipt.Results.Count == Receipt.Changes.Count && Receipt.Results.All(r => r.Applied) ? "Applied" : "Partial"]}";
-    public string Detail => string.Join("\n", Receipt.Changes.Select(c => $"{c.Id}: {locale[c.Before.Exists ? c.Before.State.ToString() : "Default"]} → {locale[c.After.Exists ? c.After.State.ToString() : "Default"]}")) + (Receipt.Results is null ? "" : "\n" + string.Join("\n", Receipt.Results.Where(r => r.Error is not null).Select(r => r.Error)));
+    public string Detail => string.Join("\n", Receipt.Changes.Select(c => $"{c.Id}: {locale.State(c.Before)} → {locale.State(c.After)}")) + (Receipt.Results is null ? "" : "\n" + string.Join("\n", Receipt.Results.Where(r => r.Error is not null).Select(r => r.Error)));
 }

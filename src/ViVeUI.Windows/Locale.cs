@@ -6,8 +6,10 @@ public sealed class Locale : INotifyPropertyChanged
     public string Language { get; private set; } = "en";
     public void Set(string language) { Language = language; PropertyChanged?.Invoke(this, new("Item[]")); }
     public string this[string key] => Text.TryGetValue(key, out var row) ? row[Language == "zh" ? 1 : Language == "es" ? 2 : 0] : key;
+    public string State(ViVeUI.Core.Snapshot value) => this[value.Exists && value.State == ViVeUI.Core.OverrideState.Default ? "PresentDefault" : value.Exists ? value.State.ToString() : "Default"];
     public static readonly Dictionary<string, string[]> Text = new()
     {
+        ["PresentDefault"] = ["Explicit default override (present)", "显式默认覆盖（存在）", "Anulación predeterminada explícita (presente)"],
         ["OpenDetails"] = ["Open details", "打开详情", "Abrir detalles"], ["Back"] = ["Back to catalog", "返回目录", "Volver al catálogo"],
         ["Explore"] = ["Explore", "探索", "Explorar"], ["Changes"] = ["My changes", "我的更改", "Mis cambios"], ["Updates"] = ["Updates", "更新", "Actualizaciones"], ["Settings"] = ["Settings & about", "设置与关于", "Ajustes y detalles"],
         ["Tagline"] = ["Windows, thoughtfully explored.", "从容探索 Windows。", "Explora Windows con criterio."],

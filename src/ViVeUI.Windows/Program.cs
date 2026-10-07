@@ -47,7 +47,7 @@ public static class Program
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
             // The elevated process also displays the exact scope. IPC never accepts file paths,
             // registry paths, commands, executables or download locations.
-            var details = string.Join("\n", changes.Select(x => $"{x.Id}: {locale[x.Before.Exists ? x.Before.State.ToString() : "Default"]} → {locale[x.After.Exists ? x.After.State.ToString() : "Default"]}"));
+            var details = string.Join("\n", changes.Select(x => $"{x.Id}: {locale.State(x.Before)} → {locale.State(x.After)}"));
             if (MessageBox.Show(locale["UserOverride"] + "\n\n" + details + "\n\n" + locale["DefaultHelp"], "ViVeUI — " + locale["Review"], MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
             { writer.WriteLine(JsonSerializer.Serialize(new WorkerResponse(null, "Change canceled."))); return; }
             List<ChangeResult>? result = null; string? error = null;

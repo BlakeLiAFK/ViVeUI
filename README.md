@@ -58,6 +58,7 @@ See [safety and recovery](docs/SAFETY.md).
 
 ## Build and test
 
+Open `ViVeUI.sln` in Visual Studio, or use the commands below.
 Use the .NET 8 SDK on Windows (WPF targeting required). All dependencies are
 Microsoft SDK/framework components; there are no third-party NuGet packages.
 
