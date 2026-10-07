@@ -3,7 +3,10 @@
 The main process runs asInvoker. Browse/search/observe never elevate. Applying
 spawns the same installed executable in a narrowly scoped worker mode via UAC.
 The worker accepts at most 100 unique nonzero uint IDs and typed before/after
-snapshots over a randomized current-user-only named pipe. It accepts no shell
+snapshots over a randomized named pipe whose protected ACL grants only the current
+user SID access. Both ends verify the peer PID and executable path, then authenticate
+a random 256-bit challenge before accepting a request. This supports same-user
+cross-integrity elevation without the incompatible CurrentUserOnly pipe option. It accepts no shell
 commands, registry paths, filenames, download URLs, or arbitrary executables.
 It independently validates the request, displays the exact IDs/states with a
 No-default confirmation, preflights the batch, and exits after applying.

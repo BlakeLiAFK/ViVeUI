@@ -1,14 +1,14 @@
 # Release process and update trust
 
 The Windows workflow builds and tests the pushed commit and emits two portable,
-self-contained .NET 8 packages, SHA256SUMS.txt, complete corresponding source,
+self-contained .NET 8 single-file executables, SHA256SUMS.txt, complete corresponding source,
 and actual WPF demo screenshots. Publishing a release is a separate deliberate
 maintainer action. CI does not silently publish or install.
 
-For a stable release, use a semantic tag (`v0.1.0`) and GitHub release assets named
-exactly `ViVeUI-win-x64.zip` and `ViVeUI-win-arm64.zip`, together with source and
+For a stable release, use a semantic tag (`v0.2.0`) and GitHub release assets named
+exactly `ViVeUI-win-x64.exe` and `ViVeUI-win-arm64.exe`, together with source and
 checksums from the same successful commit. The GitHub release API must provide
-`digest: sha256:<64 hex digits>` and a positive size for each binary ZIP. Missing
+`digest: sha256:<64 hex digits>` and a positive size for each binary EXE. Missing
 digest, preview/draft release, wrong architecture or unexpected source is refused.
 
 The updater reads only `api.github.com/repos/BlakeLiAFK/ViVeUI/releases/latest`.
@@ -25,8 +25,9 @@ not Authenticode signed in this initial build. Do not describe digest checking a
 publisher code signing. SmartScreen may warn for an unsigned application.
 
 The app never extracts, replaces its own executable, launches the package, or
-installs silently. Users open the download folder, extract to a new directory,
-and run the chosen version themselves. An administrator worker never downloads.
+installs silently. Users open the download folder and run the chosen EXE themselves.
+Each architecture is one self-contained EXE; .NET extracts bundled native files
+and component notices into its per-user cache at launch. An administrator worker never downloads.
 
 .NET 8 reaches end of support in November 2026; plan migration to the next LTS
 before then. Packaging includes the runtime so rebuild releases when Microsoft

@@ -16,10 +16,11 @@ Windows screenshots or promises of feature appearance. System fonts are
 requested from Windows and are not redistributed. No Microsoft or other
 third-party screenshot assets are included.
 
-Binary packages ship this notice, LICENSE, and the corresponding source
-archive from the exact build commit, including build instructions.
+Releases ship this notice and LICENSE in ViVeUI-licenses.zip alongside complete
+corresponding source in ViVeUI-source.zip from the exact build commit, including
+build instructions. Each EXE also bundles this notice and LICENSE.
 
 Self-contained binaries also redistribute Microsoft .NET and Windows Desktop
 runtimes. Their exact resolved runtime-pack license and third-party notices are
-retained in the binary package runtime-notices directory. They are not relicensed
+bundled inside each EXE in runtime-notices and supplied in ViVeUI-licenses.zip. They are not relicensed
 under GPL; see those component notices.

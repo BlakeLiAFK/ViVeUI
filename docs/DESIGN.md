@@ -1,7 +1,7 @@
 # Design rationale and research
 
-Reviewed October 7, 2026. The visual language is original: graphite navigation,
-ivory surfaces, cobalt actions, quiet spacing, native Segoe UI typography and
+Reviewed October 7, 2026. The visual language is original: light icon navigation with an active marker,
+white and pale-blue surfaces, cobalt actions, quiet spacing, native Segoe UI typography and
 thin-line conceptual illustrations. It synthesizes principles rather than copying
 award-winning screens, imagery, or branding.
 
@@ -14,7 +14,11 @@ award-winning screens, imagery, or branding.
 
 ## Decisions
 
-Catalog selection opens a detail panel; it never changes system configuration.
+A curated 2×2 illustrated gallery leads into a narrow detail panel with fixed
+segmented state controls and staging action. A separate virtualized all-ID tab
+keeps all 17,000 entries available. Catalog selection never changes configuration.
+Review pairs illustrated before/after cards with amber guidance, counts and three
+steps, followed by explicit Back and Apply actions.
 The persistent review bar communicates the queue. Tri-state selection avoids
 conflating default and disabled. Review shows actual IDs and before/after states.
 Current observation, user override, historical illustration and unknown behavior
@@ -38,3 +42,11 @@ Guidance:
 
 These references explain design choices, not an assertion that ViVeUI won an award
 or passed independent accessibility certification.
+
+## Reference-image limitation
+
+Two supplied Library mockup references could not be visually inspected: authorized
+materialization returned HTTP 403, including one retry, and image reads returned
+no pixels. The implementation follows the supplied structural requirements.
+No pixel-level comparison or claim of visual equivalence is made. Chinese native
+fixtures select 37634385 and 39420424 for reproducible review.

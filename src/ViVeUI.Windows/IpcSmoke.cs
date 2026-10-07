@@ -55,7 +55,12 @@ internal static class IpcSmoke
     // On UAC-disabled hosted runners a restricted token retains TokenElevation=true.
     // Effective administrator membership and mandatory integrity establish the boundary.
     static bool Administrator() => new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
-    static bool Restricted() { using var identity = WindowsIdentity.GetCurrent(); return IsTokenRestricted(identity.Token); }
+    static bool Restricted()
+    {
+        using var identity = WindowsIdentity.GetCurrent(); var memory = Marshal.AllocHGlobal(4);
+        try { Check(GetTokenInformation(identity.Token, 21, memory, 4, out _)); return Marshal.ReadInt32(memory) != 0; }
+        finally { Marshal.FreeHGlobal(memory); }
+    }
     static bool Elevated()
     {
         using var identity = WindowsIdentity.GetCurrent(); var memory = Marshal.AllocHGlobal(4);
@@ -107,7 +112,6 @@ internal static class IpcSmoke
     [StructLayout(LayoutKind.Sequential)] struct SidAndAttributes { public IntPtr Sid; public uint Attributes; }
     [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)] struct StartupInfo { public int cb; public string? reserved, desktop, title; public int x,y,width,height,xChars,yChars,fill,flags; public short show,reserved2; public IntPtr data,input,output,error; }
     [StructLayout(LayoutKind.Sequential)] struct ProcessInfo { public IntPtr Process,Thread; public int ProcessId,ThreadId; }
-    [DllImport("advapi32.dll")] static extern bool IsTokenRestricted(IntPtr token);
     [DllImport("advapi32.dll", SetLastError=true)] static extern bool GetTokenInformation(IntPtr token,int kind,IntPtr data,int length,out int needed);
     [DllImport("advapi32.dll", SetLastError=true)] static extern bool SetTokenInformation(IntPtr token,int kind,IntPtr data,int length);
     [DllImport("advapi32.dll", SetLastError=true)] static extern bool DuplicateTokenEx(IntPtr existing,uint access,IntPtr attributes,int level,int type,out IntPtr token);
