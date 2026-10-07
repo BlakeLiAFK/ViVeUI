@@ -363,6 +363,29 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (Selected?.Id != uint.MaxValue || DetailPane.Visibility != Visibility.Visible) throw new Exception("Compact unknown-ID inspection failed.");
         File.WriteAllText("smoke-result.txt", "PASS: WPF startup, all-ID search, curated cards, two-feature fixture, stale-queue cancellation, fake apply/readback, scoped undo, localized selection retention, 10 native renders. No feature settings modified.");
     }
+    static IEnumerable<DependencyObject> Descendants(DependencyObject parent)
+    {
+        for (var i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+        {
+            var child = VisualTreeHelper.GetChild(parent, i); yield return child;
+            foreach (var nested in Descendants(child)) yield return nested;
+        }
+    }
+    void AssertViewportVisible(FrameworkElement element)
+    {
+        if (!element.IsVisible || element.ActualWidth <= 0 || element.ActualHeight <= 0) throw new Exception("Required control is not visible.");
+        var bounds = new Rect(0, 0, element.ActualWidth, element.ActualHeight);
+        for (DependencyObject? parent = element; parent is not null; parent = VisualTreeHelper.GetParent(parent))
+        {
+            if (parent is FrameworkElement viewport && (parent == Root || parent is ScrollContentPresenter))
+            {
+                var visible = element.TransformToAncestor(viewport).TransformBounds(bounds);
+                if (visible.Left < -1 || visible.Top < -1 || visible.Right > viewport.ActualWidth + 1 || visible.Bottom > viewport.ActualHeight + 1)
+                    throw new Exception($"Required control {element.Name} is clipped by {viewport.GetType().Name}: {visible} in {viewport.ActualWidth}x{viewport.ActualHeight}.");
+            }
+            if (parent == Root) break;
+        }
+    }
     async Task Capture(string filename)
     {
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle); UpdateLayout();
@@ -389,6 +412,20 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var activeNav = IsExplore ? ExploreNavigation : IsChanges ? ChangesNavigation : IsUpdates ? UpdatesNavigation : SettingsNavigation;
             if (activeNav.Background is not SolidColorBrush navBrush || navBrush.Color != ((SolidColorBrush)FindResource("SelectionBrush")).Color) throw new Exception("Active navigation highlight missing.");
             if (Math.Abs(Root.ActualWidth - size.Width) > 1 || Math.Abs(Root.ActualHeight - size.Height) > 1) throw new InvalidOperationException("Preview viewport was clipped.");
+            if (IsExplore && IsCurated && size.Width == 1440 && size.Height == 900)
+            {
+                var cards = Descendants(GalleryItems).OfType<Button>().Where(b => b.DataContext is FeatureCard && b.Tag is Feature).ToArray();
+                if (cards.Length != 4) throw new Exception("Expected four visible gallery cards.");
+                foreach (var card in cards) AssertViewportVisible(card);
+                foreach (var value in new[] { ObservedValue, OverrideValue })
+                {
+                    if (string.IsNullOrWhiteSpace(value.Text)) throw new Exception("Missing current-state value.");
+                    AssertViewportVisible(value);
+                    for (DependencyObject? parent = VisualTreeHelper.GetParent(value); parent is not null && parent != DetailPane; parent = VisualTreeHelper.GetParent(parent))
+                        if (parent is ScrollViewer) throw new Exception("Current-state value must stay outside optional scrolling content.");
+                }
+                AssertViewportVisible(StageAction);
+            }
             var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
             bitmap.Render(host);
             var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));

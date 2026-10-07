@@ -52,7 +52,7 @@ jobs:
             }
           }
           Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
-          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.2.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.2.1'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
           Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
       - name: Launch only the x64 EXE in a clean directory
         shell: pwsh
