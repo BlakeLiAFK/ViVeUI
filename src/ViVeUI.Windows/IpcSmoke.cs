@@ -28,7 +28,7 @@ internal static class IpcSmoke
         await WorkerChannel.AuthenticateServer(pipe, expectedClient, secret, timeout.Token);
         var message = await WorkerChannel.Read(pipe, timeout.Token);
         if (message != "probe-only") throw new InvalidDataException("Probe does not accept changes.");
-        await WorkerChannel.Write(pipe, JsonSerializer.Serialize(new { integrity = Integrity(), elevated = Elevated(), noFeatureWrites = true }), timeout.Token);
+        await WorkerChannel.Write(pipe, JsonSerializer.Serialize(new { integrity = Integrity(), elevated = Elevated(), administrator = Administrator(), restricted = Restricted(), noFeatureWrites = true }), timeout.Token);
         if (await WorkerChannel.Read(pipe, timeout.Token) != "done") throw new InvalidDataException("Missing test acknowledgement.");
     }
     static async Task Probe()
@@ -46,12 +46,16 @@ internal static class IpcSmoke
         await WorkerChannel.Write(pipe, "probe-only", timeout.Token);
         var report = await WorkerChannel.Read(pipe, timeout.Token);
         using var parsed = JsonDocument.Parse(report);
-        if (Integrity() < 0x3000 || !Elevated() || parsed.RootElement.GetProperty("integrity").GetInt32() != 0x2000 || parsed.RootElement.GetProperty("elevated").GetBoolean())
-            throw new InvalidOperationException("Test did not establish elevated-to-unelevated IPC: " + report);
+        if (Integrity() < 0x3000 || !Elevated() || !Administrator() || parsed.RootElement.GetProperty("integrity").GetInt32() != 0x2000 || parsed.RootElement.GetProperty("administrator").GetBoolean() || (!parsed.RootElement.GetProperty("restricted").GetBoolean() && parsed.RootElement.GetProperty("elevated").GetBoolean()))
+            throw new InvalidOperationException("Test did not establish high-admin to medium non-admin IPC: " + report);
         await WorkerChannel.Write(pipe, "done", timeout.Token);
         await child.WaitForExitAsync(timeout.Token); if (child.ExitCode != 0) throw new IOException("Probe server failed.");
-        File.WriteAllText("ipc-result.json", JsonSerializer.Serialize(new { passed = true, server = "medium integrity, not elevated", client = "high integrity, elevated", authentication = "user SID ACL + both peer PIDs/executable + random challenge", rejectedWrongPeer = true, noFeatureWrites = true }));
+        File.WriteAllText("ipc-result.json", JsonSerializer.Serialize(new { passed = true, server = JsonSerializer.Deserialize<JsonElement>(report), client = new { integrity = Integrity(), elevated = Elevated(), administrator = Administrator() }, authentication = "user SID ACL + both peer PIDs/executable + random challenge", rejectedWrongPeer = true, noFeatureWrites = true }));
     }
+    // On UAC-disabled hosted runners a restricted token retains TokenElevation=true.
+    // Effective administrator membership and mandatory integrity establish the boundary.
+    static bool Administrator() => new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+    static bool Restricted() { using var identity = WindowsIdentity.GetCurrent(); return IsTokenRestricted(identity.Token); }
     static bool Elevated()
     {
         using var identity = WindowsIdentity.GetCurrent(); var memory = Marshal.AllocHGlobal(4);
@@ -103,6 +107,7 @@ internal static class IpcSmoke
     [StructLayout(LayoutKind.Sequential)] struct SidAndAttributes { public IntPtr Sid; public uint Attributes; }
     [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)] struct StartupInfo { public int cb; public string? reserved, desktop, title; public int x,y,width,height,xChars,yChars,fill,flags; public short show,reserved2; public IntPtr data,input,output,error; }
     [StructLayout(LayoutKind.Sequential)] struct ProcessInfo { public IntPtr Process,Thread; public int ProcessId,ThreadId; }
+    [DllImport("advapi32.dll")] static extern bool IsTokenRestricted(IntPtr token);
     [DllImport("advapi32.dll", SetLastError=true)] static extern bool GetTokenInformation(IntPtr token,int kind,IntPtr data,int length,out int needed);
     [DllImport("advapi32.dll", SetLastError=true)] static extern bool SetTokenInformation(IntPtr token,int kind,IntPtr data,int length);
     [DllImport("advapi32.dll", SetLastError=true)] static extern bool DuplicateTokenEx(IntPtr existing,uint access,IntPtr attributes,int level,int type,out IntPtr token);

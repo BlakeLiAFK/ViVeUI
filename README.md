@@ -1,92 +1,121 @@
-# ViVeUI
+# ViVeUI — Windows feature flag manager
 
-A considered way to explore Windows feature experiments. Native C# / WPF,
-offline catalog, deliberate changes, and a clear record of what happened.
+[English](README.md) · [简体中文](README.zh-CN.md) · [Download](https://github.com/BlakeLiAFK/ViVeUI/releases/latest) · [Build status](https://github.com/BlakeLiAFK/ViVeUI/actions/workflows/windows.yml)
 
-![Explore ViVeUI in simulated mode](docs/previews/explore.png)
+**ViVeUI is an open-source C# / WPF Windows desktop app built on the ViVe library.**
+Browse 17,000 known feature IDs offline, review Windows default / enable / disable
+changes before applying them, and restore recorded user overrides with conflict checks.
 
-## Start here
+![ViVeUI Explore, native WPF demo](docs/previews/explore.png)
 
-1. Download `ViVeUI-win-x64.zip` or `ViVeUI-win-arm64.zip` from the
-   [Windows workflow artifacts](https://github.com/BlakeLiAFK/ViVeUI/actions/workflows/windows.yml).
-2. Extract the whole ZIP into its own directory. Run `ViVeUI.exe`.
-   The packages contain the .NET runtime; no runtime installation is needed.
-3. Browse and search without administrator access. Use `ViVeUI.exe --demo`
-   to practice safely with an in-memory fake backend.
-4. Select **Windows default**, **Enable**, or **Disable**, then **Add to review**.
-   Review exact IDs and before/after states, acknowledge the experimental nature,
-   and apply. Only this step launches a short-lived elevated worker with UAC.
-5. Restart Windows yourself when ready. ViVeUI never restarts or silently installs.
+## Download and run
 
-**Experiments can destabilize Windows.** This is not a recommendation to enable
-unknown flags. Prepare a recovery path and prefer one experiment at a time.
+| Your Windows PC | Standalone download |
+|---|---|
+| Intel / AMD x64 | [ViVeUI-win-x64.exe](https://github.com/BlakeLiAFK/ViVeUI/releases/latest/download/ViVeUI-win-x64.exe) |
+| ARM64 | [ViVeUI-win-arm64.exe](https://github.com/BlakeLiAFK/ViVeUI/releases/latest/download/ViVeUI-win-arm64.exe) |
 
-## What is included
+Download **one EXE** and run it. There is no installer and no separate .NET runtime
+or DLL folder to install. The self-contained application extracts its bundled
+runtime into a per-user cache when needed; “single EXE” does not mean zero temporary
+files. Packages are unsigned, so Windows may display a publisher warning.
 
-- All **17,000 unique IDs** from the pinned upstream dictionary, embedded offline.
-- Virtualized search, custom ID inspection, historical example categories,
-  original labeled vector schematics, and explicit unknown/unverified states.
-- English, Simplified Chinese, and Spanish interface text, keyboard navigation,
-  Ctrl+F search, text scaling, native accessibility controls, high-contrast support.
-- Staged review; exact-snapshot history; conflict-checked, scoped restore.
-- Stable GitHub release checks, optional automatic download, bounded streaming,
-  trusted-host redirect checks, SHA-256 validation, and manual installation.
-- x64 and ARM64 self-contained packages, corresponding GPL source in each package.
+[Release assets](https://github.com/BlakeLiAFK/ViVeUI/releases/latest) also include
+`SHA256SUMS.txt`, `BUILD.json`, the complete corresponding source, and license notices.
+Source commit and workflow are recorded in BUILD.json. Choose the matching architecture.
 
-The dictionary is **not every feature in every Windows build**. It is a March 2025
-upstream snapshot at [`3f8c6a3`](https://github.com/thebookisclosed/ViVe/commit/3f8c6a3425983412da1e8b26cd757c3aa17b3f25).
-A name is not a verified description; a missing runtime observation is not proof
-of disabled or unsupported status. There are no fabricated per-build defaults.
-Unknown flags intentionally have no claimed visual preview.
+Windows 10 build 18963 or newer, including Windows 11, on x64 or ARM64.
+A supported OS version does **not** establish support for a particular feature flag.
 
-## Scope and compatibility
+## What the app does
 
-Windows 10 build 18963 or later, x64 / ARM64. OS builds change undocumented
-behavior; this compatibility floor comes from upstream and is not a guarantee
-that a particular feature works. Native binary execution is validated by Windows CI;
-actual system mutations are deliberately excluded from automated tests.
+- **Discover:** four illustrated historical examples with translated, readable names.
+- **All IDs:** all 17,000 pinned catalog IDs, search, and inspection of custom unknown IDs.
+- **Review:** exact IDs and before/after states, two-step confirmation, and an explicit UAC request.
+- **Restore:** recorded snapshots scoped to the affected IDs; conflicting current states block undo.
+- **Updates:** GitHub release checks and optional automatic EXE downloads with SHA-256 verification. Installation and launch remain manual.
+- **Languages:** English, Simplified Chinese, and Spanish, including observation states and navigation.
 
-ViVeUI edits only **priority 8 (User), boot-persistent overrides** using the ViVe
-library. It does not edit policy/security priorities, runtime experiments,
-subscriptions, variants, or Last Known Good state. Advanced/unrecognized override
-keys are read-only. Other priorities may supersede a user override.
+Browsing works offline without elevation. A separate worker handles only reviewed
+user-priority boot overrides. IPC uses a current-user SID ACL, exact process identity
+checks in both directions, and a random handshake challenge. It supports the intended
+unelevated UI / elevated worker boundary without using `CurrentUserOnly` pipe options.
 
-**Windows default** removes the selected simple user override. **Restore** uses
-the recorded previous snapshot. They are different actions. Batch operations are
-not atomic: the app stops at the first failure and reports partial results.
-See [safety and recovery](docs/SAFETY.md).
+![Review two feature changes, native WPF demo](docs/previews/review-zh.png)
 
-## Build and test
+## A deliberate workflow
 
-Open `ViVeUI.sln` in Visual Studio, or use the commands below.
-Use the .NET 8 SDK on Windows (WPF targeting required). All dependencies are
-Microsoft SDK/framework components; there are no third-party NuGet packages.
+1. Inspect a feature, its provenance, and the limits of what is known.
+2. Choose **Windows default**, **Enable**, or **Disable**, then add it to review.
+   Returning to the current state cancels any older queued change for that ID.
+3. Check every ID and state in the review. Save your work and prepare a recovery path.
+4. Approve the reviewed changes and the administrator prompt. Restart manually when ready.
+5. Use history to review a scoped restoration if needed.
+
+Experiments can destabilize Windows. Prefer one experiment at a time. Advanced
+variant, policy, security, subscription, and Last Known Good settings are outside
+this app's writable scope. See [safety and recovery](docs/SAFETY.md).
+
+## Frequently asked questions
+
+### Is ViVeUI the same as ViVeTool?
+
+No. ViVeUI is an independent graphical application built on
+[thebookisclosed/ViVe](https://github.com/thebookisclosed/ViVe). It is not a Microsoft
+product and is not an official Windows feature-support database.
+
+### Does the catalog contain every Windows feature?
+
+No. The embedded 17,000-ID dictionary is a March 2025 upstream snapshot, pinned to
+`3f8c6a3425983412da1e8b26cd757c3aa17b3f25`. A catalog name is not a verified behavior
+description. Missing observations do not mean disabled or unsupported.
+[Catalog provenance and historical references](docs/CATALOG.md).
+
+### What is the difference between Default, Disable, and Restore?
+
+**Windows default** removes the selected simple user override. **Disable** sets an
+explicit disabled override. **Restore** returns to a recorded previous snapshot.
+Other Windows priorities may still supersede this user override.
+
+### Are the pictures Windows screenshots?
+
+No. They are original, embedded conceptual schematics. Unknown flags have no claimed
+visual preview. Repository screenshots show ViVeUI itself using a fake backend.
+
+### Does ViVeUI install updates silently?
+
+No. Optional automatic downloads verify trusted GitHub release bytes against the
+release asset's SHA-256 digest. You decide whether to run the downloaded EXE.
+Failed checks, missing digests, and failed verification are explicit errors.
+
+### Does it collect telemetry?
+
+No telemetry is implemented. Catalog browsing is local. Update checks contact GitHub
+only when requested or when the startup-check preference is enabled.
+
+## Build, test, and inspect
+
+Open `ViVeUI.sln` in Visual Studio, or use .NET 8 SDK commands:
 
 ```powershell
 dotnet run --project src/ViVeUI.Tests -c Release
 dotnet build src/ViVeUI.Windows -c Release
 src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe --smoke
+# Run from an elevated test environment; handshake only, no feature writes:
+src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe --ipc-smoke
 dotnet publish src/ViVeUI.Windows -c Release -r win-x64 --self-contained true
 ```
 
-`--smoke` runs only a fake store, exercises the actual WPF window, and exports
-rendered PNG previews. Core tests also run on macOS/Linux with .NET 8 (or a newer
-runtime via configured roll-forward). WPF cross-compilation does not establish
-native usability; see [validation](docs/VALIDATION.md).
+Windows CI runs regression tests, native WPF demo interactions, cross-integrity IPC,
+and a clean-folder launch containing only the published x64 EXE. ARM64 is built and
+packaged; native ARM64 execution, actual feature mutations, Narrator, high-contrast
+interaction, and the secure-desktop UAC experience still require manual validation.
+[Validation evidence and limits](docs/VALIDATION.md) · [Original design and references](docs/DESIGN.md).
 
-## Updates
+## License and source
 
-Automatic checks and downloads are initially **off**. Enable them in Updates.
-Downloads come from published stable releases in this repository and require the
-GitHub release asset's SHA-256 digest. A missing release, missing digest, offline
-network, or failed verification is an explicit failure, never “up to date”.
-Artifacts from Actions are build downloads, not automatically discovered releases.
-See [release process and trust model](docs/RELEASING.md).
-
-## Sources and license
-
-GPL-3.0-or-later. Full upstream source is vendored unmodified at `vendor/ViVe`;
-its library is compiled under the SDK project. Original upstream .NET Framework
-project files are retained for provenance, not used by this build.
-[License](LICENSE) · [notices](THIRD-PARTY-NOTICES.md) ·
-[catalog provenance](docs/CATALOG.md) · [design research](docs/DESIGN.md).
+GPL-3.0-or-later. Complete pinned ViVe source is retained in `vendor/ViVe`.
+The release provides corresponding app/upstream source alongside the executables.
+Runtime notices are embedded in the standalone bundles and provided as a separate
+license archive. [LICENSE](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES.md) ·
+[Release and update trust](docs/RELEASING.md).

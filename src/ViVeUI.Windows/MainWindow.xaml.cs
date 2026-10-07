@@ -244,6 +244,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Staged.Clear(); foreach (var change in proposed) Staged.Add(change); ShowPage(ChangesPage);
     });
     void Safe(Action action) { try { action(); } catch (Exception e) { SetStatus(L["Error"] + ": " + e.Message); } }
+    void ReleaseClick(object sender, RoutedEventArgs e) => OpenUrl("https://github.com/BlakeLiAFK/ViVeUI/releases/latest");
+    void LicenseClick(object sender, RoutedEventArgs e) => Safe(() =>
+    {
+        using var input = typeof(Program).Assembly.GetManifestResourceStream("ViVeUI.LICENSE")!;
+        using var reader = new StreamReader(input);
+        var viewer = new TextBox { Text = reader.ReadToEnd(), IsReadOnly = true, TextWrapping = TextWrapping.Wrap, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(16) };
+        new Window { Title = "ViVeUI · GPL-3.0-or-later", Width = 720, Height = 600, Owner = this, WindowStartupLocation = WindowStartupLocation.CenterOwner, Content = viewer }.ShowDialog();
+    });
     void SourceClick(object sender, RoutedEventArgs e) => OpenUrl(Catalog.Source);
     void HistoricalClick(object sender, RoutedEventArgs e)
     {

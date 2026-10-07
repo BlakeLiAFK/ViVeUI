@@ -9,6 +9,7 @@ public sealed class Locale : INotifyPropertyChanged
     public string State(ViVeUI.Core.Snapshot value) => this[value.Exists && value.State == ViVeUI.Core.OverrideState.Default ? "PresentDefault" : value.Exists ? value.State.ToString() : "Default"];
     public static readonly Dictionary<string, string[]> Text = new()
     {
+        ["License"] = ["Read license", "查看许可证", "Leer licencia"], ["ReleasePage"] = ["Release downloads", "发行版本下载", "Descargas de versiones"],
         ["WindowTitle"] = ["ViVeUI · Windows feature manager", "ViVeUI · Windows 功能管理器", "ViVeUI · Gestor de funciones de Windows"],
         ["AppSubtitle"] = ["Windows feature explorer", "Windows 功能探索", "Explorador de funciones"],
         ["Curated"] = ["Discover", "精选探索", "Descubrir"], ["AllIds"] = ["All feature IDs", "全部功能 ID", "Todos los ID"],
@@ -26,11 +27,11 @@ public sealed class Locale : INotifyPropertyChanged
         ["LearnMore"] = ["View details", "查看详情", "Ver detalles"], ["Remove"] = ["Remove", "移除", "Quitar"],
         ["Summary"] = ["Review summary", "更改摘要", "Resumen"], ["FeaturesCount"] = ["features", "项功能", "funciones"],
         ["IdsCount"] = ["feature IDs", "个功能 ID", "ID de función"], ["ReadyCount"] = ["Reviewed IDs only", "仅应用已审核的 ID", "Solo los ID revisados"],
-        ["StepReview"] = ["Review the exact changes", "确认更改", "Revisa los cambios"],
+        ["StepReview"] = ["1. Review the exact changes", "1. 确认更改", "1. Revisa los cambios"],
         ["StepReviewBody"] = ["Check each ID and its before/after state.", "核对功能 ID 和更改前后状态。", "Comprueba cada ID y sus estados."],
-        ["StepApprove"] = ["Approve administrator access", "授予管理员权限", "Autoriza el acceso"],
+        ["StepApprove"] = ["2. Approve administrator access", "2. 授予管理员权限", "2. Autoriza el acceso"],
         ["StepApproveBody"] = ["A separate worker applies this reviewed batch.", "独立工作进程仅应用本次审核的更改。", "Un proceso separado aplica el lote revisado."],
-        ["StepRestart"] = ["Restart when ready", "准备好后重启", "Reinicia cuando quieras"],
+        ["StepRestart"] = ["3. Restart when ready", "3. 准备好后重启", "3. Reinicia cuando quieras"],
         ["StepRestartBody"] = ["Save your work first. Restart is always manual.", "先保存工作，重启始终由你手动完成。", "Guarda tu trabajo. El reinicio es manual."],
         ["BriefWarning"] = ["Experimental changes can affect stability. Prepare recovery first and try one experiment at a time.", "实验性更改可能影响稳定性。请先准备恢复方式，建议每次只尝试一个实验。", "Los experimentos pueden afectar la estabilidad. Prepara la recuperación y prueba uno cada vez."],
         ["ReviewSubtitle"] = ["Understand what will change before granting permission.", "在授予权限之前，确认每一项更改。", "Comprende los cambios antes de dar permiso."],
