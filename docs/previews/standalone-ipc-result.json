@@ -1,0 +1,1 @@
+{"passed":true,"server":{"integrity":8192,"elevated":true,"administrator":false,"restricted":true,"noFeatureWrites":true},"client":{"integrity":12288,"elevated":true,"administrator":true},"authentication":"user SID ACL \u002B both peer PIDs/executable \u002B random challenge","rejectedWrongPeer":true,"noFeatureWrites":true}

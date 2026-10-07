@@ -5,7 +5,7 @@ self-contained .NET 8 single-file executables, SHA256SUMS.txt, complete correspo
 and actual WPF demo screenshots. Publishing a release is a separate deliberate
 maintainer action. CI does not silently publish or install.
 
-For a stable release, use a semantic tag (`v0.2.0`) and GitHub release assets named
+For a stable release, use a semantic tag (`v0.2.1`) and GitHub release assets named
 exactly `ViVeUI-win-x64.exe` and `ViVeUI-win-arm64.exe`, together with source and
 checksums from the same successful commit. The GitHub release API must provide
 `digest: sha256:<64 hex digits>` and a positive size for each binary EXE. Missing

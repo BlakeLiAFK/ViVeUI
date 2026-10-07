@@ -58,3 +58,8 @@ Appearance offers system, light and dark settings; system high contrast takes
 precedence. The original navigation-pane drawing is distinct from the tabs drawing.
 At narrow widths, explore uses separate catalog/detail views and the review summary
 moves below the cards with its own scroll area. Primary footer actions remain fixed.
+
+The 0.2.1 refinement removes 37 px of excess Explore header spacing and trims
+gallery artwork height from 170 to 155 px. Current-state values remain fixed above
+the state controls while optional detail content scrolls. Native viewport checks
+protect all four cards and their actions at 1440×900 without reducing text size.
