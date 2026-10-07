@@ -33,8 +33,24 @@ jobs:
           foreach ($arch in @('x64', 'arm64')) {
             dotnet publish src/ViVeUI.Windows -c Release -r win-$arch --self-contained true -p:PublishSingleFile=false -o .artifacts/win-$arch
             if ($LASTEXITCODE -ne 0) { throw 'Publish failed' }
+            # Preserve redistribution notices from the exact resolved .NET runtime packs.
+            $assets = Get-Content src/ViVeUI.Windows/obj/project.assets.json -Raw | ConvertFrom-Json -AsHashtable
+            $licenseDir = ".artifacts/win-$arch/runtime-notices"
+            New-Item -ItemType Directory -Force $licenseDir | Out-Null
+            foreach ($entry in $assets.libraries.GetEnumerator() | Where-Object { $_.Key -match '^Microsoft\.(NETCore|WindowsDesktop)\.App\.Runtime\.win-' }) {
+              $packPath = $null
+              foreach ($packageFolder in $assets.packageFolders.Keys) {
+                $candidate = Join-Path $packageFolder $entry.Value.path
+                if (Test-Path $candidate) { $packPath = $candidate; break }
+              }
+              if (-not $packPath) { throw "Missing runtime pack for notices: $($entry.Key)" }
+              $notices = Get-ChildItem $packPath -File | Where-Object { $_.Name -match 'LICENSE|THIRD.?PARTY.?NOTICES' }
+              if (-not $notices) { throw "Missing runtime notices: $($entry.Key)" }
+              foreach ($notice in $notices) { Copy-Item $notice.FullName (Join-Path $licenseDir (($entry.Key -replace '/', '-') + '-' + $notice.Name)) }
+            }
             Copy-Item .artifacts/ViVeUI-source.zip .artifacts/win-$arch/
             Copy-Item README.md .artifacts/win-$arch/
+            @{ commit = $env:GITHUB_SHA; architecture = $arch; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID" } | ConvertTo-Json | Set-Content .artifacts/win-$arch/BUILD.json
             Copy-Item -Recurse docs .artifacts/win-$arch/
             Compress-Archive -Path .artifacts/win-$arch/* -DestinationPath .artifacts/ViVeUI-win-$arch.zip
           }

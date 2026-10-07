@@ -19,9 +19,11 @@ public static class Program
         MainWindow window;
         try { window = new MainWindow(args.Contains("--demo") || smoke); }
         catch (Exception e) { File.WriteAllText(smoke ? "smoke-error.txt" : Path.Combine(Path.GetTempPath(), "ViVeUI-startup-error.txt"), e.ToString()); if (!smoke) MessageBox.Show(e.Message, "ViVeUI"); Environment.ExitCode = 1; return; }
+        var smokeStarted = false;
         if (args.Contains("--smoke"))
             window.ContentRendered += async (_, _) =>
             {
+                if (smokeStarted) return; smokeStarted = true;
                 try { await window.SmokeAsync(); app.Shutdown(0); }
                 catch (Exception e) { File.WriteAllText("smoke-error.txt", e.ToString()); app.Shutdown(1); }
             };

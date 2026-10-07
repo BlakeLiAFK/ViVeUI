@@ -79,11 +79,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void SystemPreferenceChanged(object? sender, PropertyChangedEventArgs e) { if (e.PropertyName == nameof(SystemParameters.HighContrast)) Dispatcher.Invoke(ApplyContrast); }
     void ApplyContrast()
     {
-        if (!SystemParameters.HighContrast) { foreach (var key in new[] { "SidebarBrush", "SidebarTextBrush", "SidebarMutedBrush", "CanvasBrush", "PaperBrush", "InkBrush", "MutedBrush", "LineBrush", "AccentBrush" }) Resources.Remove(key); return; }
+        if (!SystemParameters.HighContrast) { foreach (var key in new[] { "SidebarBrush", "SidebarTextBrush", "SidebarMutedBrush", "CanvasBrush", "PaperBrush", "InkBrush", "MutedBrush", "LineBrush", "AccentBrush", "AccentTextBrush" }) Resources.Remove(key); return; }
         Resources["SidebarBrush"] = SystemColors.WindowBrush; Resources["SidebarTextBrush"] = SystemColors.WindowTextBrush; Resources["SidebarMutedBrush"] = SystemColors.WindowTextBrush;
         Resources["CanvasBrush"] = SystemColors.WindowBrush; Resources["PaperBrush"] = SystemColors.WindowBrush;
         Resources["InkBrush"] = SystemColors.WindowTextBrush; Resources["MutedBrush"] = SystemColors.WindowTextBrush;
-        Resources["LineBrush"] = SystemColors.WindowTextBrush; Resources["AccentBrush"] = SystemColors.HighlightBrush;
+        Resources["LineBrush"] = SystemColors.WindowTextBrush; Resources["AccentBrush"] = SystemColors.HighlightBrush; Resources["AccentTextBrush"] = SystemColors.HighlightTextBrush;
     }
     void UpdateLayoutMode()
     {
@@ -145,7 +145,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void InspectClick(object sender, RoutedEventArgs e) => Safe(() =>
     {
         if (!uint.TryParse(Search, out var id) || id == 0) throw new InvalidDataException(L["InvalidId"]);
+        searchTimer.Stop();
         Selected = catalog.FirstOrDefault(x => x.Id == id) ?? new(id, L["UnknownId"]);
+        if (compact) { detailOpen = true; UpdateLayoutMode(); }
     });
     void ClearClick(object sender, RoutedEventArgs e) { if (!busy) Staged.Clear(); }
     async void ApplyClick(object sender, RoutedEventArgs e) { if (CanApply) await ApplyStaged(); }
@@ -279,17 +281,32 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         ShowPage(UpdatesPage); await Capture("updates.png");
         LanguageBox.SelectedIndex = 0; Root.Width = 900; ShowPage(ExplorePage); UpdateLayoutMode();
         await Capture("compact-catalog.png"); OpenDetailClick(this, new()); await Capture("compact-detail.png");
+        Search = "4294967295"; InspectClick(this, new());
+        if (Selected?.Id != uint.MaxValue || DetailPane.Visibility != Visibility.Visible) throw new Exception("Compact unknown-ID inspection failed.");
         File.WriteAllText("smoke-result.txt", "PASS: WPF startup, catalog search, selection, stage, fake apply/readback, scoped undo, language switch, 7 rendered previews. No Windows settings were modified.");
     }
     async Task Capture(string filename)
     {
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle); UpdateLayout();
         Directory.CreateDirectory("previews");
-        var bitmap = new RenderTargetBitmap((int)Root.ActualWidth, (int)Root.ActualHeight, 96, 96, PixelFormats.Pbgra32);
-        var visual = new DrawingVisual();
-        using (var context = visual.RenderOpen()) context.DrawRectangle(new VisualBrush(Root), null, new Rect(0, 0, Root.ActualWidth, Root.ActualHeight));
-        bitmap.Render(visual);
-        var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap)); using var stream = File.Create(Path.Combine("previews", filename)); encoder.Save(stream);
+        // Detach for an offscreen layout: a hosted desktop may be only 1024px wide.
+        // Rendering a still-parented root would inherit its window's clip.
+        Content = null;
+        try
+        {
+            Root.DataContext = this;
+            System.Windows.Documents.TextElement.SetFontFamily(Root, FontFamily);
+            System.Windows.Documents.TextElement.SetFontSize(Root, FontSize);
+            System.Windows.Documents.TextElement.SetForeground(Root, Foreground);
+            var size = new Size(Root.Width, Root.Height);
+            Root.Measure(size); Root.Arrange(new Rect(size)); Root.UpdateLayout();
+            var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
+            bitmap.Render(Root);
+            var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
+            using var stream = File.Create(Path.Combine("previews", filename)); encoder.Save(stream);
+        }
+        finally { Content = Root; }
+
     }
 }
 public sealed record Preferences(string Language, bool AutoCheck, bool AutoDownload);

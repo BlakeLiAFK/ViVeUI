@@ -18,3 +18,8 @@ third-party screenshot assets are included.
 
 Binary packages ship this notice, LICENSE, and the corresponding source
 archive from the exact build commit, including build instructions.
+
+Self-contained binaries also redistribute Microsoft .NET and Windows Desktop
+runtimes. Their exact resolved runtime-pack license and third-party notices are
+retained in the binary package runtime-notices directory. They are not relicensed
+under GPL; see those component notices.
