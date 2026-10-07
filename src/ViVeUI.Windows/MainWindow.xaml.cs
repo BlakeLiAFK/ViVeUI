@@ -33,8 +33,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public ImageSource? Illustration => Selected?.Illustrated == true ? (ImageSource)FindResource(Selected.Category + "Illustration") : null;
     public ObservableCollection<HistoryRow> History { get; } = [];
     public IReadOnlyList<Feature> Filtered { get; private set; } = [];
-    public Dictionary<string, string> Categories => new[] { "All", "Explorer", "Widgets", "System", "Catalog" }.ToDictionary(k => k, k => L[k]);
-    public Dictionary<OverrideState, string> States => Enum.GetValues<OverrideState>().ToDictionary(k => k, k => L[k.ToString()]);
+    public IReadOnlyList<Choice<string>> Categories { get; }
+    public IReadOnlyList<Choice<OverrideState>> States { get; }
     string search = "", category = "All"; Feature? selected; OverrideState desired;
     bool busy, acknowledged, initialized, autoCheck, autoDownload, compact, detailOpen;
     public Visibility CompactVisibility => compact ? Visibility.Visible : Visibility.Collapsed;
@@ -67,6 +67,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         this.demo = demo; store = demo ? new DemoStore() : new WindowsStore();
         folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), demo ? "ViVeUI-Demo" : "ViVeUI");
+        Categories = new[] { "All", "Explorer", "Widgets", "System", "Catalog" }.Select(key => new Choice<string>(key, L, key)).ToArray();
+        States = Enum.GetValues<OverrideState>().Select(key => new Choice<OverrideState>(key, L, key.ToString())).ToArray();
         InitializeComponent(); DataContext = this;
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); Filter(); };
         Staged.CollectionChanged += (_, _) => { Acknowledged = false; Changed(nameof(QueueText)); Changed(nameof(ReviewRows)); Changed(nameof(CanApply)); };
@@ -244,13 +246,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void LanguageChanged(object sender, SelectionChangedEventArgs e)
     {
         if (LanguageBox?.SelectedItem is not ComboBoxItem item) return;
-        var previousCategory = category; var previousState = Desired;
+        var previousState = Desired;
         var previousStatus = statusKey;
         L.Set(item.Tag?.ToString() ?? "en"); CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(L.Language == "zh" ? "zh-CN" : L.Language);
-        foreach (var name in new[] { nameof(Categories), nameof(States), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
-        RefreshDetail(); LoadHistory(); SaveSettings();
+        foreach (var option in Categories) option.Refresh();
+        foreach (var option in States) option.Refresh();
+        foreach (var name in new[] { nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
+        RefreshDetail(); Desired = previousState; LoadHistory(); SaveSettings();
         if (previousStatus is not null) SetStatus(L[previousStatus]);
-        Dispatcher.BeginInvoke(() => { CategoryBox.SelectedValue = previousCategory; StateBox.SelectedValue = previousState; }, DispatcherPriority.DataBind);
     }
     void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) { Root.LayoutTransform = new ScaleTransform(e.NewValue, e.NewValue); if (initialized) UpdateLayoutMode(); } }
     void SaveSettings()
@@ -282,6 +285,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         HistoryList.SelectedIndex = 0; UndoClick(this, new()); if (Staged.Count != 1 || Staged[0].After != Snapshot.Default) throw new Exception("Undo failed.");
         await ApplyStaged(); if (store.Read(37634385) != Snapshot.Default) throw new Exception("Fake undo failed.");
         LanguageBox.SelectedIndex = 1; ShowPage(ExplorePage); await Capture("explore-zh.png");
+        if (CategoryBox.SelectedItem is not Choice<string> { Key: "All" } || StateBox.SelectedValue is not OverrideState.Default) throw new Exception("Language switch lost a selection.");
         LanguageBox.SelectedIndex = 2; ShowPage(SettingsPage); await Capture("settings-es.png");
         ShowPage(UpdatesPage); await Capture("updates.png");
         LanguageBox.SelectedIndex = 0; Root.Width = 900; ShowPage(ExplorePage); UpdateLayoutMode();
@@ -329,4 +333,12 @@ public sealed class HistoryRow(Receipt receipt, Locale locale)
     public Receipt Receipt { get; } = receipt;
     public string Summary => $"{Receipt.At:g} · {Receipt.Changes.Count} · {locale[Receipt.Results is null ? "Pending" : Receipt.Results.Count == Receipt.Changes.Count && Receipt.Results.All(r => r.Applied) ? "Applied" : "Partial"]}";
     public string Detail => string.Join("\n", Receipt.Changes.Select(c => $"{c.Id}: {locale.State(c.Before)} → {locale.State(c.After)}")) + (Receipt.Results is null ? "" : "\n" + string.Join("\n", Receipt.Results.Where(r => r.Error is not null).Select(r => r.Error)));
+}
+
+public sealed class Choice<T>(T key, Locale locale, string textKey) : INotifyPropertyChanged
+{
+    public T Key { get; } = key;
+    public string Value => locale[textKey];
+    public event PropertyChangedEventHandler? PropertyChanged;
+    public void Refresh() => PropertyChanged?.Invoke(this, new(nameof(Value)));
 }
