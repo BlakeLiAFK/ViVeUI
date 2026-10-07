@@ -51,6 +51,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ViVeUI-Windows-packages
+          include-hidden-files: true
           path: |
             .artifacts/*.zip
             .artifacts/SHA256SUMS.txt
