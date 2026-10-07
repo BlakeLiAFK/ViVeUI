@@ -120,6 +120,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         var next = viewportWidth / scale < 1120;
         if (next != compact) detailOpen = false;
         compact = next; Changed(nameof(CompactVisibility));
+        ExplorerColumns.ColumnDefinitions[0].MinWidth = compact ? 0 : 260;
+        ExplorerColumns.ColumnDefinitions[1].Width = new GridLength(compact ? 0 : 20);
+        ExplorerColumns.ColumnDefinitions[2].Width = new GridLength(compact ? 0 : 438);
+        ChangesPage.ColumnDefinitions[1].Width = new GridLength(compact ? 0 : 20);
+        ChangesPage.ColumnDefinitions[2].Width = new GridLength(compact ? 0 : 370);
+        Grid.SetColumnSpan(ReviewBody, compact ? 3 : 1);
+        Grid.SetColumn(SummaryPane, compact ? 0 : 2); Grid.SetColumnSpan(SummaryPane, compact ? 3 : 1); Grid.SetRow(SummaryPane, compact ? 1 : 0);
+        SummaryPane.MaxHeight = compact ? 260 : double.PositiveInfinity;
         Grid.SetColumn(DetailPane, compact ? 0 : 2); Grid.SetColumnSpan(DetailPane, compact ? 3 : 1);
         Grid.SetColumnSpan(CatalogPane, compact ? 3 : 1);
         CatalogPane.Visibility = compact && detailOpen ? Visibility.Collapsed : Visibility.Visible;
@@ -340,6 +348,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         LanguageBox.SelectedIndex = 1; ShowPage(ExplorePage); await Capture("explore-zh.png");
         if (CategoryBox.SelectedItem is not Choice<string> { Key: "All" } || !IsEnabledOverride) throw new Exception("Language switch lost selection.");
         ShowPage(ChangesPage); await Capture("review-zh.png");
+        Root.Width = 900; UpdateLayoutMode(); await Capture("compact-review.png");
+        if (Grid.GetRow(SummaryPane) != 1) throw new Exception("Compact review summary layout failed.");
+        Root.Width = 1440; UpdateLayoutMode();
         Acknowledged = true; await ApplyStaged(); if (store.Read(37634385).State != OverrideState.Enabled || store.Read(39420424).State != OverrideState.Enabled) throw new Exception("Fake apply failed.");
         HistoryList.SelectedIndex = 0; UndoClick(this, new()); if (Staged.Count != 2 || Staged.Any(c => c.After != Snapshot.Default)) throw new Exception("Undo failed.");
         await ApplyStaged(); if (store.Read(37634385) != Snapshot.Default || store.Read(39420424) != Snapshot.Default) throw new Exception("Fake undo failed.");
@@ -350,7 +361,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         OpenDetailClick(this, new()); await Capture("compact-detail.png");
         Search = "4294967295"; InspectClick(this, new());
         if (Selected?.Id != uint.MaxValue || DetailPane.Visibility != Visibility.Visible) throw new Exception("Compact unknown-ID inspection failed.");
-        File.WriteAllText("smoke-result.txt", "PASS: WPF startup, all-ID search, curated cards, two-feature fixture, stale-queue cancellation, fake apply/readback, scoped undo, localized selection retention, 9 native renders. No feature settings modified.");
+        File.WriteAllText("smoke-result.txt", "PASS: WPF startup, all-ID search, curated cards, two-feature fixture, stale-queue cancellation, fake apply/readback, scoped undo, localized selection retention, 10 native renders. No feature settings modified.");
     }
     async Task Capture(string filename)
     {
