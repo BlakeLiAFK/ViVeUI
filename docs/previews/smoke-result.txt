@@ -1,0 +1,1 @@
+PASS: WPF startup, catalog search, selection, stage, fake apply/readback, scoped undo, language switch, 7 rendered previews. No Windows settings were modified.
