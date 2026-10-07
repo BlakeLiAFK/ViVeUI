@@ -29,8 +29,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     string? observationError;
     string? statusKey;
     public ObservableCollection<Change> Staged { get; } = [];
-    public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, c.Name); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"]); });
-    public IEnumerable<FeatureCard> Cards => new uint[] { 37634385, 39420424, 34300186, 36354489 }.Select(id => { var f = catalog.First(x => x.Id == id); return new FeatureCard(f, FeatureEditorial.Title(f, L), FeatureEditorial.Description(f, L), L[f.Category], FeatureImage(f), L["Unverified"], L["LearnMore"] + "  ›"); });
+    public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, c.Name); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"], L["BeforeLabel"], L["AfterLabel"], L["TechnicalDetails"], L["Remove"]); });
+    public IEnumerable<FeatureCard> Cards => new uint[] { 37634385, 39420424, 34300186, 36354489 }.Select(id => { var f = catalog.First(x => x.Id == id); return new FeatureCard(f, FeatureEditorial.Title(f, L), FeatureEditorial.Description(f, L), L[f.Category], FeatureImage(f), L["Unverified"], L["LearnMore"] + "  ›", Selected?.Id == id); });
     ImageSource? FeatureImage(Feature f) => f.Illustrated ? (ImageSource)FindResource(f.Category + "Illustration") : null;
     public string SelectedTitle => Selected is null ? L["Detail"] : FeatureEditorial.Title(Selected, L);
     public string SelectedDescription => Selected is null ? L["UnknownDescription"] : FeatureEditorial.Description(Selected, L);
@@ -64,7 +64,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     AppRelease? release;
     public string Search { get => search; set { search = value; Changed(); Changed(nameof(SearchPlaceholderVisibility)); if (!string.IsNullOrWhiteSpace(value)) ShowAllIds = true; searchTimer.Stop(); searchTimer.Start(); } }
     public string Category { get => category; set { category = value ?? "All"; Changed(); Filter(); } }
-    public Feature? Selected { get => selected; set { selected = value; Changed(); RefreshDetail(); } }
+    public Feature? Selected { get => selected; set { selected = value; Changed(); Changed(nameof(Cards)); RefreshDetail(); } }
     public OverrideState Desired { get => desired; set { desired = value; Changed(); Changed(nameof(IsDefault)); Changed(nameof(IsEnabledOverride)); Changed(nameof(IsDisabledOverride)); } }
     public string ModeText => L[demo ? "Demo" : "Local"];
     public string BuildText => demo ? "Windows 11 · " + L["DemoShort"] : $"Windows {Environment.OSVersion.Version} · {RuntimeInformation.OSArchitecture}";
@@ -103,13 +103,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         PreviewKeyDown += (_, e) => { if (e.Key == System.Windows.Input.Key.F && System.Windows.Input.Keyboard.Modifiers == System.Windows.Input.ModifierKeys.Control) { ShowPage(ExplorePage); SearchBox.Focus(); SearchBox.SelectAll(); e.Handled = true; } };
     }
     void SystemPreferenceChanged(object? sender, PropertyChangedEventArgs e) { if (e.PropertyName == nameof(SystemParameters.HighContrast)) Dispatcher.Invoke(ApplyContrast); }
+    void ThemeChanged(object sender, SelectionChangedEventArgs e) { if (initialized) { ApplyContrast(); SaveSettings(); } }
     void ApplyContrast()
     {
-        if (!SystemParameters.HighContrast) { foreach (var key in new[] { "SidebarBrush", "SidebarTextBrush", "SidebarMutedBrush", "CanvasBrush", "PaperBrush", "InkBrush", "MutedBrush", "LineBrush", "AccentBrush", "AccentTextBrush" }) Resources.Remove(key); return; }
+        if (!SystemParameters.HighContrast) { foreach (var key in new[] { "SidebarBrush", "SidebarTextBrush", "SidebarMutedBrush", "CanvasBrush", "PaperBrush", "InkBrush", "MutedBrush", "LineBrush", "AccentBrush", "AccentTextBrush", "SelectionBrush" }) Resources.Remove(key);
+            if (ThemeBox?.SelectedIndex == 2 || (ThemeBox?.SelectedIndex == 0 && Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", 1) is int light && light == 0)) { var colors = new Dictionary<string,string> { ["CanvasBrush"]="#151D2B", ["PaperBrush"]="#202C3E", ["SidebarBrush"]="#192333", ["InkBrush"]="#EDF3FC", ["MutedBrush"]="#BCCBE0", ["LineBrush"]="#43516A", ["AccentBrush"]="#89AEFF", ["AccentTextBrush"]="#12213B", ["SelectionBrush"]="#30476B" }; foreach (var item in colors) Resources[item.Key] = new SolidColorBrush((Color)ColorConverter.ConvertFromString(item.Value)); } return; }
         Resources["SidebarBrush"] = SystemColors.WindowBrush; Resources["SidebarTextBrush"] = SystemColors.WindowTextBrush; Resources["SidebarMutedBrush"] = SystemColors.WindowTextBrush;
         Resources["CanvasBrush"] = SystemColors.WindowBrush; Resources["PaperBrush"] = SystemColors.WindowBrush;
         Resources["InkBrush"] = SystemColors.WindowTextBrush; Resources["MutedBrush"] = SystemColors.WindowTextBrush;
-        Resources["LineBrush"] = SystemColors.WindowTextBrush; Resources["AccentBrush"] = SystemColors.HighlightBrush; Resources["AccentTextBrush"] = SystemColors.HighlightTextBrush;
+        Resources["SelectionBrush"] = SystemColors.HighlightBrush; Resources["LineBrush"] = SystemColors.WindowTextBrush; Resources["AccentBrush"] = SystemColors.HighlightBrush; Resources["AccentTextBrush"] = SystemColors.HighlightTextBrush;
     }
     void UpdateLayoutMode()
     {
@@ -302,7 +304,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void SaveSettings()
     {
         if (!initialized) return;
-        Safe(() => { Directory.CreateDirectory(folder); AtomicWrite(Path.Combine(folder, "settings.json"), JsonSerializer.Serialize(new Preferences(L.Language, AutoCheck, AutoDownload))); });
+        Safe(() => { Directory.CreateDirectory(folder); AtomicWrite(Path.Combine(folder, "settings.json"), JsonSerializer.Serialize(new Preferences(L.Language, AutoCheck, AutoDownload, ThemeBox.SelectedIndex))); });
     }
     void LoadSettings()
     {
@@ -310,7 +312,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         {
             var path = Path.Combine(folder, "settings.json"); if (!File.Exists(path)) return;
             var prefs = JsonSerializer.Deserialize<Preferences>(File.ReadAllText(path)); if (prefs is null) return;
-            autoCheck = prefs.AutoCheck; autoDownload = prefs.AutoDownload;
+            autoCheck = prefs.AutoCheck; autoDownload = prefs.AutoDownload; ThemeBox.SelectedIndex = Math.Clamp(prefs.Theme, 0, 2);
             LanguageBox.SelectedIndex = prefs.Language == "zh" ? 1 : prefs.Language == "es" ? 2 : 0;
         }
         catch (Exception e) { SetStatus(L["Diagnostics"] + ": " + e.Message); }
@@ -320,7 +322,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (!demo || store is not DemoStore) throw new InvalidOperationException("Smoke tests require fake backend.");
         // Fixed WPF render viewports avoid depending on the hosted runner display size.
         Root.Width = 1440; Root.Height = 900; UpdateLayoutMode();
-        LanguageBox.SelectedIndex = 0;
+        ThemeBox.SelectedIndex = 2;
+        if (((SolidColorBrush)FindResource("CanvasBrush")).Color != (Color)ColorConverter.ConvertFromString("#151D2B")) throw new Exception("Dark appearance failed.");
+        ThemeBox.SelectedIndex = 1;
+        SidebarLanguage.SelectedIndex = 0;
+        if (LanguageBox.SelectedIndex != 0) throw new Exception("Sidebar language synchronization failed.");
         Search = "37634385"; Filter(); if (Filtered.Count != 1) throw new Exception("Search failed.");
         Selected = Filtered[0]; Desired = OverrideState.Enabled; Stage();
         Desired = OverrideState.Default; Stage(); if (Staged.Count != 0) throw new Exception("Stale staged override was not canceled.");
@@ -380,7 +386,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     }
 }
-public sealed record Preferences(string Language, bool AutoCheck, bool AutoDownload);
+public sealed record Preferences(string Language, bool AutoCheck, bool AutoDownload, int Theme = 0);
 public sealed class HistoryRow(Receipt receipt, Locale locale)
 {
     public Receipt Receipt { get; } = receipt;

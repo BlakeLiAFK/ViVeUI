@@ -9,6 +9,8 @@ public sealed class Locale : INotifyPropertyChanged
     public string State(ViVeUI.Core.Snapshot value) => this[value.Exists && value.State == ViVeUI.Core.OverrideState.Default ? "PresentDefault" : value.Exists ? value.State.ToString() : "Default"];
     public static readonly Dictionary<string, string[]> Text = new()
     {
+        ["Appearance"] = ["Appearance", "外观", "Apariencia"], ["SystemTheme"] = ["System", "跟随系统", "Sistema"], ["LightTheme"] = ["Light", "浅色", "Claro"], ["DarkTheme"] = ["Dark", "深色", "Oscuro"],
+        ["BeforeLabel"] = ["Before", "更改前", "Antes"], ["AfterLabel"] = ["After", "更改后", "Después"], ["TechnicalDetails"] = ["Technical details", "技术详情", "Detalles técnicos"], ["RestartRow"] = ["Restart required · you decide when", "需要重启 · 由你决定时间", "Reinicio necesario · tú decides cuándo"],
         ["License"] = ["Read license", "查看许可证", "Leer licencia"], ["ReleasePage"] = ["Release downloads", "发行版本下载", "Descargas de versiones"],
         ["WindowTitle"] = ["ViVeUI · Windows feature manager", "ViVeUI · Windows 功能管理器", "ViVeUI · Gestor de funciones de Windows"],
         ["AppSubtitle"] = ["Windows feature explorer", "Windows 功能探索", "Explorador de funciones"],
