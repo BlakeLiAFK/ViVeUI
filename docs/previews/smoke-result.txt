@@ -1,1 +1,1 @@
-PASS: WPF startup, all-ID search, curated cards, two-feature fixture, stale-queue cancellation, fake apply/readback, scoped undo, localized selection retention, 9 native renders. No feature settings modified.
+PASS: WPF startup, all-ID search, curated cards, two-feature fixture, stale-queue cancellation, fake apply/readback, scoped undo, localized selection retention, 10 native renders. No feature settings modified.

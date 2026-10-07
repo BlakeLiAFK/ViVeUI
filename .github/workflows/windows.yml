@@ -71,6 +71,11 @@ jobs:
           Get-Content standalone-result.txt
           $notices = @(Get-ChildItem $env:DOTNET_BUNDLE_EXTRACT_BASE_DIR -Recurse -File | Where-Object { $_.FullName -match 'runtime-notices' })
           if ($notices.Count -lt 2) { throw 'Runtime notices were not embedded/extracted from the standalone EXE' }
+          $ipc = Start-Process $clean/ViVeUI.exe -ArgumentList '--ipc-smoke' -WorkingDirectory $clean -PassThru
+          if (-not $ipc.WaitForExit(90000)) { $ipc.Kill(); throw 'Standalone IPC timed out' }
+          if ($ipc.ExitCode -ne 0) { Get-Content $clean/ipc-error-*.txt -ErrorAction SilentlyContinue; throw 'Standalone IPC failed' }
+          Copy-Item $clean/ipc-result.json standalone-ipc-result.json
+          Get-Content standalone-ipc-result.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -82,6 +87,7 @@ jobs:
             ipc-result.json
             ipc-error-*.txt
             standalone-result.txt
+            standalone-ipc-result.json
           if-no-files-found: warn
       - uses: actions/upload-artifact@v4
         with:

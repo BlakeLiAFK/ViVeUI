@@ -34,7 +34,7 @@ identifiers, build strings and original OS diagnostics are intentionally unchang
 No image contains translated text. WPF supports flow direction but a full RTL
 translation is not shipped; RTL and Narrator behavior still require human validation.
 At compact widths the catalog and detail become separate pages with explicit
-Open details / Back controls; minimum width is 880 logical pixels.
+Open details / Back controls; minimum width is 900 logical pixels.
 
 Guidance:
 - https://learn.microsoft.com/en-us/windows/apps/design/accessibility/accessibility-checklist
@@ -43,10 +43,18 @@ Guidance:
 These references explain design choices, not an assertion that ViVeUI won an award
 or passed independent accessibility certification.
 
-## Reference-image limitation
+## Reference comparison
 
-Two supplied Library mockup references could not be visually inspected: authorized
-materialization returned HTTP 403, including one retry, and image reads returned
-no pixels. The implementation follows the supplied structural requirements.
-No pixel-level comparison or claim of visual equivalence is made. Chinese native
-fixtures select 37634385 and 39420424 for reproducible review.
+The supplied Library images could not be materialized in this build environment:
+authorized downloads returned HTTP 403, including one retry, and image reads
+returned no pixels. The originating session inspected those pixels and supplied
+concrete comparison findings. Those findings informed the wider 438 px explore
+panel, 370 px summary, larger artwork and text, selected-card outline, historical
+badges, labeled state pills, sidebar language/appearance controls and review layout.
+Actual Windows renders were inspected after these changes; no claim of exact pixel
+identity is made. Chinese fixtures use IDs 37634385 and 39420424.
+
+Appearance offers system, light and dark settings; system high contrast takes
+precedence. The original navigation-pane drawing is distinct from the tabs drawing.
+At narrow widths, explore uses separate catalog/detail views and the review summary
+moves below the cards with its own scroll area. Primary footer actions remain fixed.

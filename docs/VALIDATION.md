@@ -9,7 +9,7 @@ cancellation, and verified downloads.
 
 Windows Actions builds actual WPF markup and code, then runs `--smoke` against
 an in-memory backend. It exercises search, selection, staging and cancellation,
-fake apply/read-back, scoped restore, language switching, and nine PNG renders
+fake apply/read-back, scoped restore, language switching, and ten PNG renders
 from the actual control tree at fixed 1440×900 and 900×900 logical viewports.
 These are offscreen renders, not physical desktop captures. Chinese explore and
 review fixtures select IDs 37634385 and 39420424 with two staged enables.
@@ -31,7 +31,7 @@ Neither IPC diagnostics nor UI smoke instantiate a real mutation request.
 
 CI publishes self-contained x64 and ARM64 single EXEs, exact-commit source and
 license archives, checksums and BUILD.json. It copies only the x64 EXE into a
-clean directory, hides external .NET discovery, reruns the nine-render smoke,
+clean directory, hides external .NET discovery, reruns the ten-render smoke,
 and checks runtime notices extracted from the bundle. ARM64 is cross-published;
 native ARM64 execution is not claimed.
 
@@ -49,9 +49,10 @@ different-account elevation, changed-since-review conflicts, and interrupted
 batches. Test actual mutations only in a disposable VM with a snapshot and
 explicit operator consent.
 
-The supplied Library mockup images could not be retrieved (HTTP 403, including
-one retry; image reads exposed no pixels). The implementation follows the written
-layout requirements, but pixel-level reference comparison remains blocked.
+Original Library mockup transfer failed in this environment (HTTP 403 after one
+retry; no native pixels in image reads). The originating session supplied concrete
+visual comparison findings, which informed the final layout. Actual app renders
+were inspected; exact pixel equivalence is not claimed.
 
 No universal Windows default or compatibility matrix has been inferred. Missing
 query results remain unknown; unsupported APIs and advanced override keys are
@@ -61,13 +62,15 @@ Pinned dictionary SHA-256:
 `8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828`.
 The byte-level test and `.gitattributes` prevent checkout newline conversion.
 
+
 ## Recorded release-candidate evidence
 
-[Windows run 37667369552](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37667369552)
+[Windows run 37668845516](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37668845516)
 passed all checks for implementation commit
-`a39caae19b489c4f4069b830189db21216a060f0`: 47 core tests, WPF build and
-nine-render UI interactions, cross-integrity IPC, both single-EXE publications,
+`8c4c8941a1164a8dd9cac9d80dc73608110face4`: 47 core tests, WPF build and
+ten-render UI interactions, cross-integrity IPC, both single-EXE publications,
 and the x64 clean-folder launch including extracted runtime notices.
 The [checked-in previews and reports](previews/) come from this run.
 The final release includes BUILD.json linking its independently validated exact
 commit and workflow; source and checksums are generated from that same commit.
+The final workflow also repeats the handshake using the bundled EXE itself.
