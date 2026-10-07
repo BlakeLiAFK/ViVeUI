@@ -1,0 +1,1 @@
+<Project><PropertyGroup><TargetFramework>net8.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><LangVersion>12</LangVersion><Deterministic>true</Deterministic><Version>0.1.0</Version><EnableWindowsTargeting>true</EnableWindowsTargeting></PropertyGroup></Project>

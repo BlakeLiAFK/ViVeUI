@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><EmbeddedResource Include="../../vendor/ViVe/Extra/FeatureDictionary.pfs" Link="FeatureDictionary.pfs" /></ItemGroup></Project>

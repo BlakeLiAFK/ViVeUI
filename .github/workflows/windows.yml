@@ -1,0 +1,57 @@
+name: Windows build, tests and packages
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Test catalog, transactions, scoped undo and update trust
+        run: dotnet run --project src/ViVeUI.Tests -c Release
+      - name: Build native WPF application
+        run: dotnet build src/ViVeUI.Windows -c Release
+      - name: Render and exercise WPF with fake backend only
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath 'src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe' -ArgumentList '--smoke' -PassThru
+          if (-not $p.WaitForExit(90000)) { $p.Kill(); throw 'UI smoke test timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'UI smoke test failed' }
+          Get-Content smoke-result.txt
+      - name: Package self-contained x64 and ARM64 builds with corresponding source
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force .artifacts | Out-Null
+          git archive --format=zip --output=.artifacts/ViVeUI-source.zip HEAD
+          foreach ($arch in @('x64', 'arm64')) {
+            dotnet publish src/ViVeUI.Windows -c Release -r win-$arch --self-contained true -p:PublishSingleFile=false -o .artifacts/win-$arch
+            if ($LASTEXITCODE -ne 0) { throw 'Publish failed' }
+            Copy-Item .artifacts/ViVeUI-source.zip .artifacts/win-$arch/
+            Copy-Item README.md .artifacts/win-$arch/
+            Copy-Item -Recurse docs .artifacts/win-$arch/
+            Compress-Archive -Path .artifacts/win-$arch/* -DestinationPath .artifacts/ViVeUI-win-$arch.zip
+          }
+          Get-FileHash .artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ViVeUI-previews-and-test-evidence
+          path: |
+            previews/*.png
+            smoke-result.txt
+            smoke-error.txt
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ViVeUI-Windows-packages
+          path: |
+            .artifacts/*.zip
+            .artifacts/SHA256SUMS.txt
+          if-no-files-found: error

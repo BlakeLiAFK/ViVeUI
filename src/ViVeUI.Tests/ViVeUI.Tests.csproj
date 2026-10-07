@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><RollForward>Major</RollForward></PropertyGroup><ItemGroup><ProjectReference Include="../ViVeUI.Core/ViVeUI.Core.csproj"/></ItemGroup></Project>
