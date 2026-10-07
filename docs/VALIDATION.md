@@ -1,55 +1,62 @@
 # Validation and honest limits
 
-Core tests run against the embedded real catalog plus fake feature storage and
-fake HTTP handlers. They cover catalog completeness/invalid input, all override
-semantics, scoped undo, batch preflight, external-change conflicts, partial
-failure, read-back failure, history serialization, update state transitions,
-trusted origins, digest absence/mismatch, redirect trust, declared-size limits,
-path traversal, truncation, cancellation and successful verified downloads.
+Core tests use the real pinned catalog, fake feature storage, and fake HTTP
+handlers. The 47 tests cover catalog integrity, override semantics, staged-change
+cancellation, scoped undo, preflight/conflicts, partial failure, read-back failure,
+history serialization, assembly-derived version metadata, trusted update origins,
+digest absence/mismatch, redirects, size limits, traversal, truncation,
+cancellation, and verified downloads.
 
 Windows Actions builds actual WPF markup and code, then runs `--smoke` against
-an in-memory backend. It exercises search, selection, staging, fake apply/read-back,
-scoped restore, language switching, and captures seven PNGs from the actual WPF
-control tree at fixed 1440×900 and 900×900 logical viewports (offscreen renders,
-not physical desktop captures). It then publishes x64 and ARM64 packages with exact-commit source.
+an in-memory backend. It exercises search, selection, staging and cancellation,
+fake apply/read-back, scoped restore, language switching, and nine PNG renders
+from the actual control tree at fixed 1440×900 and 900×900 logical viewports.
+These are offscreen renders, not physical desktop captures. Chinese explore and
+review fixtures select IDs 37634385 and 39420424 with two staged enables.
 
-The authoring host is macOS. Cross-compilation and Windows hosted-runner rendering
-are useful evidence, but do not establish full interactive usability. Real feature
-writes, UAC acceptance, secure desktop, recovery from unbootable Windows, Narrator,
-real high-contrast themes, ARM64 native execution, Windows build-specific feature
-behavior and live published-release downloads require manual validation on suitable
-Windows machines. Automated tests intentionally do not change real OS settings.
+A separate `--ipc-smoke` exchanges a handshake-only message through the same
+ACL/authentication/framing code used by the worker. The server is a same-user
+medium-integrity process without effective Administrators membership; the client
+is a high-integrity administrator. The fixture verifies both peer PIDs/executable
+paths, a random challenge, and rejection of a wrong expected peer PID. It records
+raw integrity, elevation and token-filtering facts in `ipc-result.json`.
 
-No universal Windows default or compatibility matrix has been inferred. A missing
-query result means unobserved/unknown. Unsupported native APIs or advanced override
-keys produce errors instead of made-up default states.
+Hosted runners without a UAC linked token use a restricted token with the
+Administrators SID denied and maximum privileges removed, then lower its integrity.
+Such a token can retain the raw elevation flag. Assertions require medium
+integrity, no effective administrator membership, and token filtering or a
+non-elevated token. This proves the IPC integrity boundary, not an interactive UAC
+consent session. See Microsoft's [restricted-token documentation](https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-createrestrictedtoken).
+Neither IPC diagnostics nor UI smoke instantiate a real mutation request.
+
+CI publishes self-contained x64 and ARM64 single EXEs, exact-commit source and
+license archives, checksums and BUILD.json. It copies only the x64 EXE into a
+clean directory, hides external .NET discovery, reruns the nine-render smoke,
+and checks runtime notices extracted from the bundle. ARM64 is cross-published;
+native ARM64 execution is not claimed.
+
+## Remaining manual checks
+
+The authoring host is macOS. Cross-compilation and Windows hosted rendering do
+not establish full interactive usability. Real feature writes, UAC consent/secure
+desktop, recovery from unbootable Windows, Narrator, real high-contrast themes,
+ARM64 native execution and build-specific feature behavior require suitable
+Windows machines. Automated tests intentionally never change real OS settings.
 
 Before broad distribution, manually check keyboard-only operation, Narrator,
-125/150/200% display scaling, high contrast, translations at narrow window sizes,
-UAC cancel/deny and different-account elevation, changed-since-review conflicts,
-interrupted batches, and a deliberately corrupted release download. Test actual
-mutations only in a disposable Windows VM with a snapshot and explicit operator consent.
+125/150/200% scaling, high contrast, translated narrow layouts, UAC cancel/deny and
+different-account elevation, changed-since-review conflicts, and interrupted
+batches. Test actual mutations only in a disposable VM with a snapshot and
+explicit operator consent.
 
-Pinned catalog SHA-256: `8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828`.
-The byte-level test prevents Windows checkout newline conversion from changing the
-redistributed dictionary; `.gitattributes` marks the PFS file as byte-preserved.
+The supplied Library mockup images could not be retrieved (HTTP 403, including
+one retry; image reads exposed no pixels). The implementation follows the written
+layout requirements, but pixel-level reference comparison remains blocked.
 
-## Recorded implementation validation
+No universal Windows default or compatibility matrix has been inferred. Missing
+query results remain unknown; unsupported APIs and advanced override keys are
+reported rather than converted into invented default states.
 
-[Windows run 37648569169](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37648569169)
-validated implementation commit `11a6efb6db32f762eb61e5ddd79b16a56b333c33`:
-44 core tests passed; WPF build and fake-backend UI smoke passed; seven native WPF
-renders produced; x64 and ARM64 self-contained packages built and uploaded.
-The solution also cross-builds on macOS with zero warnings and zero errors.
-
-The seven checked-in [previews](previews/) come from that run. They are original
-WPF control-tree renders at fixed logical viewports, in demo mode, not screenshots
-of actual Windows experimental features. The final workflow on the repository's
-HEAD independently repeats build, tests, rendering and packaging. Each binary ZIP
-contains BUILD.json with its exact commit/run and the matching complete source ZIP.
-
-Failures found and repaired during validation: read-only WPF binding used as
-TwoWay, Windows Git newline conversion of the pinned dictionary, hidden staging
-files omitted from artifact upload, hosted-desktop clipping of preview renders,
-locale switching clearing dropdown selections, and runtime-pack licenses omitted
-by an initial package lookup. These were fixed rather than bypassing failed tests.
+Pinned dictionary SHA-256:
+`8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828`.
+The byte-level test and `.gitattributes` prevent checkout newline conversion.

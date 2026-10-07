@@ -368,6 +368,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             host.Measure(size); host.Arrange(new Rect(size)); host.UpdateLayout();
             await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
             host.UpdateLayout();
+            var activeNav = IsExplore ? ExploreNavigation : IsChanges ? ChangesNavigation : IsUpdates ? UpdatesNavigation : SettingsNavigation;
+            if (activeNav.Background is not SolidColorBrush navBrush || navBrush.Color != ((SolidColorBrush)FindResource("SelectionBrush")).Color) throw new Exception("Active navigation highlight missing.");
             if (Math.Abs(Root.ActualWidth - size.Width) > 1 || Math.Abs(Root.ActualHeight - size.Height) > 1) throw new InvalidOperationException("Preview viewport was clipped.");
             var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
             bitmap.Render(host);
