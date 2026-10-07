@@ -10,7 +10,8 @@ public static class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        if (args.Length == 2 && args[0] == "--worker") { RunWorker(args[1]); return; }
+        if (args.Length == 4 && args[0] == "--worker" && int.TryParse(args[2], out var parentPid)) { RunWorker(args[1], parentPid, args[3]); return; }
+        if (args.Length > 0 && args[0].StartsWith("--ipc-", StringComparison.Ordinal)) { IpcSmoke.Run(args); return; }
         var smoke = args.Contains("--smoke");
         var app = new Application();
         app.DispatcherUnhandledException += (_, e) => { if (smoke) { File.WriteAllText("smoke-error.txt", e.Exception.ToString()); e.Handled = true; app.Shutdown(1); return; }
@@ -29,17 +30,16 @@ public static class Program
             };
         app.Run(window);
     }
-    static void RunWorker(string pipeName)
+    static void RunWorker(string pipeName, int parentPid, string secret)
     {
         if (!pipeName.StartsWith("ViVeUI-", StringComparison.Ordinal) || !Guid.TryParseExact(pipeName[7..], "N", out _)) return;
         try
         {
-            using var pipe = new NamedPipeClientStream(".", pipeName, PipeDirection.InOut, PipeOptions.CurrentUserOnly);
+            using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(5));
+            using var pipe = WorkerChannel.Client(pipeName);
             pipe.Connect(30000);
-            using var reader = new StreamReader(pipe, leaveOpen: true);
-            using var writer = new StreamWriter(pipe, leaveOpen: true) { AutoFlush = true };
-            var line = reader.ReadLine();
-            if (line is null || line.Length > 100_000) throw new InvalidDataException("Invalid worker request.");
+            WorkerChannel.AuthenticateClient(pipe, parentPid, secret, timeout.Token).GetAwaiter().GetResult();
+            var line = WorkerChannel.Read(pipe, timeout.Token).GetAwaiter().GetResult();
             var request = JsonSerializer.Deserialize<WorkerRequest>(line) ?? throw new InvalidDataException("Empty request.");
             var changes = request.Changes;
             var locale = new Locale(); locale.Set(request.Language);
@@ -49,27 +49,26 @@ public static class Program
             // registry paths, commands, executables or download locations.
             var details = string.Join("\n", changes.Select(x => $"{x.Id}: {locale.State(x.Before)} → {locale.State(x.After)}"));
             if (MessageBox.Show(locale["UserOverride"] + "\n\n" + details + "\n\n" + locale["DefaultHelp"], "ViVeUI — " + locale["Review"], MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
-            { writer.WriteLine(JsonSerializer.Serialize(new WorkerResponse(null, "Change canceled."))); return; }
+            { WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(null, locale["Canceled"])), timeout.Token).GetAwaiter().GetResult(); return; }
             List<ChangeResult>? result = null; string? error = null;
             try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = e.Message; }
-            writer.WriteLine(JsonSerializer.Serialize(new WorkerResponse(result, error)));
+            WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(result, error)), timeout.Token).GetAwaiter().GetResult();
         }
         catch (Exception e) { MessageBox.Show(e.Message, "ViVeUI worker", MessageBoxButton.OK, MessageBoxImage.Error); }
     }
     public static async Task<WorkerResponse> ElevateAsync(List<Change> changes, string language)
     {
-        var name = "ViVeUI-" + Guid.NewGuid().ToString("N");
-        using var pipe = new NamedPipeServerStream(name, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous | PipeOptions.CurrentUserOnly);
+        var name = WorkerChannel.NewName(); var secret = WorkerChannel.NewSecret();
+        using var pipe = WorkerChannel.Server(name);
         using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(5));
-        using var process = Process.Start(new ProcessStartInfo(Environment.ProcessPath!) { UseShellExecute = true, Verb = "runas", Arguments = "--worker " + name }) ?? throw new IOException("Could not start elevated worker.");
+        using var process = Process.Start(new ProcessStartInfo(Environment.ProcessPath!) { UseShellExecute = true, Verb = "runas", Arguments = $"--worker {name} {Environment.ProcessId} {secret}" }) ?? throw new IOException("Could not start elevated worker.");
         var connected = pipe.WaitForConnectionAsync(timeout.Token);
         var exited = process.WaitForExitAsync(timeout.Token);
         if (await Task.WhenAny(connected, exited) == exited && !pipe.IsConnected) throw new IOException("Worker exited before connecting.");
         await connected;
-        using var reader = new StreamReader(pipe, leaveOpen: true);
-        using var writer = new StreamWriter(pipe, leaveOpen: true) { AutoFlush = true };
-        await writer.WriteLineAsync(JsonSerializer.Serialize(new WorkerRequest(changes, language)));
-        var response = await reader.ReadLineAsync(timeout.Token) ?? throw new IOException("Worker disconnected. Review pending history before retrying.");
+        await WorkerChannel.AuthenticateServer(pipe, process.Id, secret, timeout.Token);
+        await WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerRequest(changes, language)), timeout.Token);
+        var response = await WorkerChannel.Read(pipe, timeout.Token);
         return JsonSerializer.Deserialize<WorkerResponse>(response) ?? throw new IOException("Invalid worker response.");
     }
 }

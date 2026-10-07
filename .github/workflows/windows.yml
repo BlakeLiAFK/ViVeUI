@@ -1,4 +1,4 @@
-name: Windows build, tests and packages
+name: Windows build, tests and standalone EXEs
 on:
   push:
   pull_request:
@@ -8,64 +8,88 @@ permissions:
 jobs:
   windows:
     runs-on: windows-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-      - name: Test catalog, transactions, scoped undo and update trust
+      - name: Core regression tests
         run: dotnet run --project src/ViVeUI.Tests -c Release
-      - name: Build native WPF application
+      - name: Build native WPF app
         run: dotnet build src/ViVeUI.Windows -c Release
-      - name: Render and exercise WPF with fake backend only
+      - name: Cross-elevation authenticated IPC, no feature writes
         shell: pwsh
         run: |
-          $p = Start-Process -FilePath 'src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe' -ArgumentList '--smoke' -PassThru
-          if (-not $p.WaitForExit(90000)) { $p.Kill(); throw 'UI smoke test timed out' }
-          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'UI smoke test failed' }
+          $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--ipc-smoke' -PassThru
+          if (-not $p.WaitForExit(90000)) { $p.Kill(); throw 'IPC test timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content ipc-error-*.txt -ErrorAction SilentlyContinue; throw 'IPC test failed' }
+          Get-Content ipc-result.json
+      - name: Actual WPF interactions and Chinese two-feature fixtures
+        shell: pwsh
+        run: |
+          $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--smoke' -PassThru
+          if (-not $p.WaitForExit(90000)) { $p.Kill(); throw 'UI test timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'UI test failed' }
           Get-Content smoke-result.txt
-      - name: Package self-contained x64 and ARM64 builds with corresponding source
+      - name: Publish standalone self-contained EXEs and corresponding source
         shell: pwsh
         run: |
-          New-Item -ItemType Directory -Force .artifacts | Out-Null
+          New-Item -ItemType Directory -Force .artifacts/licenses | Out-Null
           git archive --format=zip --output=.artifacts/ViVeUI-source.zip HEAD
+          Copy-Item LICENSE,THIRD-PARTY-NOTICES.md .artifacts/licenses/
           foreach ($arch in @('x64', 'arm64')) {
-            dotnet publish src/ViVeUI.Windows -c Release -r win-$arch --self-contained true -p:PublishSingleFile=false -o .artifacts/win-$arch
+            dotnet publish src/ViVeUI.Windows -c Release -r win-$arch --self-contained true -o .artifacts/publish-$arch
             if ($LASTEXITCODE -ne 0) { throw 'Publish failed' }
-            # Preserve redistribution notices from the exact resolved .NET runtime packs.
+            Copy-Item .artifacts/publish-$arch/ViVeUI.exe .artifacts/ViVeUI-win-$arch.exe
             $packPaths = @(Get-Content src/ViVeUI.Windows/obj/runtime-pack-paths.txt | Where-Object { $_ } | Sort-Object -Unique)
-            if ($packPaths.Count -lt 2) { throw 'Both .NET Core and Windows Desktop runtime notices are required' }
-            $licenseDir = ".artifacts/win-$arch/runtime-notices"
-            New-Item -ItemType Directory -Force $licenseDir | Out-Null
+            if ($packPaths.Count -lt 2) { throw 'Missing runtime packs' }
             foreach ($packPath in $packPaths) {
-              if (-not (Test-Path $packPath)) { throw "Missing resolved runtime pack: $packPath" }
               $packName = Split-Path (Split-Path $packPath -Parent) -Leaf
               $notices = @(Get-ChildItem $packPath -File | Where-Object { $_.Name -match 'LICENSE|THIRD.?PARTY.?NOTICES' })
-              if ($notices.Count -lt 1) { throw "Missing runtime notices: $packName" }
-              foreach ($notice in $notices) { Copy-Item $notice.FullName (Join-Path $licenseDir ($packName + '-' + $notice.Name)) }
+              if ($notices.Count -lt 1) { throw "Missing notices: $packName" }
+              foreach ($notice in $notices) { Copy-Item $notice.FullName (Join-Path .artifacts/licenses ($packName + '-' + $notice.Name)) }
             }
-            Copy-Item .artifacts/ViVeUI-source.zip .artifacts/win-$arch/
-            Copy-Item README.md .artifacts/win-$arch/
-            @{ commit = $env:GITHUB_SHA; architecture = $arch; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID" } | ConvertTo-Json | Set-Content .artifacts/win-$arch/BUILD.json
-            Copy-Item -Recurse docs .artifacts/win-$arch/
-            Compress-Archive -Path .artifacts/win-$arch/* -DestinationPath .artifacts/ViVeUI-win-$arch.zip
           }
-          Get-FileHash .artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
+          Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.2.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
+      - name: Launch only the x64 EXE in a clean directory
+        shell: pwsh
+        run: |
+          $clean = Join-Path $env:RUNNER_TEMP 'viveui-clean-exe'
+          New-Item -ItemType Directory -Force $clean | Out-Null
+          Copy-Item .artifacts/ViVeUI-win-x64.exe $clean/ViVeUI.exe
+          if (@(Get-ChildItem $clean -File).Count -ne 1) { throw 'Clean test must start with only one EXE' }
+          $env:DOTNET_ROOT = Join-Path $clean 'missing-runtime'
+          $env:DOTNET_MULTILEVEL_LOOKUP = '0'
+          $env:DOTNET_BUNDLE_EXTRACT_BASE_DIR = Join-Path $env:RUNNER_TEMP 'viveui-native-extraction'
+          $p = Start-Process $clean/ViVeUI.exe -ArgumentList '--smoke' -WorkingDirectory $clean -PassThru
+          if (-not $p.WaitForExit(120000)) { $p.Kill(); throw 'Standalone EXE timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content $clean/smoke-error.txt -ErrorAction SilentlyContinue; throw 'Standalone EXE failed' }
+          Copy-Item $clean/smoke-result.txt standalone-result.txt
+          Get-Content standalone-result.txt
+          $notices = @(Get-ChildItem $env:DOTNET_BUNDLE_EXTRACT_BASE_DIR -Recurse -File | Where-Object { $_.FullName -match 'runtime-notices' })
+          if ($notices.Count -lt 2) { throw 'Runtime notices were not embedded/extracted from the standalone EXE' }
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: ViVeUI-previews-and-test-evidence
+          name: ViVeUI-native-validation
           path: |
             previews/*.png
             smoke-result.txt
             smoke-error.txt
+            ipc-result.json
+            ipc-error-*.txt
+            standalone-result.txt
           if-no-files-found: warn
       - uses: actions/upload-artifact@v4
         with:
-          name: ViVeUI-Windows-packages
+          name: ViVeUI-release-assets
           include-hidden-files: true
           path: |
-            .artifacts/*.zip
+            .artifacts/ViVeUI-*.exe
+            .artifacts/ViVeUI-*.zip
             .artifacts/SHA256SUMS.txt
+            .artifacts/BUILD.json
           if-no-files-found: error

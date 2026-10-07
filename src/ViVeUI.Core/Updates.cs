@@ -17,7 +17,7 @@ public sealed class UpdateService : IDisposable
     public UpdateService(HttpMessageHandler? handler = null)
     {
         client = new(handler ?? new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = TimeSpan.FromMinutes(10) };
-        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("ViVeUI", "0.1.0"));
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("ViVeUI", BuildInfo.VersionText));
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github+json"));
     }
     public static bool TrustedDownload(Uri uri) => uri.Scheme == "https" && uri.IsDefaultPort && string.IsNullOrEmpty(uri.UserInfo) &&
@@ -29,7 +29,7 @@ public sealed class UpdateService : IDisposable
         var version = Version.Parse(root.GetProperty("tag_name").GetString()!.TrimStart('v'));
         var page = new Uri(root.GetProperty("html_url").GetString()!);
         if (page.Scheme != "https" || page.Host != "github.com" || !page.AbsolutePath.StartsWith($"/{Repository}/releases/tag/", StringComparison.Ordinal)) throw new InvalidDataException("Untrusted release source.");
-        var name = $"ViVeUI-win-{architecture}.zip";
+        var name = $"ViVeUI-win-{architecture}.exe";
         var asset = root.GetProperty("assets").EnumerateArray().Single(a => a.GetProperty("name").GetString() == name);
         var uri = new Uri(asset.GetProperty("browser_download_url").GetString()!);
         var digest = asset.GetProperty("digest").GetString() ?? "";
@@ -57,7 +57,7 @@ public sealed class UpdateService : IDisposable
         string? temporary = null;
         try
         {
-            if (!TrustedDownload(asset.Url) || !Regex.IsMatch(asset.Sha256, "^[0-9a-fA-F]{64}$") || asset.Size is <= 0 or > 250_000_000 || Path.GetFileName(asset.Name) != asset.Name || !Regex.IsMatch(asset.Name, "^ViVeUI-win-(x64|arm64)\\.zip$")) throw new InvalidDataException("Untrusted package.");
+            if (!TrustedDownload(asset.Url) || !Regex.IsMatch(asset.Sha256, "^[0-9a-fA-F]{64}$") || asset.Size is <= 0 or > 250_000_000 || Path.GetFileName(asset.Name) != asset.Name || !Regex.IsMatch(asset.Name, "^ViVeUI-win-(x64|arm64)\\.exe$")) throw new InvalidDataException("Untrusted package.");
             Directory.CreateDirectory(folder);
             temporary = Path.Combine(folder, Guid.NewGuid() + ".partial");
             var uri = asset.Url;
