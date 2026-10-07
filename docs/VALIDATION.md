@@ -60,3 +60,14 @@ reported rather than converted into invented default states.
 Pinned dictionary SHA-256:
 `8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828`.
 The byte-level test and `.gitattributes` prevent checkout newline conversion.
+
+## Recorded release-candidate evidence
+
+[Windows run 37667369552](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37667369552)
+passed all checks for implementation commit
+`a39caae19b489c4f4069b830189db21216a060f0`: 47 core tests, WPF build and
+nine-render UI interactions, cross-integrity IPC, both single-EXE publications,
+and the x64 clean-folder launch including extracted runtime notices.
+The [checked-in previews and reports](previews/) come from this run.
+The final release includes BUILD.json linking its independently validated exact
+commit and workflow; source and checksums are generated from that same commit.

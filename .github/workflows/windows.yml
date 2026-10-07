@@ -18,7 +18,7 @@ jobs:
         run: dotnet run --project src/ViVeUI.Tests -c Release
       - name: Build native WPF app
         run: dotnet build src/ViVeUI.Windows -c Release
-      - name: Cross-elevation authenticated IPC, no feature writes
+      - name: Cross-integrity authenticated IPC, no feature writes
         shell: pwsh
         run: |
           $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--ipc-smoke' -PassThru
