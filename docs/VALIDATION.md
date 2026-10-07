@@ -10,7 +10,8 @@ path traversal, truncation, cancellation and successful verified downloads.
 Windows Actions builds actual WPF markup and code, then runs `--smoke` against
 an in-memory backend. It exercises search, selection, staging, fake apply/read-back,
 scoped restore, language switching, and captures seven PNGs from the actual WPF
-window. It then publishes x64 and ARM64 packages with exact-commit source.
+control tree at fixed 1440×900 and 900×900 logical viewports (offscreen renders,
+not physical desktop captures). It then publishes x64 and ARM64 packages with exact-commit source.
 
 The authoring host is macOS. Cross-compilation and Windows hosted-runner rendering
 are useful evidence, but do not establish full interactive usability. Real feature
@@ -28,3 +29,7 @@ Before broad distribution, manually check keyboard-only operation, Narrator,
 UAC cancel/deny and different-account elevation, changed-since-review conflicts,
 interrupted batches, and a deliberately corrupted release download. Test actual
 mutations only in a disposable Windows VM with a snapshot and explicit operator consent.
+
+Pinned catalog SHA-256: `8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828`.
+The byte-level test prevents Windows checkout newline conversion from changing the
+redistributed dictionary; `.gitattributes` marks the PFS file as byte-preserved.

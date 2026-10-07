@@ -88,7 +88,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void UpdateLayoutMode()
     {
         var scale = Root.LayoutTransform is ScaleTransform t ? t.ScaleX : 1;
-        var next = ActualWidth / scale < 1120;
+        var viewportWidth = double.IsNaN(Root.Width) ? ActualWidth : Root.Width;
+        var next = viewportWidth / scale < 1120;
         if (next != compact) detailOpen = false;
         compact = next; Changed(nameof(CompactVisibility));
         Grid.SetColumn(DetailPane, compact ? 0 : 2); Grid.SetColumnSpan(DetailPane, compact ? 3 : 1);
@@ -264,9 +265,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public async Task SmokeAsync()
     {
         if (!demo || store is not DemoStore) throw new InvalidOperationException("Smoke tests require fake backend.");
+        // Fixed WPF render viewports avoid depending on the hosted runner display size.
+        Root.Width = 1440; Root.Height = 900; UpdateLayoutMode();
         Search = "37634385"; Filter(); if (Filtered.Count != 1) throw new Exception("Search failed.");
         Selected = Filtered[0]; Desired = OverrideState.Enabled; Stage(); if (Staged.Count != 1) throw new Exception("Staging failed.");
-        ShowPage(ExplorePage); await Capture("explore.png");
+        ShowPage(ExplorePage); Search = ""; Filter(); Selected = catalog.First(f => f.Id == 37634385); await Capture("explore.png");
         ShowPage(ChangesPage); await Capture("review.png");
         Acknowledged = true; await ApplyStaged(); if (store.Read(37634385).State != OverrideState.Enabled) throw new Exception("Fake apply failed.");
         HistoryList.SelectedIndex = 0; UndoClick(this, new()); if (Staged.Count != 1 || Staged[0].After != Snapshot.Default) throw new Exception("Undo failed.");
@@ -274,7 +277,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         LanguageBox.SelectedIndex = 1; ShowPage(ExplorePage); await Capture("explore-zh.png");
         LanguageBox.SelectedIndex = 2; ShowPage(SettingsPage); await Capture("settings-es.png");
         ShowPage(UpdatesPage); await Capture("updates.png");
-        LanguageBox.SelectedIndex = 0; Width = 900; ShowPage(ExplorePage); UpdateLayoutMode();
+        LanguageBox.SelectedIndex = 0; Root.Width = 900; ShowPage(ExplorePage); UpdateLayoutMode();
         await Capture("compact-catalog.png"); OpenDetailClick(this, new()); await Capture("compact-detail.png");
         File.WriteAllText("smoke-result.txt", "PASS: WPF startup, catalog search, selection, stage, fake apply/readback, scoped undo, language switch, 7 rendered previews. No Windows settings were modified.");
     }
@@ -282,7 +285,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle); UpdateLayout();
         Directory.CreateDirectory("previews");
-        var bitmap = new RenderTargetBitmap((int)Root.ActualWidth, (int)Root.ActualHeight, 96, 96, PixelFormats.Pbgra32); bitmap.Render(Root);
+        var bitmap = new RenderTargetBitmap((int)Root.ActualWidth, (int)Root.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+        var visual = new DrawingVisual();
+        using (var context = visual.RenderOpen()) context.DrawRectangle(new VisualBrush(Root), null, new Rect(0, 0, Root.ActualWidth, Root.ActualHeight));
+        bitmap.Render(visual);
         var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap)); using var stream = File.Create(Path.Combine("previews", filename)); encoder.Save(stream);
     }
 }
