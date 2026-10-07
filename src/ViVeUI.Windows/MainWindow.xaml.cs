@@ -373,10 +373,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     void AssertViewportVisible(FrameworkElement element)
     {
-        if (!element.IsVisible || element.ActualWidth <= 0 || element.ActualHeight <= 0) throw new Exception("Required control is not visible.");
+        if (element.Visibility != Visibility.Visible || element.ActualWidth <= 0 || element.ActualHeight <= 0) throw new Exception("Required control is not visible.");
         var bounds = new Rect(0, 0, element.ActualWidth, element.ActualHeight);
         for (DependencyObject? parent = element; parent is not null; parent = VisualTreeHelper.GetParent(parent))
         {
+            if (parent is UIElement visual && visual.Visibility != Visibility.Visible) throw new Exception("Required control has a hidden ancestor.");
             if (parent is FrameworkElement viewport && (parent == Root || parent is ScrollContentPresenter))
             {
                 var visible = element.TransformToAncestor(viewport).TransformBounds(bounds);
