@@ -449,6 +449,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 }
                 AssertViewportVisible(StageAction);
             }
+            if (filename.StartsWith("localization/", StringComparison.Ordinal))
+            {
+                if (IsExplore && DetailPane.Visibility == Visibility.Visible)
+                    foreach (var control in new FrameworkElement[] { ObservedValue, OverrideValue, StageAction }) AssertViewportVisible(control);
+                if (IsChanges) AssertViewportVisible(ApplyButton);
+            }
             var bitmap = new RenderTargetBitmap((int)(size.Width * dpiScale), (int)(size.Height * dpiScale), 96 * dpiScale, 96 * dpiScale, PixelFormats.Pbgra32);
             bitmap.Render(host);
             var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));

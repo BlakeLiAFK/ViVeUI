@@ -31,7 +31,7 @@ public partial class MainWindow
             var saved = JsonSerializer.Deserialize<Preferences>(File.ReadAllText(Path.Combine(folder, "settings.json")))!;
             if (saved.Language != language.Code) throw new Exception("Language preference persistence failed.");
             var expectedDirection = language.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-            if (Root.FlowDirection != expectedDirection || FlowDirection != expectedDirection) throw new Exception("Language layout direction did not update.");
+            if (Root.FlowDirection != expectedDirection || FlowDirection != expectedDirection) throw new Exception($"Language layout direction did not update: {language.Code}, locale={L.Direction}, root={Root.FlowDirection}, window={FlowDirection}, rootBinding={Root.GetBindingExpression(FlowDirectionProperty)?.Status}, windowBinding={GetBindingExpression(FlowDirectionProperty)?.Status}.");
             if (Staged.Count != 2 || !IsEnabledOverride || Category != "All") throw new Exception("Language switching changed reviewed feature state.");
             Root.LayoutTransform = Transform.Identity; Root.Width = 1440; Root.Height = 900; UpdateLayoutMode(); IsCurated = true;
             ShowPage(ExplorePage); await Capture($"localization/{language.Code}/explore.png");

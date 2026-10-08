@@ -16,6 +16,8 @@ jobs:
           dotnet-version: 8.0.x
       - name: Core regression tests
         run: dotnet run --project src/ViVeUI.Tests -c Release
+      - name: Localization resource and wiring audit
+        run: python tools/check_localization.py
       - name: Build native WPF app
         run: dotnet build src/ViVeUI.Windows -c Release
       - name: Cross-integrity authenticated IPC, no feature writes

@@ -1,4 +1,4 @@
-# Run locally on a Windows desktop after approval. Does not invoke GitHub Actions or publish.
+# Run locally on a Windows desktop. Uses fake feature storage; does not publish.
 $ErrorActionPreference = 'Stop'
 Push-Location (Join-Path $PSScriptRoot '..')
 try {
