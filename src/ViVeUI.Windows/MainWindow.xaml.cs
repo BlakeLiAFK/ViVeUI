@@ -357,7 +357,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         foreach (var option in CuratedTypes) option.Refresh();
         SelectGuide(previousGuide);
         foreach(var result in ExecutionResults.ToArray()) { var index = ExecutionResults.IndexOf(result); ExecutionResults[index] = result with { Locale = L }; }
-        foreach (var name in new[] { nameof(Cards), nameof(BuildText), nameof(ReviewCountText), nameof(ReviewIdsText), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
+        foreach (var name in new[] { nameof(Cards), nameof(BuildText), nameof(ReviewCountText), nameof(ReviewIdsText), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText), nameof(ExecutionNotice) }) Changed(name);
         RefreshDetail(); Desired = previousState; LoadHistory(); SaveSettings();
         if (previousStatus is not null) SetStatus(L[previousStatus]);
         else if (lastError is not null) SetStatus(L.ErrorSummary(lastError));
@@ -454,6 +454,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
         if (VisualTreeHelper.GetParent(Root) is not null) throw new InvalidOperationException("Preview root did not detach from its desktop window.");
         var host = new Border { Width = Root.Width, Height = Root.Height, Child = Root, DataContext = this };
+        // Keep per-window theme overrides when rendering outside the native window.
+        foreach (var key in Resources.Keys) host.Resources[key] = Resources[key];
         try
         {
             Root.DataContext = this;
@@ -491,6 +493,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 AssertViewportVisible(ContextHeader);
                 if (IsExplore && DetailPane.Visibility == Visibility.Visible)
                     foreach (var control in new FrameworkElement[] { ObservedValue, OverrideValue, StageAction }) AssertViewportVisible(control);
+                if (IsExplore && GuideDetailPane.Visibility == Visibility.Visible) AssertViewportVisible(GuideAction);
                 if (IsChanges) AssertViewportVisible(ApplyButton);
             }
             var bitmap = new RenderTargetBitmap((int)(size.Width * dpiScale), (int)(size.Height * dpiScale), 96 * dpiScale, 96 * dpiScale, PixelFormats.Pbgra32);

@@ -63,3 +63,22 @@ The 0.2.1 refinement removes 37 px of excess Explore header spacing and trims
 gallery artwork height from 170 to 155 px. Current-state values remain fixed above
 the state controls while optional detail content scrolls. Native viewport checks
 protect all four cards and their actions at 1440×900 without reducing text size.
+
+## 0.4.0 usability revision
+
+The Discover catalog distinguishes shortcuts, Windows settings, Insider guides
+and historical ViVe experiments. Guide actions open documented destinations;
+they do not enter the privileged mutation queue. Classic context-menu help uses
+Show more options and documented Shift + right-click behavior, not an invented
+universal feature ID. Localized friendly text is searchable.
+
+Dropdowns share the app palette, rounded surfaces, explicit selection marks,
+hover/focus/disabled states and scroll controls. They retain WPF keyboard and
+UI Automation behavior; Arabic popup direction is explicitly bound across its
+separate native window. The original V icon replaces the plain letter mark.
+
+Failed and unattempted changes stay in review with individual outcomes. History
+restoration merges only after checking conflicts, preserving unrelated staged
+work. Closing a nonempty queue defaults to Cancel. View scale persists with
+bounded validation. Independent update cancellation keeps review editing usable
+while a trusted package downloads; installation is never silent.

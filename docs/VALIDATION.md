@@ -63,33 +63,29 @@ Pinned dictionary SHA-256:
 The byte-level test and `.gitattributes` prevent checkout newline conversion.
 
 
-## Recorded release-candidate evidence
+## Release validation (0.4.0)
 
-[Windows run 37708449755](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37708449755) passed for implementation commit
-`7a713a5966a6e9ac9ab7d56560e9a4785f307dc8`: 74 core tests, resource/wiring audit, native WPF interactions,
-128 multilingual renders plus ten regression renders, authenticated cross-integrity
-IPC, both single-EXE packages and the x64 clean-folder launch including bundled IPC.
-[Checked-in previews and reports](previews/) come from this run.
-Final release BUILD.json identifies the independently validated exact release
-commit and workflow. Source and checksums are generated from that same commit.
-
-All four curated cards must be fully visible at 1440×900 in English and Simplified
-Chinese. All languages validate current-state values, staging/apply actions and
-context header visibility at their tested layouts. Compact content may scroll.
-The v0.2.0 and v0.2.1 release assets are preserved.
-
-## Sixteen-language validation (0.3.0)
-
-`tools/check_localization.py` audits all 16 resources, exact key coverage,
-placeholder consistency, literal UI references, XML and hidden bidi controls.
-Core tests validate regional/script matching, system preference persistence,
-resource validation failures, invariant feature IDs, and localized error categories.
-
-Windows Actions additionally runs `--localization-smoke` with isolated settings
-and the fake feature backend. Each language produces eight actual WPF renders:
+The release workflow validates 86 core regressions and all 16 resources with 219
+keys each. `--localization-smoke` produces nine renders per language (144 total):
 Explore, Review, Settings, Updates, compact detail/review, a 150% raster render,
-and a confirmation dialog. Assertions cover synchronized selectors, persisted
-preferences, preserved staged changes, Arabic RTL, localized default Cancel,
-and installed glyph availability. The 150% render checks raster scaling, not a
-physical monitor DPI transition. Glyph availability does not establish correct
-shaping or native-language quality. See [language maintenance](LANGUAGES.md).
+a confirmation dialog and a native Windows guide. It verifies persisted language,
+staged-work preservation, Arabic RTL, safe-default Cancel and installed glyphs.
+The raster fixture does not establish physical monitor DPI behavior or shaping.
+
+`--ux-smoke` uses actual WPF controls and fake feature/HTTP backends. It checks
+20 curated entries, Chinese right-click search, empty-search recovery, language
+popup expansion/collapse through UI Automation, scrolling, RTL and palette
+inheritance, F4/End/Enter/Escape handling, disabled state, scale persistence across
+window recreation, partial-batch retry scope, history merge, cancelable downloads
+while review remains editable, and the close guard's default Cancel button.
+These programmatic input checks supplement rather than replace pointer/Narrator
+and full desktop usability review. No real feature settings are modified.
+
+The app and clean-folder EXE validate nine embedded icon sizes, Window.Icon and
+shell extraction. `tools/verify_pe_icons.py` also reads both final PE resource
+trees and compares every icon frame byte-for-byte with the source ICO.
+
+[Checked-in previews and reports](previews/) identify their implementation commit
+and Windows run. The final release BUILD.json identifies the independently
+validated exact release commit and workflow. Source and checksums are generated
+from that same commit. Previous releases and their assets remain preserved.

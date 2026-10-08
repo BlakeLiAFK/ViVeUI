@@ -14,3 +14,5 @@ Windows validation checks every embedded ICO frame, window icon presence and
 shell icon extraction from the running executable. The clean-folder standalone
 launch repeats icon extraction from the bundled EXE. ARM64 resource structure is
 checked from its PE file; native ARM64 execution remains a manual check.
+
+Both final EXE resource trees are also checked by `tools/verify_pe_icons.py`; every shell icon frame must match the source ICO byte-for-byte.
