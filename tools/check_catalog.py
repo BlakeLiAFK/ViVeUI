@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import sys
 import unicodedata
+import xml.etree.ElementTree as ET
 from urllib.parse import urlsplit
 
 LANGUAGES = {'en', 'zh-Hans', 'zh-Hant', 'ja', 'ko', 'fr', 'de', 'es', 'pt-BR', 'it', 'ru', 'ar', 'hi', 'id', 'tr', 'vi'}
@@ -18,7 +19,7 @@ ENUMS = {
     'risk': set('None UnsavedWork Files Privacy Power Accessibility Experimental Network Security'.split()),
     'restart': set('None App SignOut Device Varies'.split()),
     'restore': set('None PreviousSetting CloseView Backup Manual'.split()),
-    'illustration': set('Context Explorer Taskbar Layout Sound Settings Tabs Widgets Search'.split()),
+    'illustration': set('Context Explorer Taskbar Layout Sound Settings Widgets Search'.split()),
 }
 
 
@@ -63,6 +64,12 @@ def audit(root):
     except (OSError, IndexError):
         destinations = set()
         errors.append('Could not read the core destination allowlist')
+    try:
+        illustrations = ET.parse(root / 'src/ViVeUI.Windows/Assets/Illustrations.xaml').getroot()
+        illustration_keys = {node.attrib.get('{http://schemas.microsoft.com/winfx/2006/xaml}Key') for node in illustrations}
+    except (OSError, ET.ParseError) as exc:
+        illustration_keys = set()
+        errors.append(f'Could not parse packaged illustration resources: {exc}')
     ids, titles, bodies = defaultdict(list), defaultdict(list), defaultdict(list)
     kinds, categories = Counter(), Counter()
     def valid_text(value):
@@ -88,6 +95,8 @@ def audit(root):
         for key, allowed in ENUMS.items():
             if not isinstance(entry.get(key), str) or entry.get(key) not in allowed:
                 errors.append(f'{label}: invalid {key}')
+        if str(entry.get('illustration')) + 'Illustration' not in illustration_keys:
+            errors.append(f'{label}: illustration resource is not packaged')
         kinds[str(entry.get('kind'))] += 1
         categories[str(entry.get('category'))] += 1
         destination = entry.get('destination')

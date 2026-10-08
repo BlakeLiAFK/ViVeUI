@@ -20,7 +20,7 @@ public static class CuratedCatalog
     static readonly string[] EntryFields = ["id", "kind", "category", "title", "body", "keywords", "sources", "evidence", "featureIds", "destination", "risk", "restart", "restore", "illustration"];
     static readonly string[] TextFields = ["title", "body", "keywords", "evidence"];
     static readonly FrozenSet<string> Categories = new[] { "ContextMenu", "Explorer", "Taskbar", "Start", "Windows", "Input", "Accessibility", "Appearance", "Notifications", "Performance", "SystemTools", "Privacy" }.ToFrozenSet(StringComparer.Ordinal);
-    static readonly FrozenSet<string> Illustrations = new[] { "Context", "Explorer", "Taskbar", "Layout", "Sound", "Settings", "Tabs", "Widgets", "Search" }.ToFrozenSet(StringComparer.Ordinal);
+    static readonly FrozenSet<string> Illustrations = new[] { "Context", "Explorer", "Taskbar", "Layout", "Sound", "Settings", "Widgets", "Search" }.ToFrozenSet(StringComparer.Ordinal);
     // Literal destinations from Microsoft's launch-settings reference. Never accept arguments,
     // query strings, arbitrary executables, or URLs supplied by catalog consumers.
     static readonly FrozenSet<string> Destinations = new[]

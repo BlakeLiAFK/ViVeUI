@@ -14,9 +14,11 @@ award-winning screens, imagery, or branding.
 
 ## Decisions
 
-A two-column illustrated gallery presents 20 curated entries. Historical ViVe
-experiments use fixed segmented state controls and a staging action; native
-Windows guides use source links and documented destinations. A separate virtualized all-ID tab
+A two-column illustrated gallery presents 213 curated entries in twelve-card pages.
+Category and mechanism filters carry result counts. Cards use a three-line preview;
+full instructions and evidence remain in the detail pane. Historical ViVe archives
+are read-only; native Windows guides use source links and documented destinations.
+Eligible advanced raw-ID operations retain fixed segmented state controls and review staging. A separate virtualized all-ID tab
 keeps all 17,000 entries available. Catalog selection never changes configuration.
 Review pairs illustrated before/after cards with amber guidance, counts and three
 steps, followed by explicit Back and Apply actions.
@@ -54,7 +56,7 @@ concrete comparison findings. Those findings informed the wider 438 px explore
 panel, 370 px summary, larger artwork and text, selected-card outline, historical
 badges, labeled state pills, sidebar language/appearance controls and review layout.
 Actual Windows renders were inspected after these changes; no claim of exact pixel
-identity is made. Chinese fixtures use IDs 37634385 and 39420424.
+identity is made. Mutation fixtures now use synthetic Demo IDs; historical IDs are exercised for search and rejection only.
 
 Appearance offers system, light and dark settings; system high contrast takes
 precedence. The original navigation-pane drawing is distinct from the tabs drawing.
@@ -64,7 +66,7 @@ moves below the cards with its own scroll area. Primary footer actions remain fi
 The 0.2.1 refinement removes 37 px of excess Explore header spacing and trims
 gallery artwork height from 170 to 155 px. Current-state values remain fixed above
 the state controls while optional detail content scrolls. Native viewport checks
-protect all four cards and their actions at 1440×900 without reducing text size.
+protect the first visible row and fixed actions at 1440×900; the expanded catalog scrolls within each page.
 
 ## 0.4.0 usability revision
 
@@ -84,3 +86,17 @@ restoration merges only after checking conflicts, preserving unrelated staged
 work. Closing a nonempty queue defaults to Cancel. View scale persists with
 bounded validation. Independent update cancellation keeps review editing usable
 while a trusted package downloads; installation is never silent.
+
+## 0.5.0 catalog scale
+
+The full catalog separates 124 native settings, 25 instructions, four shortcuts and
+60 source-linked read-only feature archives. Mechanism counts do not imply writable
+features. Zero entries claim independent current-device verification. The default
+first row keeps classic context-menu help beside the distinct modern-menu archive;
+subsequent cards emphasize documented feature behavior before general settings.
+
+Compact cards show a bounded preview rather than every caveat at once; selecting a
+card opens complete localized instructions, source links, evidence, risk, restart
+and restoration boundaries. Historical raw-ID detail uses the same evidence and
+blocks enable/disable writes across the elevation boundary. A proposed history
+restore is validated before merging into existing work.

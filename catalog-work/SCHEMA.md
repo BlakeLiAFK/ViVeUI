@@ -12,7 +12,7 @@ Domain files in `catalog-work/research/<domain>.json` are arrays of objects:
 - risk: None, UnsavedWork, Files, Privacy, Power, Accessibility, Experimental, Network, Security. Do not invent unsupported registry changes.
 - restart: None, App, SignOut, Device, Varies.
 - restore: None, PreviousSetting, CloseView, Backup, Manual.
-- illustration: Context, Explorer, Taskbar, Layout, Sound, Settings, Tabs, Widgets, Search (existing resources checked during integration).
+- illustration: Context, Explorer, Taskbar, Layout, Sound, Settings, Widgets, Search (existing resources checked during integration).
 - sources: primary documentation actually read; mapping references as extra URLs. Source must support the exact instructions. Evidence metadata must distinguish historic build from current availability.
 - featureIds: integer array only if ID association has direct evidence; dictionary name alone is not behavioral proof. Historical entries never stage changes.
 - destination: null, explorer.exe, or a documented exact ms-settings URI (integration allowlist required); no caller-controlled commands, registry writes, argument strings or arbitrary URLs here.
