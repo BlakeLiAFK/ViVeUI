@@ -14,7 +14,7 @@ def unique_pairs(pairs):
             raise AssertionError(f"Duplicate resource key: {key}")
         result[key] = value
     return result
-resources = {p.stem: json.loads(p.read_text(), object_pairs_hook=unique_pairs) for p in RESOURCES.glob("*.json")}
+resources = {p.stem: json.loads(p.read_text(encoding="utf-8"), object_pairs_hook=unique_pairs) for p in RESOURCES.glob("*.json")}
 expected = {"en", "zh-Hans", "zh-Hant", "ja", "ko", "fr", "de", "es", "pt-BR", "it", "ru", "ar", "hi", "id", "tr", "vi"}
 assert resources.keys() == expected
 source = resources["en"]
@@ -27,14 +27,14 @@ for code, entries in resources.items():
 windows = ROOT / "src/ViVeUI.Windows"
 references = set()
 for path in windows.glob("*.cs"):
-    references.update(re.findall(r'\b(?:L|locale)\["([^"\n]+)"\]', path.read_text()))
+    references.update(re.findall(r'\b(?:L|locale)\["([^"\n]+)"\]', path.read_text(encoding="utf-8")))
 for path in windows.rglob("*.xaml"):
-    text = path.read_text()
+    text = path.read_text(encoding="utf-8")
     ET.fromstring(text)
     references.update(re.findall(r'\bL\[([A-Za-z0-9_]+)\]', text))
 assert references <= source.keys(), references - source.keys()
 assert all("{0}" in source[key] for key in ["ReviewCountFormat", "ReviewIdsFormat", "QueueCountFormat"])
-assert "SelectedIndex = prefs.Language" not in (windows / "MainWindow.xaml.cs").read_text()
-assert "MessageBox.Show" not in (windows / "Program.cs").read_text()
+assert "SelectedIndex = prefs.Language" not in (windows / "MainWindow.xaml.cs").read_text(encoding="utf-8")
+assert "MessageBox.Show" not in (windows / "Program.cs").read_text(encoding="utf-8")
 print(f"PASS: {len(resources)} resource files, {len(source)} keys each, {len(references)} literal UI references, placeholders, bidi-control hygiene, XAML parsing, selector migration and localized-dialog wiring.")
 print("NOT VERIFIED: Windows rendering, installed glyph coverage/shaping, RTL interaction, or native-speaker translation quality.")
