@@ -6,7 +6,7 @@
 离线浏览 17,000 个已知功能 ID，先审核“Windows 默认 / 启用 / 禁用”的更改，
 再申请管理员权限；需要恢复时，仅恢复历史记录涉及的覆盖，并检查冲突。
 
-![ViVeUI 精选探索，真实 WPF 演示界面](docs/previews/explore-zh.png)
+![ViVeUI 精选探索，真实 WPF 演示界面](docs/previews/localization/zh-Hans/guide.png)
 
 ## 下载与运行
 

@@ -5,7 +5,7 @@ self-contained .NET 8 single-file executables, SHA256SUMS.txt, complete correspo
 and actual WPF demo screenshots. Publishing a release is a separate deliberate
 maintainer action. CI does not silently publish or install.
 
-For a stable release, use a semantic tag (`v0.3.0`) and GitHub release assets named
+For a stable release, use a semantic tag (`v0.4.0`) and GitHub release assets named
 exactly `ViVeUI-win-x64.exe` and `ViVeUI-win-arm64.exe`, together with source and
 checksums from the same successful commit. The GitHub release API must provide
 `digest: sha256:<64 hex digits>` and a positive size for each binary EXE. Missing
@@ -32,3 +32,11 @@ and component notices into its per-user cache at launch. An administrator worker
 .NET 8 reaches end of support in November 2026; plan migration to the next LTS
 before then. Packaging includes the runtime so rebuild releases when Microsoft
 ships runtime security updates. Do not treat a past CI success as ongoing maintenance.
+
+Before publishing, require a successful workflow for the exact tag commit and
+verify BUILD.json, all four SHA-256 entries, source archive commit, both PE
+architectures and runtime notices. CI compares all nine shell icon frames with
+the source ICO in both packages. Keep screenshots tied to their recorded native
+validation run. After publishing, exercise the real Core updater against the
+live release for x64 and ARM64, without executing downloaded bytes, and attach
+UPDATE-VERIFICATION.json. Preserve assets from earlier releases.

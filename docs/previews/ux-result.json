@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "icon": {
+    "sizes": [
+      16,
+      20,
+      24,
+      32,
+      40,
+      48,
+      64,
+      128,
+      256
+    ],
+    "executableIconGroups": 1,
+    "windowIcon": true,
+    "sameEmbeddedSource": true
+  },
+  "dropdowns": [
+    {
+      "language": "en",
+      "expanded": true,
+      "collapsed": true,
+      "scrolled": true,
+      "rtl": false,
+      "items": 17
+    },
+    {
+      "language": "zh-Hans",
+      "expanded": true,
+      "collapsed": true,
+      "scrolled": true,
+      "rtl": false,
+      "items": 17
+    },
+    {
+      "language": "de",
+      "expanded": true,
+      "collapsed": true,
+      "scrolled": true,
+      "rtl": false,
+      "items": 17
+    },
+    {
+      "language": "ar",
+      "expanded": true,
+      "collapsed": true,
+      "scrolled": true,
+      "rtl": true,
+      "items": 17
+    }
+  ],
+  "keyboardF4EndEnterEscape": true,
+  "disabled": true,
+  "scaleReopened": 1.25,
+  "partialQueuePreserved": true,
+  "restoreMergePreserved": true,
+  "updateCancellation": true,
+  "reviewEditableDuringDownload": true,
+  "closeGuardDefaultsCancel": true,
+  "guideWrites": false,
+  "noFeatureWrites": true,
+  "manualNarratorAndPointerReviewRequired": true
+}

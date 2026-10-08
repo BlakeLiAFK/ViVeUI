@@ -6,7 +6,7 @@
 Browse 17,000 known feature IDs offline, review Windows default / enable / disable
 changes before applying them, and restore recorded user overrides with conflict checks.
 
-![ViVeUI Explore, native WPF demo](docs/previews/explore.png)
+![ViVeUI Explore, native WPF demo](docs/previews/localization/en/guide.png)
 
 ## Download and run
 
