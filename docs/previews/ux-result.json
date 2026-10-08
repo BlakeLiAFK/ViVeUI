@@ -55,6 +55,7 @@
   "scaleReopened": 1.25,
   "partialQueuePreserved": true,
   "restoreMergePreserved": true,
+  "historicalUndoRejectedBeforeMerge": true,
   "updateCancellation": true,
   "reviewEditableDuringDownload": true,
   "closeGuardDefaultsCancel": true,
