@@ -31,6 +31,7 @@ public partial class MainWindow
         foreach(var language in new[]{"en","zh-Hans","de","ar"})
         {
             LanguageBox.SelectedValue=language;ShowPage(SettingsPage);ThemeBox.SelectedIndex=1;
+            await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
             var peer=new ComboBoxAutomationPeer(LanguageBox);var expand=(IExpandCollapseProvider)peer.GetPattern(PatternInterface.ExpandCollapse)!;
             expand.Expand();await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
             var popup=(Popup)LanguageBox.Template.FindName("PART_Popup",LanguageBox);

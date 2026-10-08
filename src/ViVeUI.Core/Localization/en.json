@@ -17,7 +17,7 @@
   "AppSubtitle": "Windows feature explorer",
   "Curated": "Discover",
   "AllIds": "All feature IDs",
-  "GalleryHelp": "Historical examples, clearly explained. Availability on your build is unverified.",
+  "GalleryHelp": "Windows guides and historical experiments. Availability depends on your build.",
   "TabsTitle": "File Explorer tabs",
   "TabsDescription": "A historical experiment for keeping folders together in one window.",
   "SearchTitle": "Task Manager search",

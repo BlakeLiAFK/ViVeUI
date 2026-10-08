@@ -17,7 +17,7 @@
   "AppSubtitle": "Windows 機能の探索",
   "Curated": "おすすめ",
   "AllIds": "すべての機能 ID",
-  "GalleryHelp": "過去の実験を紹介します。使用中のビルドでの利用可否は未検証です。",
+  "GalleryHelp": "Windows のガイドと過去の実験。利用可否はビルドにより異なります。",
   "TabsTitle": "エクスプローラーのタブ",
   "TabsDescription": "複数のフォルダーを一つのウィンドウにまとめる過去の実験。",
   "SearchTitle": "タスクマネージャーの検索",

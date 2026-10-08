@@ -65,6 +65,15 @@ try
     await AsyncTest("Untrusted redirect refused before fetching destination", async () => { int calls = 0; using var service = new UpdateService(new Handler(_ => { calls++; return new(HttpStatusCode.Redirect) { Headers = { Location = new("https://evil.example/package") } }; })); await ThrowsAsync<InvalidDataException>(() => service.DownloadAsync(asset, folder)); Assert(calls == 1); });
     await AsyncTest("Path traversal filename refused", async () => { using var service = new UpdateService(new Handler(_ => throw new Exception("Must not fetch"))); await ThrowsAsync<InvalidDataException>(() => service.DownloadAsync(asset with { Name = "../escape.exe" }, folder)); });
     await AsyncTest("Trusted GitHub asset redirect verified", async () => { int calls = 0; using var service = new UpdateService(new Handler(_ => ++calls == 1 ? new(HttpStatusCode.Redirect) { Headers = { Location = new("https://release-assets.githubusercontent.com/a") } } : new(HttpStatusCode.OK) { Content = new ByteArrayContent(bytes) })); await service.DownloadAsync(asset, folder); Assert(calls == 2); });
+    await AsyncTest("Cancellation after writing bytes removes partial and preserves previous package", async () =>
+    {
+        using var cancel = new CancellationTokenSource();
+        using var service = new UpdateService(new Handler(_ => new(HttpStatusCode.OK) { Content = new ByteArrayContent(bytes) }));
+        var observedPartial = false;
+        var progress = new InlineProgress(value => { observedPartial = value > 0 && Directory.GetFiles(folder,"*.partial").Any(); cancel.Cancel(); });
+        await ThrowsAsync<OperationCanceledException>(() => service.DownloadAsync(asset, folder, progress, cancel.Token));
+        Assert(observedPartial && service.Status == UpdateStatus.Canceled && !Directory.GetFiles(folder,"*.partial").Any() && File.ReadAllBytes(Path.Combine(folder,asset.Name)).SequenceEqual(bytes));
+    });
     await AsyncTest("Cancellation never leaves ready package", async () => { using var service = new UpdateService(new Handler(_ => throw new OperationCanceledException())); await ThrowsAsync<OperationCanceledException>(() => service.DownloadAsync(asset, folder)); Assert(service.Status == UpdateStatus.Canceled && !Directory.GetFiles(folder, "*.partial").Any()); });
 }
 finally { if (Directory.Exists(folder)) Directory.Delete(folder, true); }
@@ -222,6 +231,7 @@ Test("Scale persistence values are normalized safely", () =>
     Assert(ViewScale.Normalize(1.249)==1.25);
 });
 Console.WriteLine($"{passed} tests passed. No Windows settings were accessed or modified.");
+class InlineProgress(Action<double> report) : IProgress<double> { public void Report(double value) => report(value); }
 class Handler(Func<HttpRequestMessage, HttpResponseMessage> handle) : HttpMessageHandler { protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token) => Task.FromResult(handle(request)); }
 class FakeStore : IFeatureStore
 {
