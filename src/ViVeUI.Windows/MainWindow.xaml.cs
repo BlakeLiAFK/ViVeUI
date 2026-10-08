@@ -244,7 +244,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 var result = response.Results?.SingleOrDefault(r => r.Change.Id == change.Id);
                 ExecutionResults.Add(new(change.Id, result?.Applied == true ? "Applied" : result is null ? "NotRun" : "Failed", result?.Error, L));
             }
-            Changed(nameof(ExecutionVisibility));
+            Changed(nameof(ExecutionVisibility)); Changed(nameof(ExecutionNotice));
             Acknowledged = false;
             SetStatus(remaining.Count == 0 ? L["Restart"] : L["RetryReview"]);
         }

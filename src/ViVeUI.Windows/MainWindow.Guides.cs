@@ -14,6 +14,8 @@ public partial class MainWindow
     public string GuideTitle => selectedGuide is null ? "" : L[selectedGuide.TitleKey];
     public string GuideBody => selectedGuide is null ? "" : L[selectedGuide.BodyKey];
     public string GuideType => selectedGuide is null ? "" : L[selectedGuide.Kind.ToString()];
+    public string? GuideEvidenceSource => selectedGuide?.Key switch { "ClassicMenu" => GuideCatalog.AdditionalSources[0], "ContextMenu" => GuideCatalog.AdditionalSources[1], _ => null };
+    public Visibility GuideEvidenceSourceVisibility => GuideEvidenceSource is null ? Visibility.Collapsed : Visibility.Visible;
     public string GuideEvidence => selectedGuide?.Evidence ?? "";
     public string GuideRisk => selectedGuide is null ? "" : L[selectedGuide.RiskKey];
     public string GuideRestore => selectedGuide is null ? "" : L[selectedGuide.RestoreKey];
@@ -27,7 +29,7 @@ public partial class MainWindow
     void SelectGuide(WindowsGuide? guide)
     {
         selectedGuide = guide;
-        foreach(var name in new[] { nameof(SelectedGuide),nameof(GuideTitle),nameof(GuideBody),nameof(GuideType),nameof(GuideEvidence),nameof(GuideRisk),nameof(GuideRestore),nameof(GuideOpenLabel),nameof(GuideImage),nameof(GuideSourceVisibility) }) Changed(name);
+        foreach(var name in new[] { nameof(SelectedGuide),nameof(GuideTitle),nameof(GuideBody),nameof(GuideType),nameof(GuideEvidence),nameof(GuideRisk),nameof(GuideRestore),nameof(GuideOpenLabel),nameof(GuideImage),nameof(GuideSourceVisibility),nameof(GuideEvidenceSourceVisibility) }) Changed(name);
         RefreshCards(); Changed(nameof(CanStage));
         if (Root is not null) UpdateLayoutMode();
     }
@@ -43,6 +45,11 @@ public partial class MainWindow
                 if ((Category != "All" && Category != f.Category) || !(string.IsNullOrWhiteSpace(Search) || (title+" "+description+" "+f.Name+" "+Localization.FeatureId(id)).Contains(Search.Trim(),StringComparison.OrdinalIgnoreCase))) continue;
                 yield return new(f,title,description,L[f.Category],FeatureImage(f),L["Unverified"],L["LearnMore"]+"  ›",selectedGuide is null && Selected?.Id==id,L["HistoricalBadge"]);
             }
+    }
+    void GuideEvidenceClick(object sender,RoutedEventArgs e)
+    {
+        if(GuideEvidenceSource is not string source)return;
+        if(demo){LastGuideDestination=source;return;} OpenUrl(source);
     }
     void GuideSourceClick(object sender,RoutedEventArgs e)
     {

@@ -13,5 +13,5 @@ try {
     if (-not $p.WaitForExit(300000)) { $p.Kill(); throw 'Localization smoke timed out' }
     if ($p.ExitCode -ne 0) { Get-Content "$output/smoke-error.txt" -ErrorAction SilentlyContinue; throw 'Localization smoke failed' }
     Get-Content "$output/localization-result.json"
-    Write-Host "Inspect 128 native renders in $output/previews/localization. Native-speaker and RTL/shaping review is still required."
+    Write-Host "Inspect 144 native renders in $output/previews/localization. Native-speaker and RTL/shaping review is still required."
 } finally { Pop-Location }

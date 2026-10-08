@@ -4,6 +4,7 @@ using ViVeUI.Core;
 namespace ViVeUI.Windows;
 public partial class MainWindow
 {
+    public string ExecutionNotice => L[ExecutionResults.Any(r=>r.StatusKey!="Applied") ? "RetryReview" : "Restart"];
     public bool CanStage => !busy && Selected is not null && selectedGuide is null;
     void ClearSearchClick(object sender, RoutedEventArgs e) { Search = ""; searchTimer.Stop(); Filter(); }
     void BeginUpdate()

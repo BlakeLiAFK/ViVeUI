@@ -34,7 +34,7 @@ public partial class MainWindow
             var peer=new ComboBoxAutomationPeer(LanguageBox);var expand=(IExpandCollapseProvider)peer.GetPattern(PatternInterface.ExpandCollapse)!;
             expand.Expand();await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
             var popup=(Popup)LanguageBox.Template.FindName("PART_Popup",LanguageBox);
-            if(!popup.IsOpen || popup.Child is not FrameworkElement popupContent || popupContent.FlowDirection!=L.Direction)throw new Exception("Popup state or RTL direction incorrect.");
+            if(!popup.IsOpen || popup.Child is not FrameworkElement popupContent || popupContent.FlowDirection!=L.Direction)throw new Exception($"Popup state or RTL direction incorrect: {language}, combo={LanguageBox.IsDropDownOpen}, popup={popup.IsOpen}, child={(popup.Child as FrameworkElement)?.FlowDirection}, expected={L.Direction}.");
             var surface=(Border)LanguageBox.Template.FindName("PopupSurface",LanguageBox);
             if(surface.Background is not SolidColorBrush paper || paper.Color!=((SolidColorBrush)FindResource("PaperBrush")).Color)throw new Exception("Popup did not inherit the active palette.");
             var scroller=Descendants(popupContent).OfType<ScrollViewer>().First();
