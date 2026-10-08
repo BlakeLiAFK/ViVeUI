@@ -45,9 +45,15 @@ public partial class MainWindow
             ShowPage(ChangesPage); await Capture($"localization/{language.Code}/compact-review.png");
             Root.Width = 960; Root.Height = 800; UpdateLayoutMode(); ShowPage(ExplorePage); OpenDetailClick(this, new()); await Capture($"localization/{language.Code}/scale-150.png", 1.5);
             Root.LayoutTransform = Transform.Identity; Root.Width = 1440; Root.Height = 900; UpdateLayoutMode();
-            var scope = string.Join("\n", Staged.Select(c => Localization.FeatureId(c.Id) + ": " + L.State(c.Before) + " → " + L.State(c.After)));
-            var dialog = LocalizedDialog.Create(this, L, L["Review"], L["UserOverride"] + "\n\n" + L["DefaultHelp"], true, @"C:\ViVeUI\downloads\ViVeUI-win-x64.exe", scope);
+            var dialog = LocalizedDialog.Create(this, L, L["Review"], L["UserOverride"] + "\n\n" + L["DefaultHelp"], true, @"C:\ViVeUI\downloads\ViVeUI-win-x64.exe", Staged.ToArray());
             var panel = (FrameworkElement)dialog.Content;
+            var scopeGrid = EnumerateLogicalChildren(panel).OfType<Grid>().Single(g => g.ColumnDefinitions.Count == 3);
+            if (scopeGrid.FlowDirection != FlowDirection.LeftToRight || scopeGrid.RowDefinitions.Count != Staged.Count + 1) throw new Exception("Confirmation scope structure is ambiguous.");
+            for (var i = 0; i < Staged.Count; i++)
+            {
+                var row = scopeGrid.Children.OfType<TextBlock>().Where(t => Grid.GetRow(t) == i + 1).OrderBy(Grid.GetColumn).ToArray();
+                if (row.Length != 3 || row[0].Text != Localization.FeatureId(Staged[i].Id) || row[0].FlowDirection != FlowDirection.LeftToRight || row[1].Text != L.State(Staged[i].Before) || row[2].Text != L.State(Staged[i].After)) throw new Exception("Confirmation scope lost an ID or before/after value.");
+            }
             var buttons = EnumerateLogicalChildren(panel).OfType<Button>().ToArray();
             if (buttons.Length != 2 || buttons.Single(b => b.IsDefault).Content as string != L["Cancel"] || !buttons.Single(b => b.IsDefault).IsCancel) throw new Exception("Confirmation must default to localized Cancel.");
             dialog.Content = null;

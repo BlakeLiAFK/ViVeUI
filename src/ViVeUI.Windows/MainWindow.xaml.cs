@@ -454,6 +454,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             }
             if (filename.StartsWith("localization/", StringComparison.Ordinal))
             {
+                AssertViewportVisible(ContextHeader);
                 if (IsExplore && DetailPane.Visibility == Visibility.Visible)
                     foreach (var control in new FrameworkElement[] { ObservedValue, OverrideValue, StageAction }) AssertViewportVisible(control);
                 if (IsChanges) AssertViewportVisible(ApplyButton);

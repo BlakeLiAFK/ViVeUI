@@ -50,8 +50,7 @@ public static class Program
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
             // The elevated process also displays the exact scope. IPC never accepts file paths,
             // registry paths, commands, executables or download locations.
-            var details = string.Join("\n", changes.Select(x => $"{Localization.FeatureId(x.Id)}: {locale.State(x.Before)} → {locale.State(x.After)}"));
-            if (!LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Review"], locale["UserOverride"] + "\n\n" + locale["DefaultHelp"], confirm: true, scope: details))
+            if (!LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Review"], locale["UserOverride"] + "\n\n" + locale["DefaultHelp"], confirm: true, scope: changes))
             { WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(null, locale["Canceled"])), timeout.Token).GetAwaiter().GetResult(); return; }
             List<ChangeResult>? result = null; string? error = null;
             // Preserve raw worker diagnostics; the UI localizes the summary and exposes original details.
