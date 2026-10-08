@@ -164,7 +164,7 @@
   "CuratedCountFormat": "{0} curated entries",
   "GuideOpen": "Open Windows settings",
   "GuideOpenExplorer": "Open File Explorer",
-  "GuideSource": "Read official source",
+  "GuideSource": "Read source",
   "GuideNoApply": "This guide does not change settings or enter the ViVe review queue.",
   "GuideEvidenceLabel": "Version evidence",
   "GuideEvidenceNote": "Documented versions, not a universal minimum build. Availability may vary by channel and rollout.",

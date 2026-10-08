@@ -164,7 +164,7 @@
   "CuratedCountFormat": "{0} من العناصر المختارة",
   "GuideOpen": "فتح إعدادات Windows",
   "GuideOpenExplorer": "فتح مستكشف الملفات",
-  "GuideSource": "قراءة المصدر الرسمي",
+  "GuideSource": "قراءة المصدر",
   "GuideNoApply": "هذا الدليل لا يغيّر الإعدادات ولا يضاف إلى قائمة مراجعة ViVe.",
   "GuideEvidenceLabel": "دليل الإصدارات",
   "GuideEvidenceNote": "إصدارات موثقة وليست حدًا أدنى عامًا. يختلف التوفر حسب القناة والطرح.",

@@ -164,7 +164,7 @@
   "CuratedCountFormat": "추천 항목 {0}개",
   "GuideOpen": "Windows 설정 열기",
   "GuideOpenExplorer": "파일 탐색기 열기",
-  "GuideSource": "공식 출처 읽기",
+  "GuideSource": "출처 읽기",
   "GuideNoApply": "이 안내는 설정을 바꾸거나 ViVe 검토 목록에 추가하지 않습니다.",
   "GuideEvidenceLabel": "버전 근거",
   "GuideEvidenceNote": "문서에 기록된 버전이며 보편적인 최소 빌드가 아닙니다. 채널과 배포에 따라 다릅니다.",

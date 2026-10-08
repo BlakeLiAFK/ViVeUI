@@ -164,7 +164,7 @@
   "CuratedCountFormat": "{0} 個精選項目",
   "GuideOpen": "開啟 Windows 設定",
   "GuideOpenExplorer": "開啟檔案總管",
-  "GuideSource": "閱讀官方來源",
+  "GuideSource": "閱讀來源",
   "GuideNoApply": "本指南不會修改設定，也不會加入 ViVe 變更佇列。",
   "GuideEvidenceLabel": "版本證據",
   "GuideEvidenceNote": "這是文件記錄的版本，不是通用最低版本。可用性取決於通道與分批推出。",

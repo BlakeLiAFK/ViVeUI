@@ -164,7 +164,7 @@
   "CuratedCountFormat": "おすすめ {0} 件",
   "GuideOpen": "Windows の設定を開く",
   "GuideOpenExplorer": "エクスプローラーを開く",
-  "GuideSource": "公式情報を読む",
+  "GuideSource": "出典を読む",
   "GuideNoApply": "このガイドは設定を変更せず、ViVe の確認対象にも追加しません。",
   "GuideEvidenceLabel": "バージョンの根拠",
   "GuideEvidenceNote": "文書に記載されたバージョンです。最小対応ビルドの保証ではなく、チャネルや展開状況で異なります。",

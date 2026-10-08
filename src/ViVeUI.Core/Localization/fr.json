@@ -164,7 +164,7 @@
   "CuratedCountFormat": "{0} entrées sélectionnées",
   "GuideOpen": "Ouvrir les paramètres Windows",
   "GuideOpenExplorer": "Ouvrir l’Explorateur",
-  "GuideSource": "Lire la source officielle",
+  "GuideSource": "Lire la source",
   "GuideNoApply": "Ce guide ne modifie rien et ne rejoint pas la liste ViVe.",
   "GuideEvidenceLabel": "Versions documentées",
   "GuideEvidenceNote": "Versions observées, sans garantie de version minimale. La disponibilité dépend du canal et du déploiement.",
