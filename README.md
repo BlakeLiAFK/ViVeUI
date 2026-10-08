@@ -29,12 +29,12 @@ A supported OS version does **not** establish support for a particular feature f
 
 ## What the app does
 
-- **Discover:** 20 illustrated entries: 15 sourced Windows guides and five clearly labeled historical experiments. The right-click topic comes first; native settings remain separate from ViVe overrides.
+- **Discover:** 213 distinct sourced entries: 124 native settings, 25 instruction guides, four shortcuts and 60 read-only feature archives. Category/type counts, localized search and twelve-card pages keep the catalog usable. These are not 213 writable toggles.
 - **All IDs:** all 17,000 pinned catalog IDs, search, and inspection of custom unknown IDs.
 - **Review:** exact IDs and before/after states, two-step confirmation, and an explicit UAC request.
 - **Restore:** recorded snapshots scoped to the affected IDs; conflicting current states block undo.
 - **Updates:** GitHub release checks and optional automatic EXE downloads with SHA-256 verification. Installation and launch remain manual.
-- **Languages:** 16 complete UI resource sets, native language names, persistent system/manual selection, and Arabic RTL. See [language coverage and review limits](docs/LANGUAGES.md).
+- **Languages:** 16 UI resource sets plus fully localized catalog titles, instructions, search terms and evidence, native language names, persistent system/manual selection, and Arabic RTL. See [language coverage and review limits](docs/LANGUAGES.md).
 
 Browsing works offline without elevation. A separate worker handles only reviewed
 user-priority boot overrides. IPC uses a current-user SID ACL, exact process identity
@@ -46,11 +46,13 @@ unelevated UI / elevated worker boundary without using `CurrentUserOnly` pipe op
 ## A deliberate workflow
 
 1. Inspect a feature, its provenance, and the limits of what is known.
-2. Choose **Windows default**, **Enable**, or **Disable**, then add it to review.
+2. For an eligible advanced raw-ID operation, choose **Windows default**, **Enable**, or **Disable**, then add it to review.
    Returning to the current state cancels any older queued change for that ID.
 3. Check every ID and state in the review. Save your work and prepare a recovery path.
 4. Approve the reviewed changes and the administrator prompt. Restart manually when ready.
 5. Use history to review a scoped restoration if needed.
+
+Known historical reference IDs reject new enable/disable requests in both the UI and elevated worker. Removing their user override with Windows default remains available for recovery; this does not guarantee safe OS behavior. Native settings cards navigate to Windows without changing it.
 
 Experiments can destabilize Windows. Prefer one experiment at a time. Advanced
 variant, policy, security, subscription, and Last Known Good settings are outside

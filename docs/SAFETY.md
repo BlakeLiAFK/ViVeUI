@@ -48,3 +48,16 @@ method. ViVeUI does not promise to repair an unbootable system and does not
 silently change recovery configuration. Offline registry repair is out of scope.
 
 No automated test writes real feature settings, including Windows CI smoke tests.
+
+## Historical references and native instructions
+
+All 60 source-linked feature archives are read-only. Known reference IDs, including
+conditional dependencies, reject new Enabled/Disabled mutations at staging, apply,
+pre-elevation and worker validation. Default removal is allowed for recovery only;
+removing an override is not proof that Windows will boot or behave correctly.
+Unmapped raw IDs remain an explicitly advanced, unverified workflow.
+
+Native cards only open fixed navigation destinations or source documentation.
+External Windows settings are outside ViVeUI history and cannot be automatically
+undone by it. Destructive consequences, previously exposed data and completed
+commands are never represented as reversibly toggled preferences.

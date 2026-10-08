@@ -11,8 +11,8 @@ Windows Actions builds actual WPF markup and code, then runs `--smoke` against
 an in-memory backend. It exercises search, selection, staging and cancellation,
 fake apply/read-back, scoped restore, language switching, and ten PNG renders
 from the actual control tree at fixed 1440×900 and 900×900 logical viewports.
-These are offscreen renders, not physical desktop captures. Chinese explore and
-review fixtures select IDs 37634385 and 39420424 with two staged enables.
+These are offscreen renders, not physical desktop captures. Mutation fixtures use explicitly synthetic Demo IDs 4294967201–4294967204.
+Known historical IDs are exercised only for search and rejection checks.
 
 A separate `--ipc-smoke` exchanges a handshake-only message through the same
 ACL/authentication/framing code used by the worker. The server is a same-user
@@ -63,9 +63,9 @@ Pinned dictionary SHA-256:
 The byte-level test and `.gitattributes` prevent checkout newline conversion.
 
 
-## Release validation (0.4.0)
+## Release validation (0.5.0)
 
-The release workflow validates 86 core regressions and all 16 resources with 219
+The release workflow validates 98 core regressions and all 16 resources with 267
 keys each. `--localization-smoke` produces nine renders per language (144 total):
 Explore, Review, Settings, Updates, compact detail/review, a 150% raster render,
 a confirmation dialog and a native Windows guide. It verifies persisted language,
@@ -73,7 +73,7 @@ staged-work preservation, Arabic RTL, safe-default Cancel and installed glyphs.
 The raster fixture does not establish physical monitor DPI behavior or shaping.
 
 `--ux-smoke` uses actual WPF controls and fake feature/HTTP backends. It checks
-20 curated entries, Chinese right-click search, empty-search recovery, language
+the expanded curated catalog, Chinese right-click search, empty-search recovery, language
 popup expansion/collapse through UI Automation, scrolling, RTL and palette
 inheritance, F4/End/Enter/Escape handling, disabled state, scale persistence across
 window recreation, partial-batch retry scope, history merge, cancelable downloads
@@ -89,3 +89,13 @@ trees and compares every icon frame byte-for-byte with the source ICO.
 and Windows run. The final release BUILD.json identifies the independently
 validated exact release commit and workflow. Source and checksums are generated
 from that same commit. Previous releases and their assets remain preserved.
+
+`--catalog-smoke` traverses every production entry exactly once across twelve-card
+pages, checks all category/type intersections and count badges, numeric and trimmed
+localized search, empty-state recovery, historical read-only behavior, all 16
+localized bound detail bodies, Arabic RTL with LTR numeric references, and compact
+versus split-pane layouts. It emits `catalog-result.json` plus 22 native renders.
+`tools/check_catalog.py` separately verifies at least 200 unique entries, strict
+metadata, literal safe navigation, exact 16-language coverage, and untranslated
+body/duplicate detection. These audits do not certify natural-language fluency or
+current-device feature compatibility.

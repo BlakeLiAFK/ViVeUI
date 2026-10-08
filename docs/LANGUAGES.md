@@ -1,7 +1,7 @@
 # Languages
 
-Version 0.4.0 embeds 219 resource keys per language, covering navigation,
-settings, state explanations, curated feature descriptions, review/confirmation,
+Version 0.5.0 embeds 267 common resource keys per language, covering navigation,
+settings, state explanations, review/confirmation,
 update states and actionable error summaries. Original upstream identifiers and
 technical diagnostics remain unchanged and are displayed left-to-right.
 
@@ -60,4 +60,4 @@ and accessibility remains required. Automated key coverage and installed glyph
 checks are not linguistic approval. Windows renders are offscreen control-tree
 renders, not an end-user desktop usability study.
 
-The sourced guide titles, instructions, risks, restore boundaries, type filters and recovery messages are also localized. Evidence build/channel identifiers and source URLs remain verbatim technical metadata.
+The sourced guide titles, instructions, risks, restore boundaries, type filters and recovery messages are also localized. Each of the 213 catalog entries has localized title, full body, keywords and narrative evidence in all 16 languages. Exact build/channel identifiers and source URLs remain verbatim technical metadata. Catalog text lives in `Catalog/Locales/`, separate from common UI strings. Simplified Chinese was authored with the research; Traditional Chinese was converted with OpenCC terminology conversion and reviewed for resource integrity. This is not native-speaker certification.
