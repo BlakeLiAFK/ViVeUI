@@ -35,8 +35,8 @@ public static class Catalog
         }
         return result.Values.OrderByDescending(x => x.Illustrated).ThenBy(x => x.Name, StringComparer.OrdinalIgnoreCase).ToArray();
     }
-    public static IEnumerable<Feature> Search(IEnumerable<Feature> features, string query, string category = "All") =>
-        features.Where(f => (category == "All" || f.Category == category) && (f.Name.Contains(query, StringComparison.OrdinalIgnoreCase) || f.Id.ToString().Contains(query, StringComparison.Ordinal)));
+    public static IEnumerable<Feature> Search(IEnumerable<Feature> features, string query, string category = "All", IReadOnlyDictionary<uint,string>? editorial = null) =>
+        features.Where(f => (category == "All" || f.Category == category) && (f.Name.Contains(query, StringComparison.OrdinalIgnoreCase) || f.Id.ToString(System.Globalization.CultureInfo.InvariantCulture).Contains(query, StringComparison.Ordinal) || (editorial is not null && editorial.TryGetValue(f.Id, out var description) && description.Contains(query, StringComparison.OrdinalIgnoreCase))));
 }
 public sealed record Change(uint Id, string Name, Snapshot Before, Snapshot After);
 public sealed record ChangeResult(Change Change, bool Applied, string? Error);

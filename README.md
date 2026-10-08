@@ -29,7 +29,7 @@ A supported OS version does **not** establish support for a particular feature f
 
 ## What the app does
 
-- **Discover:** four illustrated historical examples with translated, readable names.
+- **Discover:** 20 illustrated entries: 15 sourced Windows guides and five clearly labeled historical experiments. The right-click topic comes first; native settings remain separate from ViVe overrides.
 - **All IDs:** all 17,000 pinned catalog IDs, search, and inspection of custom unknown IDs.
 - **Review:** exact IDs and before/after states, two-step confirmation, and an explicit UAC request.
 - **Restore:** recorded snapshots scoped to the affected IDs; conflicting current states block undo.
@@ -54,7 +54,7 @@ unelevated UI / elevated worker boundary without using `CurrentUserOnly` pipe op
 
 Experiments can destabilize Windows. Prefer one experiment at a time. Advanced
 variant, policy, security, subscription, and Last Known Good settings are outside
-this app's writable scope. See [safety and recovery](docs/SAFETY.md).
+this app's writable scope. Failed or unattempted items remain queued; restoring history preserves unrelated review items. See [safety and recovery](docs/SAFETY.md).
 
 ## Frequently asked questions
 
@@ -106,7 +106,7 @@ src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe --ipc-smoke
 dotnet publish src/ViVeUI.Windows -c Release -r win-x64 --self-contained true
 ```
 
-Windows CI runs regression tests, native WPF demo interactions, cross-integrity IPC,
+Windows CI runs regression tests, native WPF demo interactions, dropdown keyboard/automation checks, shell/window icon extraction, cross-integrity IPC,
 and a clean-folder launch containing only the published x64 EXE. ARM64 is built and
 packaged; native ARM64 execution, actual feature mutations, Narrator, high-contrast
 interaction, and the secure-desktop UAC experience still require manual validation.

@@ -28,14 +28,20 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     IReadOnlyList<Feature> discovered = [];
     readonly bool demo;
     readonly string folder;
-    readonly UpdateService updater = new();
+    readonly UpdateService updater;
+    CancellationTokenSource? updateCancellation;
+    bool updateBusy;
+    public bool UpdateIdle => !updateBusy;
+    public bool UpdateBusy => updateBusy;
+    public ObservableCollection<ExecutionRow> ExecutionResults { get; } = [];
+    public Visibility ExecutionVisibility => ExecutionResults.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
     readonly DispatcherTimer searchTimer = new() { Interval = TimeSpan.FromMilliseconds(160) };
     Dictionary<uint, string> observations = [];
     string? observationError;
     string? statusKey;
     public ObservableCollection<Change> Staged { get; } = [];
     public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, L["UnknownId"]); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"], L["BeforeLabel"], L["AfterLabel"], L["TechnicalDetails"], L["Remove"], L["CopyId"]); });
-    public IEnumerable<FeatureCard> Cards => new uint[] { 37634385, 39420424, 34300186, 36354489 }.Select(id => { var f = catalog.First(x => x.Id == id); return new FeatureCard(f, FeatureEditorial.Title(f, L), FeatureEditorial.Description(f, L), L[f.Category], FeatureImage(f), L["Unverified"], L["LearnMore"] + "  ›", Selected?.Id == id, L["HistoricalBadge"]); });
+    public IEnumerable<FeatureCard> Cards => CuratedCards();
     ImageSource? FeatureImage(Feature f) => f.Illustrated ? (ImageSource)FindResource((FeatureEditorial.Key(f.Id) == "Navigation" ? "Navigation" : f.Category) + "Illustration") : null;
     public string SelectedTitle => Selected is null ? L["Detail"] : FeatureEditorial.Title(Selected, L);
     public string SelectedDescription => Selected is null ? L["UnknownDescription"] : FeatureEditorial.Description(Selected, L);
@@ -50,7 +56,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public string ReviewCountText => L.Format("ReviewCountFormat", Staged.Count);
     public string ReviewIdsText => L.Format("ReviewIdsFormat", Staged.Select(c => c.Id).Distinct().Count());
     bool showAllIds;
-    public bool ShowAllIds { get => showAllIds; set { showAllIds = value; Changed(); Changed(nameof(IsCurated)); Changed(nameof(GalleryVisibility)); Changed(nameof(CatalogVisibility)); } }
+    public bool ShowAllIds { get => showAllIds; set { showAllIds = value; if (value && selectedGuide is not null) SelectGuide(null); Changed(); Changed(nameof(IsCurated)); Changed(nameof(GalleryVisibility)); Changed(nameof(CatalogVisibility)); } }
     public bool IsCurated { get => !showAllIds; set { if (value) ShowAllIds = false; } }
     public Visibility GalleryVisibility => ShowAllIds ? Visibility.Collapsed : Visibility.Visible;
     public Visibility CatalogVisibility => ShowAllIds ? Visibility.Visible : Visibility.Collapsed;
@@ -67,9 +73,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     bool busy, acknowledged, initialized, autoCheck, autoDownload, compact, detailOpen;
     public Visibility CompactVisibility => compact ? Visibility.Visible : Visibility.Collapsed;
     AppRelease? release;
-    public string Search { get => search; set { search = value; Changed(); Changed(nameof(SearchPlaceholderVisibility)); if (!string.IsNullOrWhiteSpace(value)) ShowAllIds = true; searchTimer.Stop(); searchTimer.Start(); } }
+    public string Search { get => search; set { search = value; Changed(); Changed(nameof(SearchPlaceholderVisibility)); if (uint.TryParse(value,out var numericId) && numericId > 0) ShowAllIds = true; RefreshCards(); searchTimer.Stop(); searchTimer.Start(); } }
     public string Category { get => category; set { category = value ?? "All"; Changed(); Filter(); } }
-    public Feature? Selected { get => selected; set { selected = value; Changed(); Changed(nameof(Cards)); RefreshDetail(); } }
+    public Feature? Selected { get => selected; set { selected = value; if (value is not null && selectedGuide is not null) SelectGuide(null); Changed(); Changed(nameof(Cards)); Changed(nameof(CanStage)); RefreshDetail(); } }
     public OverrideState Desired { get => desired; set { desired = value; Changed(); Changed(nameof(IsDefault)); Changed(nameof(IsEnabledOverride)); Changed(nameof(IsDisabledOverride)); } }
     public string ModeText => L[demo ? "Demo" : "Local"];
     public string BuildText => demo ? "Windows 11 · " + L["DemoShort"] : $"Windows {Environment.OSVersion.Version} · {RuntimeInformation.OSArchitecture}";
@@ -85,27 +91,30 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public bool Acknowledged { get => acknowledged; set { acknowledged = value; Changed(); Changed(nameof(CanApply)); } }
     public bool CanApply => !busy && Acknowledged && Staged.Count > 0;
     public bool NotBusy => !busy;
-    public bool CanDownload => !busy && release is not null;
+    public bool CanDownload => !updateBusy && release is not null;
     public string UpdateText => L[updater.Status.ToString()];
     public string UpdateDetails { get; private set; } = "";
     public double DownloadProgress { get; private set; }
     public bool AutoCheck { get => autoCheck; set { autoCheck = value; Changed(); SaveSettings(); } }
     public bool AutoDownload { get => autoDownload; set { autoDownload = value; Changed(); SaveSettings(); } }
-    public MainWindow(bool demo, string? testFolder = null)
+    public MainWindow(bool demo, string? testFolder = null, UpdateService? testUpdater = null)
     {
+        updater = testUpdater ?? new UpdateService();
         this.demo = demo; store = demo ? new DemoStore() : new WindowsStore();
         folder = testFolder ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), demo ? "ViVeUI-Demo" : "ViVeUI");
         Languages = new[] { new LanguageChoice("system", "", L) }.Concat(Localization.Languages.Select(l => new LanguageChoice(l.Code, l.NativeName, L))).ToArray();
         Categories = new[] { "All", "Explorer", "Widgets", "System", "Catalog" }.Select(key => new Choice<string>(key, L, key)).ToArray();
         States = Enum.GetValues<OverrideState>().Select(key => new Choice<OverrideState>(key, L, key.ToString())).ToArray();
+        CuratedTypes = new[] { "All", "NativeShortcut", "NativeSettings", "InsiderGuide", "HistoricalBadge" }.Select(key => new Choice<string>(key,L,key)).ToArray();
         InitializeComponent(); DataContext = this;
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); Filter(); };
         Staged.CollectionChanged += (_, _) => { Acknowledged = false; Changed(nameof(QueueText)); Changed(nameof(ReviewRows)); Changed(nameof(ReviewCountText)); Changed(nameof(ReviewIdsText)); Changed(nameof(CanApply)); };
-        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory();
+        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory(); SelectGuide(GuideCatalog.All[0]);
         SizeChanged += (_, _) => UpdateLayoutMode();
         SystemParameters.StaticPropertyChanged += SystemPreferenceChanged;
         Loaded += async (_, _) => { await RefreshObservations(); if (AutoCheck && !demo) await CheckUpdates(); };
-        Closed += (_, _) => { searchTimer.Stop(); updater.Dispose(); SystemParameters.StaticPropertyChanged -= SystemPreferenceChanged; };
+        Closing += ConfirmClose;
+        Closed += (_, _) => { searchTimer.Stop(); updateCancellation?.Cancel(); updater.Dispose(); SystemParameters.StaticPropertyChanged -= SystemPreferenceChanged; };
         PreviewKeyDown += (_, e) => { if (e.Key == System.Windows.Input.Key.F && System.Windows.Input.Keyboard.Modifiers == System.Windows.Input.ModifierKeys.Control) { ShowPage(ExplorePage); SearchBox.Focus(); SearchBox.SelectAll(); e.Handled = true; } };
     }
     void SystemPreferenceChanged(object? sender, PropertyChangedEventArgs e) { if (e.PropertyName == nameof(SystemParameters.HighContrast)) Dispatcher.Invoke(ApplyContrast); }
@@ -137,14 +146,18 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Grid.SetColumn(DetailPane, compact ? 0 : 2); Grid.SetColumnSpan(DetailPane, compact ? 3 : 1);
         Grid.SetColumnSpan(CatalogPane, compact ? 3 : 1);
         CatalogPane.Visibility = compact && detailOpen ? Visibility.Collapsed : Visibility.Visible;
-        DetailPane.Visibility = !compact || detailOpen ? Visibility.Visible : Visibility.Collapsed;
+        DetailPane.Visibility = (!compact || detailOpen) && selectedGuide is null ? Visibility.Visible : Visibility.Collapsed;
+        Grid.SetColumn(GuideDetailPane,compact ? 0 : 2); Grid.SetColumnSpan(GuideDetailPane,compact ? 3 : 1);
+        GuideDetailPane.Visibility = (!compact || detailOpen) && selectedGuide is not null ? Visibility.Visible : Visibility.Collapsed;
     }
     void OpenDetailClick(object sender, RoutedEventArgs e) { detailOpen = true; UpdateLayoutMode(); }
     void BackClick(object sender, RoutedEventArgs e) { detailOpen = false; UpdateLayoutMode(); }
     void Filter()
     {
-        Filtered = Catalog.Search(catalog.Concat(discovered), search, category).ToArray(); Changed(nameof(Filtered)); Changed(nameof(CountText)); Changed(nameof(EmptyVisibility));
-        if (Selected is null || !Filtered.Contains(Selected)) Selected = Filtered.FirstOrDefault();
+        var editorial = catalog.Where(f => FeatureEditorial.Key(f.Id) is not null).ToDictionary(f => f.Id, f => FeatureEditorial.Title(f,L) + " " + FeatureEditorial.Description(f,L));
+        Filtered = Catalog.Search(catalog.Concat(discovered), search, category, editorial).ToArray(); Changed(nameof(Filtered)); Changed(nameof(CountText)); Changed(nameof(EmptyVisibility));
+        if (ShowAllIds && (Selected is null || !Filtered.Contains(Selected))) Selected = Filtered.FirstOrDefault();
+        RefreshCards();
     }
     string StateLabel(Snapshot snapshot) => L.State(snapshot);
     void RefreshDetail()
@@ -168,7 +181,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         RefreshDetail();
     }
     void SetStatus(string text) { statusKey = Localization.English.Keys.FirstOrDefault(key => L[key] == text); StatusText = text; Changed(nameof(StatusText)); }
-    void SetBusy(bool value) { busy = value; Changed(nameof(NotBusy)); Changed(nameof(CanApply)); Changed(nameof(CanDownload)); }
+    void SetBusy(bool value) { busy = value; Changed(nameof(NotBusy)); Changed(nameof(CanApply)); Changed(nameof(CanDownload)); Changed(nameof(CanStage)); }
     string LocalizeObservation(string observed)
     {
         var parts = observed.Split(" · ");
@@ -182,7 +195,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         currentPage = page == ExplorePage ? "Explore" : page == ChangesPage ? "Changes" : page == UpdatesPage ? "Updates" : "Settings";
         foreach (var name in new[] { nameof(IsExplore), nameof(IsChanges), nameof(IsUpdates), nameof(IsSettings), nameof(ReviewVisibility), nameof(BrowseFooterVisibility) }) Changed(name);
     }
-    void CardClick(object sender, RoutedEventArgs e) { if (sender is Button { Tag: Feature feature }) { Selected = feature; if (compact) { detailOpen = true; UpdateLayoutMode(); } } }
+    void CardClick(object sender, RoutedEventArgs e)
+    {
+        if (sender is not Button { Tag: FeatureCard card }) return;
+        if (card.Guide is WindowsGuide guide) SelectGuide(guide); else if (card.Feature is Feature feature) Selected = feature;
+        if (compact) { detailOpen = true; UpdateLayoutMode(); }
+    }
     void CopyIdClick(object sender, RoutedEventArgs e) => Safe(() => { if (sender is Button { Tag: uint id }) Clipboard.SetText(id.ToString(CultureInfo.InvariantCulture)); });
     void RemoveClick(object sender, RoutedEventArgs e) { if (!busy && sender is Button { Tag: uint id }) { var existing = Staged.FirstOrDefault(c => c.Id == id); if (existing is not null) Staged.Remove(existing); RefreshDetail(); } }
     void ExploreClick(object sender, RoutedEventArgs e) => ShowPage(ExplorePage);
@@ -192,9 +210,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void StageClick(object sender, RoutedEventArgs e) => Safe(() => Stage());
     void Stage()
     {
-        if (busy || Selected is null) return;
+        if (busy || Selected is null || selectedGuide is not null) return;
         var before = store.Read(Selected.Id); var after = Desired == OverrideState.Default ? Snapshot.Default : new Snapshot(true, Desired);
         ReviewQueue.Stage(Staged, new(Selected.Id, Selected.Name, before, after));
+        lastError = null; Changed(nameof(DiagnosticVisibility));
         SetStatus(before == after ? L["Unchanged"] : "");
     }
     void InspectClick(object sender, RoutedEventArgs e) => Safe(() =>
@@ -218,9 +237,16 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var response = demo ? new WorkerResponse(ChangeEngine.Apply(store, receipt.Changes), null) : await Program.ElevateAsync(receipt.Changes, L.Language);
             if (response.Error is not null) throw new InvalidOperationException(response.Error);
             receipt = receipt with { Results = response.Results }; SaveReceipt(receipt);
-            Staged.Clear();
-            var all = response.Results?.Count == receipt.Changes.Count && response.Results.All(r => r.Applied);
-            SetStatus(all ? L["Restart"] : L["Partial"]);
+            var remaining = ReviewOperations.Complete(Staged, receipt.Changes, response.Results);
+            ExecutionResults.Clear();
+            foreach (var change in receipt.Changes)
+            {
+                var result = response.Results?.SingleOrDefault(r => r.Change.Id == change.Id);
+                ExecutionResults.Add(new(change.Id, result?.Applied == true ? "Applied" : result is null ? "NotRun" : "Failed", result?.Error, L));
+            }
+            Changed(nameof(ExecutionVisibility));
+            Acknowledged = false;
+            SetStatus(remaining.Count == 0 ? L["Restart"] : L["RetryReview"]);
         }
         catch (Exception e) { ReportError(e); }
         finally { LoadHistory(); RefreshDetail(); SetBusy(false); }
@@ -258,7 +284,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             proposed.Add(ChangeEngine.Undo(change, current)); // Conflict stops the whole staging operation.
         }
         if (proposed.Count == 0) { SetStatus(L["Unchanged"]); return; }
-        Staged.Clear(); foreach (var change in proposed) Staged.Add(change); ShowPage(ChangesPage);
+        ReviewOperations.Merge(Staged, proposed); ShowPage(ChangesPage);
     });
     void ReportError(Exception error)
     {
@@ -275,7 +301,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         using var input = typeof(Program).Assembly.GetManifestResourceStream("ViVeUI.LICENSE")!;
         using var reader = new StreamReader(input);
         var viewer = new TextBox { Text = reader.ReadToEnd(), IsReadOnly = true, FlowDirection = FlowDirection.LeftToRight, TextWrapping = TextWrapping.Wrap, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(16) };
-        new Window { Title = "ViVeUI · GPL-3.0-or-later", Width = 720, Height = 600, Owner = this, WindowStartupLocation = WindowStartupLocation.CenterOwner, Content = viewer }.ShowDialog();
+        new Window { Icon = Icon, Title = "ViVeUI · GPL-3.0-or-later", Width = 720, Height = 600, Owner = this, WindowStartupLocation = WindowStartupLocation.CenterOwner, Content = viewer }.ShowDialog();
     });
     void SourceClick(object sender, RoutedEventArgs e) => OpenUrl(Catalog.Source);
     void HistoricalClick(object sender, RoutedEventArgs e)
@@ -288,33 +314,36 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     async void CheckClick(object sender, RoutedEventArgs e) => await CheckUpdates();
     async Task CheckUpdates()
     {
-        if (busy) return; SetBusy(true); UpdateDetails = ""; Changed(nameof(UpdateDetails));
+        if (updateBusy) return; BeginUpdate(); UpdateDetails = ""; Changed(nameof(UpdateDetails));
         try
         {
-            var pending = updater.CheckAsync(BuildInfo.Version, RuntimeInformation.OSArchitecture == Architecture.Arm64 ? "arm64" : "x64"); Changed(nameof(UpdateText));
+            var pending = updater.CheckAsync(BuildInfo.Version, RuntimeInformation.OSArchitecture == Architecture.Arm64 ? "arm64" : "x64", updateCancellation!.Token); Changed(nameof(UpdateText));
             release = await pending; UpdateDetails = release is null ? "" : $"{release.Version} · {release.Asset.Size / 1024 / 1024} MB\n{release.Page}";
         }
+        catch (OperationCanceledException) { release = null; UpdateDetails = L["Canceled"]; }
         catch (Exception e) { release = null; ReportError(e); UpdateDetails = L.ErrorSummary(e); }
-        finally { SetBusy(false); Changed(nameof(UpdateText)); Changed(nameof(UpdateDetails)); }
+        finally { EndUpdate(); Changed(nameof(UpdateText)); Changed(nameof(UpdateDetails)); }
         if (release is not null && AutoDownload) await Download();
     }
     async void DownloadClick(object sender, RoutedEventArgs e) => await Download();
     async Task Download()
     {
-        if (release is null || busy) return; SetBusy(true); DownloadProgress = 0; Changed(nameof(DownloadProgress));
+        if (release is null || updateBusy) return; BeginUpdate(); DownloadProgress = 0; Changed(nameof(DownloadProgress));
         try
         {
-            var pending = updater.DownloadAsync(release.Asset, Path.Combine(folder, "downloads"), new Progress<double>(p => { DownloadProgress = p * 100; Changed(nameof(DownloadProgress)); })); Changed(nameof(UpdateText));
+            var pending = updater.DownloadAsync(release.Asset, Path.Combine(folder, "downloads"), new Progress<double>(p => { DownloadProgress = p * 100; Changed(nameof(DownloadProgress)); }), updateCancellation!.Token); Changed(nameof(UpdateText));
             var path = await pending; UpdateDetails = path + "\nSHA-256: " + release.Asset.Sha256;
         }
+        catch (OperationCanceledException) { DownloadProgress = 0; Changed(nameof(DownloadProgress)); UpdateDetails = L["Canceled"]; }
         catch (Exception e) { ReportError(e); UpdateDetails = L.ErrorSummary(e); }
-        finally { SetBusy(false); Changed(nameof(UpdateText)); Changed(nameof(UpdateDetails)); }
+        finally { EndUpdate(); Changed(nameof(UpdateText)); Changed(nameof(UpdateDetails)); }
     }
     void OpenDownloadsClick(object sender, RoutedEventArgs e) => Safe(() => { var path = Path.Combine(folder, "downloads"); Directory.CreateDirectory(path); Process.Start(new ProcessStartInfo("explorer.exe", path) { UseShellExecute = true }); });
     void LanguageChanged(object sender, SelectionChangedEventArgs e)
     {
         if (LanguageBox?.SelectedItem is not LanguageChoice item) return;
         var previousState = Desired;
+        var previousGuide = selectedGuide;
         var previousStatus = statusKey;
         LanguagePreference = item.Code; L.Set(item.Code); Changed(nameof(LanguagePreference));
         foreach (var language in Languages) language.Refresh();
@@ -325,16 +354,19 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (selectedId is uint id) Selected = catalog.FirstOrDefault(f => f.Id == id) ?? discovered.FirstOrDefault(f => f.Id == id) ?? new Feature(id, L["UnknownId"]);
         foreach (var option in Categories) option.Refresh();
         foreach (var option in States) option.Refresh();
+        foreach (var option in CuratedTypes) option.Refresh();
+        SelectGuide(previousGuide);
+        foreach(var result in ExecutionResults.ToArray()) { var index = ExecutionResults.IndexOf(result); ExecutionResults[index] = result with { Locale = L }; }
         foreach (var name in new[] { nameof(Cards), nameof(BuildText), nameof(ReviewCountText), nameof(ReviewIdsText), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
         RefreshDetail(); Desired = previousState; LoadHistory(); SaveSettings();
         if (previousStatus is not null) SetStatus(L[previousStatus]);
         else if (lastError is not null) SetStatus(L.ErrorSummary(lastError));
     }
-    void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) { Root.LayoutTransform = new ScaleTransform(e.NewValue, e.NewValue); if (initialized) UpdateLayoutMode(); } }
+    void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) { var scale = ViewScale.Normalize(e.NewValue); Root.LayoutTransform = new ScaleTransform(scale,scale); if (initialized) { UpdateLayoutMode(); SaveSettings(); } } }
     void SaveSettings()
     {
         if (!initialized) return;
-        Safe(() => { Directory.CreateDirectory(folder); AtomicWrite(Path.Combine(folder, "settings.json"), JsonSerializer.Serialize(new Preferences(LanguagePreference, AutoCheck, AutoDownload, ThemeBox.SelectedIndex))); });
+        Safe(() => { Directory.CreateDirectory(folder); AtomicWrite(Path.Combine(folder, "settings.json"), JsonSerializer.Serialize(new Preferences(LanguagePreference, AutoCheck, AutoDownload, ThemeBox.SelectedIndex, ViewScale.Normalize(ScaleSlider.Value)))); });
     }
     void LoadSettings()
     {
@@ -343,6 +375,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var path = Path.Combine(folder, "settings.json"); if (!File.Exists(path)) return;
             var prefs = JsonSerializer.Deserialize<Preferences>(File.ReadAllText(path)); if (prefs is null) return;
             autoCheck = prefs.AutoCheck; autoDownload = prefs.AutoDownload; ThemeBox.SelectedIndex = Math.Clamp(prefs.Theme, 0, 2);
+            ScaleSlider.Value = ViewScale.Normalize(prefs.Scale);
             LanguagePreference = Localization.NormalizeSelection(prefs.Language);
             LanguageBox.SelectedValue = LanguagePreference; Changed(nameof(LanguagePreference));
         }
@@ -352,6 +385,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         if (!demo || store is not DemoStore) throw new InvalidOperationException("Smoke tests require fake backend.");
         // Fixed WPF render viewports avoid depending on the hosted runner display size.
+        File.WriteAllText("icon-result.json", JsonSerializer.Serialize(IconResources.Validate(this)));
         Root.Width = 1440; Root.Height = 900; UpdateLayoutMode();
         ThemeBox.SelectedIndex = 2;
         if (((SolidColorBrush)FindResource("CanvasBrush")).Color != (Color)ColorConverter.ConvertFromString("#151D2B")) throw new Exception("Dark appearance failed.");
@@ -440,17 +474,17 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             if (Math.Abs(Root.ActualWidth - size.Width) > 1 || Math.Abs(Root.ActualHeight - size.Height) > 1) throw new InvalidOperationException("Preview viewport was clipped.");
             if (IsExplore && IsCurated && size.Width == 1440 && size.Height == 900 && (L.Language is "en" or "zh-Hans"))
             {
-                var cards = Descendants(GalleryItems).OfType<Button>().Where(b => b.DataContext is FeatureCard && b.Tag is Feature).ToArray();
-                if (cards.Length != 4) throw new Exception("Expected four visible gallery cards.");
-                foreach (var card in cards) AssertViewportVisible(card);
-                foreach (var value in new[] { ObservedValue, OverrideValue })
+                var cards = Descendants(GalleryItems).OfType<Button>().Where(b => b.DataContext is FeatureCard && b.Tag is FeatureCard).ToArray();
+                if (cards.Length != Cards.Count()) throw new Exception("Curated catalog rendering lost entries.");
+                foreach (var card in cards.Take(2)) AssertViewportVisible(card);
+                if (selectedGuide is null) foreach (var value in new[] { ObservedValue, OverrideValue })
                 {
                     if (string.IsNullOrWhiteSpace(value.Text)) throw new Exception("Missing current-state value.");
                     AssertViewportVisible(value);
                     for (DependencyObject? parent = VisualTreeHelper.GetParent(value); parent is not null && parent != DetailPane; parent = VisualTreeHelper.GetParent(parent))
                         if (parent is ScrollViewer) throw new Exception("Current-state value must stay outside optional scrolling content.");
                 }
-                AssertViewportVisible(StageAction);
+                AssertViewportVisible(selectedGuide is null ? StageAction : GuideAction);
             }
             if (filename.StartsWith("localization/", StringComparison.Ordinal))
             {
@@ -473,7 +507,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     }
 }
-public sealed record Preferences(string Language, bool AutoCheck, bool AutoDownload, int Theme = 0);
+public sealed record Preferences(string Language, bool AutoCheck, bool AutoDownload, int Theme = 0, double Scale = 1);
 public sealed class HistoryRow(Receipt receipt, Locale locale)
 {
     public Receipt Receipt { get; } = receipt;

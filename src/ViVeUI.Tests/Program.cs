@@ -65,7 +65,7 @@ try
     await AsyncTest("Untrusted redirect refused before fetching destination", async () => { int calls = 0; using var service = new UpdateService(new Handler(_ => { calls++; return new(HttpStatusCode.Redirect) { Headers = { Location = new("https://evil.example/package") } }; })); await ThrowsAsync<InvalidDataException>(() => service.DownloadAsync(asset, folder)); Assert(calls == 1); });
     await AsyncTest("Path traversal filename refused", async () => { using var service = new UpdateService(new Handler(_ => throw new Exception("Must not fetch"))); await ThrowsAsync<InvalidDataException>(() => service.DownloadAsync(asset with { Name = "../escape.exe" }, folder)); });
     await AsyncTest("Trusted GitHub asset redirect verified", async () => { int calls = 0; using var service = new UpdateService(new Handler(_ => ++calls == 1 ? new(HttpStatusCode.Redirect) { Headers = { Location = new("https://release-assets.githubusercontent.com/a") } } : new(HttpStatusCode.OK) { Content = new ByteArrayContent(bytes) })); await service.DownloadAsync(asset, folder); Assert(calls == 2); });
-    await AsyncTest("Cancellation never leaves ready package", async () => { using var service = new UpdateService(new Handler(_ => throw new OperationCanceledException())); await ThrowsAsync<OperationCanceledException>(() => service.DownloadAsync(asset, folder)); Assert(service.Status == UpdateStatus.Failed && !Directory.GetFiles(folder, "*.partial").Any()); });
+    await AsyncTest("Cancellation never leaves ready package", async () => { using var service = new UpdateService(new Handler(_ => throw new OperationCanceledException())); await ThrowsAsync<OperationCanceledException>(() => service.DownloadAsync(asset, folder)); Assert(service.Status == UpdateStatus.Canceled && !Directory.GetFiles(folder, "*.partial").Any()); });
 }
 finally { if (Directory.Exists(folder)) Directory.Delete(folder, true); }
 // Cross-platform resource and routing checks; these do not claim Windows rendering or native-speaker review.
@@ -75,7 +75,7 @@ foreach (var language in Localization.Languages)
     {
         var resource = Localization.Resource(language.Code);
         Localization.ValidateResource(language.Code, Localization.English, resource);
-        Assert(resource.Count == 158 && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
+        Assert(resource.Count == 219 && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
         Assert(resource.Keys.All(k => Localization.Get(language.Code, k) == resource[k]));
         foreach (var key in new[] { "ReviewCountFormat", "ReviewIdsFormat", "QueueCountFormat" })
             foreach (var count in new[] { 0, 1, 2, 100 }) Assert(!Localization.Format(language.Code, key, count).Contains('{'));
@@ -151,6 +151,75 @@ Test("Actionable failure categories preserve safety distinctions", () =>
     Assert(Localization.ErrorKey(new HttpRequestException()) == "FailureNetwork");
     Assert(Localization.ErrorKey(new PlatformNotSupportedException()) == "FailureUnsupported");
     Assert(Localization.ErrorKey(new InvalidOperationException("No published release is available yet")) == "FailureNoRelease");
+});
+Test("Partial apply preserves failed and unattempted queue items", () =>
+{
+    var store = new FakeStore { FailOn = 2 }; var queue = new List<Change> { new(1,"one",Snapshot.Default,new(true,OverrideState.Enabled)),new(2,"two",Snapshot.Default,new(true,OverrideState.Enabled)),new(3,"three",Snapshot.Default,new(true,OverrideState.Enabled)) };
+    var submitted=queue.ToArray();var results=ChangeEngine.Apply(store,submitted);var remaining=ReviewOperations.Complete(queue,submitted,results);
+    Assert(queue.Select(c=>c.Id).SequenceEqual(new uint[]{2,3}) && remaining.Count==2 && store.Writes==2);
+    store.FailOn=0;var retried=ChangeEngine.Apply(store,queue.ToArray());ReviewOperations.Complete(queue,queue.ToArray(),retried);Assert(queue.Count==0 && store.Writes==4);
+});
+Test("Unverified responses cannot remove queued changes", () =>
+{
+    var change=new Change(1,"one",Snapshot.Default,new(true,OverrideState.Enabled));var queue=new List<Change>{change};
+    Throws<InvalidDataException>(()=>ReviewOperations.Complete(queue,[change],[new(change with {Id=2},true,null)]));Assert(queue.Count==1);
+    Throws<InvalidDataException>(()=>ReviewOperations.Complete(queue,[change],[new(change,true,null),new(change,true,null)]));Assert(queue.Count==1);
+    ReviewOperations.Complete(queue,[change],null);Assert(queue.Count==1);
+});
+Test("Completion preserves a separately edited queue item", () =>
+{
+    var change=new Change(1,"one",Snapshot.Default,new(true,OverrideState.Enabled));var changed=change with {After=new(true,OverrideState.Disabled)};var queue=new List<Change>{changed};
+    ReviewOperations.Complete(queue,[change],[new(change,true,null)]);Assert(queue.Single()==changed);
+});
+Test("Restore merge preserves unrelated queued changes", () =>
+{
+    var a=new Change(1,"one",Snapshot.Default,new(true,OverrideState.Enabled));var b=new Change(2,"two",new(true,OverrideState.Enabled),Snapshot.Default);var queue=new List<Change>{a};ReviewOperations.Merge(queue,[b]);Assert(queue.SequenceEqual(new[]{a,b}));
+    ReviewOperations.Merge(queue,[b]);Assert(queue.Count==2);
+});
+Test("Restore merge conflicts are atomic", () =>
+{
+    var a=new Change(1,"one",Snapshot.Default,new(true,OverrideState.Enabled));var queue=new List<Change>{a};
+    Throws<InvalidOperationException>(()=>ReviewOperations.Merge(queue,[new(2,"two",Snapshot.Default,new(true,OverrideState.Enabled)),a with {After=new(true,OverrideState.Disabled)}]));Assert(queue.Single()==a);
+});
+Test("Restore merge validates capacity before additions", () =>
+{
+    var queue=Enumerable.Range(1,100).Select(i=>new Change((uint)i,"entry",Snapshot.Default,new(true,OverrideState.Enabled))).ToList();
+    Throws<InvalidOperationException>(()=>ReviewOperations.Merge(queue,[new(101,"extra",Snapshot.Default,new(true,OverrideState.Enabled))]));Assert(queue.Count==100);
+});
+Test("Localized feature titles participate in full catalog search", () =>
+{
+    var editorial=new Dictionary<uint,string>{{37634385,"文件资源管理器标签页 Explorer tabs"}};
+    Assert(Catalog.Search(Catalog.Load(),"标签页","All",editorial).Single().Id==37634385);
+    Assert(Catalog.Search(Catalog.Load(),"Explorer tabs","All",editorial).Single().Id==37634385);
+});
+Test("Fifteen sourced guides are separate from feature overrides", () =>
+{
+    Assert(GuideCatalog.All.Count==15 && GuideCatalog.All.Select(g=>g.Key).Distinct().Count()==15);
+    foreach(var guide in GuideCatalog.All)
+    {
+        var uri=new Uri(guide.Source);Assert(uri.Scheme=="https" && new[]{"support.microsoft.com","learn.microsoft.com","blogs.windows.com"}.Contains(uri.Host));
+        Assert(!string.IsNullOrWhiteSpace(guide.Evidence));
+        foreach(var language in Localization.Languages)
+            foreach(var key in new[]{guide.TitleKey,guide.BodyKey,guide.Kind.ToString(),guide.RiskKey,guide.RestoreKey})Assert(!string.IsNullOrWhiteSpace(Localization.Get(language.Code,key)));
+    }
+    var classic=GuideCatalog.All.Single(g=>g.Key=="ClassicMenu");Assert(classic.Kind==GuideKind.NativeShortcut && classic.Destination==NativeDestination.Explorer && classic.Evidence.Contains("22572"));
+    var preview=GuideCatalog.All.Single(g=>g.Key=="ContextMenu");Assert(preview.Kind==GuideKind.InsiderGuide && preview.Destination==NativeDestination.None && preview.Evidence.Contains("Experimental"));
+});
+Test("Friendly right-click search finds all three relevant guides", () =>
+{
+    foreach(var (query,language) in new[]{("右键","zh-Hans"),("右鍵","zh-Hant"),("context menu","en")})Assert(GuideCatalog.All.Count(g=>GuideCatalog.Matches(g,query,language))>=3);
+    foreach(var language in Localization.Languages)foreach(var guide in GuideCatalog.All)Assert(GuideCatalog.Matches(guide,Localization.Get(language.Code,guide.TitleKey),language.Code));
+});
+Test("Native settings destinations are fixed and cannot become arbitrary commands", () =>
+{
+    foreach(var destination in Enum.GetValues<NativeDestination>())if(GuideCatalog.SettingsUri(destination) is string uri)Assert(uri.StartsWith("ms-settings:",StringComparison.Ordinal) && !uri.Contains('?') && !uri.Contains(' '));
+    Assert(GuideCatalog.SettingsUri((NativeDestination)999)==null);
+});
+Test("Scale persistence values are normalized safely", () =>
+{
+    Assert(ViewScale.Normalize(1.25)==1.25 && ViewScale.Normalize(1.35)==1.35);
+    foreach(var value in new[]{double.NaN,double.PositiveInfinity,double.NegativeInfinity,0,-1,10})Assert(ViewScale.Normalize(value)==1);
+    Assert(ViewScale.Normalize(1.249)==1.25);
 });
 Console.WriteLine($"{passed} tests passed. No Windows settings were accessed or modified.");
 class Handler(Func<HttpRequestMessage, HttpResponseMessage> handle) : HttpMessageHandler { protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token) => Task.FromResult(handle(request)); }

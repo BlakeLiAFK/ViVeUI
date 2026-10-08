@@ -37,5 +37,6 @@ public sealed class DemoStore : IFeatureStore
 {
     readonly Dictionary<uint, Snapshot> values = [];
     public Snapshot Read(uint id) => values.GetValueOrDefault(id, Snapshot.Default);
-    public void Write(uint id, Snapshot state) => values[id] = state;
+    public uint FailOn { get; set; }
+    public void Write(uint id, Snapshot state) { if (id == FailOn) throw new IOException("Injected demo write failure."); values[id] = state; }
 }

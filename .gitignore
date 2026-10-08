@@ -2,3 +2,5 @@
 **/obj/
 .artifacts/
 .DS_Store
+
+generated_images/

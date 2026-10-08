@@ -41,6 +41,13 @@ jobs:
           if (-not $p.WaitForExit(300000)) { $p.Kill(); throw 'Localization validation timed out' }
           if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; Get-Content localization-result.json -ErrorAction SilentlyContinue; throw 'Localization validation failed' }
           Get-Content localization-result.json
+      - name: Native dropdown, icon, guide and recovery workflow validation
+        shell: pwsh
+        run: |
+          $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--ux-smoke' -PassThru
+          if (-not $p.WaitForExit(180000)) { $p.Kill(); throw 'UX validation timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'UX validation failed' }
+          Get-Content ux-result.json
       - name: Publish standalone self-contained EXEs and corresponding source
         shell: pwsh
         run: |
@@ -61,7 +68,7 @@ jobs:
             }
           }
           Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
-          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.3.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.4.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
           Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
       - name: Launch only the x64 EXE in a clean directory
         shell: pwsh
@@ -77,6 +84,7 @@ jobs:
           if (-not $p.WaitForExit(120000)) { $p.Kill(); throw 'Standalone EXE timed out' }
           if ($p.ExitCode -ne 0) { Get-Content $clean/smoke-error.txt -ErrorAction SilentlyContinue; throw 'Standalone EXE failed' }
           Copy-Item $clean/smoke-result.txt standalone-result.txt
+          Copy-Item $clean/icon-result.json standalone-icon-result.json
           Get-Content standalone-result.txt
           $notices = @(Get-ChildItem $env:DOTNET_BUNDLE_EXTRACT_BASE_DIR -Recurse -File | Where-Object { $_.FullName -match 'runtime-notices' })
           if ($notices.Count -lt 2) { throw 'Runtime notices were not embedded/extracted from the standalone EXE' }
@@ -92,6 +100,10 @@ jobs:
           path: |
             previews/*.png
             previews/localization/**/*.png
+            previews/ux/*.png
+            ux-result.json
+            icon-result.json
+            standalone-icon-result.json
             localization-result.json
             smoke-result.txt
             smoke-error.txt

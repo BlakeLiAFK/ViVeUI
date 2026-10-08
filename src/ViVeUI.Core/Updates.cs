@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace ViVeUI.Core;
 public sealed record ReleaseAsset(string Name, Uri Url, string Sha256, long Size);
 public sealed record AppRelease(Version Version, Uri Page, ReleaseAsset Asset);
-public enum UpdateStatus { Idle, Checking, Current, Available, Downloading, Ready, Failed }
+public enum UpdateStatus { Idle, Checking, Current, Available, Downloading, Ready, Failed, Canceled }
 public sealed class UpdateService : IDisposable
 {
     public const string Repository = "BlakeLiAFK/ViVeUI";
@@ -49,6 +49,7 @@ public sealed class UpdateService : IDisposable
             Status = release.Version > current ? UpdateStatus.Available : UpdateStatus.Current;
             return Status == UpdateStatus.Available ? release : null;
         }
+        catch (OperationCanceledException) { Status = UpdateStatus.Canceled; throw; }
         catch { Status = UpdateStatus.Failed; throw; }
     }
     public async Task<string> DownloadAsync(ReleaseAsset asset, string folder, IProgress<double>? progress = null, CancellationToken cancellationToken = default)
@@ -92,6 +93,7 @@ public sealed class UpdateService : IDisposable
             }
             var target = Path.Combine(folder, asset.Name); File.Move(temporary, target, true); Status = UpdateStatus.Ready; return target;
         }
+        catch (OperationCanceledException) { Status = UpdateStatus.Canceled; if (temporary is not null && File.Exists(temporary)) File.Delete(temporary); throw; }
         catch { Status = UpdateStatus.Failed; if (temporary is not null && File.Exists(temporary)) File.Delete(temporary); throw; }
     }
     public void Dispose() => client.Dispose();

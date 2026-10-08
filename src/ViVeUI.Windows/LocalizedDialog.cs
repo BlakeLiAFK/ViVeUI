@@ -8,7 +8,7 @@ internal static class LocalizedDialog
 {
     internal static Window Create(Window? owner, Locale locale, string title, string body, bool confirm = false, string? technical = null, IReadOnlyList<ViVeUI.Core.Change>? scope = null)
     {
-        var dialog = new Window { Title = title, Width = 640, MaxHeight = 720, SizeToContent = SizeToContent.Height, MinWidth = 420,
+        var dialog = new Window { Icon = owner?.Icon ?? IconResources.Load(), Title = title, Width = 640, MaxHeight = 720, SizeToContent = SizeToContent.Height, MinWidth = 420,
             FlowDirection = locale.Direction, FontFamily = locale.Font, Language = locale.XmlLanguage,
             WindowStartupLocation = owner is null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner,
             ResizeMode = ResizeMode.CanResize, Background = SystemColors.WindowBrush, Foreground = SystemColors.WindowTextBrush };

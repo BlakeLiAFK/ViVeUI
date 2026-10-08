@@ -1,6 +1,6 @@
 # Languages
 
-Version 0.3.0 embeds 158 resource keys per language, covering navigation,
+Version 0.4.0 embeds 219 resource keys per language, covering navigation,
 settings, state explanations, curated feature descriptions, review/confirmation,
 update states and actionable error summaries. Original upstream identifiers and
 technical diagnostics remain unchanged and are displayed left-to-right.
@@ -59,3 +59,5 @@ by native speakers**. Native review of terminology, grammar, Arabic/Hindi shapin
 and accessibility remains required. Automated key coverage and installed glyph
 checks are not linguistic approval. Windows renders are offscreen control-tree
 renders, not an end-user desktop usability study.
+
+The sourced guide titles, instructions, risks, restore boundaries, type filters and recovery messages are also localized. Evidence build/channel identifiers and source URLs remain verbatim technical metadata.

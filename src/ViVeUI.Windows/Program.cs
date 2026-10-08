@@ -12,8 +12,9 @@ public static class Program
     {
         if (args.Length == 4 && args[0] == "--worker" && int.TryParse(args[2], out var parentPid)) { RunWorker(args[1], parentPid, args[3]); return; }
         if (args.Length > 0 && args[0].StartsWith("--ipc-", StringComparison.Ordinal)) { IpcSmoke.Run(args); return; }
+        var uxSmoke = args.Contains("--ux-smoke");
         var localizationSmoke = args.Contains("--localization-smoke");
-        var smoke = args.Contains("--smoke") || localizationSmoke;
+        var smoke = args.Contains("--smoke") || localizationSmoke || uxSmoke;
         var testFolder = smoke ? Path.Combine(Path.GetTempPath(), "ViVeUI-smoke-" + Guid.NewGuid().ToString("N")) : null;
         var app = new Application();
         app.DispatcherUnhandledException += (_, e) => { if (smoke) { File.WriteAllText("smoke-error.txt", e.Exception.ToString()); e.Handled = true; app.Shutdown(1); return; }
@@ -27,7 +28,7 @@ public static class Program
             window.ContentRendered += async (_, _) =>
             {
                 if (smokeStarted) return; smokeStarted = true;
-                try { if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
+                try { if (uxSmoke) await window.UxSmokeAsync(); else if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
                 catch (Exception e) { File.WriteAllText("smoke-error.txt", e.ToString()); app.Shutdown(1); }
             };
         try { app.Run(window); } finally { if (testFolder is not null) { try { Directory.Delete(testFolder, true); } catch (IOException) { } } }

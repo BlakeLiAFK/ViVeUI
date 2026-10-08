@@ -45,6 +45,8 @@ public partial class MainWindow
             ShowPage(ChangesPage); await Capture($"localization/{language.Code}/compact-review.png");
             Root.Width = 960; Root.Height = 800; UpdateLayoutMode(); ShowPage(ExplorePage); OpenDetailClick(this, new()); await Capture($"localization/{language.Code}/scale-150.png", 1.5);
             Root.LayoutTransform = Transform.Identity; Root.Width = 1440; Root.Height = 900; UpdateLayoutMode();
+            ShowPage(ExplorePage); SelectGuide(GuideCatalog.All[0]); await Capture($"localization/{language.Code}/guide.png");
+            Selected = catalog.Single(f => f.Id == 37634385);
             var dialog = LocalizedDialog.Create(this, L, L["Review"], L["UserOverride"] + "\n\n" + L["DefaultHelp"], true, @"C:\ViVeUI\downloads\ViVeUI-win-x64.exe", Staged.ToArray());
             var panel = (FrameworkElement)dialog.Content;
             var scopeGrid = EnumerateLogicalChildren(panel).OfType<Grid>().Single(g => g.ColumnDefinitions.Count == 3);
@@ -66,7 +68,7 @@ public partial class MainWindow
             host.Child = null; dialog.Close();
             var missing = Localization.Resource(language.Code).Values.SelectMany(t => t.EnumerateRunes()).Where(r => Rune.IsLetterOrDigit(r) || Rune.GetUnicodeCategory(r) is UnicodeCategory.NonSpacingMark or UnicodeCategory.SpacingCombiningMark).Select(r => r.Value).Distinct().Where(c => !glyphs.Contains(c)).Select(c => $"U+{c:X4}").ToArray();
             missingGlyphs |= missing.Length > 0;
-            reports.Add(new { language.Code, language.NativeName, language.FontFamily, rtl = language.IsRightToLeft, missingSystemGlyphs = missing, renders = 8, persisted = true, statePreserved = true, noFeatureWrites = true });
+            reports.Add(new { language.Code, language.NativeName, language.FontFamily, rtl = language.IsRightToLeft, missingSystemGlyphs = missing, renders = 9, persisted = true, statePreserved = true, noFeatureWrites = true });
         }
         LanguageBox.SelectedValue = "system"; SaveSettings(); LoadSettings();
         if (LanguagePreference != "system" || L.Language != Localization.ResolveSelection("system")) throw new Exception("System language preference round trip failed.");
