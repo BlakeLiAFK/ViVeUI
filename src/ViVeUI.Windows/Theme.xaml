@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
  <ResourceDictionary.MergedDictionaries><ResourceDictionary Source="Assets/Illustrations.xaml"/></ResourceDictionary.MergedDictionaries>
+ <DataTemplate DataType="{x:Type sys:String}"><TextBlock Text="{Binding}" TextWrapping="Wrap"/></DataTemplate>
  <SolidColorBrush x:Key="CanvasBrush" Color="#F6F8FC"/><SolidColorBrush x:Key="PaperBrush" Color="White"/><SolidColorBrush x:Key="SidebarBrush" Color="#FBFCFE"/><SolidColorBrush x:Key="SidebarTextBrush" Color="#25344B"/><SolidColorBrush x:Key="SidebarMutedBrush" Color="#748198"/>
  <SolidColorBrush x:Key="InkBrush" Color="#25344B"/><SolidColorBrush x:Key="MutedBrush" Color="#64748B"/><SolidColorBrush x:Key="LineBrush" Color="#E3E8F0"/><SolidColorBrush x:Key="AccentBrush" Color="#3368E8"/><SolidColorBrush x:Key="AccentTextBrush" Color="White"/><SolidColorBrush x:Key="SelectionBrush" Color="#EAF0FE"/>
  <Style TargetType="Window"><Setter Property="FontFamily" Value="Segoe UI"/><Setter Property="FontSize" Value="14"/><Setter Property="Foreground" Value="{DynamicResource InkBrush}"/><Setter Property="Background" Value="{DynamicResource CanvasBrush}"/></Style>

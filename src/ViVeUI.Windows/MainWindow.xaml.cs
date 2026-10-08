@@ -18,6 +18,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     void Changed([CallerMemberName] string? property = null) => PropertyChanged?.Invoke(this, new(property));
     public Locale L { get; } = new();
+    public IReadOnlyList<LanguageChoice> Languages { get; }
+    public string LanguagePreference { get; set; } = "system";
+    Exception? lastError;
+    public Visibility DiagnosticVisibility => lastError is null ? Visibility.Collapsed : Visibility.Visible;
+    public string TransitionArrow => L.Direction == FlowDirection.RightToLeft ? "←" : "→";
     readonly IReadOnlyList<Feature> catalog = Catalog.Load();
     readonly IFeatureStore store;
     IReadOnlyList<Feature> discovered = [];
@@ -29,7 +34,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     string? observationError;
     string? statusKey;
     public ObservableCollection<Change> Staged { get; } = [];
-    public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, c.Name); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"], L["BeforeLabel"], L["AfterLabel"], L["TechnicalDetails"], L["Remove"], L["CopyId"]); });
+    public IEnumerable<ReviewCard> ReviewRows => Staged.Select(c => { var feature = catalog.FirstOrDefault(f => f.Id == c.Id) ?? new Feature(c.Id, L["UnknownId"]); return new ReviewCard(c.Id, FeatureEditorial.Title(feature, L), c.Name, FeatureEditorial.Description(feature, L), FeatureImage(feature), StateLabel(c.Before), StateLabel(c.After), L["Unverified"], L["BeforeLabel"], L["AfterLabel"], L["TechnicalDetails"], L["Remove"], L["CopyId"]); });
     public IEnumerable<FeatureCard> Cards => new uint[] { 37634385, 39420424, 34300186, 36354489 }.Select(id => { var f = catalog.First(x => x.Id == id); return new FeatureCard(f, FeatureEditorial.Title(f, L), FeatureEditorial.Description(f, L), L[f.Category], FeatureImage(f), L["Unverified"], L["LearnMore"] + "  ›", Selected?.Id == id, L["HistoricalBadge"]); });
     ImageSource? FeatureImage(Feature f) => f.Illustrated ? (ImageSource)FindResource((FeatureEditorial.Key(f.Id) == "Navigation" ? "Navigation" : f.Category) + "Illustration") : null;
     public string SelectedTitle => Selected is null ? L["Detail"] : FeatureEditorial.Title(Selected, L);
@@ -42,8 +47,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public bool IsSettings => currentPage == "Settings";
     public Visibility ReviewVisibility => IsChanges ? Visibility.Visible : Visibility.Collapsed;
     public Visibility BrowseFooterVisibility => IsChanges ? Visibility.Collapsed : Visibility.Visible;
-    public string ReviewCountText => $"{Staged.Count} {L["FeaturesCount"]}";
-    public string ReviewIdsText => $"{Staged.Select(c => c.Id).Distinct().Count()} {L["IdsCount"]} · {L["ReadyCount"]}";
+    public string ReviewCountText => L.Format("ReviewCountFormat", Staged.Count);
+    public string ReviewIdsText => L.Format("ReviewIdsFormat", Staged.Select(c => c.Id).Distinct().Count());
     bool showAllIds;
     public bool ShowAllIds { get => showAllIds; set { showAllIds = value; Changed(); Changed(nameof(IsCurated)); Changed(nameof(GalleryVisibility)); Changed(nameof(CatalogVisibility)); } }
     public bool IsCurated { get => !showAllIds; set { if (value) ShowAllIds = false; } }
@@ -75,7 +80,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public string Description => L[Selected?.Illustrated == true ? "Historical" : "UnknownDescription"];
     public string ObservationText => observationError is not null ? L["ObservationError"] : Selected is not null && observations.TryGetValue(Selected.Id, out var observed) ? LocalizeObservation(observed) : L["NotObserved"];
     public string OverrideText { get; private set; } = "";
-    public string QueueText => Staged.Count == 0 ? L["NoChanges"] : $"{Staged.Count} {L["Staged"]}";
+    public string QueueText => Staged.Count == 0 ? L["NoChanges"] : L.Format("QueueCountFormat", Staged.Count);
     public string StatusText { get; private set; } = "";
     public bool Acknowledged { get => acknowledged; set { acknowledged = value; Changed(); Changed(nameof(CanApply)); } }
     public bool CanApply => !busy && Acknowledged && Staged.Count > 0;
@@ -86,16 +91,17 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public double DownloadProgress { get; private set; }
     public bool AutoCheck { get => autoCheck; set { autoCheck = value; Changed(); SaveSettings(); } }
     public bool AutoDownload { get => autoDownload; set { autoDownload = value; Changed(); SaveSettings(); } }
-    public MainWindow(bool demo)
+    public MainWindow(bool demo, string? testFolder = null)
     {
         this.demo = demo; store = demo ? new DemoStore() : new WindowsStore();
-        folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), demo ? "ViVeUI-Demo" : "ViVeUI");
+        folder = testFolder ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), demo ? "ViVeUI-Demo" : "ViVeUI");
+        Languages = new[] { new LanguageChoice("system", "", L) }.Concat(Localization.Languages.Select(l => new LanguageChoice(l.Code, l.NativeName, L))).ToArray();
         Categories = new[] { "All", "Explorer", "Widgets", "System", "Catalog" }.Select(key => new Choice<string>(key, L, key)).ToArray();
         States = Enum.GetValues<OverrideState>().Select(key => new Choice<OverrideState>(key, L, key.ToString())).ToArray();
         InitializeComponent(); DataContext = this;
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); Filter(); };
         Staged.CollectionChanged += (_, _) => { Acknowledged = false; Changed(nameof(QueueText)); Changed(nameof(ReviewRows)); Changed(nameof(ReviewCountText)); Changed(nameof(ReviewIdsText)); Changed(nameof(CanApply)); };
-        LoadSettings(); initialized = true; ApplyContrast(); Filter(); LoadHistory();
+        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory();
         SizeChanged += (_, _) => UpdateLayoutMode();
         SystemParameters.StaticPropertyChanged += SystemPreferenceChanged;
         Loaded += async (_, _) => { await RefreshObservations(); if (AutoCheck && !demo) await CheckUpdates(); };
@@ -144,7 +150,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void RefreshDetail()
     {
         try { var state = Selected is null ? Snapshot.Default : store.Read(Selected.Id); OverrideText = StateLabel(state); Desired = Staged.FirstOrDefault(c => c.Id == Selected?.Id)?.After.State ?? state.State; }
-        catch (Exception e) { OverrideText = L["Error"]; SetStatus(L["Diagnostics"] + ": " + e.Message); }
+        catch (Exception e) { OverrideText = L["Error"]; ReportError(e); }
         foreach (var name in new[] { nameof(SelectedTitle), nameof(SelectedDescription), nameof(Illustration), nameof(OverrideText), nameof(ObservationText), nameof(IllustrationAlt), nameof(Description), nameof(HistoricalVisibility) }) Changed(name);
     }
     async Task RefreshObservations()
@@ -158,16 +164,16 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             discovered = observations.Keys.Where(id => !known.Contains(id)).Select(id => new Feature(id, L["UnknownId"])).ToArray();
             Filter();
         }
-        catch (Exception e) { observationError = e.Message; SetStatus(L["ObservationError"] + ": " + e.Message); }
+        catch (Exception e) { observationError = e.Message; ReportError(e); SetStatus(L["ObservationError"]); }
         RefreshDetail();
     }
-    void SetStatus(string text) { statusKey = Locale.Text.Keys.FirstOrDefault(key => L[key] == text); StatusText = text; Changed(nameof(StatusText)); }
+    void SetStatus(string text) { statusKey = Localization.English.Keys.FirstOrDefault(key => L[key] == text); StatusText = text; Changed(nameof(StatusText)); }
     void SetBusy(bool value) { busy = value; Changed(nameof(NotBusy)); Changed(nameof(CanApply)); Changed(nameof(CanDownload)); }
     string LocalizeObservation(string observed)
     {
         var parts = observed.Split(" · ");
-        var state = parts.Length > 0 && Locale.Text.ContainsKey("Observed_" + parts[0]) ? L["Observed_" + parts[0]] : L["NotObserved"];
-        var priority = parts.Length > 1 && Locale.Text.ContainsKey("Priority_" + parts[1]) ? L["Priority_" + parts[1]] : L["Priority_Unknown"];
+        var state = parts.Length > 0 && Localization.English.ContainsKey("Observed_" + parts[0]) ? L["Observed_" + parts[0]] : L["NotObserved"];
+        var priority = parts.Length > 1 && Localization.English.ContainsKey("Priority_" + parts[1]) ? L["Priority_" + parts[1]] : L["Priority_Unknown"];
         return state + " · " + priority;
     }
     void ShowPage(UIElement page)
@@ -216,7 +222,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var all = response.Results?.Count == receipt.Changes.Count && response.Results.All(r => r.Applied);
             SetStatus(all ? L["Restart"] : L["Partial"]);
         }
-        catch (Exception e) { SetStatus(L["Error"] + ": " + e.Message); }
+        catch (Exception e) { ReportError(e); }
         finally { LoadHistory(); RefreshDetail(); SetBusy(false); }
     }
     void SaveReceipt(Receipt receipt)
@@ -238,7 +244,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         foreach (var file in Directory.EnumerateFiles(dir, "*.json").OrderByDescending(File.GetLastWriteTimeUtc).Take(100))
         {
             try { var receipt = JsonSerializer.Deserialize<Receipt>(File.ReadAllText(file)); if (receipt is not null) History.Add(new(receipt, L)); }
-            catch (Exception e) { SetStatus(L["Diagnostics"] + ": " + Path.GetFileName(file) + " — " + e.Message); }
+            catch (Exception e) { ReportError(new IOException(Path.GetFileName(file) + ": " + e.Message, e)); }
         }
     }
     void UndoClick(object sender, RoutedEventArgs e) => Safe(() =>
@@ -254,13 +260,21 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (proposed.Count == 0) { SetStatus(L["Unchanged"]); return; }
         Staged.Clear(); foreach (var change in proposed) Staged.Add(change); ShowPage(ChangesPage);
     });
-    void Safe(Action action) { try { action(); } catch (Exception e) { SetStatus(L["Error"] + ": " + e.Message); } }
+    void ReportError(Exception error)
+    {
+        lastError = error; SetStatus(L.ErrorSummary(error)); Changed(nameof(DiagnosticVisibility));
+    }
+    void DiagnosticClick(object sender, RoutedEventArgs e)
+    {
+        if (lastError is not null) LocalizedDialog.Show(this, L, L["Error"], L.ErrorSummary(lastError), technical: lastError.ToString());
+    }
+    void Safe(Action action) { try { action(); } catch (Exception e) { ReportError(e); } }
     void ReleaseClick(object sender, RoutedEventArgs e) => OpenUrl("https://github.com/BlakeLiAFK/ViVeUI/releases/latest");
     void LicenseClick(object sender, RoutedEventArgs e) => Safe(() =>
     {
         using var input = typeof(Program).Assembly.GetManifestResourceStream("ViVeUI.LICENSE")!;
         using var reader = new StreamReader(input);
-        var viewer = new TextBox { Text = reader.ReadToEnd(), IsReadOnly = true, TextWrapping = TextWrapping.Wrap, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(16) };
+        var viewer = new TextBox { Text = reader.ReadToEnd(), IsReadOnly = true, FlowDirection = FlowDirection.LeftToRight, TextWrapping = TextWrapping.Wrap, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(16) };
         new Window { Title = "ViVeUI · GPL-3.0-or-later", Width = 720, Height = 600, Owner = this, WindowStartupLocation = WindowStartupLocation.CenterOwner, Content = viewer }.ShowDialog();
     });
     void SourceClick(object sender, RoutedEventArgs e) => OpenUrl(Catalog.Source);
@@ -280,7 +294,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var pending = updater.CheckAsync(BuildInfo.Version, RuntimeInformation.OSArchitecture == Architecture.Arm64 ? "arm64" : "x64"); Changed(nameof(UpdateText));
             release = await pending; UpdateDetails = release is null ? "" : $"{release.Version} · {release.Asset.Size / 1024 / 1024} MB\n{release.Page}";
         }
-        catch (Exception e) { release = null; UpdateDetails = L["Diagnostics"] + ": " + e.Message; }
+        catch (Exception e) { release = null; ReportError(e); UpdateDetails = L.ErrorSummary(e); }
         finally { SetBusy(false); Changed(nameof(UpdateText)); Changed(nameof(UpdateDetails)); }
         if (release is not null && AutoDownload) await Download();
     }
@@ -293,27 +307,34 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var pending = updater.DownloadAsync(release.Asset, Path.Combine(folder, "downloads"), new Progress<double>(p => { DownloadProgress = p * 100; Changed(nameof(DownloadProgress)); })); Changed(nameof(UpdateText));
             var path = await pending; UpdateDetails = path + "\nSHA-256: " + release.Asset.Sha256;
         }
-        catch (Exception e) { UpdateDetails = L["Diagnostics"] + ": " + e.Message; }
+        catch (Exception e) { ReportError(e); UpdateDetails = L.ErrorSummary(e); }
         finally { SetBusy(false); Changed(nameof(UpdateText)); Changed(nameof(UpdateDetails)); }
     }
     void OpenDownloadsClick(object sender, RoutedEventArgs e) => Safe(() => { var path = Path.Combine(folder, "downloads"); Directory.CreateDirectory(path); Process.Start(new ProcessStartInfo("explorer.exe", path) { UseShellExecute = true }); });
     void LanguageChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (LanguageBox?.SelectedItem is not ComboBoxItem item) return;
+        if (LanguageBox?.SelectedItem is not LanguageChoice item) return;
         var previousState = Desired;
         var previousStatus = statusKey;
-        L.Set(item.Tag?.ToString() ?? "en"); CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(L.Language == "zh" ? "zh-CN" : L.Language);
+        LanguagePreference = item.Code; L.Set(item.Code); Changed(nameof(LanguagePreference));
+        foreach (var language in Languages) language.Refresh();
+        Changed(nameof(TransitionArrow));
+        var selectedId = Selected?.Id;
+        discovered = discovered.Select(f => f with { Name = L["UnknownId"] }).ToArray();
+        Filter();
+        if (selectedId is uint id) Selected = catalog.FirstOrDefault(f => f.Id == id) ?? discovered.FirstOrDefault(f => f.Id == id) ?? new Feature(id, L["UnknownId"]);
         foreach (var option in Categories) option.Refresh();
         foreach (var option in States) option.Refresh();
         foreach (var name in new[] { nameof(Cards), nameof(BuildText), nameof(ReviewCountText), nameof(ReviewIdsText), nameof(ModeText), nameof(QueueText), nameof(ReviewRows), nameof(UpdateText), nameof(CountText) }) Changed(name);
         RefreshDetail(); Desired = previousState; LoadHistory(); SaveSettings();
         if (previousStatus is not null) SetStatus(L[previousStatus]);
+        else if (lastError is not null) SetStatus(L.ErrorSummary(lastError));
     }
     void ScaleChanged(object sender, RoutedPropertyChangedEventArgs<double> e) { if (Root is not null) { Root.LayoutTransform = new ScaleTransform(e.NewValue, e.NewValue); if (initialized) UpdateLayoutMode(); } }
     void SaveSettings()
     {
         if (!initialized) return;
-        Safe(() => { Directory.CreateDirectory(folder); AtomicWrite(Path.Combine(folder, "settings.json"), JsonSerializer.Serialize(new Preferences(L.Language, AutoCheck, AutoDownload, ThemeBox.SelectedIndex))); });
+        Safe(() => { Directory.CreateDirectory(folder); AtomicWrite(Path.Combine(folder, "settings.json"), JsonSerializer.Serialize(new Preferences(LanguagePreference, AutoCheck, AutoDownload, ThemeBox.SelectedIndex))); });
     }
     void LoadSettings()
     {
@@ -322,9 +343,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var path = Path.Combine(folder, "settings.json"); if (!File.Exists(path)) return;
             var prefs = JsonSerializer.Deserialize<Preferences>(File.ReadAllText(path)); if (prefs is null) return;
             autoCheck = prefs.AutoCheck; autoDownload = prefs.AutoDownload; ThemeBox.SelectedIndex = Math.Clamp(prefs.Theme, 0, 2);
-            LanguageBox.SelectedIndex = prefs.Language == "zh" ? 1 : prefs.Language == "es" ? 2 : 0;
+            LanguagePreference = Localization.NormalizeSelection(prefs.Language);
+            LanguageBox.SelectedValue = LanguagePreference; Changed(nameof(LanguagePreference));
         }
-        catch (Exception e) { SetStatus(L["Diagnostics"] + ": " + e.Message); }
+        catch (Exception e) { ReportError(e); }
     }
     public async Task SmokeAsync()
     {
@@ -334,8 +356,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         ThemeBox.SelectedIndex = 2;
         if (((SolidColorBrush)FindResource("CanvasBrush")).Color != (Color)ColorConverter.ConvertFromString("#151D2B")) throw new Exception("Dark appearance failed.");
         ThemeBox.SelectedIndex = 1;
-        SidebarLanguage.SelectedIndex = 0;
-        if (LanguageBox.SelectedIndex != 0) throw new Exception("Sidebar language synchronization failed.");
+        SidebarLanguage.SelectedValue = "en";
+        if (LanguageBox.SelectedValue as string != "en") throw new Exception("Sidebar language synchronization failed.");
         Search = "37634385"; Filter(); if (Filtered.Count != 1) throw new Exception("Search failed.");
         Selected = Filtered[0]; Desired = OverrideState.Enabled; Stage();
         Desired = OverrideState.Default; Stage(); if (Staged.Count != 0) throw new Exception("Stale staged override was not canceled.");
@@ -345,7 +367,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Search = ""; searchTimer.Stop(); Filter(); IsCurated = true; Selected = catalog.First(f => f.Id == 37634385);
         ShowPage(ExplorePage); await Capture("explore.png");
         ShowPage(ChangesPage); await Capture("review.png");
-        LanguageBox.SelectedIndex = 1; ShowPage(ExplorePage); await Capture("explore-zh.png");
+        LanguageBox.SelectedValue = "zh-Hans"; ShowPage(ExplorePage); await Capture("explore-zh.png");
         if (CategoryBox.SelectedItem is not Choice<string> { Key: "All" } || !IsEnabledOverride) throw new Exception("Language switch lost selection.");
         ShowPage(ChangesPage); await Capture("review-zh.png");
         Root.Width = 900; UpdateLayoutMode(); await Capture("compact-review.png");
@@ -354,9 +376,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Acknowledged = true; await ApplyStaged(); if (store.Read(37634385).State != OverrideState.Enabled || store.Read(39420424).State != OverrideState.Enabled) throw new Exception("Fake apply failed.");
         HistoryList.SelectedIndex = 0; UndoClick(this, new()); if (Staged.Count != 2 || Staged.Any(c => c.After != Snapshot.Default)) throw new Exception("Undo failed.");
         await ApplyStaged(); if (store.Read(37634385) != Snapshot.Default || store.Read(39420424) != Snapshot.Default) throw new Exception("Fake undo failed.");
-        LanguageBox.SelectedIndex = 2; ShowPage(SettingsPage); await Capture("settings-es.png");
+        LanguageBox.SelectedValue = "es"; ShowPage(SettingsPage); await Capture("settings-es.png");
         ShowPage(UpdatesPage); await Capture("updates.png");
-        LanguageBox.SelectedIndex = 1; ShowPage(ExplorePage); ShowAllIds = true; await Capture("all-ids-zh.png");
+        LanguageBox.SelectedValue = "zh-Hans"; ShowPage(ExplorePage); ShowAllIds = true; await Capture("all-ids-zh.png");
         Root.Width = 900; IsCurated = true; UpdateLayoutMode(); await Capture("compact-catalog.png");
         OpenDetailClick(this, new()); await Capture("compact-detail.png");
         Search = "4294967295"; InspectClick(this, new());
@@ -387,7 +409,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             if (parent == Root) break;
         }
     }
-    async Task Capture(string filename)
+    async Task Capture(string filename, double dpiScale = 1)
     {
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle); UpdateLayout();
         Directory.CreateDirectory("previews");
@@ -413,7 +435,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var activeNav = IsExplore ? ExploreNavigation : IsChanges ? ChangesNavigation : IsUpdates ? UpdatesNavigation : SettingsNavigation;
             if (activeNav.Background is not SolidColorBrush navBrush || navBrush.Color != ((SolidColorBrush)FindResource("SelectionBrush")).Color) throw new Exception("Active navigation highlight missing.");
             if (Math.Abs(Root.ActualWidth - size.Width) > 1 || Math.Abs(Root.ActualHeight - size.Height) > 1) throw new InvalidOperationException("Preview viewport was clipped.");
-            if (IsExplore && IsCurated && size.Width == 1440 && size.Height == 900)
+            if (IsExplore && IsCurated && size.Width == 1440 && size.Height == 900 && (L.Language is "en" or "zh-Hans"))
             {
                 var cards = Descendants(GalleryItems).OfType<Button>().Where(b => b.DataContext is FeatureCard && b.Tag is Feature).ToArray();
                 if (cards.Length != 4) throw new Exception("Expected four visible gallery cards.");
@@ -427,10 +449,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 }
                 AssertViewportVisible(StageAction);
             }
-            var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
+            var bitmap = new RenderTargetBitmap((int)(size.Width * dpiScale), (int)(size.Height * dpiScale), 96 * dpiScale, 96 * dpiScale, PixelFormats.Pbgra32);
             bitmap.Render(host);
             var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
-            using var stream = File.Create(Path.Combine("previews", filename)); encoder.Save(stream);
+            var output = Path.Combine("previews", filename); Directory.CreateDirectory(Path.GetDirectoryName(output)!);
+            using var stream = File.Create(output); encoder.Save(stream);
         }
         finally { host.Child = null; Content = Root; }
 
@@ -440,8 +463,8 @@ public sealed record Preferences(string Language, bool AutoCheck, bool AutoDownl
 public sealed class HistoryRow(Receipt receipt, Locale locale)
 {
     public Receipt Receipt { get; } = receipt;
-    public string Summary => $"{Receipt.At:g} · {Receipt.Changes.Count} · {locale[Receipt.Results is null ? "Pending" : Receipt.Results.Count == Receipt.Changes.Count && Receipt.Results.All(r => r.Applied) ? "Applied" : "Partial"]}";
-    public string Detail => string.Join("\n", Receipt.Changes.Select(c => $"{c.Id}: {locale.State(c.Before)} → {locale.State(c.After)}")) + (Receipt.Results is null ? "" : "\n" + string.Join("\n", Receipt.Results.Where(r => r.Error is not null).Select(r => r.Error)));
+    public string Summary => $"{Receipt.At:g} · {locale.Format("QueueCountFormat", Receipt.Changes.Count)} · {locale[Receipt.Results is null ? "Pending" : Receipt.Results.Count == Receipt.Changes.Count && Receipt.Results.All(r => r.Applied) ? "Applied" : "Partial"]}";
+    public string Detail => string.Join("\n", Receipt.Changes.Select(c => $"{Localization.FeatureId(c.Id)}: {locale.State(c.Before)} → {locale.State(c.After)}")) + (Receipt.Results is null ? "" : "\n" + string.Join("\n", Receipt.Results.Where(r => r.Error is not null).Select(r => locale.ErrorSummary(new Exception(r.Error)))));
 }
 
 public sealed class Choice<T>(T key, Locale locale, string textKey) : INotifyPropertyChanged

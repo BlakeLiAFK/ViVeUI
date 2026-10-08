@@ -34,7 +34,7 @@ A supported OS version does **not** establish support for a particular feature f
 - **Review:** exact IDs and before/after states, two-step confirmation, and an explicit UAC request.
 - **Restore:** recorded snapshots scoped to the affected IDs; conflicting current states block undo.
 - **Updates:** GitHub release checks and optional automatic EXE downloads with SHA-256 verification. Installation and launch remain manual.
-- **Languages:** English, Simplified Chinese, and Spanish, including observation states and navigation.
+- **Languages:** 16 complete UI resource sets, native language names, persistent system/manual selection, and Arabic RTL. See [language coverage and review limits](docs/LANGUAGES.md).
 
 Browsing works offline without elevation. A separate worker handles only reviewed
 user-priority boot overrides. IPC uses a current-user SID ACL, exact process identity

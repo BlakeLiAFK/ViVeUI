@@ -12,27 +12,30 @@ public static class Program
     {
         if (args.Length == 4 && args[0] == "--worker" && int.TryParse(args[2], out var parentPid)) { RunWorker(args[1], parentPid, args[3]); return; }
         if (args.Length > 0 && args[0].StartsWith("--ipc-", StringComparison.Ordinal)) { IpcSmoke.Run(args); return; }
-        var smoke = args.Contains("--smoke");
+        var localizationSmoke = args.Contains("--localization-smoke");
+        var smoke = args.Contains("--smoke") || localizationSmoke;
+        var testFolder = smoke ? Path.Combine(Path.GetTempPath(), "ViVeUI-smoke-" + Guid.NewGuid().ToString("N")) : null;
         var app = new Application();
         app.DispatcherUnhandledException += (_, e) => { if (smoke) { File.WriteAllText("smoke-error.txt", e.Exception.ToString()); e.Handled = true; app.Shutdown(1); return; }
-            MessageBox.Show(e.Exception.Message, "ViVeUI", MessageBoxButton.OK, MessageBoxImage.Error); e.Handled = true; };
+            var locale = (app.MainWindow as MainWindow)?.L ?? new Locale(); LocalizedDialog.Show(app.MainWindow, locale, locale["Error"], locale.ErrorSummary(e.Exception), technical: e.Exception.ToString()); e.Handled = true; };
         app.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Theme.xaml", UriKind.Relative) });
         MainWindow window;
-        try { window = new MainWindow(args.Contains("--demo") || smoke); }
-        catch (Exception e) { File.WriteAllText(smoke ? "smoke-error.txt" : Path.Combine(Path.GetTempPath(), "ViVeUI-startup-error.txt"), e.ToString()); if (!smoke) MessageBox.Show(e.Message, "ViVeUI"); Environment.ExitCode = 1; return; }
+        try { window = new MainWindow(args.Contains("--demo") || smoke, testFolder); }
+        catch (Exception e) { File.WriteAllText(smoke ? "smoke-error.txt" : Path.Combine(Path.GetTempPath(), "ViVeUI-startup-error.txt"), e.ToString()); if (!smoke) { var locale = new Locale(); LocalizedDialog.Show(null, locale, locale["Error"], locale.ErrorSummary(e), technical: e.ToString()); } Environment.ExitCode = 1; return; }
         var smokeStarted = false;
-        if (args.Contains("--smoke"))
+        if (smoke)
             window.ContentRendered += async (_, _) =>
             {
                 if (smokeStarted) return; smokeStarted = true;
-                try { await window.SmokeAsync(); app.Shutdown(0); }
+                try { if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
                 catch (Exception e) { File.WriteAllText("smoke-error.txt", e.ToString()); app.Shutdown(1); }
             };
-        app.Run(window);
+        try { app.Run(window); } finally { if (testFolder is not null) { try { Directory.Delete(testFolder, true); } catch (IOException) { } } }
     }
     static void RunWorker(string pipeName, int parentPid, string secret)
     {
         if (!pipeName.StartsWith("ViVeUI-", StringComparison.Ordinal) || !Guid.TryParseExact(pipeName[7..], "N", out _)) return;
+        var locale = new Locale();
         try
         {
             using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(5));
@@ -42,19 +45,19 @@ public static class Program
             var line = WorkerChannel.Read(pipe, timeout.Token).GetAwaiter().GetResult();
             var request = JsonSerializer.Deserialize<WorkerRequest>(line) ?? throw new InvalidDataException("Empty request.");
             var changes = request.Changes;
-            var locale = new Locale(); locale.Set(request.Language);
+            locale.Set(request.Language);
             ChangeEngine.Validate(changes);
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
             // The elevated process also displays the exact scope. IPC never accepts file paths,
             // registry paths, commands, executables or download locations.
-            var details = string.Join("\n", changes.Select(x => $"{x.Id}: {locale.State(x.Before)} → {locale.State(x.After)}"));
-            if (MessageBox.Show(locale["UserOverride"] + "\n\n" + details + "\n\n" + locale["DefaultHelp"], "ViVeUI — " + locale["Review"], MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
+            var details = string.Join("\n", changes.Select(x => $"{Localization.FeatureId(x.Id)}: {locale.State(x.Before)} → {locale.State(x.After)}"));
+            if (!LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Review"], locale["UserOverride"] + "\n\n" + locale["DefaultHelp"], confirm: true, scope: details))
             { WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(null, locale["Canceled"])), timeout.Token).GetAwaiter().GetResult(); return; }
             List<ChangeResult>? result = null; string? error = null;
-            try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = e.Message; }
+            try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = locale.ErrorSummary(e); }
             WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(result, error)), timeout.Token).GetAwaiter().GetResult();
         }
-        catch (Exception e) { MessageBox.Show(e.Message, "ViVeUI worker", MessageBoxButton.OK, MessageBoxImage.Error); }
+        catch (Exception e) { LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Error"], locale.ErrorSummary(e), technical: e.ToString()); }
     }
     public static async Task<WorkerResponse> ElevateAsync(List<Change> changes, string language)
     {

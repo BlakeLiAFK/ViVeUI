@@ -68,6 +68,90 @@ try
     await AsyncTest("Cancellation never leaves ready package", async () => { using var service = new UpdateService(new Handler(_ => throw new OperationCanceledException())); await ThrowsAsync<OperationCanceledException>(() => service.DownloadAsync(asset, folder)); Assert(service.Status == UpdateStatus.Failed && !Directory.GetFiles(folder, "*.partial").Any()); });
 }
 finally { if (Directory.Exists(folder)) Directory.Delete(folder, true); }
+// Cross-platform resource and routing checks; these do not claim Windows rendering or native-speaker review.
+Test("Exactly sixteen languages with unique native names", () => Assert(Localization.Languages.Count == 16 && Localization.Languages.Select(l => l.Code).Distinct().Count() == 16 && Localization.Languages.Select(l => l.NativeName).Distinct().Count() == 16));
+foreach (var language in Localization.Languages)
+    Test("Complete embedded localization: " + language.Code, () =>
+    {
+        var resource = Localization.Resource(language.Code);
+        Localization.ValidateResource(language.Code, Localization.English, resource);
+        Assert(resource.Count == 158 && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
+        Assert(resource.Keys.All(k => Localization.Get(language.Code, k) == resource[k]));
+        foreach (var key in new[] { "ReviewCountFormat", "ReviewIdsFormat", "QueueCountFormat" })
+            foreach (var count in new[] { 0, 1, 2, 100 }) Assert(!Localization.Format(language.Code, key, count).Contains('{'));
+        if (language.Code != "en") Assert(resource.Count(pair => pair.Value == Localization.English[pair.Key]) < resource.Count / 4);
+        Assert(System.Globalization.CultureInfo.GetCultureInfo(language.CultureName).Name == language.CultureName);
+        Assert(language.FontFamily.Contains("Global User Interface"));
+    });
+Test("Regional and script language matching", () =>
+{
+    var cases = new Dictionary<string,string> { ["zh"]="zh-Hans", ["zh-CN"]="zh-Hans", ["zh-SG"]="zh-Hans", ["zh-TW"]="zh-Hant", ["zh-HK"]="zh-Hant", ["zh-MO"]="zh-Hant", ["zh-Hant-CN"]="zh-Hant", ["zh-Hans-HK"]="zh-Hans", ["zh-CHT"]="zh-Hant", ["pt-PT"]="pt-BR", ["pt_BR"]="pt-BR", ["es-MX"]="es", ["fr-CA"]="fr", ["ar-EG"]="ar", ["hi-IN"]="hi", ["EN-gb"]="en", ["tr-TR"]="tr", ["nl-NL"]="en", ["../../fr"]="en" };
+    foreach (var pair in cases) Assert(Localization.ResolveCode(pair.Key) == pair.Value);
+});
+Test("System preference stays distinct from resolved language", () =>
+{
+    Assert(Localization.NormalizeSelection(null) == "system" && Localization.NormalizeSelection("system") == "system");
+    Assert(Localization.ResolveSelection("system", "ja-JP") == "ja" && Localization.ResolveSelection("system", "zh-TW") == "zh-Hant");
+    Assert(Localization.ResolveSelection("fr", "ja-JP") == "fr" && Localization.ResolveSelection("system", "nl-NL") == "en");
+    Assert(Localization.NormalizeSelection("zh") == "zh-Hans" && Localization.NormalizeSelection("es") == "es");
+    foreach (var selection in Localization.Languages.Select(l => l.Code).Append("system")) Assert(Localization.NormalizeSelection(JsonSerializer.Deserialize<string>(JsonSerializer.Serialize(selection))) == selection);
+});
+Test("Arabic alone uses RTL; native labels use correct scripts", () =>
+{
+    Assert(Localization.Languages.Where(l => l.IsRightToLeft).Single().Code == "ar");
+    Assert(Localization.Get("ar", "Language").Any(c => c is >= '\u0600' and <= '\u06FF'));
+    Assert(Localization.Get("hi", "Language").Any(c => c is >= '\u0900' and <= '\u097F'));
+    Assert(Localization.Get("ja", "Language").Any(c => c is >= '\u3000' and <= '\u9FFF'));
+    Assert(Localization.Get("ko", "Language").Any(c => c is >= '\uAC00' and <= '\uD7AF'));
+});
+Test("Feature IDs and upstream technical identifiers are culture invariant", () =>
+{
+    var previous = System.Globalization.CultureInfo.CurrentCulture;
+    try
+    {
+        foreach (var lang in Localization.Languages)
+        {
+            System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(lang.CultureName);
+            Assert(Localization.FeatureId(uint.MaxValue) == "4294967295" && Catalog.Search(catalog, "tife").Single(f => f.Id == 37634385).Name == "TIFE");
+        }
+    }
+    finally { System.Globalization.CultureInfo.CurrentCulture = previous; }
+});
+Test("Runtime states and error summaries have resource coverage", () =>
+{
+    foreach (var code in Localization.Languages.Select(l => l.Code))
+    {
+        foreach (var state in Enum.GetNames<OverrideState>().Concat(Enum.GetNames<UpdateStatus>())) Assert(!string.IsNullOrEmpty(Localization.Get(code, state)));
+        foreach (var key in new[] { "FailureIntegrity", "FailureConflict", "FailurePermission", "FailureUnsupported", "FailureStorage", "FailureIpc", "FailureNetwork", "FailureRequest", "FailureNoRelease", "Confirm", "Cancel", "Close" }) Assert(!string.IsNullOrWhiteSpace(Localization.Get(code, key)));
+    }
+});
+Test("Resource validator rejects missing, extra and empty translations", () =>
+{
+    var source = new Dictionary<string,string> { ["K"]="Text {0}" };
+    Throws<InvalidDataException>(() => Localization.ValidateResource("test", source, new Dictionary<string,string>()));
+    Throws<InvalidDataException>(() => Localization.ValidateResource("test", source, new Dictionary<string,string> { ["K"]="Text {0}", ["Extra"]="X" }));
+    Throws<InvalidDataException>(() => Localization.ValidateResource("test", source, new Dictionary<string,string> { ["K"]=" " }));
+});
+Test("Resource validator rejects incorrect placeholders and permits reordering", () =>
+{
+    var source = new Dictionary<string,string> { ["K"]="{0}: {1}" };
+    Throws<InvalidDataException>(() => Localization.ValidateResource("test", source, new Dictionary<string,string> { ["K"]="{0}" }));
+    Throws<FormatException>(() => Localization.ValidateResource("test", source, new Dictionary<string,string> { ["K"]="{" }));
+    Localization.ValidateResource("test", source, new Dictionary<string,string> { ["K"]="{1} — {0}" });
+});
+Test("Resources reject hidden bidi overrides", () => Throws<InvalidDataException>(() => Localization.ValidateResource("test", new Dictionary<string,string> { ["K"]="Text" }, new Dictionary<string,string> { ["K"]="Text\u202E" })));
+Test("Unknown resource keys cannot silently appear as UI text", () => Throws<KeyNotFoundException>(() => Localization.Get("fr", "MisspelledKey")));
+Test("Actionable failure categories preserve safety distinctions", () =>
+{
+    Assert(Localization.ErrorKey(new UnauthorizedAccessException()) == "FailurePermission");
+    Assert(Localization.ErrorKey(new OperationCanceledException()) == "Canceled");
+    Assert(Localization.ErrorKey(new InvalidDataException("Package verification failed")) == "FailureIntegrity");
+    Assert(Localization.ErrorKey(new InvalidOperationException("Current state changed")) == "FailureConflict");
+    Assert(Localization.ErrorKey(new IOException("Worker exited before connecting")) == "FailureIpc");
+    Assert(Localization.ErrorKey(new HttpRequestException()) == "FailureNetwork");
+    Assert(Localization.ErrorKey(new PlatformNotSupportedException()) == "FailureUnsupported");
+    Assert(Localization.ErrorKey(new InvalidOperationException("No published release is available yet")) == "FailureNoRelease");
+});
 Console.WriteLine($"{passed} tests passed. No Windows settings were accessed or modified.");
 class Handler(Func<HttpRequestMessage, HttpResponseMessage> handle) : HttpMessageHandler { protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token) => Task.FromResult(handle(request)); }
 class FakeStore : IFeatureStore

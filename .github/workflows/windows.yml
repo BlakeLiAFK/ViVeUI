@@ -32,6 +32,13 @@ jobs:
           if (-not $p.WaitForExit(90000)) { $p.Kill(); throw 'UI test timed out' }
           if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'UI test failed' }
           Get-Content smoke-result.txt
+      - name: Sixteen-language WPF, RTL, font and persistence validation
+        shell: pwsh
+        run: |
+          $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--localization-smoke' -PassThru
+          if (-not $p.WaitForExit(300000)) { $p.Kill(); throw 'Localization validation timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; Get-Content localization-result.json -ErrorAction SilentlyContinue; throw 'Localization validation failed' }
+          Get-Content localization-result.json
       - name: Publish standalone self-contained EXEs and corresponding source
         shell: pwsh
         run: |
@@ -52,7 +59,7 @@ jobs:
             }
           }
           Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
-          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.2.1'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.3.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
           Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
       - name: Launch only the x64 EXE in a clean directory
         shell: pwsh
@@ -82,6 +89,8 @@ jobs:
           name: ViVeUI-native-validation
           path: |
             previews/*.png
+            previews/localization/**/*.png
+            localization-result.json
             smoke-result.txt
             smoke-error.txt
             ipc-result.json

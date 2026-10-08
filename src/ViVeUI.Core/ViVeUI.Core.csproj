@@ -1,1 +1,1 @@
-<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><EmbeddedResource Include="../../vendor/ViVe/Extra/FeatureDictionary.pfs" Link="FeatureDictionary.pfs" /></ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><EmbeddedResource Include="../../vendor/ViVe/Extra/FeatureDictionary.pfs" Link="FeatureDictionary.pfs" /><EmbeddedResource Include="Localization/*.json" WithCulture="false" LogicalName="ViVeUI.Core.Localization.%(Filename)%(Extension)" /></ItemGroup></Project>

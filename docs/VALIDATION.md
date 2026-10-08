@@ -1,7 +1,7 @@
 # Validation and honest limits
 
 Core tests use the real pinned catalog, fake feature storage, and fake HTTP
-handlers. The 47 tests cover catalog integrity, override semantics, staged-change
+handlers. The regression tests cover catalog integrity, override semantics, staged-change
 cancellation, scoped undo, preflight/conflicts, partial failure, read-back failure,
 history serialization, assembly-derived version metadata, trusted update origins,
 digest absence/mismatch, redirects, size limits, traversal, truncation,
@@ -81,3 +81,19 @@ observed/current-override values and the staging action to be visible, and rejec
 state values placed inside optional scroll content. Actual renders were inspected
 to confirm all card titles, statuses and category/details actions remain above the fold.
 Compact windows may scroll. The v0.2.0 release assets are preserved.
+
+## Sixteen-language validation (0.3.0)
+
+`tools/check_localization.py` audits all 16 resources, exact key coverage,
+placeholder consistency, literal UI references, XML and hidden bidi controls.
+Core tests validate regional/script matching, system preference persistence,
+resource validation failures, invariant feature IDs, and localized error categories.
+
+Windows Actions additionally runs `--localization-smoke` with isolated settings
+and the fake feature backend. Each language produces eight actual WPF renders:
+Explore, Review, Settings, Updates, compact detail/review, a 150% raster render,
+and a confirmation dialog. Assertions cover synchronized selectors, persisted
+preferences, preserved staged changes, Arabic RTL, localized default Cancel,
+and installed glyph availability. The 150% render checks raster scaling, not a
+physical monitor DPI transition. Glyph availability does not establish correct
+shaping or native-language quality. See [language maintenance](LANGUAGES.md).

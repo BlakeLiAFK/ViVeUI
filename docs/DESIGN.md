@@ -29,7 +29,7 @@ are explicit persistent preferences, off initially.
 
 Native buttons, lists, text boxes, checkboxes, focus outlines, automation labels,
 Ctrl+F, virtualized catalog rows, scalable layout, and system high-contrast brushes
-support basic accessibility. English, Simplified Chinese and Spanish are included;
+support basic accessibility. Sixteen UI languages and Arabic RTL are included (see [coverage](LANGUAGES.md));
 identifiers, build strings and original OS diagnostics are intentionally unchanged.
 No image contains translated text. WPF supports flow direction but a full RTL
 translation is not shipped; RTL and Narrator behavior still require human validation.

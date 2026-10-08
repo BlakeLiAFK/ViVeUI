@@ -1,82 +1,34 @@
 using System.ComponentModel;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Markup;
+using System.Windows.Media;
+using ViVeUI.Core;
 namespace ViVeUI.Windows;
 public sealed class Locale : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
-    public string Language { get; private set; } = "en";
-    public void Set(string language) { Language = language; PropertyChanged?.Invoke(this, new("Item[]")); }
-    public string this[string key] => Text.TryGetValue(key, out var row) ? row[Language == "zh" ? 1 : Language == "es" ? 2 : 0] : key;
-    public string State(ViVeUI.Core.Snapshot value) => this[value.Exists && value.State == ViVeUI.Core.OverrideState.Default ? "PresentDefault" : value.Exists ? value.State.ToString() : "Default"];
-    public static readonly Dictionary<string, string[]> Text = new()
+    public string Language { get; private set; } = Localization.ResolveSelection("system");
+    public string this[string key] => Localization.Get(Language, key);
+    public FlowDirection Direction => Localization.Definition(Language).IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+    public FontFamily Font => new(Localization.Definition(Language).FontFamily);
+    public XmlLanguage XmlLanguage => System.Windows.Markup.XmlLanguage.GetLanguage(Localization.Definition(Language).CultureName);
+    public void Set(string selection)
     {
-        ["CatalogCountChip"] = ["17,000 known IDs", "17,000 个已知 ID", "17.000 ID conocidos"],
-        ["HistoricalBadge"] = ["Historical experiment", "历史实验", "Experimento histórico"], ["CopyId"] = ["Copy ID", "复制 ID", "Copiar ID"], ["RecoveryReminder"] = ["Prepare recovery before experimenting. Save your work; this app does not create a Windows restore point.", "实验前请准备恢复方式并保存工作。本应用不会创建 Windows 还原点。", "Prepara la recuperación y guarda tu trabajo. Esta app no crea un punto de restauración de Windows."],
-        ["Appearance"] = ["Appearance", "外观", "Apariencia"], ["SystemTheme"] = ["System", "跟随系统", "Sistema"], ["LightTheme"] = ["Light", "浅色", "Claro"], ["DarkTheme"] = ["Dark", "深色", "Oscuro"],
-        ["BeforeLabel"] = ["Before", "更改前", "Antes"], ["AfterLabel"] = ["After", "更改后", "Después"], ["TechnicalDetails"] = ["Technical details", "技术详情", "Detalles técnicos"], ["RestartRow"] = ["Restart required · you decide when", "需要重启 · 由你决定时间", "Reinicio necesario · tú decides cuándo"],
-        ["License"] = ["Read license", "查看许可证", "Leer licencia"], ["ReleasePage"] = ["Release downloads", "发行版本下载", "Descargas de versiones"],
-        ["WindowTitle"] = ["ViVeUI · Windows feature manager", "ViVeUI · Windows 功能管理器", "ViVeUI · Gestor de funciones de Windows"],
-        ["AppSubtitle"] = ["Windows feature explorer", "Windows 功能探索", "Explorador de funciones"],
-        ["Curated"] = ["Discover", "精选探索", "Descubrir"], ["AllIds"] = ["All feature IDs", "全部功能 ID", "Todos los ID"],
-        ["GalleryHelp"] = ["Historical examples, clearly explained. Availability on your build is unverified.", "从历史实验了解功能。当前系统的适用性仍需验证。", "Ejemplos históricos. La compatibilidad con tu versión no está verificada."],
-        ["TabsTitle"] = ["File Explorer tabs", "文件资源管理器标签页", "Pestañas del Explorador"],
-        ["TabsDescription"] = ["A historical experiment for keeping folders together in one window.", "在一个窗口中组织多个文件夹的历史实验。", "Un experimento histórico para reunir carpetas en una ventana."],
-        ["SearchTitle"] = ["Task Manager search", "任务管理器搜索", "Búsqueda del Administrador"],
-        ["SearchDescription"] = ["A historical experiment for finding processes by name or ID.", "按名称或进程 ID 查找任务的历史实验。", "Un experimento histórico para buscar procesos por nombre o ID."],
-        ["WidgetsTitle"] = ["Expanded widgets", "展开的小组件面板", "Widgets ampliados"],
-        ["WidgetsDescription"] = ["A historical experiment for a larger space for widgets.", "为小组件提供更多展示空间的历史实验。", "Un experimento histórico para ampliar el espacio de widgets."],
-        ["NavigationTitle"] = ["Explorer navigation", "资源管理器导航窗格", "Navegación del Explorador"],
-        ["NavigationDescription"] = ["A historical experiment for reorganizing the navigation pane.", "重新组织文件资源管理器导航窗格的历史实验。", "Un experimento histórico para reorganizar el panel de navegación."],
-        ["Unverified"] = ["Build support unverified", "当前版本未验证", "Compatibilidad no verificada"],
-        ["CatalogSource"] = ["Pinned upstream catalog", "固定版本上游字典", "Catálogo de origen fijado"],
-        ["LearnMore"] = ["View details", "查看详情", "Ver detalles"], ["Remove"] = ["Remove", "移除", "Quitar"],
-        ["Summary"] = ["Review summary", "更改摘要", "Resumen"], ["FeaturesCount"] = ["features", "项功能", "funciones"],
-        ["IdsCount"] = ["feature IDs", "个功能 ID", "ID de función"], ["ReadyCount"] = ["Reviewed IDs only", "仅应用已审核的 ID", "Solo los ID revisados"],
-        ["StepReview"] = ["1. Review the exact changes", "1. 确认更改", "1. Revisa los cambios"],
-        ["StepReviewBody"] = ["Check each ID and its before/after state.", "核对功能 ID 和更改前后状态。", "Comprueba cada ID y sus estados."],
-        ["StepApprove"] = ["2. Approve administrator access", "2. 授予管理员权限", "2. Autoriza el acceso"],
-        ["StepApproveBody"] = ["A separate worker applies this reviewed batch.", "独立工作进程仅应用本次审核的更改。", "Un proceso separado aplica el lote revisado."],
-        ["StepRestart"] = ["3. Restart when ready", "3. 准备好后重启", "3. Reinicia cuando quieras"],
-        ["StepRestartBody"] = ["Save your work first. Restart is always manual.", "先保存工作，重启始终由你手动完成。", "Guarda tu trabajo. El reinicio es manual."],
-        ["BriefWarning"] = ["Experimental changes can affect stability. Prepare recovery first and try one experiment at a time.", "实验性更改可能影响稳定性。请先准备恢复方式，建议每次只尝试一个实验。", "Los experimentos pueden afectar la estabilidad. Prepara la recuperación y prueba uno cada vez."],
-        ["ReviewSubtitle"] = ["Understand what will change before granting permission.", "在授予权限之前，确认每一项更改。", "Comprende los cambios antes de dar permiso."],
-        ["IllustrationLabel"] = ["Original schematic", "原创示意图", "Esquema original"],
-        ["DemoShort"] = ["Demo", "演示", "Demo"], ["Canceled"] = ["Canceled. No changes applied.", "已取消，未应用更改。", "Cancelado. No se aplicaron cambios."],
-        ["Observed_Enabled"] = ["Enabled", "已启用", "Activado"], ["Observed_Disabled"] = ["Disabled", "已禁用", "Desactivado"], ["Observed_Default"] = ["Default", "默认", "Predeterminado"],
-        ["Priority_Demo"] = ["Simulated", "模拟状态", "Simulado"], ["Priority_User"] = ["User", "用户", "Usuario"], ["Priority_ImageDefault"] = ["Image default", "系统映像默认", "Predeterminado de imagen"],
-        ["Priority_EKB"] = ["Enablement package", "启用包", "Paquete de activación"], ["Priority_Safeguard"] = ["Safeguard", "保护规则", "Protección"], ["Priority_ImageDefaultEditionOverride"] = ["Edition default", "版本默认", "Predeterminado de edición"],
-        ["Priority_Service"] = ["Service", "服务", "Servicio"], ["Priority_Dynamic"] = ["Dynamic", "动态", "Dinámico"], ["Priority_Security"] = ["Security", "安全", "Seguridad"], ["Priority_UserPolicy"] = ["User policy", "用户策略", "Política de usuario"], ["Priority_Test"] = ["Test", "测试", "Prueba"], ["Priority_ImageOverride"] = ["Image override", "映像覆盖", "Anulación de imagen"],
-        ["Priority_Unknown"] = ["Unknown priority", "未知优先级", "Prioridad desconocida"],
-        ["PresentDefault"] = ["Explicit default override (present)", "显式默认覆盖（存在）", "Anulación predeterminada explícita (presente)"],
-        ["OpenDetails"] = ["Open details", "打开详情", "Abrir detalles"], ["Back"] = ["Back to catalog", "返回目录", "Volver al catálogo"],
-        ["Explore"] = ["Explore", "探索", "Explorar"], ["Changes"] = ["My changes", "我的更改", "Mis cambios"], ["Updates"] = ["Updates", "更新", "Actualizaciones"], ["Settings"] = ["Settings & about", "设置与关于", "Ajustes y detalles"],
-        ["Tagline"] = ["Windows, thoughtfully explored.", "从容探索 Windows。", "Explora Windows con criterio."],
-        ["ExploreTitle"] = ["Explore Windows possibilities.", "探索新可能，先了解再更改。", "Explora las posibilidades de Windows."],
-        ["ExploreSubtitle"] = ["Explore the catalog. Understand the unknowns. Make one considered change.", "浏览目录，了解未知，谨慎尝试每一次更改。", "Explora el catálogo. Comprende lo desconocido. Revisa cada cambio."],
-        ["Coverage"] = ["17,000 catalog IDs · upstream snapshot · March 2025", "17,000 个目录 ID · 上游快照 · 2025 年 3 月", "17.000 ID · catálogo de origen · marzo de 2025"],
-        ["CoverageNote"] = ["Catalog presence does not establish support on your Windows build. Missing observations do not mean disabled.", "目录收录不代表你的 Windows 版本支持此功能。未观察到不等于已禁用。", "Estar en el catálogo no garantiza compatibilidad. Sin observaciones no significa desactivado."],
-        ["Search"] = ["Search names or feature IDs", "搜索名称或功能 ID", "Buscar nombres o ID"], ["All"] = ["All features", "全部功能", "Todas las funciones"],
-        ["Explorer"] = ["File Explorer", "文件资源管理器", "Explorador de archivos"], ["Widgets"] = ["Widgets", "小组件", "Widgets"], ["System"] = ["System tools", "系统工具", "Herramientas del sistema"], ["Catalog"] = ["Unclassified catalog", "未分类目录", "Catálogo sin clasificar"],
-        ["AddId"] = ["Inspect ID", "查看 ID", "Inspeccionar ID"], ["Refresh"] = ["Refresh observations", "刷新观测", "Actualizar observaciones"],
-        ["Detail"] = ["FEATURE DETAILS", "功能详情", "DETALLES"], ["Schematic"] = ["Original conceptual illustration · not a Windows screenshot", "原创概念示意图 · 非 Windows 截图", "Ilustración conceptual original · no es una captura de Windows"],
-        ["NoPreview"] = ["No verified visual preview", "暂无经验证的外观预览", "Sin vista previa verificada"],
-        ["UnknownDescription"] = ["The upstream name is a technical identifier. Behavior, prerequisites, dependencies and build compatibility are unverified. This app does not infer them from the name.", "上游名称为技术标识符。行为、前提条件、依赖关系及版本兼容性均未经验证。本应用不会根据名称推断这些信息。", "El nombre de origen es un identificador técnico. El comportamiento, requisitos y compatibilidad no están verificados; no se deducen del nombre."],
-        ["Historical"] = ["Historical example only. The illustration describes a category, not the appearance or availability of this feature on your PC.", "仅供历史参考。示意图表示类别，不代表此功能在你电脑上的外观或可用性。", "Ejemplo histórico. La ilustración representa una categoría, no la apariencia ni disponibilidad en tu PC."],
-        ["Observed"] = ["Observed runtime configuration", "观测到的运行时配置", "Configuración de ejecución observada"], ["NotObserved"] = ["Not observed / applicability unknown", "未观察到 / 适用性未知", "Sin observaciones / compatibilidad desconocida"],
-        ["UserOverride"] = ["User boot override · priority 8", "用户启动覆盖 · 优先级 8", "Anulación de arranque · prioridad 8"], ["Default"] = ["Windows default", "Windows 默认", "Predeterminado de Windows"], ["Enabled"] = ["Enable", "启用", "Activar"], ["Disabled"] = ["Disable", "禁用", "Desactivar"],
-        ["DefaultHelp"] = ["Default removes this user override; it does not mean disabled. Other Windows priorities may still win. A restart is required after changes.", "默认将移除此用户覆盖，不等于禁用。其他 Windows 优先级仍可能生效。更改后需要重启。", "Predeterminado elimina esta anulación; no significa desactivado. Otras prioridades pueden prevalecer. Los cambios requieren reiniciar."],
-        ["Stage"] = ["Add to review", "加入审核", "Añadir a revisión"], ["Source"] = ["Open pinned source", "打开固定版本来源", "Abrir fuente fijada"], ["Review"] = ["Review changes", "审核更改", "Revisar cambios"], ["Staged"] = ["staged changes", "项待审核更改", "cambios pendientes"],
-        ["NoChanges"] = ["Your next change starts with a review.", "每一次更改都从审核开始。", "Cada cambio comienza con una revisión."],
-        ["ReviewTitle"] = ["One final look.", "最后确认。", "Una última revisión."], ["ReviewHelp"] = ["These changes affect only the listed user boot overrides. Experiments can make Windows unstable. Save your work and arrange a recovery path. Apply one experiment at a time when possible.", "仅修改以下用户启动覆盖。实验性功能可能导致 Windows 不稳定。请保存工作并准备恢复方案。建议每次只尝试一个实验。", "Solo se modifican las anulaciones indicadas. Los experimentos pueden afectar la estabilidad. Guarda tu trabajo y prepara la recuperación. Prueba un experimento cada vez."],
-        ["Apply"] = ["Apply with administrator approval", "经管理员批准后应用", "Aplicar con autorización de administrador"], ["Clear"] = ["Clear review", "清空待审核", "Vaciar revisión"], ["Before"] = ["Before", "更改前", "Antes"], ["After"] = ["After", "更改后", "Después"],
-        ["History"] = ["Change history", "更改历史", "Historial de cambios"], ["Undo"] = ["Review restore of selected entry", "审核恢复所选记录", "Revisar restauración de la entrada"], ["HistoryHelp"] = ["Restore uses the recorded snapshot, not a global reset. Conflicts stop undo. Pending entries can be reconciled against the current state; they are not proof of success.", "恢复使用已记录的快照，而非全局重置。冲突会阻止撤销。待定记录可与当前状态核对，但不代表操作成功。", "Se restaura la instantánea guardada. Los conflictos bloquean la operación. Las entradas pendientes no demuestran que se aplicó un cambio."],
-        ["UpdateTitle"] = ["Stay curious. Stay current.", "保持好奇，及时更新。", "Sigue explorando. Mantente al día."], ["UpdateHelp"] = ["Updates come only from BlakeLiAFK/ViVeUI releases on GitHub. Packages are checked against GitHub's SHA-256 asset digest. Downloads never install or launch themselves.", "仅从 GitHub 的 BlakeLiAFK/ViVeUI 发布下载更新，并校验 GitHub 提供的 SHA-256 摘要。下载后不会自动安装或运行。", "Las actualizaciones proceden de BlakeLiAFK/ViVeUI en GitHub. Se verifica el resumen SHA-256. Nunca se instalan ni ejecutan automáticamente."],
-        ["Check"] = ["Check for updates", "检查更新", "Buscar actualizaciones"], ["Download"] = ["Download verified package", "下载并验证安装包", "Descargar paquete verificado"], ["OpenDownloads"] = ["Open download folder", "打开下载目录", "Abrir carpeta de descargas"],
-        ["AutoCheck"] = ["Check for updates when this app opens", "打开应用时检查更新", "Buscar actualizaciones al abrir"], ["AutoDownload"] = ["Automatically download verified updates after a successful check", "检查成功后自动下载并验证更新", "Descargar y verificar actualizaciones tras comprobarlas"],
-        ["Idle"] = ["Not checked yet", "尚未检查", "Sin comprobar"], ["Checking"] = ["Checking trusted source…", "正在检查可信来源…", "Comprobando fuente de confianza…"], ["Current"] = ["You have the latest published version", "已是最新发布版本", "Tienes la última versión publicada"], ["Available"] = ["A newer version is available", "有新版本可用", "Hay una nueva versión"], ["Downloading"] = ["Downloading and verifying…", "正在下载并验证…", "Descargando y verificando…"], ["Ready"] = ["Verified package ready · open folder to install manually", "安装包已验证 · 打开目录手动安装", "Paquete verificado · abre la carpeta para instalarlo"], ["Failed"] = ["Check or download failed · see details below", "检查或下载失败 · 详情见下方", "Error de comprobación o descarga · consulta los detalles"],
-        ["SettingsTitle"] = ["Make it feel like home.", "用你熟悉的方式。", "Siéntete como en casa."], ["Language"] = ["Interface language", "界面语言", "Idioma de la interfaz"], ["Scale"] = ["Text and interface scale", "文字与界面缩放", "Escala de texto e interfaz"], ["About"] = ["Built on ViVe · GPL-3.0-or-later", "基于 ViVe · GPL-3.0-or-later", "Basado en ViVe · GPL-3.0-or-later"],
-        ["AboutHelp"] = ["ViVeUI. Full pinned upstream source, licenses, original artwork and build instructions ship with the source package. No telemetry. Browsing is offline and does not require elevation.", "ViVeUI。源码包包含固定上游源码、许可证、原创图像和构建说明。无遥测。可离线浏览，无需提升权限。", "ViVeUI. El paquete fuente incluye el código original fijado, licencias, ilustraciones e instrucciones. Sin telemetría. Explora sin conexión ni elevación."],
-        ["Demo"] = ["DEMO · simulated changes only", "演示 · 仅模拟更改", "DEMO · solo cambios simulados"], ["Local"] = ["LOCAL · browsing without elevation", "本地 · 无需提权即可浏览", "LOCAL · exploración sin elevación"], ["Error"] = ["Action could not be completed", "无法完成操作", "No se pudo completar la acción"], ["Restart"] = ["Verified changes saved. Restart Windows when you are ready.", "已验证并保存更改。请在准备好后重启 Windows。", "Cambios verificados y guardados. Reinicia Windows cuando quieras."],
-        ["Empty"] = ["No matching features. Try a shorter name or inspect a numeric ID.", "没有匹配的功能。请尝试更短的名称或查看数字 ID。", "Sin coincidencias. Prueba otro nombre o inspecciona un ID."], ["UnknownId"] = ["Unknown ID (not in pinned catalog)", "未知 ID（未收录于固定目录）", "ID desconocido (fuera del catálogo)"], ["InvalidId"] = ["Enter a non-zero 32-bit feature ID in the search field.", "请在搜索框中输入非零的 32 位功能 ID。", "Introduce un ID de 32 bits distinto de cero en la búsqueda."], ["Unchanged"] = ["This matches the current override. Nothing was staged.", "与当前覆盖相同，未加入待审核列表。", "Coincide con la anulación actual. No se añadió ningún cambio."], ["Applied"] = ["Applied and verified", "已应用并验证", "Aplicado y verificado"], ["Pending"] = ["Pending / outcome uncertain", "待定 / 结果不确定", "Pendiente / resultado incierto"], ["Partial"] = ["Partial or failed · inspect results", "部分成功或失败 · 请查看结果", "Parcial o fallido · revisa los resultados"],
-        ["HistoricalSource"] = ["Read historical context", "阅读历史背景", "Leer contexto histórico"], ["ObservationError"] = ["Observations unavailable", "观测不可用", "Observaciones no disponibles"], ["Diagnostics"] = ["Technical details (original system text)", "技术详情（系统原文）", "Detalles técnicos (texto original)"], ["SafetyAck"] = ["I understand these are experimental changes and have reviewed the exact IDs and states.", "我了解这些是实验性更改，并已审核具体 ID 和状态。", "Entiendo que son cambios experimentales y he revisado los ID y estados."],
-    };
+        Language = Localization.ResolveSelection(selection);
+        var culture = CultureInfo.GetCultureInfo(Localization.Definition(Language).CultureName);
+        CultureInfo.CurrentCulture = culture; CultureInfo.CurrentUICulture = culture;
+        PropertyChanged?.Invoke(this, new("Item[]"));
+        PropertyChanged?.Invoke(this, new(nameof(Direction))); PropertyChanged?.Invoke(this, new(nameof(Font))); PropertyChanged?.Invoke(this, new(nameof(XmlLanguage)));
+    }
+    public string Format(string key, params object[] values) => Localization.Format(Language, key, values);
+    public string State(Snapshot value) => this[value.Exists && value.State == OverrideState.Default ? "PresentDefault" : value.Exists ? value.State.ToString() : "Default"];
+    public string ErrorSummary(Exception error) => Localization.Resource(Language).Values.Contains(error.Message) ? error.Message : this[Localization.ErrorKey(error)];
+}
+public sealed class LanguageChoice(string code, string nativeName, Locale locale) : INotifyPropertyChanged
+{
+    public string Code => code;
+    public string NativeName => code == "system" ? locale["SystemLanguage"] : nativeName;
+    public event PropertyChangedEventHandler? PropertyChanged;
+    public void Refresh() => PropertyChanged?.Invoke(this, new(nameof(NativeName)));
 }
