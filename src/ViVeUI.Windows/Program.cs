@@ -54,7 +54,8 @@ public static class Program
             if (!LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Review"], locale["UserOverride"] + "\n\n" + locale["DefaultHelp"], confirm: true, scope: details))
             { WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(null, locale["Canceled"])), timeout.Token).GetAwaiter().GetResult(); return; }
             List<ChangeResult>? result = null; string? error = null;
-            try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = locale.ErrorSummary(e); }
+            // Preserve raw worker diagnostics; the UI localizes the summary and exposes original details.
+            try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = e.Message; }
             WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(result, error)), timeout.Token).GetAwaiter().GetResult();
         }
         catch (Exception e) { LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Error"], locale.ErrorSummary(e), technical: e.ToString()); }

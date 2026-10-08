@@ -14,6 +14,7 @@ public partial class MainWindow
     public async Task LocalizationSmokeAsync()
     {
         if (!demo || store is not DemoStore) throw new InvalidOperationException("Localization smoke requires the fake backend.");
+        if (Root.GetBindingExpression(FlowDirectionProperty) is null) throw new Exception("Initial root direction binding is missing before any offscreen capture.");
         ThemeBox.SelectedIndex = 1; Root.Width = 1440; Root.Height = 900;
         Search = ""; searchTimer.Stop(); Category = "All"; Filter();
         foreach (var id in new uint[] { 37634385, 39420424 }) { Selected = catalog.Single(f => f.Id == id); Desired = OverrideState.Enabled; Stage(); }

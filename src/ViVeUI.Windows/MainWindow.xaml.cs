@@ -423,6 +423,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         try
         {
             Root.DataContext = this;
+            // Reparenting the Window content can materialize inherited direction as a local value.
+            // Restore its live locale binding for the detached render and the returned UI tree.
+            Root.SetBinding(FlowDirectionProperty, new System.Windows.Data.Binding(nameof(Locale.Direction)) { Source = L });
             System.Windows.Documents.TextElement.SetFontFamily(Root, FontFamily);
             System.Windows.Documents.TextElement.SetFontSize(Root, FontSize);
             System.Windows.Documents.TextElement.SetForeground(Root, Foreground);
@@ -461,7 +464,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var output = Path.Combine("previews", filename); Directory.CreateDirectory(Path.GetDirectoryName(output)!);
             using var stream = File.Create(output); encoder.Save(stream);
         }
-        finally { host.Child = null; Content = Root; }
+        finally
+        {
+            host.Child = null; Content = Root;
+            Root.SetBinding(FlowDirectionProperty, new System.Windows.Data.Binding(nameof(Locale.Direction)) { Source = L });
+        }
 
     }
 }
