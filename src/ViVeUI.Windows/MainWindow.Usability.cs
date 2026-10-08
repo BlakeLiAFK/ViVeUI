@@ -28,6 +28,6 @@ public partial class MainWindow
 }
 public sealed record ExecutionRow(uint Id, string StatusKey, string? Error, Locale Locale)
 {
-    public string Summary => Localization.FeatureId(Id) + " · " + Locale[StatusKey];
+    public string Summary => Localization.FeatureId(Id) + " · " + Locale[StatusKey == "Failed" ? "Error" : StatusKey];
     public string Detail => Error is null ? "" : Locale.ErrorSummary(new Exception(Error));
 }
