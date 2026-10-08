@@ -1,0 +1,1280 @@
+{
+  "ClassicMenu": {
+    "title": "Klassisches Kontextmenü öffnen",
+    "body": "Klicken Sie eine Datei mit rechts an und wählen Sie Weitere Optionen anzeigen. Umschalt+Rechtsklick öffnet das vollständige Menü auf dokumentierten Builds direkt. Dieser Kurzbefehl gilt jeweils einmal und ersetzt das Windows-11-Menü nicht dauerhaft.",
+    "keywords": "Klassisches Kontextmenü öffnen Rechtsklick Kontextmenü",
+    "evidence": "Dokumentation zu Windows 11; Umschalt+Rechtsklick mit Dev 22572 am 2022-03-09 eingeführt. Aktuelle Geräteunterstützung ungeprüft."
+  },
+  "ContextMenu": {
+    "title": "Anpassbare moderne Kontextmenüs",
+    "body": "Prüfen Sie das überarbeitete Kontextmenü und dessen Einstellungen einschließlich Senden an, Ordner aktualisieren und vereinfachtem Standardlayout. Dies ist eine Beobachtung einer bestimmten Experimental-Build und keine Anleitung zur dauerhaften Wiederherstellung des Windows-10-Menüs.",
+    "keywords": "Anpassbare moderne Kontextmenüs historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26340.9212 · Experimental (2026-08-17). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "ExplorerTabsHistory": {
+    "title": "Historische Explorer-Registerkarten",
+    "body": "Die früheren Registerkarten nutzten 37634385; Beta 22621 benötigte zusätzlich 39145991. Laut ExplorerPatcher wurde TIFE in Dev 23575 entfernt. Das Deaktivieren von 37634385, 36354489 und 39145991 soll unter 22621.2361 Explorer-Abstürze verursachen. Diese Folge ist niemals eine allgemeine Rücknahmeanleitung.",
+    "keywords": "Historische Explorer-Registerkarten historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25136 · Dev; 22621 · Beta. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "ExplorerNavigationHistory": {
+    "title": "Überarbeitete Explorer-Navigation",
+    "body": "Die frühere Navigation nutzte 36354489 und benötigte auf Beta 22621 zusätzlich 39145991. Laut ExplorerPatcher verursacht das Deaktivieren dieses Paars zusammen mit Registerkarten-ID 37634385 unter 22621.2361 Explorer-Abstürze. Die Zuordnung liefert keine sichere allgemeine Rücknahme für spätere Builds.",
+    "keywords": "Überarbeitete Explorer-Navigation historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25136 · Dev; 22621 · Beta. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "ExternalFolderTabs": {
+    "title": "Externe Ordner in vorhandenen Registerkarten",
+    "body": "Öffnen Sie einen Desktopordner oder einen externen Ordnerlink und beobachten Sie, ob statt eines weiteren Fensters eine neue Registerkarte in einem vorhandenen Explorer-Fenster erscheint.",
+    "keywords": "Externe Ordner in vorhandenen Registerkarten historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4515 · Beta (2024-11-23). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "RestoreExplorerTabs": {
+    "title": "Explorer-Registerkarten bei Anmeldung wiederherstellen",
+    "body": "Beobachten Sie, ob Explorer seine offenen Registerkarten nach der Anmeldung wiederherstellt. Die Quelle verlangt zusätzlich die Windows-Einstellung zum Speichern neu startbarer Apps und deren Neustart bei der Anmeldung.",
+    "keywords": "Explorer-Registerkarten bei Anmeldung wiederherstellen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4580 · Beta (2024-12-07). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "StartCustomization": {
+    "title": "Kombination zur Startmenü-Anpassung",
+    "body": "Prüfen Sie kleinere Startlayouts sowie Sichtbarkeit von Zuletzt, Alle Apps, Kontoname und Profilbild. Halten Sie die sechs IDs als eine beobachtete Vorgehensweise zusammen. Der Originalbeitrag nennt keinen Kanal.",
+    "keywords": "Kombination zur Startmenü-Anpassung historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26300.8553 (2026-05-29). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "RedesignedStartRecipe": {
+    "title": "Kombination für das überarbeitete Startmenü",
+    "body": "Prüfen Sie das überarbeitete Startmenü mit der beim Bereitstellungsbeginn gemeldeten Kombination aus sechs Komponenten. Die Quelle nennt Datum und Kanäle, aber keine vollständigen Buildnummern. Die sechs IDs sind keine sechs eigenständigen Funktionen.",
+    "keywords": "Kombination für das überarbeitete Startmenü historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 2025-06-10 · Dev/Beta (2025-06-10). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "TaskbarPositionHistory": {
+    "title": "Experiment zur Taskleistenposition",
+    "body": "Prüfen Sie die Taskleisteneinstellungen auf verschiebbare Positionen. Dies ist die vom Autor im Mai 2026 beobachtete Umsetzung. Der Befehlsbeitrag nennt eine Build, aber keinen Kanal und belegt keine Unterstützung anderer Builds.",
+    "keywords": "Experiment zur Taskleistenposition historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26300.8493 (2026-05-15). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SmallTaskbarHistory": {
+    "title": "Experiment mit kleiner Taskleiste",
+    "body": "Prüfen Sie die Option einer kleinen Taskleiste. Diese Umsetzung vom Mai 2026 unterscheidet sich vom älteren Experiment 29785184, das nur Schaltflächen betrifft. Die Quelle nennt keinen Kanal und garantiert keine dauerhafte Unterstützung.",
+    "keywords": "Experiment mit kleiner Taskleiste historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26300.8493 (2026-05-15). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SmallTaskbarButtonsHistory": {
+    "title": "Experiment mit kleineren Taskleistenschaltflächen",
+    "body": "Prüfen Sie kleinere App-Schaltflächen in den Taskleisteneinstellungen. Diese frühe Umsetzung verkleinert Schaltflächen ohne Verringerung der Taskleistenhöhe. Sie unterscheidet sich von der späteren kleinen Taskleiste mit 61090762.",
+    "keywords": "Experiment mit kleineren Taskleistenschaltflächen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4291 · Beta (2024-09-30). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "ExplorerAiActions": {
+    "title": "KI-Aktionen in Explorer-Kontextmenüs",
+    "body": "Prüfen Sie das Kontextmenü einer unterstützten Datei auf KI-Aktionen. Die Quelle fasst beide IDs als eine Vorgehensweise zusammen. Sie belegt keine eigenständige Benutzerfunktion für jede einzelne ID.",
+    "keywords": "KI-Aktionen in Explorer-Kontextmenüs historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5603 · Dev; 26120.4151 · Beta (2025-05-19). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "QuickAccessibilityGroups": {
+    "title": "Gruppierte Barrierefreiheit in Schnelleinstellungen",
+    "body": "Öffnen Sie die Schnelleinstellungen und prüfen Sie nach Sehen, Hören und Motorik beziehungsweise Mobilität gruppierte Bedienelemente. Dies ordnet vorhandene Funktionen neu und belegt nicht, dass jedes Gerät alle aufgeführten Fähigkeiten unterstützt.",
+    "keywords": "Gruppierte Barrierefreiheit in Schnelleinstellungen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5570 · Dev; 26120.3941 · Beta (2025-04-25). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "VoiceVocabulary": {
+    "title": "Eigener Wortschatz für Sprachzugriff",
+    "body": "Prüfen Sie den Sprachzugriff auf einen Wortschatzeditor zum Ergänzen eigener Wörter. Sprache und installierte Sprachunterstützung bleiben entscheidend. Eine dokumentierte Feature-ID garantiert keine Erkennungsqualität auf diesem Gerät.",
+    "keywords": "Eigener Wortschatz für Sprachzugriff historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "VoiceQuickSettings": {
+    "title": "Sprachzugriff in Schnelleinstellungen",
+    "body": "Prüfen Sie im Bereich Barrierefreiheit der Schnelleinstellungen den Sprachzugriff-Schalter. Dieser bequeme Einstieg ersetzt weder die Ersteinrichtung noch das Herunterladen erforderlicher Sprachkomponenten.",
+    "keywords": "Sprachzugriff in Schnelleinstellungen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SettingsAnimatedIcons": {
+    "title": "Animierte Navigationssymbole der Einstellungen",
+    "body": "Prüfen Sie die Navigationssymbole der Einstellungen auf Animationen. Die historische Zuordnung beschreibt den visuellen Effekt, liefert aber weder Leistungsnachweis noch vollständige Abhängigkeiten. Dies darf nicht als Geschwindigkeitsoptimierung bezeichnet werden.",
+    "keywords": "Animierte Navigationssymbole der Einstellungen historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25188 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "HdrSettingsHistory": {
+    "title": "Experiment mit verbesserten HDR-Einstellungen",
+    "body": "Prüfen Sie die Anzeigeeinstellungen auf überarbeitete Fähigkeitsbeschreibungen, HDR-Videostreaming und Dolby-Vision-Modi. Die Auswahl hängt weiterhin von kompatiblen Bildschirmen ab. Eine Überschreibung kann fehlende Hardwarefähigkeiten nicht ergänzen.",
+    "keywords": "Experiment mit verbesserten HDR-Einstellungen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5581 · Dev; 26120.3950 · Beta (2025-05-06). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SpotlightHover": {
+    "title": "Blickpunkt-Fenster beim Darüberzeigen",
+    "body": "Zeigen Sie auf das Windows-Blickpunkt-Symbol des Desktops, um ein kleineres Flyout zu prüfen. Ein einfacher Klick öffnet die zugehörige Bing-Seite. Dies ändert die Symbolbedienung, statt eine neue unabhängige Hintergrundquelle hinzuzufügen.",
+    "keywords": "Blickpunkt-Fenster beim Darüberzeigen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4655 · Beta (2024-12-13). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SpotlightCaption": {
+    "title": "Blickpunkt-Symbol mit dynamischer Beschriftung",
+    "body": "Prüfen Sie das Blickpunkt-Desktopsymbol. Variante 1 ergänzt eine dynamische Bildbeschriftung; Variante 2 behält die feste Beschriftung mit neuem Symbol. Wählen Sie eine Alternative, nie beide nacheinander. Die Quelle wechselt nach Neustart zudem den Hintergrund und wieder zurück.",
+    "keywords": "Blickpunkt-Symbol mit dynamischer Beschriftung historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4660 · Beta (2025-01-04). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SpotlightThemeHistory": {
+    "title": "Windows-Blickpunkt-Design",
+    "body": "Die Zuordnung beschreibt Blickpunkt als Windows-Design. Prüfen Sie die Designauswahl der beobachteten Build. Dies unterscheidet sich von späteren Desktopsymbol-Interaktionen und belegt weder Offlineverfügbarkeit der Bilder noch Dauerhaftigkeit des Dienstes.",
+    "keywords": "Windows-Blickpunkt-Design historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25169 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "FluentOpenWithHistory": {
+    "title": "Fluent-App-Auswahl",
+    "body": "Die historische Zuordnung verbindet diese ID mit einer App-Auswahl im Fluent-Design. Prüfen Sie Öffnen mit in der angegebenen Build. Die Darstellung der Auswahl ist vom bewussten Auswählen oder Ändern einer Standardanwendung zu unterscheiden.",
+    "keywords": "Fluent-App-Auswahl historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25174 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "ExplorerSendPhone": {
+    "title": "Explorer-Dateien ans Telefon senden",
+    "body": "Prüfen Sie das Dateikontextmenü auf An mein Telefon senden. Die beiden IDs bilden die gemeldete Kombination. Eine kompatible Telefonverbindung bleibt für einen tatsächlichen Transfer erforderlich.",
+    "keywords": "Explorer-Dateien ans Telefon senden historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4225 · Beta (2024-09-20). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "ExplorerShareApps": {
+    "title": "Direkt aus Explorer an Apps teilen",
+    "body": "Prüfen Sie Datei- und Desktopkontextmenüs auf Teilen mit und unterstützte Apps. Die Quelle nennt 45286384 und 52800817 gemeinsam als beobachtete Vorgehensweise und belegt keine eigenständige Benutzerfunktion pro ID.",
+    "keywords": "Direkt aus Explorer an Apps teilen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4367 · Beta (2024-10-11). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "OpenWithStore": {
+    "title": "Store-Empfehlungen in Öffnen mit",
+    "body": "Prüfen Sie Öffnen mit auf Microsoft-Store-Empfehlungen. Haupt-ID: 55805655. Die überarbeitete Auswahl mit 41118774 ist erforderlich, falls noch nicht vorhanden. Empfehlungen installieren Anwendungen nicht automatisch.",
+    "keywords": "Store-Empfehlungen in Öffnen mit historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.4161 · Beta (2025-05-24). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "DarkFolderOptions": {
+    "title": "Dunkle Ordneroptionen",
+    "body": "Prüfen Sie den Explorer-Dialog Ordneroptionen im dunklen Modus. Haupt-ID: 59203365; die Quelle verlangt 58383338. Die verkürzte Buildangabe 26x20.6972 beschreibt eine Beobachtung und keinen unbegrenzten Kompatibilitätsbereich.",
+    "keywords": "Dunkle Ordneroptionen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26x20.6972 · Dev/Beta (2025-10-17). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "DarkFileDialogs": {
+    "title": "Dunkle Dateivorgangsdialoge",
+    "body": "Beobachten Sie Kopier- und Zugriff-verweigert-Dialoge im dunklen Modus. Hauptpaar: 57857165 und 57994323. Die Quelle ergänzt bedingt 48433719 sowie 49453572 unter Release Preview. Diese breiten Voraussetzungen sind keine unabhängigen Funktionen.",
+    "keywords": "Dunkle Dateivorgangsdialoge historisch Experiment nur lesen",
+    "evidence": "Beobachtet: .5751 · Dev/Beta; Release Preview (2025-08-15). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "ExplorerHomeRecommendations": {
+    "title": "Lokale Dateien in Start-Empfehlungen",
+    "body": "Prüfen Sie die Explorer-Startseite mit persönlichem Microsoft- oder lokalem Konto auf empfohlene lokale Dateien. Haupt-ID: 51721485. 48895801 ist eine optionale Abhängigkeit für die Kartendarstellung, keine notwendige Freischaltung.",
+    "keywords": "Lokale Dateien in Start-Empfehlungen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4800 · Beta (2025-01-18). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "BackupReminderSnooze": {
+    "title": "Explorer-Sicherungserinnerung verschieben",
+    "body": "Prüfen Sie die Erinnerung Sicherung starten in der Explorer-Adressleiste auf Optionen zum Ausschalten oder Verschieben um einen Monat.",
+    "keywords": "Explorer-Sicherungserinnerung verschieben historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4515 · Beta (2024-11-23). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "VoiceTypingFilter": {
+    "title": "Schimpfwortfilter der Spracheingabe",
+    "body": "Öffnen Sie die Spracheingabeeinstellungen und prüfen Sie die Option zum Deaktivieren des Schimpfwortfilters. Lesen Sie diktierten Text vor dem Absenden Korrektur. Dies betrifft Transkriptionsfilter, nicht Mikrofonrechte oder Erkennungsgenauigkeit.",
+    "keywords": "Schimpfwortfilter der Spracheingabe historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta (2025-04-25). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "NotificationClock": {
+    "title": "Uhr im Benachrichtigungscenter",
+    "body": "Prüfen Sie nach einem Explorer-Neustart Datum und Uhrzeit auf die Uhr des Benachrichtigungscenters. Haupt-ID: 42651849; 48433719 ist bedingt erforderlich. Diese Uhr ist von Sekunden in der Taskleistenuhr getrennt.",
+    "keywords": "Uhr im Benachrichtigungscenter historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.5240 · Beta (2025-04-18). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SecondaryNotificationCenter": {
+    "title": "Benachrichtigungscenter auf weiteren Monitoren",
+    "body": "Prüfen Sie das Benachrichtigungscenter auf einem zweiten Monitor. Die Quelle verlangt ausdrücklich einen Neustart, nennt aber nur das Buildsuffix .5722. Eine genaue Kompatibilität mit vollständigen Builds bleibt daher unbelegt.",
+    "keywords": "Benachrichtigungscenter auf weiteren Monitoren historisch Experiment nur lesen",
+    "evidence": "Beobachtet: .5722 · Dev/Beta (2025-07-28). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "BatteryGraphLabels": {
+    "title": "Beschriftungen des Akkunutzungsdiagramms",
+    "body": "Prüfen Sie unter dem Akkunutzungsdiagramm der Einstellungen Erläuterungen zu den Symbolen. Haupt-ID: 53092139; die breite Voraussetzung 48433719 ist bedingt. Dies verändert die Darstellung, nicht Akkukapazität oder Laufzeit.",
+    "keywords": "Beschriftungen des Akkunutzungsdiagramms historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.2510 · Dev (2024-12-06). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "Energy": {
+    "title": "Experiment mit Energieempfehlungen",
+    "body": "Die Zuordnung nennt 39427030 für Energieempfehlungen und 41249924 für deren dunkles Design. Beide bilden ein gemeinsames Funktionsarchiv; die genaue Abhängigkeit ist unbekannt. Native Empfehlungen anzuwenden kann mehrere Energieeinstellungen verändern.",
+    "keywords": "Experiment mit Energieempfehlungen historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25231 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "StartFolderCommands": {
+    "title": "Startordner per Kontextmenü erstellen",
+    "body": "Klicken Sie eine angeheftete Start-App mit rechts an und prüfen Sie Befehle zum Erstellen eines App-Ordners oder Verschieben in einen bestehenden Ordner. Die Quelle trennt diese Aktionen vom seitlichen Verschieben angehefteter Einträge.",
+    "keywords": "Startordner per Kontextmenü erstellen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "MoveStartPins": {
+    "title": "Start-Einträge per Kontextbefehl verschieben",
+    "body": "Klicken Sie eine angeheftete Start-App mit rechts an und prüfen Sie Befehle zum Verschieben um eine Position nach links oder rechts. Dieses Archiv betrifft tastaturfreundliche Anordnung und nicht das spätere vollständig überarbeitete Startmenü.",
+    "keywords": "Start-Einträge per Kontextbefehl verschieben historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "AboutFaq": {
+    "title": "Hardwarefragen auf der Infoseite",
+    "body": "Prüfen Sie die Infoseite der Einstellungen auf häufige Fragen zu Windows-Version und Gerätespezifikationen. Diese Erläuterungen rüsten weder Hardware auf noch prüfen sie die Kompatibilität anderer Anwendungen.",
+    "keywords": "Hardwarefragen auf der Infoseite historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-17). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "AboutHardwareCards": {
+    "title": "Hardwareübersichtskarten auf der Infoseite",
+    "body": "Prüfen Sie die Infoseite auf Karten zu Speicherplatz, Grafikspeicher und RAM. Hauptpaar: 51784082 und 54618938; 48433719 ist bedingt. Die Quelle verlangt Neustart. Spätere Neugestaltungen können andere Vorgehensweisen nutzen.",
+    "keywords": "Hardwareübersichtskarten auf der Infoseite historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4660 · Beta (2025-01-04). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "AdvancedCameraHistory": {
+    "title": "Experiment mit erweiterten Kameraeinstellungen",
+    "body": "Prüfen Sie erweiterte Kameraeinstellungen auf Medientyp und Auflösung. Dev 26120.2702 nutzte 49575624/50292326, Canary 27744 dagegen 52142480. Dies sind getrennte Buildbeobachtungen, keine Drei-ID-Kombination. Kompatible Kamerahardware bleibt erforderlich.",
+    "keywords": "Experiment mit erweiterten Kameraeinstellungen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.2702 · Dev; 27744 · Canary (2024-12-13). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "ModernSettingsDialogs": {
+    "title": "Moderne Dialoggestaltung der Einstellungen",
+    "body": "Die historische Zuordnung gruppiert PC umbenennen (38228963), Datum und Uhrzeit (39811196), Zurücksetzen (41598133) und Master-ID 36390579. Abhängigkeiten und Aktivierungsreihenfolge sind unbekannt. Dieses Forschungsarchiv benennt den PC nicht um, ändert keine Uhr und setzt nichts zurück. Zurücksetzen kann Apps und Daten entfernen.",
+    "keywords": "Moderne Dialoggestaltung der Einstellungen historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25231 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "TaskManagerDisconnectDialog": {
+    "title": "Moderner Dialog zum Benutzertrennen",
+    "body": "Prüfen Sie das Aussehen der Benutzertrennungsbestätigung im Task-Manager. Dieses Archiv betrifft ausschließlich die Gestaltung. Tatsächliches Trennen einer anderen Sitzung kann Arbeit unterbrechen und wird von diesem Katalog nicht ausgeführt.",
+    "keywords": "Moderner Dialog zum Benutzertrennen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4225 · Beta (2024-09-21). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "TaskManagerCpuCalculation": {
+    "title": "Neue CPU-Berechnung im Task-Manager",
+    "body": "Prüfen Sie die geänderte CPU-Auslastungsberechnung und die CPU-Nutzungsspalte im Task-Manager. Die Beobachtung betrifft die Darstellung von Messwerten und beschleunigt nicht den Prozessor. Werte können gegenüber früheren Builds abweichen.",
+    "keywords": "Neue CPU-Berechnung im Task-Manager historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.3360 · Dev/Beta (2025-02-28). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "TaskManagerDiskTypes": {
+    "title": "Datenträger-Verbindungsarten im Task-Manager",
+    "body": "Öffnen Sie Leistung im Task-Manager und prüfen Sie Bezeichnungen wie NVMe und SATA in Listen und Diagrammen. Diese beschreiben Hardware und sind keine Regler für die Datenträgerleistung.",
+    "keywords": "Datenträger-Verbindungsarten im Task-Manager historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4225 · Beta (2024-09-21). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "KernelDumpHistory": {
+    "title": "Live-Kernelspeicherabbilder im Task-Manager",
+    "body": "Die historische Zuordnung verbindet diese ID mit Live-Kernelspeicherabbildern im Task-Manager. Solche Abbilder können sensible Speicherinhalte enthalten. Lesen Sie die Dokumentation vor Erstellung oder Weitergabe. Dieses Archiv startet kein Speicherabbild.",
+    "keywords": "Live-Kernelspeicherabbilder im Task-Manager historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25231 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "TaskManagerSearchHistory": {
+    "title": "Prozesssuche im Task-Manager",
+    "body": "Die historische Zuordnung beschreibt das Prozesssuchfeld des Task-Managers. Prüfen Sie die Prozessfilterung in der angegebenen Build. Die Zuordnung belegt weder vollständige Voraussetzungen noch fortgesetzte Unterstützung späterer Versionen.",
+    "keywords": "Prozesssuche im Task-Manager historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25231 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "ArchiveAppsHistory": {
+    "title": "Überarbeitete Einstellungen zum App-Archivieren",
+    "body": "Prüfen Sie die historische Überarbeitung der Seite Apps archivieren zu dieser ID. Die Zuordnung beschreibt eine Seitenänderung und garantiert nicht, dass beliebige installierte Apps archiviert oder anschließend ohne erneuten Download wiederhergestellt werden können.",
+    "keywords": "Überarbeitete Einstellungen zum App-Archivieren historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25231 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "AnimatedTaskbarPreviews": {
+    "title": "Animierte Übergänge der Taskleistenvorschau",
+    "body": "Zeigen Sie auf Taskleisten-Apps und beobachten Sie animierte Vorschauwechsel, Größenänderungen und Ausblendung. Die Quelle nennt ein Updatesuffix statt einer vollständigen Buildnummer. Eine Leistungsverbesserung ist nicht belegt.",
+    "keywords": "Animierte Übergänge der Taskleistenvorschau historisch Experiment nur lesen",
+    "evidence": "Beobachtet: .5751 · Dev/Beta; KB5064071 (2025-08-15). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "BatteryPercentageHistory": {
+    "title": "Akkuprozentsatz und überarbeitetes Symbol",
+    "body": "Prüfen Sie Akkusymbol und Prozentoption. Diese Vorgehensweise vom Januar 2025 betrifft Build 26120.3000. Die Quelle verweist auch auf eine frühere versteckte Vorschau. Keine der Beobachtungen garantiert fortgesetzte Kompatibilität mit späteren Windows-Updates.",
+    "keywords": "Akkuprozentsatz und überarbeitetes Symbol historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26120.3000 · Dev (2025-01-24). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "EmojiTray": {
+    "title": "Emoji-und-mehr-Schaltfläche im Infobereich",
+    "body": "Prüfen Sie im Infobereich Emoji und mehr einschließlich Anzeige während der Eingabe und Verknüpfung zu Taskleisteneinstellungen. Die Quelle unterscheidet die funktionierende Schaltfläche dieser Build von früheren Beobachtungen, die nur Einstellungen zeigten.",
+    "keywords": "Emoji-und-mehr-Schaltfläche im Infobereich historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4655 · Beta (2024-12-14). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "LowerLeftSearchHistory": {
+    "title": "Suchfeldexperiment unten links",
+    "body": "Die Zuordnung beschreibt diese ID als Suchfeldexperiment unten links. Prüfen Sie die Suchposition in der angegebenen Build. Die Quelle erläutert nicht alle Interaktionen, und das Archiv verspricht dieses Layout nicht auf aktuellen Taskleisten.",
+    "keywords": "Suchfeldexperiment unten links historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25136 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "TaskbarAnimationHistory": {
+    "title": "Taskleisten-Animationsexperiment",
+    "body": "Prüfen Sie das vom Maintainer für diese Build verzeichnete Animationsexperiment. Die Zuordnung nennt weder eine vollständige Aktivierung noch alle betroffenen Animationen. Dieses Archiv behauptet bewusst kein identisches Verhalten moderner Taskleisten.",
+    "keywords": "Taskleisten-Animationsexperiment historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25182 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "TaskbarOverflowHistory": {
+    "title": "Kombination für Taskleistenüberlauf",
+    "body": "Der Maintainer nennt zwei Teile der Überlaufumsetzung. Halten Sie 35620393 und 35620394 als ein Funktionsarchiv zusammen, nicht als zwei Funktionen. Prüfen Sie den Überlauf, wenn viele Apps die Taskleiste der angegebenen Build belegen.",
+    "keywords": "Kombination für Taskleistenüberlauf historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 22622.436 · Beta. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "TaskbarStartupHistory": {
+    "title": "Experiment zum Taskleistenstart",
+    "body": "Der Maintainer bezeichnet dies als Experiment für schnelleren Taskleistenstart. Weder Benchmark noch aktuelle Kompatibilitätsbelege begleiten die Zuordnung. Bewahren Sie es als historische Implementierungsnotiz, nicht als versprochenen Leistungsgewinn oder empfohlene Optimierung.",
+    "keywords": "Experiment zum Taskleistenstart historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25182 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "TaskbarTrayHistory": {
+    "title": "Überarbeiteter Taskleisten-Infobereich",
+    "body": "Der Maintainer ordnet diese ID einem aktualisierten Infobereich zu. Prüfen Sie die Darstellung auf der angegebenen Build. Genauere Verhaltensänderungen und vollständige Abhängigkeiten fehlen. Dies bleibt eine historische Beobachtung ohne Schreibaktionen.",
+    "keywords": "Überarbeiteter Taskleisten-Infobereich historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25193 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "DarkRun": {
+    "title": "Dunkler Ausführen-Dialog",
+    "body": "Öffnen Sie Ausführen mit Win+R und prüfen Sie die dunkle Darstellung. Haupt-ID: 59270880; erforderliche Voraussetzung: 58383338. Die Quelle kürzt die Build als 26x20.6972 ab und belegt keinen genauen vollständigen Build-Kompatibilitätsbereich.",
+    "keywords": "Dunkler Ausführen-Dialog historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26x20.6972 · Dev/Beta (2025-10-17). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "DragShareTray": {
+    "title": "Experiment zum Teilen durch Ziehen",
+    "body": "Ziehen Sie eine Datei zum oberen Bildschirmrand und prüfen Sie die Leiste mit App-Zielen und vollständiger Freigabeoberfläche. Hauptpaar: 45624564 und 53397005; 48433719 ist bedingt. Die Quelle verlangt einen Neustart.",
+    "keywords": "Experiment zum Teilen durch Ziehen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4805 · Beta (2025-01-25). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "EdgeDesktopSearchHistory": {
+    "title": "Edge-Suchfeld auf dem Desktop",
+    "body": "Der Maintainer beschreibt zu dieser ID ein Edge-Suchfeld auf dem Desktop. Prüfen Sie diese historische Oberfläche. Die Zuordnung belegt weder Unabhängigkeit von installierten Edge-Komponenten noch Unterstützung aktueller Windows-Versionen.",
+    "keywords": "Edge-Suchfeld auf dem Desktop historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25136 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "WidgetExpansionHistory": {
+    "title": "Vergrößertes Widgets-Board",
+    "body": "Die historische Zuordnung verbindet diese ID mit einer erweiterten Widgets-Ansicht. Prüfen Sie deren Layout in der beobachteten Build. Inhalte hängen weiterhin von installierten Widgets und Diensten ab. Aktuelle Kompatibilität bleibt ungeprüft.",
+    "keywords": "Vergrößertes Widgets-Board historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25201 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "ModernAutoPlay": {
+    "title": "Moderner Dialog für automatische Wiedergabe",
+    "body": "Prüfen Sie den zentrierten WinUI-Dialog der automatischen Wiedergabe auf Dunkelmodus und einmalige beziehungsweise dauerhafte Auswahl. Die Quelle nennt eine genaue Build ohne Kanal. Tatsächliche Geräteaktionen erfordern weiterhin eine bewusste Auswahl.",
+    "keywords": "Moderner Dialog für automatische Wiedergabe historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26340.9212 (2026-08-17). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "SharePhotoEditing": {
+    "title": "Fotobearbeitung vor dem Teilen",
+    "body": "Prüfen Sie die Windows-Freigabeoberfläche vor dem Teilen eines Bildes auf Fotowerkzeuge. Beide IDs bilden die gemeldete Vorgehensweise. Bewahren Sie das Originalbild auf und prüfen Sie das Ergebnis vor dem Versenden.",
+    "keywords": "Fotobearbeitung vor dem Teilen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 26200.5516 · Dev; 26120.3653 · Beta (2025-03-28). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "ShareWebPreview": {
+    "title": "Weblink-Vorschau beim Teilen",
+    "body": "Prüfen Sie die Windows-Freigabeoberfläche auf eine visuelle Vorschau geteilter Weblinks. Dies dokumentiert die in Beta 22635.4655 beobachtete Vorgehensweise. Die Quelle belegt keine Kompatibilität beliebiger stabiler Versionen oder sämtlicher Freigabeanwendungen.",
+    "keywords": "Weblink-Vorschau beim Teilen historisch Experiment nur lesen",
+    "evidence": "Beobachtet: 22635.4655 · Beta (2024-12-14). Aktuelle Geräteunterstützung ungeprüft; kein unterstützter Versionsbereich."
+  },
+  "GamePassWidgetHistory": {
+    "title": "Xbox-Game-Pass-Widget",
+    "body": "Die Zuordnung beschreibt ein Xbox-Game-Pass-Widget, lässt dessen internen Funktionsnamen aber offen. Prüfen Sie das Widgets-Board auf diesen Inhalt. Der Funktionsschalter gewährt weder Abonnement noch Spielberechtigung.",
+    "keywords": "Xbox-Game-Pass-Widget historisch Experiment nur lesen",
+    "evidence": "Historische Zuordnung des Maintainers: 25201 · Dev. Aktuelle Unterstützung und vollständige Vorgehensweise ungeprüft."
+  },
+  "ToggleKeys": {
+    "title": "Sperrtasten akustisch melden",
+    "body": "Aktivieren Sie unter Barrierefreiheit → Tastatur die Umschalttasten, um Änderungen an Feststell-, Num- und Rollen-Taste zu hören. Nehmen Sie in ruhigen Räumen Rücksicht auf andere, bevor Sie akustische Rückmeldungen aktivieren.",
+    "keywords": "Sperrtasten akustisch melden Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "CaptionMicrophone": {
+    "title": "Mikrofon in Liveuntertitel einbeziehen",
+    "body": "Öffnen Sie im Liveuntertitel-Fenster die Einstellungen und beziehen Sie Mikrofon-Audio ein. Dadurch werden Gespräche in der Umgebung untertitelt. Prüfen Sie den Mikrofonzugriff und informieren Sie Beteiligte, bevor Sie ein Gespräch untertiteln.",
+    "keywords": "Mikrofon in Liveuntertitel einbeziehen Barrierefreiheit",
+    "evidence": "Liveuntertitel unter Windows 11 22H2+; unterstützte Sprache und Mikrofon erforderlich. Gerät ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "LiveCaptions": {
+    "title": "Liveuntertitel anzeigen",
+    "body": "Drücken Sie Win+Strg+L und schließen Sie den anfänglichen Sprachdownload ab. Danach verarbeitet Liveuntertitel Sprache lokal. Unterstützte Erkennungssprachen variieren. Übersetzung erfordert zusätzlich kompatible Copilot+-Hardware und eine unterstützte Version.",
+    "keywords": "Liveuntertitel anzeigen Barrierefreiheit",
+    "evidence": "Windows 11 22H2+ für Liveuntertitel; Übersetzung erfordert einen Copilot+ PC und 24H2+. Gerät ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "ColorFilters": {
+    "title": "Farbfilter anwenden",
+    "body": "Öffnen Sie Barrierefreiheit → Farbfilter und wählen Sie einen für Ihr Sehvermögen geeigneten Filter. Die Bildschirmfarben ändern sich; deaktivieren Sie ihn, wenn eine genaue Farbbeurteilung wichtig ist.",
+    "keywords": "Farbfilter anwenden Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "VoiceAccess": {
+    "title": "PC mit Sprachzugriff bedienen",
+    "body": "Öffnen Sie Barrierefreiheit → Spracherkennung und aktivieren Sie den Sprachzugriff. Wählen Sie eine unterstützte Sprache, laden Sie deren Dateien und richten Sie das Mikrofon ein. Die Erkennung erfolgt anschließend auf dem Gerät. Prüfen Sie Mikrofonrechte und üben Sie vor verlässlicher Nutzung.",
+    "keywords": "PC mit Sprachzugriff bedienen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "StickyKeys": {
+    "title": "Tastenkombinationen nacheinander eingeben",
+    "body": "Aktivieren Sie unter Barrierefreiheit → Tastatur die Einrastfunktion, um Tastenkombinationen Taste für Taste einzugeben. Dies ändert das Verhalten der Zusatztasten. Deaktivieren Sie sie, wenn normale Kombinationen unerwartet reagieren.",
+    "keywords": "Tastenkombinationen nacheinander eingeben Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "PointerVisibility": {
+    "title": "Mauszeiger besser sichtbar machen",
+    "body": "Öffnen Sie Barrierefreiheit → Mauszeiger und Toucheingabe. Vergrößern Sie den Zeiger oder wählen Sie eine kontrastreiche Farbe. Prüfen Sie, dass er kleine Bedienelemente nicht verdeckt.",
+    "keywords": "Mauszeiger besser sichtbar machen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "MonoAudio": {
+    "title": "Stereokanäle zusammenführen",
+    "body": "Öffnen Sie Barrierefreiheit → Audio und aktivieren Sie Mono-Audio, um beide Stereokanäle zu kombinieren. Das hilft beim Hören mit einem Ohr. Deaktivieren Sie es für räumliche Stereowiedergabe bei Musik und Spielen.",
+    "keywords": "Stereokanäle zusammenführen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "ContrastTheme": {
+    "title": "Kontrastdesign verwenden",
+    "body": "Öffnen Sie Barrierefreiheit → Kontrastdesigns und wenden Sie eine geeignete Farbpalette an. Prüfen Sie Ihre üblichen Apps, bevor Sie sie behalten. Wählen Sie Kein, um das normale Design wiederherzustellen.",
+    "keywords": "Kontrastdesign verwenden Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "FilterKeys": {
+    "title": "Kurze und wiederholte Tastenanschläge filtern",
+    "body": "Öffnen Sie Barrierefreiheit → Tastatur → Anschlagverzögerung und stellen Sie die Empfindlichkeit ein. Testen Sie anschließend die Eingabe: Zu starkes Filtern kann wie ein Tastaturausfall wirken. Stellen Sie die ursprüngliche Empfindlichkeit wieder her, wenn gewollte Eingaben fehlen.",
+    "keywords": "Kurze und wiederholte Tastenanschläge filtern Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "NarratorDucking": {
+    "title": "Andere Töne beim Vorlesen absenken",
+    "body": "Aktivieren Sie in den Einstellungen der Sprachausgabe die Lautstärkeabsenkung anderer Apps beim Vorlesen. Gesprochene Bedienelemente werden deutlicher, Musik und Besprechungen aber zeitweise leiser. Stellen Sie die Option zurück, wenn dies stört.",
+    "keywords": "Andere Töne beim Vorlesen absenken Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "TextSize": {
+    "title": "Systemtext vergrößern",
+    "body": "Öffnen Sie Barrierefreiheit → Textgröße, stellen Sie den Vorschauregler ein und übernehmen Sie die Änderung. Dies vergrößert Text, ohne alle Oberflächenelemente zu skalieren; einzelne Apps können die Einstellung ignorieren.",
+    "keywords": "Systemtext vergrößern Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "Magnifier": {
+    "title": "Mit der Bildschirmlupe vergrößern",
+    "body": "Drücken Sie Win und Plus zum Öffnen der Bildschirmlupe; Win mit Plus oder Minus ändert den Zoom. Wählen Sie in deren Einstellungen Linse, angedockte Ansicht oder Vollbild. Win+Esc beendet die Lupe.",
+    "keywords": "Mit der Bildschirmlupe vergrößern Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "MouseKeys": {
+    "title": "Mauszeiger mit dem Ziffernblock steuern",
+    "body": "Aktivieren Sie unter Barrierefreiheit → Maus die Maustasten, um den Zeiger mit dem Ziffernblock zu bewegen. Das Verhalten des Ziffernblocks ändert sich. Prüfen Sie, ob Sie bei Bedarf zur normalen Zahleneingabe zurückkehren können.",
+    "keywords": "Mauszeiger mit dem Ziffernblock steuern Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "NarratorStartup": {
+    "title": "Sprachausgabe automatisch starten",
+    "body": "Öffnen Sie mit Win+Strg+N die Einstellungen der Sprachausgabe und erweitern Sie die Startoptionen. Wählen Sie Vorlesen vor oder nach der Anmeldung. Das Verhalten vor der Anmeldung betrifft auch andere Nutzer eines gemeinsam verwendeten PCs.",
+    "keywords": "Sprachausgabe automatisch starten Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "CaptionStyle": {
+    "title": "Untertitelgestaltung anpassen",
+    "body": "Öffnen Sie Barrierefreiheit → Untertitel und bearbeiten Sie den Stil einschließlich Text und Hintergrund. Prüfen Sie die Vorschau über Videoinhalten. Einzelne Wiedergabeprogramme können eigene Untertitelstile verwenden.",
+    "keywords": "Untertitelgestaltung anpassen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "AccessKeyUnderlines": {
+    "title": "Zugriffstasten unterstreichen",
+    "body": "Aktivieren Sie unter Barrierefreiheit → Tastatur die Unterstreichung von Zugriffstasten. Unterstützte Menüs zeigen ihre Tastaturbuchstaben deutlicher. Anwendungen ohne Zugriffstasten erhalten dadurch keine neuen Tastenkombinationen.",
+    "keywords": "Zugriffstasten unterstreichen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "Narrator": {
+    "title": "Sprachausgabe verwenden",
+    "body": "Starten Sie die Sprachausgabe mit Win+Strg+Enter. Über Win+Strg+N stellen Sie Stimme, Vorlesedetails und Ausgabegerät gemeinsam ein. Prüfen Sie die Lautstärke in gemeinsam genutzten Räumen. Das Startkürzel beendet auch das Vorlesen.",
+    "keywords": "Sprachausgabe verwenden Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "VisualAudioAlerts": {
+    "title": "Akustische Hinweise sichtbar machen",
+    "body": "Wählen Sie unter Barrierefreiheit → Audio ein visuelles Blinken für Audiobenachrichtigungen: Titelleiste, aktives Fenster oder Bildschirm. Wählen Sie vorsichtig, falls blinkende Inhalte für Sie unangenehm sind.",
+    "keywords": "Akustische Hinweise sichtbar machen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "TouchIndicator": {
+    "title": "Berührungen sichtbar machen",
+    "body": "Öffnen Sie Barrierefreiheit → Mauszeiger und Toucheingabe und aktivieren Sie den Berührungsindikator. Der größere, dunklere Kreis kann bei Vorführungen helfen. Ein Touchscreen ist dafür erforderlich.",
+    "keywords": "Berührungen sichtbar machen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "OnScreenKeyboard": {
+    "title": "Bildschirmtastatur öffnen",
+    "body": "Drücken Sie Win+Strg+O oder aktivieren Sie die Bildschirmtastatur unter Barrierefreiheit → Tastatur. Sie lässt sich mit dem Zeiger bedienen und unterscheidet sich von der Touchtastatur. Erneutes Drücken des Kürzels schließt sie.",
+    "keywords": "Bildschirmtastatur öffnen Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "TextCursorVisibility": {
+    "title": "Textcursor leichter finden",
+    "body": "Öffnen Sie Barrierefreiheit → Textcursor. Passen Sie Stärke und farbigen Indikator gemeinsam an, um die Einfügemarke zu erkennen. Einige Editoren stellen stattdessen ihren eigenen Cursor dar.",
+    "keywords": "Textcursor leichter finden Barrierefreiheit",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "DesktopIconSize": {
+    "title": "Größe der Desktopsymbole ändern",
+    "body": "Klicken Sie eine freie Desktopstelle mit rechts an und wählen Sie unter Ansicht eine Symbolgröße, oder halten Sie beim Drehen des Mausrads Strg gedrückt. Kleinere Symbole sparen Platz, sind aber schwerer zu erkennen.",
+    "keywords": "Größe der Desktopsymbole ändern Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "WindowsAccent": {
+    "title": "Akzentfarbe auf Fensterflächen anwenden",
+    "body": "Öffnen Sie Personalisierung → Farben, wählen Sie eine Akzentfarbe und deren Flächen, etwa Fensterrahmen und Titelleisten. Für Startmenü und Taskleiste ist ein dunkler Windows-Modus erforderlich.",
+    "keywords": "Akzentfarbe auf Fensterflächen anwenden Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "MonitorWallpapers": {
+    "title": "Jedem Monitor ein Bild zuweisen",
+    "body": "Öffnen Sie Personalisierung → Hintergrund und wählen Sie Bild. Klicken Sie ein zuletzt verwendetes Bild mit rechts an, um den Zielmonitor zuzuweisen. Laut Microsoft ist diese Zuordnung bei mehreren virtuellen Desktops nicht verfügbar.",
+    "keywords": "Jedem Monitor ein Bild zuweisen Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DynamicRefreshRate": {
+    "title": "Dynamische Bildwiederholrate aktivieren",
+    "body": "Öffnen Sie System → Bildschirm → Erweiterte Anzeige und aktivieren Sie die dynamische Bildwiederholrate, falls angeboten. DRR benötigt VRR und mindestens 120 Hz. Deaktivieren Sie sie, falls ein Spiel seine erwartete maximale Bildwiederholrate verliert.",
+    "keywords": "Dynamische Bildwiederholrate aktivieren Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "DesktopWallpaper": {
+    "title": "Desktophintergrund auswählen",
+    "body": "Öffnen Sie Personalisierung → Hintergrund und wählen Sie Bild, Diashow, Volltonfarbe oder Windows-Blickpunkt. Stellen Sie Bildanpassung oder Diashowintervall ein. Blickpunkt lädt Bilder herunter; mehrere virtuelle Desktops bringen zusätzliche Einschränkungen mit sich.",
+    "keywords": "Desktophintergrund auswählen Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "LockScreenAppearance": {
+    "title": "Sperrbildschirm gestalten",
+    "body": "Öffnen Sie Personalisierung → Sperrbildschirm und wählen Sie Hintergrund und Statusinhalte gemeinsam. Andere können diese Fläche vor der Anmeldung sehen. Prüfen Sie, ob persönliche Fotos oder Statusinformationen sichtbar bleiben sollen.",
+    "keywords": "Sperrbildschirm gestalten Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "WindowsColorMode": {
+    "title": "App- und Systemfarbmodus getrennt wählen",
+    "body": "Öffnen Sie Personalisierung → Farben und wählen Sie Benutzerdefiniert, um Windows und Apps getrennt auf Hell oder Dunkel einzustellen. Einige Anwendungen haben eigene Designs und folgen dieser Einstellung möglicherweise nicht.",
+    "keywords": "App- und Systemfarbmodus getrennt wählen Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "AmbientBrightness": {
+    "title": "Helligkeit an Umgebungslicht anpassen",
+    "body": "Prüfen Sie unter System → Bildschirm → Helligkeit die automatische Anpassung bei Lichtänderungen. Die Option erfordert einen kompatiblen Lichtsensor. Deaktivieren Sie sie, wenn sensorgesteuerte Änderungen die Lesbarkeit verschlechtern.",
+    "keywords": "Helligkeit an Umgebungslicht anpassen Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "ContentAdaptiveBrightness": {
+    "title": "Inhaltsabhängige Helligkeit einstellen",
+    "body": "Öffnen Sie System → Bildschirm → Helligkeit und prüfen Sie die inhaltsabhängige Anpassung. Ausschalten kann störende Helligkeitssprünge bei visueller Arbeit vermeiden. Nur unterstützte Bildschirme zeigen diese Option.",
+    "keywords": "Inhaltsabhängige Helligkeit einstellen Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "WindowsTransparency": {
+    "title": "Transparenzeffekte steuern",
+    "body": "Öffnen Sie Personalisierung → Farben und ändern Sie Transparenzeffekte. Deaktivieren Sie diese bei schlechter Lesbarkeit durch durchscheinende Flächen. Erneutes Aktivieren stellt die Materialdarstellung unterstützter Windows-Oberflächen wieder her.",
+    "keywords": "Transparenzeffekte steuern Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DesktopShortcut": {
+    "title": "Desktopverknüpfung erstellen",
+    "body": "Klicken Sie eine freie Desktopstelle mit rechts an und wählen Sie Neu → Verknüpfung. Geben Sie Ziel und einen eindeutigen Namen an. Löschen Sie zum Rückgängigmachen nur die neu erstellte Verknüpfung, nicht ihre Zieldatei.",
+    "keywords": "Desktopverknüpfung erstellen Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ThemeIconProtection": {
+    "title": "Desktopsymbole beim Designwechsel behalten",
+    "body": "Öffnen Sie Personalisierung → Designs → Desktopsymboleinstellungen und entziehen Sie Designs die Berechtigung, Desktopsymbole zu ändern. Ihre gewählten Symbole können so beim Anwenden eines anderen Designs unverändert bleiben.",
+    "keywords": "Desktopsymbole beim Designwechsel behalten Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DisplayColorProfile": {
+    "title": "Farbprofil des Bildschirms wählen",
+    "body": "Öffnen Sie System → Bildschirm → Farbprofil, wählen Sie den richtigen Bildschirm und sein Profil. Bewahren Sie das Originalprofil auf. Ein ungeeigneter Ersatz kann die Farben unterstützter Anwendungen verfälschen.",
+    "keywords": "Farbprofil des Bildschirms wählen Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "AutomaticColorManagement": {
+    "title": "Farben automatisch verwalten",
+    "body": "Wählen Sie unter System → Bildschirm → Farbprofil einen Bildschirm und suchen Sie die automatische Farbverwaltung. Sie verbessert die Konsistenz auf unterstützter Grafikhardware, ersetzt aber keinen kalibrierten Bildschirm.",
+    "keywords": "Farben automatisch verwalten Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "WindowsThemes": {
+    "title": "Design speichern und anwenden",
+    "body": "Öffnen Sie Personalisierung → Designs und wählen Sie ein installiertes Design oder speichern Sie Ihre aktuelle Kombination. Designs können mehrere Bild- und Toneinstellungen ändern. Kehren Sie zum vorherigen zurück, falls das Ergebnis nicht passt.",
+    "keywords": "Design speichern und anwenden Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "NightLight": {
+    "title": "Nachtmodus einstellen",
+    "body": "Öffnen Sie System → Bildschirm → Nachtmodus und stellen Sie Farbtemperatur und Zeitplan gemeinsam ein. Farben werden ungenauer. Deaktivieren Sie ihn für farbkritische Arbeit. Sonnenuntergangszeiten können von Standorteinstellungen abhängen.",
+    "keywords": "Nachtmodus einstellen Darstellung Personalisierung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "DesktopSystemIcons": {
+    "title": "Vertraute Systemsymbole anzeigen",
+    "body": "Öffnen Sie Personalisierung → Designs → Desktopsymboleinstellungen und wählen Sie etwa Dieser PC oder Papierkorb. Dies steuert deren Desktopverknüpfungen und erstellt oder entfernt keine zugrunde liegenden Systemfunktionen.",
+    "keywords": "Vertraute Systemsymbole anzeigen Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DesktopIconVisibility": {
+    "title": "Desktopsymbole vorübergehend ausblenden",
+    "body": "Klicken Sie eine freie Desktopstelle mit rechts an und schalten Sie Ansicht → Desktopsymbole anzeigen um. Die Dateien bleiben auf dem Datenträger; geändert wird nur die Darstellung, nichts wird gelöscht.",
+    "keywords": "Desktopsymbole vorübergehend ausblenden Darstellung Personalisierung",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "EndTask": {
+    "title": "Task beenden in der Taskleiste anzeigen",
+    "body": "Öffnen Sie Einstellungen → System → Erweitert und aktivieren Sie Task beenden, falls verfügbar; ältere Versionen nutzen Für Entwickler. Der Befehl erscheint beim Rechtsklick auf eine Taskleisten-App. Erzwungenes Beenden kann ungespeicherte Arbeit verlieren. Ausblenden des Eintrags stellt diese Arbeit nicht wieder her.",
+    "keywords": "Task beenden in der Taskleiste anzeigen Rechtsklick Kontextmenü",
+    "evidence": "Aktuelle Dokumentation zu Erweitert; Seite mit Windows 11 25H2+ verschoben. Frühere Verfügbarkeit unterschiedlich; Geräteunterstützung ungeprüft."
+  },
+  "DefaultApps": {
+    "title": "Programme für Dateien und Links wählen",
+    "body": "Öffnen Sie Einstellungen → Apps → Standard-Apps. Suchen Sie Dateiendung oder Protokoll oder prüfen Sie die Zuordnungen einer Anwendung. Ändern Sie nur beabsichtigte Typen. Notieren Sie vorherige Programme, um einzelne Zuordnungen ohne vollständiges Zurücksetzen wiederherzustellen.",
+    "keywords": "Programme für Dateien und Links wählen Explorer Dateien",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "ExplorerView": {
+    "title": "Symbole, Liste oder Details auswählen",
+    "body": "Öffnen Sie im Explorer Ansicht und wählen Sie Symbol-, Listen- oder Detaildarstellung. Details helfen beim Informationsvergleich, Symbole beim visuellen Durchsuchen. Wechseln Sie bei Bedarf zur vorherigen Ansicht zurück.",
+    "keywords": "Symbole, Liste oder Details auswählen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ExplorerHome": {
+    "title": "Explorer mit Dieser PC öffnen",
+    "body": "Öffnen Sie im Explorer das Dreipunktmenü → Optionen und wählen Sie Dieser PC statt Start als Öffnungsziel. Stellen Sie die vorherige Auswahl wieder her, wenn zuletzt verwendete und angeheftete Elemente zuerst erscheinen sollen.",
+    "keywords": "Explorer mit Dieser PC öffnen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ExplorerQuickAccess": {
+    "title": "Häufigen Ordner an Schnellzugriff anheften",
+    "body": "Klicken Sie einen Ordner im Explorer mit rechts an und wählen Sie An Schnellzugriff anheften. Dies erstellt eine Navigationsverknüpfung, ohne den Ordner zu verschieben. Lösen Sie den Eintrag per Rechtsklick, um die Verknüpfung zu entfernen.",
+    "keywords": "Häufigen Ordner an Schnellzugriff anheften Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ExplorerNavigationPane": {
+    "title": "Ordnernavigation wiederherstellen",
+    "body": "Wählen Sie im Explorer Ansicht → Anzeigen → Navigationsbereich. Die Ordnerstruktur links erleichtert den Zugriff auf häufige Ziele. Blenden Sie sie erneut aus, wenn Sie mehr Platz für Dateiinhalte bevorzugen.",
+    "keywords": "Ordnernavigation wiederherstellen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ExplorerSelectionBoxes": {
+    "title": "Dateien über Kontrollkästchen auswählen",
+    "body": "Wählen Sie im Explorer Ansicht → Anzeigen → Elementkontrollkästchen. Damit wählen Sie mehrere Dateien ohne gedrückte Zusatztaste aus; deaktivieren Sie die Option für die vorherige Darstellung.",
+    "keywords": "Dateien über Kontrollkästchen auswählen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "Extensions": {
+    "title": "Dateinamenerweiterungen anzeigen",
+    "body": "Wählen Sie im Explorer Ansicht → Anzeigen → Dateinamenerweiterungen. Vollständige Endungen helfen, ähnlich aussehende Dateien zu unterscheiden. Diese Anzeigeoption konvertiert keine Dateien und verändert nicht deren tatsächliches Format.",
+    "keywords": "Dateinamenerweiterungen anzeigen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "Hidden": {
+    "title": "Ausgeblendete Dateien anzeigen",
+    "body": "Wählen Sie im Explorer Ansicht → Anzeigen → Ausgeblendete Elemente, um normalerweise verborgene Inhalte zu prüfen. Löschen Sie keine unbekannten System- oder Anwendungsdateien allein deshalb, weil sie nun sichtbar sind.",
+    "keywords": "Ausgeblendete Dateien anzeigen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "LongPaths": {
+    "title": "Win32-Unterstützung langer Pfade verstehen",
+    "body": "Öffnen Sie auf unterstützten Editionen Gruppenrichtlinie → Computerkonfiguration → Administrative Vorlagen → System → Dateisystem → Lange Win32-Pfade aktivieren. Notieren Sie den alten Zustand. Apps müssen zudem longPathAware deklarieren; nicht jede Pfadgrenze entfällt. Starten Sie betroffene Prozesse neu und stellen Sie die Richtlinie bei Bedarf zurück.",
+    "keywords": "Win32-Unterstützung langer Pfade verstehen Explorer Dateien",
+    "evidence": "Windows 11; Verfügbarkeit des Gruppenrichtlinien-Editors hängt von der Edition ab. Anwendung muss weiterhin ausdrücklich zustimmen; nicht auf einem Gerät getestet."
+  },
+  "ExplorerCompact": {
+    "title": "Dateizeilen dichter anordnen",
+    "body": "Wählen Sie im Explorer Ansicht → Kompakte Ansicht, um die Abstände zu verringern. So passen mehr Dateien auf den Bildschirm; kleinere Ziele können bei Touchbedienung jedoch unpraktischer sein.",
+    "keywords": "Dateizeilen dichter anordnen Explorer Dateien",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "PenShortcuts": {
+    "title": "Stifttasten-Kurzbefehle konfigurieren",
+    "body": "Öffnen Sie Bluetooth und Geräte → Stift und Windows Ink und konfigurieren Sie die Kurzbefehlstaste. Passen Sie Einfach-, Doppeldruck und Gedrückthalten an Ihren Ablauf an. Die verfügbaren Aktionen hängen vom Stift ab.",
+    "keywords": "Stifttasten-Kurzbefehle konfigurieren Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "WindowsDisplayLanguage": {
+    "title": "Windows-Anzeigesprache wechseln",
+    "body": "Öffnen Sie Zeit und Sprache → Sprache und Region, installieren Sie die gewünschte Sprache und wählen Sie sie für Windows. Speichern Sie vor dem Abmelden. Einsprachige Editionen schränken dies ein; Tastaturlayouts können danach abweichen.",
+    "keywords": "Windows-Anzeigesprache wechseln Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "TouchpadGestures": {
+    "title": "Touchpadgesten anpassen",
+    "body": "Öffnen Sie Bluetooth und Geräte → Touchpad und erweitern Sie Drei- oder Vierfingergesten. Weisen Sie nützliche Wechselaktionen gemeinsam zu. Einige Gesten erfordern ein Präzisionstouchpad und können gewohnten Abläufen widersprechen.",
+    "keywords": "Touchpadgesten anpassen Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "VoiceTyping": {
+    "title": "Text per Sprache eingeben",
+    "body": "Setzen Sie den Cursor in ein Textfeld und drücken Sie Win+H. Stellen Sie die automatische Zeichensetzung über das Zahnrad ein und lesen Sie vor dem Absenden Korrektur. Spracheingabe benötigt ein Mikrofon und Online-Spracherkennung.",
+    "keywords": "Text per Sprache eingeben Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "MouseClickLock": {
+    "title": "Ziehen ohne dauerhaftes Gedrückthalten",
+    "body": "Öffnen Sie Bluetooth und Geräte → Maus → Zusätzliche Mauseinstellungen → Tasten und aktivieren Sie KlickEinrasten. Damit müssen Sie beim Ziehen die Taste nicht dauerhaft halten. Probieren Sie es zuerst mit einer entbehrlichen Auswahl aus.",
+    "keywords": "Ziehen ohne dauerhaftes Gedrückthalten Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "TypingSuggestions": {
+    "title": "Textvorschläge anzeigen",
+    "body": "Öffnen Sie Zeit und Sprache → Eingabe und aktivieren Sie Textvorschläge für die Hardwaretastatur, bei Bedarf auch mehrsprachige. Unterstützung variiert nach App und Sprache. Prüfen Sie Vorschläge, statt sie als sichere Korrekturen anzusehen.",
+    "keywords": "Textvorschläge anzeigen Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "PointerLocator": {
+    "title": "Mauszeiger mit Strg finden",
+    "body": "Öffnen Sie zusätzliche Mauseinstellungen → Zeigeroptionen und aktivieren Sie die Positionsanzeige beim Drücken von Strg. Drücken Sie Strg zum Testen. Die Funktion bewegt den Zeiger nicht und führt keinen Klick aus.",
+    "keywords": "Mauszeiger mit Strg finden Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "TouchscreenGestures": {
+    "title": "Touchscreengesten konfigurieren",
+    "body": "Öffnen Sie Bluetooth und Geräte → Toucheingabe und konfigurieren Sie Drei- und Vierfingergesten. Deaktivieren Sie sie, wenn eine App dieselben Gesten benötigt. Andernfalls kann das System diese Bewegungen abfangen.",
+    "keywords": "Touchscreengesten konfigurieren Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "Clipboard": {
+    "title": "Zwischenablageverlauf wiederverwenden",
+    "body": "Drücken Sie Win+V und aktivieren Sie den Verlauf für zuletzt kopierte Inhalte. Prüfen Sie sensible Daten vor Aktivierung der Synchronisierung. System → Zwischenablage steuert Verlauf und Löschen; angeheftete Einträge benötigen gesonderte Aufmerksamkeit.",
+    "keywords": "Zwischenablageverlauf wiederverwenden Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "InactiveWindowScroll": {
+    "title": "Inaktive Fenster beim Darüberzeigen scrollen",
+    "body": "Öffnen Sie Bluetooth und Geräte → Maus und aktivieren Sie das Scrollen inaktiver Fenster beim Darüberzeigen. Testen Sie überlappende Fenster: Inhalte im Hintergrund können scrollen, obwohl der Tastaturfokus anderswo bleibt.",
+    "keywords": "Inaktive Fenster beim Darüberzeigen scrollen Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "AppLanguageOrder": {
+    "title": "Bevorzugte App-Sprachen sortieren",
+    "body": "Ordnen Sie unter Zeit und Sprache → Sprache und Region die bevorzugten Sprachen neu. Unterstützte Apps nutzen diese Reihenfolge für ihre Übersetzungen. Eine Anwendung kann keine Sprache anzeigen, die sie nicht anbietet.",
+    "keywords": "Bevorzugte App-Sprachen sortieren Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "PenHandedness": {
+    "title": "Schreibhand festlegen",
+    "body": "Wählen Sie unter Bluetooth und Geräte → Stift und Windows Ink Ihre Schreibhand. Unterstützte Stiftinteraktionen passen sich dadurch Ihrer Haltung an. Kompatible Stifthardware ist erforderlich; der Bildschirm wird nicht neu kalibriert.",
+    "keywords": "Schreibhand festlegen Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "KeyboardLayouts": {
+    "title": "Tastaturlayouts hinzufügen und wechseln",
+    "body": "Öffnen Sie unter Sprache und Region die Optionen einer Sprache und fügen Sie ein Tastaturlayout hinzu. Wechseln Sie mit Win+Leertaste. Prüfen Sie vor Passworteingaben das aktive Layout und entfernen Sie unnötige Layouts bei Bedarf.",
+    "keywords": "Tastaturlayouts hinzufügen und wechseln Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "PrintScreenCapture": {
+    "title": "Bildschirmausschnitt mit Druck öffnen",
+    "body": "Aktivieren Sie unter Barrierefreiheit → Tastatur die Bildschirmaufnahme über die Druck-Taste. Sie öffnet dann die Ausschnittaufnahme statt der bisherigen Funktion. Prüfen Sie, ob Ihre bestehenden Bildschirmfoto-Kürzel weiterhin wie erwartet funktionieren.",
+    "keywords": "Bildschirmausschnitt mit Druck öffnen Eingabe Tastatur",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "NotificationDuration": {
+    "title": "Benachrichtigungen länger anzeigen",
+    "body": "Öffnen Sie Barrierefreiheit → Visuelle Effekte und verlängern Sie die Anzeigedauer von Benachrichtigungen. Banner lassen sich dadurch leichter lesen, können aber Arbeit verdecken. Stellen Sie die vorherige Dauer wieder her, wenn die Verlängerung nicht mehr nötig ist.",
+    "keywords": "Benachrichtigungen länger anzeigen Benachrichtigungen",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "SecurityNotifications": {
+    "title": "Informative Sicherheitshinweise reduzieren",
+    "body": "Öffnen Sie Windows-Sicherheit → Einstellungen → Benachrichtigungen verwalten. Prüfen Sie informative Scanmeldungen und netzwerkspezifische Hinweise, ohne wichtige Meldungen zu verlieren. Sofortige Handlungswarnungen erscheinen weiterhin. Richtlinien können Optionen sperren. Stellen Sie frühere Werte wieder her, falls hilfreicher Kontext fehlt.",
+    "keywords": "Informative Sicherheitshinweise reduzieren Benachrichtigungen",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "PerAppNotifications": {
+    "title": "App-Hinweise gezielt einstellen",
+    "body": "Öffnen Sie System → Benachrichtigungen, wählen Sie eine aufgeführte App und stellen Sie Banner, Töne und Priorität gemeinsam ein. Halten Sie wichtige Hinweise sichtbar. Dies verändert die Zustellung, ohne App-Daten zu löschen.",
+    "keywords": "App-Hinweise gezielt einstellen Benachrichtigungen",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "DoNotDisturb": {
+    "title": "Nicht stören konfigurieren",
+    "body": "Öffnen Sie System → Benachrichtigungen und konfigurieren Sie automatische Bedingungen für Nicht stören sowie Prioritätsausnahmen. Prüfen Sie wichtige Apps und Anrufe vorher. Das Deaktivieren einer Regel beendet nicht unbedingt die aktuelle Ruhephase.",
+    "keywords": "Nicht stören konfigurieren Benachrichtigungen",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "Focus": {
+    "title": "Fokussitzung starten",
+    "body": "Öffnen Sie System → Fokus, wählen Sie eine Dauer und starten Sie die Sitzung. Prüfen Sie zuvor Benachrichtigungs- und Taskleistenoptionen. Kontrollieren Sie nach dem Ende, ob Nicht stören noch aktiv ist, bevor Sie dringende Hinweise erwarten.",
+    "keywords": "Fokussitzung starten Benachrichtigungen",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung ungeprüft; Quellen am 2026-10-08 geprüft."
+  },
+  "HibernateEntry": {
+    "title": "Ruhezustand im Menü anzeigen",
+    "body": "Öffnen Sie Systemsteuerung → Energieoptionen → Auswählen, was beim Drücken von Netzschaltern geschehen soll → Einige Einstellungen sind momentan nicht verfügbar. Wählen Sie Ruhezustand, falls angeboten, und speichern Sie. Entfernen des Menüeintrags nimmt diese Änderung zurück, löscht aber nicht die Ruhezustandsdatei.",
+    "keywords": "Ruhezustand im Menü anzeigen Leistung",
+    "evidence": "Windows 11; Ruhezustand erfordert kompatible Hardware und Konfiguration. Verfügbarkeit auf diesem Gerät ungeprüft."
+  },
+  "PowerMode": {
+    "title": "Energiemodus auswählen",
+    "body": "Öffnen Sie Einstellungen → System → Strom und Akku → Energiemodus. Wählen Sie die passende Balance für Ihre Arbeit und notieren Sie den bisherigen Modus. Höhere Leistung kann Wärme und Akkuverbrauch erhöhen. Verfügbare Modi hängen von Hardware und aktivem Energiesparplan ab.",
+    "keywords": "Energiemodus auswählen Leistung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "LidPowerActions": {
+    "title": "Aktionen für Deckel und Ein/Aus-Tasten wählen",
+    "body": "Öffnen Sie Systemsteuerung → System und Sicherheit → Energieoptionen → Auswählen, was beim Drücken von Netzschaltern geschehen soll. Stellen Sie Akku- und Netzbetrieb getrennt ein und speichern Sie. Ein wach bleibender Laptop kann in einer Tasche überhitzen. Herunterfahren kann ungespeicherte Arbeit verlieren.",
+    "keywords": "Aktionen für Deckel und Ein/Aus-Tasten wählen Leistung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "StartupApps": {
+    "title": "Apps für den Anmeldestart auswählen",
+    "body": "Öffnen Sie Einstellungen → Apps → Autostart und prüfen Sie registrierte Apps. Task-Manager → Autostart-Apps zeigt auch gemessene Auswirkungen. Deaktivieren Sie nur bekannte optionale Apps, damit wesentliche Synchronisierung oder Schutz weiter starten. Erneutes Aktivieren stellt das Verhalten bei der nächsten Anmeldung wieder her.",
+    "keywords": "Apps für den Anmeldestart auswählen Leistung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "EnergySaver": {
+    "title": "Energiesparmodus einstellen",
+    "body": "Öffnen Sie Einstellungen → System → Strom und Akku → Energiesparmodus. Prüfen Sie Aktivierungsschwelle und Helligkeitsverhalten gemeinsam. Begrenzte Hintergrundarbeit kann Hinweise und Synchronisierung verzögern. Stellen Sie die alte Schwelle wieder her oder schalten Sie den Modus aus, wenn dieser Kompromiss nicht mehr passt.",
+    "keywords": "Energiesparmodus einstellen Leistung",
+    "evidence": "Aktuelle Dokumentation zu Windows 11; ältere Versionen verwenden andere Namen und Optionen. Geräteunterstützung ungeprüft."
+  },
+  "DeliveryOptimization": {
+    "title": "Updatefreigabe und Bandbreite steuern",
+    "body": "Öffnen Sie Einstellungen → Windows Update → Erweiterte Optionen → Übermittlungsoptimierung. Prüfen Sie Peerfreigaben, Bandbreitenlimits und Aktivitätsstatistik. Internetfreigaben können Uploadkontingent verbrauchen. Stellen Sie notierte Limits bei langsamen Downloads zurück. Deaktivierte Peerfreigaben deaktivieren nicht Windows Update.",
+    "keywords": "Updatefreigabe und Bandbreite steuern Leistung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SleepDiagnosis": {
+    "title": "Energiesparblockaden und Aufwecken diagnostizieren",
+    "body": "Prüfen Sie im Terminal powercfg /requests für Blockaden, /lastwake für die letzte Aufweckquelle und /waketimers für geplantes Aufwecken. Einige Abfragen erfordern Administratorrechte. Dies sind Diagnoseabfragen: Nehmen Sie keine Anforderungsüberschreibungen vor und deaktivieren Sie keine Updateaufgaben anhand dieser Anleitung.",
+    "keywords": "Energiesparblockaden und Aufwecken diagnostizieren Leistung",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "BatteryReport": {
+    "title": "Verlauf der Akkukapazität prüfen",
+    "body": "Führen Sie in einem Terminal in einem beschreibbaren Ordner powercfg /batteryreport aus und öffnen Sie den ausgegebenen HTML-Pfad. Vergleichen Sie Auslegungs- und gemeldete Vollkapazität ohne genaue Gesundheitsgarantie. Prüfen Sie den Nutzungsverlauf vor Weitergabe und löschen Sie den Bericht nach Gebrauch.",
+    "keywords": "Verlauf der Akkukapazität prüfen Leistung",
+    "evidence": "Windows-Dokumentation zu powercfg; für Geräte mit Akku nützlich. Berichtsgenauigkeit hängt von der Firmware ab; nicht auf einem Gerät getestet."
+  },
+  "WslResources": {
+    "title": "Ressourcen von WSL 2 begrenzen",
+    "body": "Nutzen Sie WSL-Einstellungen oder ändern Sie memory und processors unter [wsl2] in der .wslconfig Ihres Benutzerprofils. Bewahren Sie das Original auf. Speichern Sie Linux-Arbeit vor dem WSL-Neustart. Die Limits gelten für alle WSL-2-Distributionen. Stellen Sie bei Ressourcenmangel für Builds oder Dienste die alte Konfiguration wieder her.",
+    "keywords": "Ressourcen von WSL 2 begrenzen Leistung",
+    "evidence": "Nur WSL 2; WSL-Version mit Unterstützung der gewählten Optionen erforderlich. Kein Gerätekompatibilitätstest durchgeführt."
+  },
+  "BackgroundApps": {
+    "title": "Hintergrundaktivität pro App begrenzen",
+    "body": "Öffnen Sie Einstellungen → System → Strom und Akku → Akkunutzung. Wählen Sie bei einer unterstützten App Weitere Optionen → Hintergrundaktivität verwalten und prüfen Sie deren Berechtigung. Nie kann Hinweise und Synchronisierung stoppen. Stellen Sie die vorherige Auswahl wieder her, falls Aktualisierungen fehlen.",
+    "keywords": "Hintergrundaktivität pro App begrenzen Leistung",
+    "evidence": "Windows 11; Akkunutzungsseite erfordert ein Gerät mit Akku und unterstützte Apps. Richtlinieneinschränkungen ungeprüft."
+  },
+  "SearchCloudSources": {
+    "title": "Konten für die Cloudsuche auswählen",
+    "body": "Öffnen Sie Datenschutz und Sicherheit → Suche beziehungsweise Suchberechtigungen und prüfen Sie Cloudinhaltssuche. Steuern Sie Microsoft-Konto sowie Geschäfts- oder Schulkonto getrennt. Diese Schalter sind keine allgemeine Umschaltung der Websuche.",
+    "keywords": "Konten für die Cloudsuche auswählen Datenschutz Suche",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "SearchIndexScope": {
+    "title": "Klassische oder erweiterte Indizierung wählen",
+    "body": "Öffnen Sie Datenschutz und Sicherheit → Suche, je nach Version Windows durchsuchen, und suchen Sie Meine Dateien finden. Wählen Sie Klassisch oder Erweitert. Ein umfangreicher Erstindex erhöht Datenträgeraktivität, Rechenzeit und Akkuverbrauch.",
+    "keywords": "Klassische oder erweiterte Indizierung wählen Datenschutz Suche",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "SearchIndexTypes": {
+    "title": "Indizierte Dateitypen und Inhalte wählen",
+    "body": "Öffnen Sie über Datenschutz und Sicherheit → Suche die benutzerdefinierten Suchorte, dann Erweitert → Dateitypen. Legen Sie Erweiterungen und Indizierungsart fest. Änderungen können einen Neuaufbau erfordern und erscheinen nicht sofort in den Ergebnissen.",
+    "keywords": "Indizierte Dateitypen und Inhalte wählen Datenschutz Suche",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "OptionalDiagnostics": {
+    "title": "Optionale Diagnosedaten auswählen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → Diagnose und Feedback und prüfen Sie optionale Diagnosedaten. Erforderliche Daten bleiben auch ohne optionale Freigabe aktiv. Optionale Berichte können Aktivitäts- und Absturzspeicherdetails enthalten. Entscheiden Sie bewusst; Organisationsrichtlinien können den Schalter sperren.",
+    "keywords": "Optionale Diagnosedaten auswählen Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SearchDeviceHistory": {
+    "title": "Lokalen Suchverlauf löschen",
+    "body": "Öffnen Sie Datenschutz und Sicherheit → Suche beziehungsweise Suchberechtigungen und suchen Sie die Verlaufseinstellungen. Löschen Sie den Geräteverlauf nur bewusst: Bing-Cloudverlauf bleibt erhalten, und der lokale Verlauf lässt sich über Einstellungen nicht wiederherstellen.",
+    "keywords": "Lokalen Suchverlauf löschen Datenschutz Suche",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "AdvertisingIdentifier": {
+    "title": "Werbe-ID für Apps steuern",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → Empfehlungen und Angebote und prüfen Sie die Werbe-ID-Nutzung durch Apps. Ausschalten ändert Personalisierung, nicht Werbemenge oder Websitecookies. Erneutes Einschalten setzt die ID neu, statt den alten Wert wiederherzustellen.",
+    "keywords": "Werbe-ID für Apps steuern Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SearchWebSuggestions": {
+    "title": "Web- und Store-Vorschläge steuern",
+    "body": "Öffnen Sie in der unterstützten Vorschau Datenschutz und Sicherheit → Suche und wählen Sie Web- und Microsoft-Store-Vorschläge neben lokalen Ergebnissen. Region und Bereitstellung beeinflussen die Verfügbarkeit. Ersetzen Sie fehlende Optionen nicht durch eine ungeprüfte Registrierungsanleitung.",
+    "keywords": "Web- und Store-Vorschläge steuern Datenschutz Suche",
+    "evidence": "Ankündigung des Kanals Experimental vom 2026-07-13; gesteuerte Bereitstellung und regionale Unterschiede. Weder numerische ViVe-ID noch aktuelle Geräteunterstützung verifiziert."
+  },
+  "AppDiagnosticPrivacy": {
+    "title": "Einblick von Apps in andere Apps begrenzen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → App-Diagnose und prüfen Sie jeden Zugriff. Diagnosedaten können laufende App-Namen und Speichernutzung enthalten. Klassische Desktopprogramme können von diesen Regeln unberührt bleiben. Stellen Sie nötige Rechte wieder her, falls Diagnoseabläufe nicht mehr funktionieren.",
+    "keywords": "Einblick von Apps in andere Apps begrenzen Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "FileAccessPrivacy": {
+    "title": "Dateisystemrechte von Apps prüfen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → Dateisystem und prüfen Sie die aufgeführten Anwendungen. Die Berechtigung kann Ihre Kontodateien zugänglich machen; Entzug kann Arbeitsabläufe stören. Manche Desktopprogramme stehen außerhalb der Liste und werden von diesem Schalter nicht eingeschränkt.",
+    "keywords": "Dateisystemrechte von Apps prüfen Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "LocationPermissions": {
+    "title": "Standortzugriff je App prüfen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → Position. Prüfen Sie Standortdienst, aufgeführte App-Rechte und letzte Zugriffe vor Änderungen. Standortabhängige Funktionen können ausfallen. Desktop-Apps und Websites haben teils weitere Steuerungen. Diese Seite garantiert keine vollständige Standortanonymität.",
+    "keywords": "Standortzugriff je App prüfen Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "PersonalizedOffers": {
+    "title": "Personalisierte Windows-Angebote prüfen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit und suchen Sie je nach Version Personalisierte Angebote oder Empfehlungen und Angebote. Prüfen Sie die Nutzung Ihrer Windows-Aktivität für Vorschläge. Dies steuert diese Personalisierung, nicht sämtliche Werbung in Windows, Browsern oder Drittanbieter-Apps.",
+    "keywords": "Personalisierte Windows-Angebote prüfen Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SearchIndexFolders": {
+    "title": "Indizierte Ordner auswählen",
+    "body": "Öffnen Sie Datenschutz und Sicherheit → Suche und folgen Sie dem Link für benutzerdefinierte Suchorte. Wählen Sie Ändern, um Ordner auszuwählen. Entfernte Orte können langsamer gefunden werden oder aus indizierten Ergebnissen verschwinden.",
+    "keywords": "Indizierte Ordner auswählen Datenschutz Suche",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DefaultLocation": {
+    "title": "Ersatzstandort festlegen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → Position → Standardposition → Standard festlegen. Wählen Sie den Gerätestandort für fehlende genaue Ortung. Berechtigte Dienste können diese Adresse erhalten. Leeren und speichern Sie das Feld, um den Ersatzstandort zu entfernen.",
+    "keywords": "Ersatzstandort festlegen Datenschutz Suche",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SearchSafeFilter": {
+    "title": "Sicherheitsfilter der Suche einstellen",
+    "body": "Öffnen Sie Datenschutz und Sicherheit → Suche beziehungsweise Suchberechtigungen und wählen Sie eine SafeSearch-Stufe. Sie filtert Webinhalte der Suche. Familien- oder Organisationsrichtlinien können Ihre Auswahl einschränken.",
+    "keywords": "Sicherheitsfilter der Suche einstellen Datenschutz Suche",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "StartPowerFolders": {
+    "title": "Ordner neben dem Ein/Aus-Schalter anzeigen",
+    "body": "Öffnen Sie Personalisierung → Start → Ordner und wählen Sie hilfreiche Ziele wie Downloads oder Dokumente. Die Verknüpfungen erscheinen neben dem Ein/Aus-Schalter; entfernen Sie unnötige Einträge auf derselben Einstellungsseite.",
+    "keywords": "Ordner neben dem Ein/Aus-Schalter anzeigen Startmenü",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "StartPins": {
+    "title": "Apps und Ordner an Start anheften",
+    "body": "Klicken Sie eine App oder einen unterstützten Ordner mit rechts an und wählen Sie An Start anheften. Ordnen Sie Einträge durch Ziehen an. Von Start lösen entfernt den Eintrag, ohne sein Ziel zu löschen.",
+    "keywords": "Apps und Ordner an Start anheften Startmenü",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "StorageSense": {
+    "title": "Speicheroptimierung konfigurieren",
+    "body": "Öffnen Sie Einstellungen → System → Speicher → Speicheroptimierung. Prüfen Sie Häufigkeit und Aufbewahrung für Papierkorb und Downloads gemeinsam. Belassen Sie Downloads ohne Sicherung auf Nie. Clouddateien können nur online verfügbar werden. Ausschalten stellt gelöschte Dateien nicht wieder her.",
+    "keywords": "Speicheroptimierung konfigurieren Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "DeviceEncryption": {
+    "title": "Verschlüsselung und Wiederherstellung prüfen",
+    "body": "Öffnen Sie Einstellungen → Datenschutz und Sicherheit → Geräteverschlüsselung mit Administratorrechten. Klären Sie vor Aktivierung, wer den Wiederherstellungsschlüssel besitzt, und sichern Sie eine nutzbare Kopie. Auch geeignete Home-Geräte können unterstützt sein. Ohne Wiederherstellungszugang droht Datenverlust. Entschlüsseln ist ein eigener, möglicherweise langer Vorgang.",
+    "keywords": "Verschlüsselung und Wiederherstellung prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SudoMode": {
+    "title": "Isolationsmodus von sudo wählen",
+    "body": "Öffnen Sie Entwicklereinstellungen oder System → Erweitert und prüfen Sie Sudo aktivieren. Bevorzugen Sie das standardmäßige neue Fenster, sofern Sie die zusätzlichen Interaktionsrisiken eingebetteter Ausführung nicht verstehen. UAC-Zustimmung bleibt erforderlich. Späteres Ausschalten macht bereits mit Administratorrechten ausgeführte Befehle nicht rückgängig.",
+    "keywords": "Isolationsmodus von sudo wählen Systemwerkzeuge",
+    "evidence": "Windows 11 24H2+; Einstellungen ab 25H2+ unter Erweitert. Aktuelle Geräteunterstützung ungeprüft."
+  },
+  "NetworkProfile": {
+    "title": "Öffentliches oder privates Netzwerkprofil wählen",
+    "body": "Öffnen Sie Einstellungen → Netzwerk und Internet → Verbindungseigenschaften → Netzwerkprofiltyp. Behalten Sie Öffentlich für nicht vertrauenswürdige Netze. Privat erlaubt für Freigaben hilfreiche Auffindbarkeit. Notieren Sie das alte Profil und prüfen Sie Freigabebedarf. Stellen Sie es bei unerwarteten Zugriffsänderungen wieder her.",
+    "keywords": "Öffentliches oder privates Netzwerkprofil wählen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "DefaultTerminal": {
+    "title": "Standard-Terminalhost auswählen",
+    "body": "Öffnen Sie Einstellungen → System → Erweitert → Terminal und wählen Sie einen installierten Host. Ältere Versionen führen dies unter Für Entwickler. Testen Sie benötigte Konsolenanwendungen, da Darstellung und Bedienung abweichen können. Stellen Sie bei Bedarf den bisherigen Host wieder her.",
+    "keywords": "Standard-Terminalhost auswählen Systemwerkzeuge",
+    "evidence": "Seite Erweitert in Windows 11 25H2+; ältere Versionen verwenden Für Entwickler. Auswahl hängt von installierten Terminal-Apps ab."
+  },
+  "ContentDrive": {
+    "title": "Speicherort für neue Inhalte wählen",
+    "body": "Öffnen Sie Einstellungen → System → Speicher → Erweiterte Speichereinstellungen → Speicherort für neuen Inhalt. Wählen Sie pro Kategorie ein Laufwerk. Bestehende Dateien werden nicht verschoben und nicht jeder Installer folgt der Wahl. Halten Sie Wechseldatenträger verfügbar.",
+    "keywords": "Speicherort für neue Inhalte wählen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "WslSystemd": {
+    "title": "systemd für eine WSL-Distribution einrichten",
+    "body": "Prüfen Sie, ob die Distribution systemd bereits nutzt. Bewahren Sie bei Bedarf /etc/wsl.conf auf und ergänzen Sie systemd=true unter [boot]. Speichern Sie Linux-Arbeit vor WSL-Neustart. Dienststartverhalten ändert sich. Stellen Sie die alte Startkonfiguration wieder her und prüfen Sie separat aktivierte Dienste zum Rückgängigmachen.",
+    "keywords": "systemd für eine WSL-Distribution einrichten Systemwerkzeuge",
+    "evidence": "WSL 2 mit WSL 0.67.6+; manche Distributionen nutzen systemd bereits. Geräte- und Distributionsunterstützung ungeprüft."
+  },
+  "SandboxIsolation": {
+    "title": "Sandbox-Netzwerk und Dateifreigaben begrenzen",
+    "body": "Erstellen Sie eine geprüfte .wsb-Konfiguration mit Networking auf Disable. Vermeiden Sie Hostordnerzuordnungen oder verwenden Sie nur Lesezugriff. Starten Sie diese Konfiguration. Schreibbare Zuordnungen gefährden Hostdaten; reine Sandboxänderungen verschwinden beim Schließen. Wiederherstellung der Konfiguration repariert keine beschädigten Hostdateien.",
+    "keywords": "Sandbox-Netzwerk und Dateifreigaben begrenzen Systemwerkzeuge",
+    "evidence": "Windows Sandbox muss bereits installiert sein. Konfigurationsoptionen hängen von der Windows-Version ab; Geräteverhalten ungeprüft."
+  },
+  "RestorePoint": {
+    "title": "Vor Experimenten einen Wiederherstellungspunkt erstellen",
+    "body": "Suchen Sie im Startmenü Wiederherstellungspunkt erstellen. Wählen Sie das Systemlaufwerk, richten Sie bei Bedarf Computerschutz und Speicherlimit ein und erstellen Sie einen sinnvoll benannten Punkt. Sichern Sie persönliche Dateien separat: Punkte laufen ab und garantieren keine Rücknahme jeder Funktions- oder Drittanbieteränderung.",
+    "keywords": "Vor Experimenten einen Wiederherstellungspunkt erstellen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "DeveloperMode": {
+    "title": "Werkzeuge zur App-Entwicklung aktivieren",
+    "body": "Suchen Sie in Einstellungen nach Entwicklermodus. Ab 25H2 verwenden Sie System → Erweitert → Für Entwickler. Lesen Sie die Abfrage vor Aktivierung; Administratorrechte sind nötig. Normale Nutzung benötigt den Modus nicht. Ausschalten entfernt nicht unbedingt zuvor installierte Apps oder Entwicklungskomponenten.",
+    "keywords": "Werkzeuge zur App-Entwicklung aktivieren Systemwerkzeuge",
+    "evidence": "Windows 11; Erweitert ersetzt Für Entwickler ab 25H2+. Richtlinien und Geräteverfügbarkeit ungeprüft."
+  },
+  "DevDrive": {
+    "title": "Dev Drive für Quellcode planen",
+    "body": "Öffnen Sie Einstellungen → System → Speicher → Erweiterte Speichereinstellungen → Datenträger und Volumes → Dev Drive erstellen. Prüfen Sie nach Sicherung eine neue VHD. Bestehende Volumes lassen sich nicht direkt umwandeln. Prüfen Sie ReFS-Kompatibilität und behalten Sie Sicherheitsfilter. Verschieben Sie Daten vor späterem Entfernen des Laufwerks.",
+    "keywords": "Dev Drive für Quellcode planen Systemwerkzeuge",
+    "evidence": "Microsoft nennt Windows 11 Build 22621.2338+, Administratorrechte, ≥8 GB RAM und ≥50 GB freien Speicher als Voraussetzungen. Gerät ungeprüft."
+  },
+  "OfflineScan": {
+    "title": "Defender-Offlineprüfung vorbereiten",
+    "body": "Öffnen Sie Windows-Sicherheit → Viren- und Bedrohungsschutz → Scanoptionen und prüfen Sie Microsoft Defender Offline. Speichern Sie Arbeit und halten Sie Wiederherstellungsschlüssel bereit, bevor Sie bestätigen. Der PC startet in die Wiederherstellung. Prüfen Sie danach Quarantäneaktionen, statt automatische Umkehrbarkeit anzunehmen.",
+    "keywords": "Defender-Offlineprüfung vorbereiten Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "ActiveHours": {
+    "title": "Update-Neustarts während der Arbeit vermeiden",
+    "body": "Öffnen Sie Einstellungen → Windows Update → Erweiterte Optionen → Nutzungszeit. Wählen Sie automatische Erkennung oder manuelle Arbeitszeiten. Dies plant Neustarts um die übliche Nutzung herum, blockiert sie aber nicht dauerhaft. Speichern Sie Arbeit und prüfen Sie ausstehende Neustarthinweise gesondert.",
+    "keywords": "Update-Neustarts während der Arbeit vermeiden Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "MeteredConnection": {
+    "title": "Datenverbrauch einer begrenzten Verbindung senken",
+    "body": "Öffnen Sie Einstellungen → Netzwerk und Internet, wählen Sie WLAN oder Ethernet und prüfen Sie Getaktete Verbindung. Dies kann Hintergrundtransfers reduzieren, aber Synchronisierung und manche Updates verzögern. Stellen Sie den bisherigen Wert bei Bedarf wieder her. Eine garantierte Datengrenze entsteht nicht.",
+    "keywords": "Datenverbrauch einer begrenzten Verbindung senken Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "RepairApps": {
+    "title": "App vor dem Zurücksetzen reparieren",
+    "body": "Öffnen Sie Einstellungen → Apps → Installierte Apps → App-Menü → Erweiterte Optionen. Versuchen Sie Reparieren, falls verfügbar. Zurücksetzen ist ein eigener Ausweg und kann Daten und Einstellungen verwerfen. Sichern Sie vorher und lesen Sie die Bestätigung. Nicht jedes Desktopprogramm bietet diese Funktionen.",
+    "keywords": "App vor dem Zurücksetzen reparieren Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "WslNetworking": {
+    "title": "Gespiegeltes WSL-Netzwerk prüfen",
+    "body": "Prüfen Sie gespiegeltes Netzwerk in WSL-Einstellungen oder setzen Sie networkingMode=mirrored unter [wsl2] in .wslconfig. Speichern Sie laufende Arbeit vor dem Neustart. Die Netzwerkexposition ändert sich; behalten Sie Firewallfilter. Stellen Sie zum Rückgängigmachen den alten Modus wieder her und starten Sie WSL erneut.",
+    "keywords": "Gespiegeltes WSL-Netzwerk prüfen Systemwerkzeuge",
+    "evidence": "Windows 11 22H2+ und kompatible WSL-2-Version; Richtlinien und lokale Netzwerkkompatibilität ungeprüft."
+  },
+  "RepairWindows": {
+    "title": "Windows-Reparatur ohne Neuaufsetzen prüfen",
+    "body": "Öffnen Sie Einstellungen → System → Wiederherstellung → Probleme mithilfe von Windows Update beheben. Sichern Sie vorher und halten Sie Strom und Internet verbunden. Prüfen Sie Bestätigungen für Neuinstallation und Neustart. Apps, Dateien und Einstellungen sollen bleiben, doch es gibt keine sofortige Rücknahme. Manche verwalteten Geräte sind ausgeschlossen.",
+    "keywords": "Windows-Reparatur ohne Neuaufsetzen prüfen Systemwerkzeuge",
+    "evidence": "Windows 11 22H2+ mit dem optionalen Update vom Februar 2024 oder neuer. Einschränkungen durch die Updateverwaltung gelten; Gerät ungeprüft."
+  },
+  "ProxyConfiguration": {
+    "title": "Proxykonfiguration der Organisation prüfen",
+    "body": "Öffnen Sie Einstellungen → Netzwerk und Internet → Proxy. Verwenden Sie nur Erkennungs-, Skript- oder Serverangaben eines vertrauenswürdigen Administrators. Fehler können den Zugang unterbrechen, und der Proxy kann relevanten Verkehr beobachten. Notieren Sie die alte Konfiguration. VPN-Proxys werden separat eingestellt.",
+    "keywords": "Proxykonfiguration der Organisation prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "ReputationProtection": {
+    "title": "Zuverlässigkeitsbasierten Schutz prüfen",
+    "body": "Öffnen Sie Windows-Sicherheit → App- und Browsersteuerung → Zuverlässigkeitsbasierter Schutz. Prüfen Sie App- und Dateiprüfungen, unerwünschte Apps und Kennwortwarnungen gemeinsam. Lassen Sie Schutz außer bei bestätigten Problemen aktiv. Ein Schalter macht weder ausgeführte Schadsoftware noch bereits offengelegte Kennwörter rückgängig.",
+    "keywords": "Zuverlässigkeitsbasierten Schutz prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "DriveOptimization": {
+    "title": "Laufwerksoptimierung planen",
+    "body": "Öffnen Sie Einstellungen → System → Speicher → Erweiterte Speichereinstellungen → Laufwerksoptimierung. Prüfen Sie Medientyp und Zustand vor Änderungen am Zeitplan. Lassen Sie Windows die passende SSD- oder HDD-Methode wählen. Ein geänderter Zeitplan macht abgeschlossene Optimierungen nicht rückgängig.",
+    "keywords": "Laufwerksoptimierung planen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "MemoryIntegrity": {
+    "title": "Schutz durch Speicherintegrität prüfen",
+    "body": "Öffnen Sie Windows-Sicherheit → Gerätesicherheit → Details zur Kernisolierung und prüfen Sie Speicherintegrität. Beheben Sie inkompatible Treiber durch vertrauenswürdige Updates vor Aktivierung. Deaktivieren ist kein allgemeiner Leistungstipp. Speichern Sie vor angefordertem Neustart. Verfügbarkeit hängt von Virtualisierung und Treibern ab.",
+    "keywords": "Schutz durch Speicherintegrität prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "FirewallExceptions": {
+    "title": "Gezielte Firewallausnahmen prüfen",
+    "body": "Öffnen Sie Windows-Sicherheit → Firewall und Netzwerkschutz → App durch Firewall zulassen. Erlauben Sie nach Administratorbestätigung nur eine bekannte, tatsächlich benötigte App. Bevorzugen Sie eine gezielte App-Ausnahme gegenüber einem weit geöffneten Port und entfernen Sie veraltete Rechte. Vergangene Exposition wird damit nicht rückgängig.",
+    "keywords": "Gezielte Firewallausnahmen prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "ControlledFolders": {
+    "title": "Ordnerschutz gegen Ransomware prüfen",
+    "body": "Öffnen Sie Windows-Sicherheit → Viren- und Bedrohungsschutz → Ransomware-Schutz verwalten. Prüfen Sie überwachten Ordnerzugriff und geschützte Ordner. Auch legitime Apps können beim Speichern blockiert werden. Prüfen Sie jede Ausnahme statt alles zu erlauben. Dieser Schutz ergänzt Sicherungen und repariert keine bereits beschädigten Dateien.",
+    "keywords": "Ordnerschutz gegen Ransomware prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "DevicePortal": {
+    "title": "Remote-Entwicklungsdiagnose prüfen",
+    "body": "Prüfen Sie nach Einrichtung des Entwicklermodus Device Portal in den Entwicklereinstellungen. Nutzen Sie es nur für ein tatsächliches Remotetestgerät im vertrauenswürdigen Netzwerk und prüfen Sie Authentifizierung. Es eröffnet Fernverwaltungsfunktionen. Deaktivieren Sie das Portal danach und kontrollieren Sie, dass der Fernzugriff beendet ist.",
+    "keywords": "Remote-Entwicklungsdiagnose prüfen Systemwerkzeuge",
+    "evidence": "Windows-11-Entwicklerfunktionspaket erforderlich; Seite ab 25H2+ unter System → Erweitert. Nicht auf einem Gerät getestet."
+  },
+  "CleanupReview": {
+    "title": "Bereinigungsempfehlungen prüfen",
+    "body": "Öffnen Sie Einstellungen → System → Speicher → Bereinigungsempfehlungen und prüfen Sie jeden Vorschlag vor dem Entfernen. Sichern Sie wichtige Dateien. Gelöschte Downloads oder frühere Windows-Installationen können dauerhaften Dateiverlust oder den Verlust der Rückkehrmöglichkeit zu jener Version bedeuten.",
+    "keywords": "Bereinigungsempfehlungen prüfen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "WindowsSandbox": {
+    "title": "Eine wegwerfbare Windows Sandbox einrichten",
+    "body": "Suchen Sie Windows-Features aktivieren oder deaktivieren, wählen Sie Windows Sandbox bei Unterstützung und starten Sie auf Aufforderung nach dem Speichern neu. Netzwerk und manche Umleitungen sind standardmäßig aktiv: keine absolute Isolation. Exportieren Sie benötigte Sandboxdateien vor dem Schließen, da der interne Zustand verworfen wird.",
+    "keywords": "Eine wegwerfbare Windows Sandbox einrichten Systemwerkzeuge",
+    "evidence": "Unterstützte Windows-Edition und Hardwarevirtualisierung erforderlich; ≥4 GB RAM. ARM64-Unterstützung: Windows 11 22H2+. Gerät ungeprüft."
+  },
+  "MobileHotspot": {
+    "title": "Verbindung über mobilen Hotspot teilen",
+    "body": "Öffnen Sie Einstellungen → Netzwerk und Internet → Mobiler Hotspot. Wählen Sie die Quellverbindung, prüfen Sie Netzwerkname und Kennwort und aktivieren Sie nur bei Bedarf. Verbundene Geräte verbrauchen Ihr Datenkontingent. Schalten Sie danach aus und verbreiten Sie das Kennwort nicht unnötig.",
+    "keywords": "Verbindung über mobilen Hotspot teilen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "NetworkDataLimit": {
+    "title": "Netzwerk-Datenkontingent überwachen",
+    "body": "Öffnen Sie Einstellungen → Netzwerk und Internet → WLAN → verbundenes Netzwerk → Datenlimit festlegen. Geben Sie Abrechnungszeitraum und Kontingent an. Windows warnt nahe der Grenze, garantiert aber keinen Abrechnungsstopp beim Anbieter. Vergleichen Sie auch dessen Verbrauchszähler.",
+    "keywords": "Netzwerk-Datenkontingent überwachen Systemwerkzeuge",
+    "evidence": "Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Geräteunterstützung und Richtlinieneinschränkungen ungeprüft."
+  },
+  "SmartAppControl": {
+    "title": "Status von Smart App Control verstehen",
+    "body": "Öffnen Sie Windows-Sicherheit → App- und Browsersteuerung → Smart-App-Control-Einstellungen. Prüfen Sie Auswertung, Ein oder Aus vor Änderungen. Laut aktueller Dokumentation sind geeignete Neuinstallationen nötig. Die Rückkehr zur Auswertung kann Zurücksetzen oder Neuinstallation erfordern. Gehen Sie nicht von einem umkehrbaren Schalter aus.",
+    "keywords": "Status von Smart App Control verstehen Systemwerkzeuge",
+    "evidence": "Die aktuelle Microsoft-Dokumentation zu Windows 11 nennt Einschränkungen für Neuinstallationen und den Auswertungsmodus. Gerätezustand ungeprüft."
+  },
+  "TaskbarAlignment": {
+    "title": "Taskleistensymbole links ausrichten",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und wählen Sie die linke Ausrichtung für einen vertrauten Startpunkt. Dies richtet die Symbole aus und ändert nicht den Bildschirmrand, an dem die Taskleiste liegt.",
+    "keywords": "Taskleistensymbole links ausrichten Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarAutoHide": {
+    "title": "Taskleiste automatisch ausblenden",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und aktivieren Sie das automatische Ausblenden. Bewegen Sie den Zeiger an den Rand, um sie wieder einzublenden; deaktivieren Sie die Option für dauerhafte Sichtbarkeit.",
+    "keywords": "Taskleiste automatisch ausblenden Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarSearchStyle": {
+    "title": "Darstellung der Taskleistensuche wählen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Taskleistenelemente → Suche. Wählen Sie Suchfeld oder Symbol, oder blenden Sie den Eintrag platzsparend aus. Dies ändert die Darstellung und deaktiviert nicht Windows Search.",
+    "keywords": "Darstellung der Taskleistensuche wählen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarTrayApps": {
+    "title": "Sichtbare Infobereich-Apps auswählen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Andere Taskleistensymbole. Wählen Sie, welche Apps sichtbar bleiben statt im Menü ausgeblendeter Symbole zu liegen. Lassen Sie wichtige Synchronisierungs- und Sicherheitsanzeigen erreichbar.",
+    "keywords": "Sichtbare Infobereich-Apps auswählen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "WidgetsNotifications": {
+    "title": "Widgetbenachrichtigungen auswählen",
+    "body": "Drücken Sie Win+W und öffnen Sie Widgeteinstellungen → Weitere Einstellungen → Benachrichtigungen. Prüfen Sie Taskleiste, Navigationsbereich und Dashboards. Unterdrückte Hinweise können nützliche Aktualisierungen verbergen, ändern aber keine Daten der Quellanwendung.",
+    "keywords": "Widgetbenachrichtigungen auswählen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarFlashing": {
+    "title": "Blinkende App-Hinweise steuern",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und ändern Sie das Blinken von Apps. Deaktivieren Sie es gegen visuelle Ablenkung; aktivieren Sie es wieder, falls wichtige Anfragen übersehen werden.",
+    "keywords": "Blinkende App-Hinweise steuern Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarTouchTools": {
+    "title": "Touch- und Stiftwerkzeuge einblenden",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Symbole im Infobereich. Wählen Sie Bildschirmtastatur, Stiftmenü oder virtuelles Touchpad passend zu Ihrem Gerät. Ihr Nutzen hängt von der Eingabehardware ab.",
+    "keywords": "Touch- und Stiftwerkzeuge einblenden Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft. Die erforderliche Eingabehardware muss vorhanden sein."
+  },
+  "WidgetsFeed": {
+    "title": "Entdecken-Feed der Widgets ausblenden",
+    "body": "Drücken Sie Win+W, öffnen Sie die Widgeteinstellungen und prüfen Sie unter Dashboards den Entdecken-Feed. Deaktivieren Sie ihn, wenn Sie nur Widgets wünschen. Bezeichnungen und Verfügbarkeit hängen von Widgetversion und Region ab.",
+    "keywords": "Entdecken-Feed der Widgets ausblenden Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ClockVisibility": {
+    "title": "Datum und Uhrzeit ausblenden",
+    "body": "Klicken Sie mit der rechten Maustaste auf die Taskleistenuhr und wählen Sie Datum und Uhrzeit anpassen. Ändern Sie deren Anzeige im Infobereich; aktivieren Sie den Schalter wieder, wenn die Uhr sichtbar sein soll.",
+    "keywords": "Datum und Uhrzeit ausblenden Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarLabels": {
+    "title": "Taskleistenfenster getrennt halten",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste. Stellen Sie das Kombinieren von Schaltflächen und Ausblenden von Beschriftungen auf Nie, um einzelne beschriftete Fenster zu sehen. Stellen Sie bei Platzmangel den alten Wert wieder her.",
+    "keywords": "Taskleistenfenster getrennt halten Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarPins": {
+    "title": "Häufige Apps anheften und anordnen",
+    "body": "Klicken Sie eine App in der Suche oder ihr laufendes Taskleistensymbol mit rechts an und wählen Sie An Taskleiste anheften. Ordnen Sie Symbole durch Ziehen an. Lösen entfernt nur die Verknüpfung, nicht die Anwendung.",
+    "keywords": "Häufige Apps anheften und anordnen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarWindowSharing": {
+    "title": "Fenster über die Taskleiste teilen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und aktivieren Sie das Teilen von Fenstern über die Taskleiste. Eine unterstützte Besprechungs-App ist erforderlich. Prüfen Sie den Fensterinhalt vor der Freigabe.",
+    "keywords": "Fenster über die Taskleiste teilen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarBadges": {
+    "title": "App-Badges anzeigen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und wählen Sie, ob App-Schaltflächen Badges anzeigen. Diese zeigen ausstehende Aktivitäten ohne Öffnen der App; beim Ausblenden können nützliche Statushinweise fehlen.",
+    "keywords": "App-Badges anzeigen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "ClockSeconds": {
+    "title": "Sekunden in der Taskleistenuhr anzeigen",
+    "body": "Klicken Sie mit der rechten Maustaste auf die Uhr und öffnen Sie Datum und Uhrzeit anpassen. Erweitern Sie die Infobereich-Einstellungen und aktivieren Sie Sekunden, sofern verfügbar. Die häufigere Aktualisierung kann den Energieverbrauch erhöhen.",
+    "keywords": "Sekunden in der Taskleistenuhr anzeigen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarDisplays": {
+    "title": "Taskleisten auf mehreren Bildschirmen anzeigen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und aktivieren Sie die Anzeige auf allen Bildschirmen. Nutzen Sie dies bei mehreren Monitoren; stellen Sie die vorherige Auswahl wieder her, wenn es unübersichtlich wird.",
+    "keywords": "Taskleisten auf mehreren Bildschirmen anzeigen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarTaskView": {
+    "title": "Schaltfläche für aktive Anwendungen anzeigen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Taskleistenelemente und schalten Sie die Aufgabenansicht ein oder aus. Sie verwaltet Fenster und virtuelle Desktops. Auch bei ausgeblendeter Schaltfläche bleibt Win+Tab verfügbar.",
+    "keywords": "Schaltfläche für aktive Anwendungen anzeigen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarWidgets": {
+    "title": "Widgets in der Taskleiste anzeigen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Taskleistenelemente und schalten Sie Widgets um. Ausblenden schafft Platz; weder die Widgets-Funktion noch ihre zugrunde liegenden Komponenten werden dadurch deinstalliert.",
+    "keywords": "Widgets in der Taskleiste anzeigen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "WidgetsHover": {
+    "title": "Widgets nicht beim Darüberzeigen öffnen",
+    "body": "Drücken Sie Win+W und öffnen Sie die Widgeteinstellungen. Deaktivieren Sie das Öffnen beim Darüberzeigen, um versehentliches Aufklappen beim Überqueren der Taskleiste zu vermeiden. Schaltfläche und Tastenkürzel öffnen das Board weiterhin gezielt.",
+    "keywords": "Widgets nicht beim Darüberzeigen öffnen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "TaskbarTablet": {
+    "title": "Taskleiste für Touchbedienung optimieren",
+    "body": "Öffnen Sie auf einem unterstützten Convertible Personalisierung → Taskleiste → Verhalten der Taskleiste und aktivieren Sie die Optimierung bei Tabletnutzung. Die Option hängt vom Gerät ab und kann auf Desktop-PCs fehlen.",
+    "keywords": "Taskleiste für Touchbedienung optimieren Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft. Die erforderliche Eingabehardware muss vorhanden sein."
+  },
+  "TaskbarDesktopCorner": {
+    "title": "Desktop über die Taskleistenecke anzeigen",
+    "body": "Öffnen Sie Personalisierung → Taskleiste → Verhalten der Taskleiste und aktivieren Sie die Auswahl der äußersten Ecke zum Anzeigen des Desktops. So erreichen Sie Desktopelemente, ohne Anwendungen zu schließen.",
+    "keywords": "Desktop über die Taskleistenecke anzeigen Taskleiste",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "Snap": {
+    "title": "Andocklayouts und Unterstützung einstellen",
+    "body": "Öffnen Sie System → Multitasking → Fenster andocken. Aktivieren Sie das Andocken und wählen Sie Layoutangebote beim Zeigen auf Maximieren oder Ziehen an den oberen Rand sowie Vorschläge für Apps neben einem angedockten Fenster.",
+    "keywords": "Andocklayouts und Unterstützung einstellen Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DesktopWindowScope": {
+    "title": "Fensteranzeige über Desktops hinweg steuern",
+    "body": "Öffnen Sie System → Multitasking → Desktops. Wählen Sie für Taskleiste und Alt+Tab alle Desktops oder nur den aktuellen. Lokale Anzeige schafft Übersicht, globale Anzeige erleichtert den Zugriff auf andere Projekte.",
+    "keywords": "Fensteranzeige über Desktops hinweg steuern Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "DesktopBackgrounds": {
+    "title": "Virtuelle Desktops durch Bilder unterscheiden",
+    "body": "Drücken Sie Win+Tab, klicken Sie einen Desktop mit rechts an und wählen Sie seinen Hintergrund. Wählen Sie Bild zur visuellen Unterscheidung. Separate Hintergründe erfordern Bilder; unterschiedliche Diashows oder einfarbige Flächen werden laut Dokumentation nicht unterstützt.",
+    "keywords": "Virtuelle Desktops durch Bilder unterscheiden Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "AltTab": {
+    "title": "Browserregisterkarten in Alt+Tab begrenzen",
+    "body": "Öffnen Sie System → Multitasking und wählen Sie, wie viele App-Registerkarten beim Andocken oder mit Alt+Tab erscheinen. Keine Registerkarten konzentriert den Wechsel auf Fenster. Der Browser muss dies unterstützen; die Dokumentation zeigt Microsoft Edge.",
+    "keywords": "Browserregisterkarten in Alt+Tab begrenzen Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "VirtualDesktops": {
+    "title": "Projekte auf virtuelle Desktops verteilen",
+    "body": "Drücken Sie Win+Tab und wählen Sie Neuer Desktop. Wählen Sie den Namen zum Umbenennen nach Projekt. Schließen Sie unnötige Desktops in der Aufgabenansicht erst, nachdem Sie die gewünschte Anordnung ihrer Fenster geprüft haben.",
+    "keywords": "Projekte auf virtuelle Desktops verteilen Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "SnapResize": {
+    "title": "Benachbarte Andockfenster gemeinsam skalieren",
+    "body": "Ziehen Sie nach dem nebeneinander Andocken zweier Fenster an deren Trennlinie, um beide Breiten gemeinsam zu verändern. Ziehen Sie sie zurück oder lösen Sie die Fenster zum unabhängigen Anordnen.",
+    "keywords": "Benachbarte Andockfenster gemeinsam skalieren Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  },
+  "SnapGroups": {
+    "title": "Fenstergruppen beim Wechsel anzeigen",
+    "body": "Öffnen Sie System → Multitasking → Fenster andocken und ändern Sie die gemeinsame Anzeige angedockter Fenster in Taskleistenvorschauen, Aufgabenansicht und Alt+Tab. So kehren Sie zu einer Arbeitsanordnung statt zu einzelnen Fenstern zurück.",
+    "keywords": "Fenstergruppen beim Wechsel anzeigen Fenster Desktops",
+    "evidence": "Offizielle Dokumentation zu Windows 11; genaue Mindestbuild nicht angegeben. Verfügbarkeit und Richtlinieneinschränkungen auf diesem Gerät ungeprüft."
+  }
+}

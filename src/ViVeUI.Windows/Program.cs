@@ -14,7 +14,8 @@ public static class Program
         if (args.Length > 0 && args[0].StartsWith("--ipc-", StringComparison.Ordinal)) { IpcSmoke.Run(args); return; }
         var uxSmoke = args.Contains("--ux-smoke");
         var localizationSmoke = args.Contains("--localization-smoke");
-        var smoke = args.Contains("--smoke") || localizationSmoke || uxSmoke;
+        var catalogSmoke = args.Contains("--catalog-smoke");
+        var smoke = args.Contains("--smoke") || localizationSmoke || uxSmoke || catalogSmoke;
         var testFolder = smoke ? Path.Combine(Path.GetTempPath(), "ViVeUI-smoke-" + Guid.NewGuid().ToString("N")) : null;
         var app = new Application();
         app.DispatcherUnhandledException += (_, e) => { if (smoke) { File.WriteAllText("smoke-error.txt", e.Exception.ToString()); e.Handled = true; app.Shutdown(1); return; }
@@ -28,7 +29,7 @@ public static class Program
             window.ContentRendered += async (_, _) =>
             {
                 if (smokeStarted) return; smokeStarted = true;
-                try { if (uxSmoke) await window.UxSmokeAsync(); else if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
+                try { if (catalogSmoke) await window.CatalogSmokeAsync(); else if (uxSmoke) await window.UxSmokeAsync(); else if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
                 catch (Exception e) { File.WriteAllText("smoke-error.txt", e.ToString()); app.Shutdown(1); }
             };
         try { app.Run(window); } finally { if (testFolder is not null) { try { Directory.Delete(testFolder, true); } catch (IOException) { } } }
@@ -48,6 +49,7 @@ public static class Program
             var changes = request.Changes;
             locale.Set(request.Language);
             ChangeEngine.Validate(changes);
+            foreach (var change in changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
             // The elevated process also displays the exact scope. IPC never accepts file paths,
             // registry paths, commands, executables or download locations.
@@ -62,6 +64,8 @@ public static class Program
     }
     public static async Task<WorkerResponse> ElevateAsync(List<Change> changes, string language)
     {
+        ChangeEngine.Validate(changes);
+        foreach (var change in changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
         var name = WorkerChannel.NewName(); var secret = WorkerChannel.NewSecret();
         using var pipe = WorkerChannel.Server(name);
         using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(5));

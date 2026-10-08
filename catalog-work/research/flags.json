@@ -1,0 +1,1300 @@
+[
+  {
+    "id": "ExternalFolderTabs",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "External folders in existing tabs",
+    "body": "Open a desktop folder or external folder link to observe a new tab in an existing Explorer window instead of another window.",
+    "keywords": "external folders in existing tabs explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmz5fh22k2m",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmtr33v7w2j"
+    ],
+    "evidence": "Observed: 22635.4515 · Beta (2024-11-23). Current device support unverified; not a supported range.",
+    "featureIds": [
+      49143212
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "BackupReminderSnooze",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Snooze Explorer backup reminders",
+    "body": "Inspect the Start backup reminder in Explorer's address bar for options to turn it off or postpone it for one month.",
+    "keywords": "snooze explorer backup reminders explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmtr33v7w2j"
+    ],
+    "evidence": "Observed: 22635.4515 · Beta (2024-11-23). Current device support unverified; not a supported range.",
+    "featureIds": [
+      47944061
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "RestoreExplorerTabs",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Restore Explorer tabs at sign-in",
+    "body": "Observe whether Explorer restores its open tabs after signing in. The source also requires the Windows setting to save restartable apps and restart them at sign-in.",
+    "keywords": "restore explorer tabs at sign-in explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcq3jysmj22g"
+    ],
+    "evidence": "Observed: 22635.4580 · Beta (2024-12-07). Current device support unverified; not a supported range.",
+    "featureIds": [
+      54572881
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerHomeRecommendations",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Local files in Home recommendations",
+    "body": "Inspect Explorer Home for recommended local files with personal Microsoft or local accounts. Main ID: 51721485; 48895801 is an optional card-appearance dependency, not a required unlock.",
+    "keywords": "local files in home recommendations explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lg2efctnle2x",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lg2df5lxnp2o"
+    ],
+    "evidence": "Observed: 22635.4800 · Beta (2025-01-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      51721485,
+      48895801
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerAiActions",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "AI actions in Explorer context menus",
+    "body": "Inspect a supported file's context menu for AI Actions. The source groups both IDs as one recipe; it does not establish a separate user-facing function for each ID.",
+    "keywords": "ai actions in explorer context menus right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpkladfnbm2a"
+    ],
+    "evidence": "Observed: 26200.5603 · Dev; 26120.4151 · Beta (2025-05-19). Current device support unverified; not a supported range.",
+    "featureIds": [
+      54792954,
+      55345819
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "DarkFileDialogs",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Dark file-operation dialogs",
+    "body": "Observe copy and access-denied dialogs under dark mode. Main pair: 57857165 and 57994323. Source conditionally adds 48433719, and 49453572 on Release Preview; these broad prerequisites are not independent features.",
+    "keywords": "dark file-operation dialogs explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwhfsly7gn2s",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwh7rkfkt52d"
+    ],
+    "evidence": "Observed: .5751 · Dev/Beta; Release Preview (2025-08-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      57857165,
+      57994323,
+      48433719,
+      49453572
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "DarkFolderOptions",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Dark Folder Options dialog",
+    "body": "Inspect Explorer's Folder Options dialog in dark mode. Main ID: 59203365; the source requires 58383338. The abbreviated build 26x20.6972 is an observation label, not an unlimited compatibility range.",
+    "keywords": "dark folder options dialog explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3m3fxb5srcu2h"
+    ],
+    "evidence": "Observed: 26x20.6972 · Dev/Beta (2025-10-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      59203365,
+      58383338
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "DarkRun",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Dark Run dialog",
+    "body": "Open Run with Win+R to inspect its dark appearance. Main ID: 59270880; required prerequisite: 58383338. The source abbreviates the build as 26x20.6972 rather than establishing an exact full-build compatibility range.",
+    "keywords": "dark run dialog windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3m3fxb5srcu2h"
+    ],
+    "evidence": "Observed: 26x20.6972 · Dev/Beta (2025-10-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      59270880,
+      58383338
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "ExplorerShareApps",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Share directly to apps from Explorer",
+    "body": "Inspect file and desktop context menus for Share with and supported application targets. The source gives 45286384 and 52800817 together as the observed recipe; it does not establish a separate user-facing function for each ID.",
+    "keywords": "share directly to apps from explorer right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l6axfmgf7q2f"
+    ],
+    "evidence": "Observed: 22635.4367 · Beta (2024-10-11). Current device support unverified; not a supported range.",
+    "featureIds": [
+      45286384,
+      52800817
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "ExplorerSendPhone",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Send Explorer files to a phone",
+    "body": "Inspect a file's context menu for Send to My Phone. The two IDs form the reported combination; a compatible phone connection is still needed to complete an actual transfer.",
+    "keywords": "send explorer files to a phone right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4mbixargj2a"
+    ],
+    "evidence": "Observed: 22635.4225 · Beta (2024-09-20). Current device support unverified; not a supported range.",
+    "featureIds": [
+      45286369,
+      52800817
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "MoveStartPins",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Move Start pins with context commands",
+    "body": "Right-click a pinned Start app to inspect commands that move it one position left or right. This archive concerns keyboard-friendly pin arrangement, not the later complete Start-menu redesign.",
+    "keywords": "move start pins with context commands start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lko7fhslc22d",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkm6xavslg2g"
+    ],
+    "evidence": "Observed: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      50472543
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartFolderCommands",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Create Start folders from context menus",
+    "body": "Right-click a pinned Start app to inspect commands for creating an app folder or moving the pin into an existing folder. The source describes these actions separately from moving pins sideways.",
+    "keywords": "create start folders from context menus start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lko7fhslc22d",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkm6xavslg2g"
+    ],
+    "evidence": "Observed: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      50472600
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SmallTaskbarButtonsHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Smaller taskbar buttons experiment",
+    "body": "Inspect taskbar settings for smaller application buttons. This early implementation reduces button size without reducing the taskbar's height; it is distinct from the later small-taskbar implementation using 61090762.",
+    "keywords": "smaller taskbar buttons experiment taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l5fqg5kefi22"
+    ],
+    "evidence": "Observed: 22635.4291 · Beta (2024-09-30). Current device support unverified; not a supported range.",
+    "featureIds": [
+      29785184
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "BatteryPercentageHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Battery percentage and revised icon",
+    "body": "Inspect the battery icon and its percentage option. This January 2025 recipe concerns build 26120.3000; the source also references an earlier hidden preview, but neither observation guarantees continued compatibility with later Windows updates.",
+    "keywords": "battery percentage and revised icon taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgiylddyvs2p",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lfxqvouore2o"
+    ],
+    "evidence": "Observed: 26120.3000 · Dev (2025-01-24). Current device support unverified; not a supported range.",
+    "featureIds": [
+      48822452
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "NotificationClock",
+    "kind": "Historical",
+    "category": "Notifications",
+    "title": "Clock in Notification Center",
+    "body": "Inspect Date & time settings for the Notification Center clock option after an Explorer restart. Main ID: 42651849; 48433719 is conditional. This clock is separate from seconds in the taskbar tray.",
+    "keywords": "clock in notification center notifications",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ln4gqjbnuw2c",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ln47pbliz62s"
+    ],
+    "evidence": "Observed: 22635.5240 · Beta (2025-04-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      42651849,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AnimatedTaskbarPreviews",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Animated taskbar preview transitions",
+    "body": "Hover taskbar applications to observe animated preview changes, size transitions and dismissal. The source gives an update suffix rather than a complete build number; no performance improvement is established.",
+    "keywords": "animated taskbar preview transitions taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwhec6ijn22t",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ltp32qbdzs2y"
+    ],
+    "evidence": "Observed: .5751 · Dev/Beta; KB5064071 (2025-08-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56848060
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "SecondaryNotificationCenter",
+    "kind": "Historical",
+    "category": "Notifications",
+    "title": "Notification Center on secondary monitors",
+    "body": "Inspect Notification Center on a secondary monitor. The source explicitly calls for a reboot but only gives build suffix .5722, so the exact full-build compatibility remains unestablished.",
+    "keywords": "notification center on secondary monitors notifications",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lv2l7uuwjk2q"
+    ],
+    "evidence": "Observed: .5722 · Dev/Beta (2025-07-28). Current device support unverified; not a supported range.",
+    "featureIds": [
+      38762814
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "BatteryGraphLabels",
+    "kind": "Historical",
+    "category": "Performance",
+    "title": "Battery usage graph labels",
+    "body": "Inspect labels below the battery-usage graph in Settings for explanations of its icons. Main ID: 53092139; broad prerequisite 48433719 is conditional. This affects presentation, not battery capacity or runtime.",
+    "keywords": "battery usage graph labels performance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof6ie2yb27",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof5ufktr2f",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof57mgdy2b"
+    ],
+    "evidence": "Observed: 26120.2510 · Dev (2024-12-06). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53092139,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerDiskTypes",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager disk connection labels",
+    "body": "Open Task Manager's Performance page to inspect disk connection labels such as NVMe and SATA in lists and graphs. These are descriptive hardware labels, not controls for changing disk performance.",
+    "keywords": "task manager disk connection labels systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4onijtmsp2s",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4ongj5oh72c"
+    ],
+    "evidence": "Observed: 22635.4225 · Beta (2024-09-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      51978387
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerDisconnectDialog",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Modern disconnect-user dialog",
+    "body": "Inspect the appearance of Task Manager's disconnect-user confirmation dialog. This archive concerns styling only; actually disconnecting another session can interrupt work and is not performed by this catalog.",
+    "keywords": "modern disconnect-user dialog systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4onfs7tu32p",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4oneqfdf72o"
+    ],
+    "evidence": "Observed: 22635.4225 · Beta (2024-09-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53330962
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerCpuCalculation",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager CPU calculation update",
+    "body": "Inspect Task Manager's changed CPU-utilization calculation and CPU utility column. The observation changes how metrics are displayed; it is not a processor speed boost, and readings may differ from earlier builds.",
+    "keywords": "task manager cpu calculation update systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ljbhicqat72j"
+    ],
+    "evidence": "Observed: 26120.3360 · Dev/Beta (2025-02-28). Current device support unverified; not a supported range.",
+    "featureIds": [
+      32145346
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "HdrSettingsHistory",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Improved HDR settings experiment",
+    "body": "Inspect Display settings for revised capability wording, HDR video-streaming controls and Dolby Vision modes. Available choices still depend on compatible display hardware; the override cannot add missing hardware capabilities.",
+    "keywords": "improved hdr settings experiment appearance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3loidxv5kpg2s"
+    ],
+    "evidence": "Observed: 26200.5581 · Dev; 26120.3950 · Beta (2025-05-06). Current device support unverified; not a supported range.",
+    "featureIds": [
+      49793372
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "QuickAccessibilityGroups",
+    "kind": "Historical",
+    "category": "Accessibility",
+    "title": "Grouped accessibility quick settings",
+    "body": "Open Quick Settings and inspect accessibility controls grouped into vision, hearing and motor or mobility sections. This reorganizes existing controls; it does not establish that every device supports every listed capability.",
+    "keywords": "grouped accessibility quick settings accessibility",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnt6zetnd2s"
+    ],
+    "evidence": "Observed: 26200.5570 · Dev; 26120.3941 · Beta (2025-04-25). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56887314
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceVocabulary",
+    "kind": "Historical",
+    "category": "Accessibility",
+    "title": "Voice Access custom vocabulary",
+    "body": "Inspect Voice Access for a vocabulary builder that adds custom dictionary words. Language and installed speech support still matter; a documented feature ID does not guarantee recognition quality on this device.",
+    "keywords": "voice access custom vocabulary accessibility",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k"
+    ],
+    "evidence": "Observed: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56305056
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceQuickSettings",
+    "kind": "Historical",
+    "category": "Accessibility",
+    "title": "Voice Access in Quick Settings",
+    "body": "Inspect the accessibility section of Quick Settings for a Voice Access toggle. This adds a convenient entry point; it does not replace initial Voice Access setup or download required speech components.",
+    "keywords": "voice access in quick settings accessibility",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k"
+    ],
+    "evidence": "Observed: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56724497
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceTypingFilter",
+    "kind": "Historical",
+    "category": "Input",
+    "title": "Voice typing profanity filter option",
+    "body": "Open voice typing settings to inspect the option for disabling its profanity filter. Review dictated text before submitting it; this affects transcription filtering rather than microphone permissions or speech accuracy.",
+    "keywords": "voice typing profanity filter option input",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnsubw5wq2c"
+    ],
+    "evidence": "Observed: 26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta (2025-04-25). Current device support unverified; not a supported range.",
+    "featureIds": [
+      33289874
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AdvancedCameraHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Advanced camera settings experiment",
+    "body": "Inspect advanced camera settings for media-type and resolution choices. Dev 26120.2702 used the pair 49575624/50292326; Canary 27744 used 52142480. These are separate build observations, not a three-ID combination. Camera hardware support remains necessary.",
+    "keywords": "advanced camera settings experiment systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ld7idxgkcv23",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcj4icczc62j"
+    ],
+    "evidence": "Observed: 26120.2702 · Dev; 27744 · Canary (2024-12-13). Current device support unverified; not a supported range.",
+    "featureIds": [
+      49575624,
+      50292326,
+      52142480
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AboutHardwareCards",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "About-page hardware summary cards",
+    "body": "Inspect Settings About for storage, graphics-memory and RAM summary cards. Main pair: 51784082 and 54618938; 48433719 is conditional. The source requests reboot; later About redesigns may use different recipes.",
+    "keywords": "about-page hardware summary cards systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leuzqwnye62d",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leulochoc62f"
+    ],
+    "evidence": "Observed: 22635.4660 · Beta (2025-01-04). Current device support unverified; not a supported range.",
+    "featureIds": [
+      51784082,
+      54618938,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AboutFaq",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "About-page hardware FAQs",
+    "body": "Inspect Settings About for a frequently asked questions section explaining the Windows version and device specifications. This is explanatory content; it neither upgrades hardware nor verifies compatibility of unrelated applications.",
+    "keywords": "about-page hardware faqs systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkmdy5p35s2g"
+    ],
+    "evidence": "Observed: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      55305888
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "OpenWithStore",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Store recommendations in Open With",
+    "body": "Inspect Open With for Microsoft Store application recommendations. Main ID: 55805655. The redesigned picker using 41118774 is required if not already present; recommendations do not automatically install applications.",
+    "keywords": "store recommendations in open with right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpuuu6u64r2m"
+    ],
+    "evidence": "Observed: 26120.4161 · Beta (2025-05-24). Current device support unverified; not a supported range.",
+    "featureIds": [
+      55805655,
+      41118774
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "SpotlightCaption",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Spotlight icon and dynamic caption",
+    "body": "Inspect the desktop Spotlight icon. Variant 1 adds a dynamic image caption; variant 2 keeps the static caption with the updated icon. Choose one alternative, never both sequentially; the source also changes background away and back after reboot.",
+    "keywords": "spotlight icon and dynamic caption appearance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leuzgadpaj22",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leureqyswy22"
+    ],
+    "evidence": "Observed: 22635.4660 · Beta (2025-01-04). Current device support unverified; not a supported range.",
+    "featureIds": [
+      52145430
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SpotlightHover",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Spotlight hover flyout",
+    "body": "Hover the desktop Spotlight icon to inspect a smaller flyout; a single click opens the related Bing page. This changes the icon's interaction, rather than providing a new independent wallpaper source.",
+    "keywords": "spotlight hover flyout appearance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ld7p4wyjqc2m"
+    ],
+    "evidence": "Observed: 22635.4655 · Beta (2024-12-13). Current device support unverified; not a supported range.",
+    "featureIds": [
+      48656084
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "EmojiTray",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Emoji and more tray button",
+    "body": "Inspect the system tray for Emoji and more, including its show-while-typing behavior and taskbar-settings shortcut. The source distinguishes a working button in this build from earlier settings-only observations.",
+    "keywords": "emoji and more tray button taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda7yovs622i",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcnyiq5nu22z"
+    ],
+    "evidence": "Observed: 22635.4655 · Beta (2024-12-14). Current device support unverified; not a supported range.",
+    "featureIds": [
+      48504539
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "ShareWebPreview",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Web-link previews in Share",
+    "body": "Inspect the Windows Share sheet for a visual preview of shared web links. This records the recipe observed in Beta 22635.4655; the source does not establish compatibility with arbitrary stable releases or every sharing application.",
+    "keywords": "web-link previews in share windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda4sgaxqc2y"
+    ],
+    "evidence": "Observed: 22635.4655 · Beta (2024-12-14). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53871483
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SharePhotoEditing",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Photo editing in Share",
+    "body": "Inspect the Windows Share sheet for photo-editing tools before sharing an image. Both IDs form the reported recipe; preserve the original image and review the result before sending it elsewhere.",
+    "keywords": "photo editing in share windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3llhrij7bn22s",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda4sgaxqc2y"
+    ],
+    "evidence": "Observed: 26200.5516 · Dev; 26120.3653 · Beta (2025-03-28). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53433910,
+      54475355
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "TaskbarPositionHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar position experiment",
+    "body": "Inspect taskbar settings for movable position options. This is the author's May 2026 observed implementation; the command post names a build but no channel, and does not establish support for other builds.",
+    "keywords": "taskbar position experiment taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w"
+    ],
+    "evidence": "Observed: 26300.8493 (2026-05-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      59213768
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "SmallTaskbarHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Small taskbar experiment",
+    "body": "Inspect taskbar settings for the small-taskbar option. This May 2026 implementation is distinct from the older button-only experiment 29785184; the source does not identify a channel or guarantee ongoing support.",
+    "keywords": "small taskbar experiment taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w"
+    ],
+    "evidence": "Observed: 26300.8493 (2026-05-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      61090762
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "DragShareTray",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Drag-to-share tray experiment",
+    "body": "Drag a file toward the screen top to inspect a sharing tray with application targets and the full Share sheet. Main pair: 45624564 and 53397005; 48433719 is conditional, and the source requests reboot.",
+    "keywords": "drag-to-share tray experiment windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgjoyivfw22b",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgjgs3die22z"
+    ],
+    "evidence": "Observed: 22635.4805 · Beta (2025-01-25). Current device support unverified; not a supported range.",
+    "featureIds": [
+      45624564,
+      53397005,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "RedesignedStartRecipe",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Redesigned Start menu combination",
+    "body": "Inspect the redesigned Start menu using the six-component combination reported as rollout began. The source gives a date and channels, not full build numbers; do not treat the six IDs as six independent features.",
+    "keywords": "redesigned start menu combination start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lr7llswlxf27"
+    ],
+    "evidence": "Observed: 2025-06-10 · Dev/Beta (2025-06-10). Current device support unverified; not a supported range.",
+    "featureIds": [
+      47205210,
+      49221331,
+      49381526,
+      49402389,
+      49820095,
+      55495322
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "ContextMenu",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Customizable modern context menus",
+    "body": "Inspect the redesigned context menu and its customization settings, including Send to, folder Refresh and a simpler default layout. This is a specific Experimental-build observation, not a permanent Windows 10 menu restoration recipe.",
+    "keywords": "customizable modern context menus right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqs7acvk2x",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mt53myztyn2q"
+    ],
+    "evidence": "Observed: 26340.9212 · Experimental (2026-08-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      60813048
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "ModernAutoPlay",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Modern AutoPlay dialog",
+    "body": "Inspect AutoPlay's centered WinUI dialog for dark-mode support and one-time versus always choices. The source gives an exact build without a channel; actual device actions still require deliberate selection.",
+    "keywords": "modern autoplay dialog windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqshfid22x",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mt5hpbygmr27"
+    ],
+    "evidence": "Observed: 26340.9212 (2026-08-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      62141177
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartCustomization",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Start customization combination",
+    "body": "Inspect Start customization for smaller layouts and visibility of Recent, All apps, account name and profile picture. Keep the six IDs grouped as one observed recipe; the original post does not name a channel.",
+    "keywords": "start customization combination start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mmzi7erbxu25"
+    ],
+    "evidence": "Observed: 26300.8553 (2026-05-29). Current device support unverified; not a supported range.",
+    "featureIds": [
+      61754985,
+      61225604,
+      61596616,
+      61596617,
+      61596618,
+      61596619
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "KernelDumpHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager live kernel dumps",
+    "body": "The historical mapping associates this ID with Task Manager live kernel dumps. Such dumps can contain sensitive memory contents; inspect documentation before collecting or sharing one. This archive does not initiate a dump.",
+    "keywords": "task manager live kernel dumps systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      40430431
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerSearchHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager process search",
+    "body": "The historical mapping identifies Task Manager's process search field. Inspect process filtering in that build's Task Manager; the mapping does not establish complete prerequisites or continued support on later releases.",
+    "keywords": "task manager process search systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39420424
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SettingsRenameHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Modern Rename PC dialog",
+    "body": "The mapping links 38228963 to Rename PC dialog styling and separately lists master ID 36390579. Their exact dependency and activation order are unknown. Research-only: do not treat this as a complete rename or activation recipe.",
+    "keywords": "modern rename pc dialog systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      38228963,
+      36390579
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SettingsDateHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Modern date and time dialog",
+    "body": "The mapping links 39811196 to date-and-time dialog styling and separately lists master ID 36390579. The relationship is not established. This research-only archive does not change the clock, time zone or synchronization settings.",
+    "keywords": "modern date and time dialog systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39811196,
+      36390579
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SettingsResetHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Modern reset dialog",
+    "body": "The mapping associates 41598133 with a redesigned reset dialog and lists 36390579 as a related master flag. Dependencies remain unverified. This research-only visual archive never starts a reset; reset operations can remove applications or data.",
+    "keywords": "modern reset dialog systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      41598133,
+      36390579
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "EnergyHistory",
+    "kind": "Historical",
+    "category": "Performance",
+    "title": "Energy recommendations experiment",
+    "body": "The mapping identifies energy-recommendation controls with 39427030 and their dark theme with 41249924. They are grouped as one feature archive; the exact dependency is unknown. Applying native recommendations can change several power preferences.",
+    "keywords": "energy recommendations experiment performance",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39427030,
+      41249924
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ArchiveAppsHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Updated Archive Apps settings",
+    "body": "Inspect the historical Archive Apps settings-page redesign associated with this ID. The mapping identifies a page update, not a guarantee that an arbitrary installed application can be archived or subsequently restored without downloading it.",
+    "keywords": "updated archive apps settings systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      40762871
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WidgetExpansionHistory",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Expanded Widgets board",
+    "body": "The historical mapping associates this ID with an expanded Widgets view. Inspect the board's layout in the observed build; content availability still depends on installed widgets and services, and current compatibility is unverified.",
+    "keywords": "expanded widgets board windows",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25201 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      34300186
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "GamePassWidgetHistory",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Xbox Game Pass widget",
+    "body": "The mapping identifies an Xbox Game Pass widget, while leaving its internal feature name unknown. Inspect the Widgets board for this content; the feature flag does not confer a subscription or game entitlement.",
+    "keywords": "xbox game pass widget windows",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25201 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      36094217
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "TaskbarTrayHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Updated taskbar tray area",
+    "body": "The maintainer maps this ID to an updated taskbar tray area. Inspect the tray presentation on the recorded build; finer behavioral changes and complete dependencies are unspecified, so this remains a read-only historical observation.",
+    "keywords": "updated taskbar tray area taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25193 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      26008830
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "SettingsAnimatedIcons",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Animated Settings navigation icons",
+    "body": "Inspect navigation icons in the Settings application for animation. The historical mapping identifies the visual treatment, but supplies no performance evidence or complete dependency recipe; it should not be described as a speed optimization.",
+    "keywords": "animated settings navigation icons appearance",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25188 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      34878152
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskbarStartupHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar startup experiment",
+    "body": "The maintainer labels this a faster-taskbar-startup experiment. No benchmark or current compatibility evidence accompanies the mapping. Keep it as a historical implementation note rather than a promised performance improvement or recommended optimization.",
+    "keywords": "taskbar startup experiment taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25182 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39751186
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarAnimationHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar animation experiment",
+    "body": "Inspect the taskbar animation experiment recorded by the maintainer for this build. The mapping does not specify a complete activation recipe or every animation affected; this archive deliberately avoids claiming identical behavior on modern taskbars.",
+    "keywords": "taskbar animation experiment taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25182 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39072097
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "FluentOpenWithHistory",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Fluent app picker",
+    "body": "The historical mapping associates this ID with a Fluent-design app picker. Inspect Open With presentation in the recorded build; changing the picker appearance is separate from deliberately selecting or changing a default application.",
+    "keywords": "fluent app picker contextmenu",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25174 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      36302090
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "SpotlightThemeHistory",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Windows Spotlight theme",
+    "body": "The mapping identifies Spotlight integration as a Windows theme. Inspect the theme choices on the observed build; this is distinct from later desktop-icon interactions and does not establish offline image availability or service permanence.",
+    "keywords": "windows spotlight theme appearance",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25169 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39258685
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ExplorerTabsHistory",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "File Explorer tabs historical implementation",
+    "body": "Historical tabs used 37634385; Beta 22621 also required 39145991. ExplorerPatcher reports TIFE removed in Dev 23575. Disabling 37634385, 36354489 and 39145991 reportedly crashes Explorer on 22621.2361. Never treat that sequence as universal rollback.",
+    "keywords": "file explorer tabs historical implementation explorer",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19",
+      "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev; 22621 · Beta. Current support and complete recipe unverified.",
+    "featureIds": [
+      37634385,
+      39145991
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerNavigationHistory",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "File Explorer navigation redesign",
+    "body": "Historical navigation used 36354489, with 39145991 required on Beta 22621. ExplorerPatcher reports that disabling this pair together with tabs ID 37634385 crashes Explorer on 22621.2361. The mapping provides no safe universal rollback for later builds.",
+    "keywords": "file explorer navigation redesign explorer",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19",
+      "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev; 22621 · Beta. Current support and complete recipe unverified.",
+    "featureIds": [
+      36354489,
+      39145991
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "EdgeDesktopSearchHistory",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Edge desktop search box",
+    "body": "The maintainer identifies an Edge desktop search box associated with this ID. Inspect that historical desktop surface; the mapping does not establish independence from installed Edge components or support on current Windows releases.",
+    "keywords": "edge desktop search box windows",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      37969115
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "LowerLeftSearchHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Lower-left search box experiment",
+    "body": "The mapping labels this ID as a lower-left search-box experiment. Inspect search placement on the recorded build; the source does not describe every interaction, and the archive does not promise this layout on current taskbars.",
+    "keywords": "lower-left search box experiment taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      37010913
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarOverflowHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar overflow combination",
+    "body": "The maintainer lists two parts of the taskbar-overflow implementation. Keep 35620393 and 35620394 together as one feature archive, not two features. Inspect overflow behavior when many apps occupy the recorded build's taskbar.",
+    "keywords": "taskbar overflow combination taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 22622.436 · Beta. Current support and complete recipe unverified.",
+    "featureIds": [
+      35620393,
+      35620394
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  }
+]

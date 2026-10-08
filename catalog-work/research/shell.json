@@ -1,0 +1,1174 @@
+[
+  {
+    "id": "TaskbarAlignment",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Align taskbar icons to the left",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors. Set Taskbar alignment to Left for a familiar launch position. This changes icon alignment, not which screen edge holds the taskbar.",
+    "keywords": "align taskbar icons to the left taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarAutoHide",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Automatically hide the taskbar",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable automatic hiding. Move the pointer to its edge to reveal it again; clear the option to keep it visible.",
+    "keywords": "automatically hide the taskbar taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarBadges",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show application badges",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and choose whether app buttons show badges. Badges expose pending activity without opening apps; disabling them may conceal useful status cues.",
+    "keywords": "show application badges taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarFlashing",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Control flashing app alerts",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and change the option for flashing taskbar apps. Turn it off to reduce visual interruptions, then restore it if important requests become easy to miss.",
+    "keywords": "control flashing app alerts taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarDisplays",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show taskbars across monitors",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable the taskbar on all displays. Use this on a multi-monitor setup; return to the previous selection if it adds clutter.",
+    "keywords": "show taskbars across monitors taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarDesktopCorner",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Use the taskbar corner for desktop",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable selecting the far corner to show the desktop. This provides quick access to desktop items without closing your applications.",
+    "keywords": "use the taskbar corner for desktop taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarSearchStyle",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Choose the taskbar search presentation",
+    "body": "Open Personalization → Taskbar → Taskbar items → Search. Choose a box, an icon, or hide the entry to reclaim space. This controls its presentation rather than disabling Windows Search.",
+    "keywords": "choose the taskbar search presentation taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTaskView",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show the Task View button",
+    "body": "Open Personalization → Taskbar → Taskbar items and toggle Task view. Use its button to manage windows and virtual desktops. Hiding the button leaves the Win+Tab shortcut available.",
+    "keywords": "show the task view button taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarWidgets",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show the Widgets taskbar entry",
+    "body": "Open Personalization → Taskbar → Taskbar items and toggle Widgets. Hide its taskbar entry to reduce clutter; this does not uninstall the Widgets experience or remove its underlying components.",
+    "keywords": "show the widgets taskbar entry taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTrayApps",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Choose visible system tray apps",
+    "body": "Open Personalization → Taskbar → Other system tray icons. Choose which app icons remain visible instead of living in the hidden-icons menu; keep important sync or security indicators accessible.",
+    "keywords": "choose visible system tray apps taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTouchTools",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Expose touch and pen tray tools",
+    "body": "Open Personalization → Taskbar → System tray icons. Choose the touch keyboard, pen menu, or virtual touchpad entries needed for your device. Their usefulness depends on your input hardware.",
+    "keywords": "expose touch and pen tray tools taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified. Required input hardware must be present.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarWindowSharing",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Share a window from its taskbar button",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable window sharing from the taskbar. A supported meeting application is required. Review the window contents before choosing to share.",
+    "keywords": "share a window from its taskbar button taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTablet",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Use a touch-optimized taskbar",
+    "body": "On a supported convertible, open Personalization → Taskbar → Taskbar behaviors and enable optimization when used as a tablet. This option depends on device capabilities and may not appear on desktops.",
+    "keywords": "use a touch-optimized taskbar taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified. Required input hardware must be present.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarLabels",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Keep taskbar windows separate",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors. Set Combine taskbar buttons and hide labels to Never when you need individual labeled windows. Restore the former value if the taskbar becomes crowded.",
+    "keywords": "keep taskbar windows separate taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "ClockSeconds",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show seconds on the tray clock",
+    "body": "Right-click the taskbar clock and open Adjust date and time. Expand the tray date/time controls and enable seconds when available. The extra clock updates can increase power consumption.",
+    "keywords": "show seconds on the tray clock taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:dateandtime",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "ClockVisibility",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Hide the tray date and time",
+    "body": "Right-click the taskbar clock and select Adjust date and time. Change whether the system tray shows the date and time; restore the switch when you need the clock visible again.",
+    "keywords": "hide the tray date and time taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:dateandtime",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarPins",
+    "kind": "Guide",
+    "category": "Taskbar",
+    "title": "Pin and arrange frequent apps",
+    "body": "Right-click an application in Search or its running taskbar icon and choose Pin to taskbar. Drag icons to arrange them. Unpin an app to remove only its shortcut, not the application.",
+    "keywords": "pin and arrange frequent apps taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarPosition",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Move the taskbar to another screen edge",
+    "body": "On supported preview builds, open Personalization → Taskbar → Taskbar behaviors and select a screen edge. Alternate positions have incomplete search and touch support; auto-hide and touch optimization are not supported there in this announcement.",
+    "keywords": "move the taskbar to another screen edge taskbar",
+    "sources": [
+      "https://blogs.windows.com/windows-insider/2026/07/31/announcing-new-builds-for-31-july-2026/"
+    ],
+    "evidence": "Beta 26220.9022 and Experimental 26300.9032 release notes, 2026-07-31; rollout updated 2026-08-04. Preview availability on this device is unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarCompactHeight",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Reduce taskbar height",
+    "body": "On supported preview builds, open Personalization → Taskbar → Taskbar behaviors → Taskbar size and choose Small. This shrinks both icons and height, unlike icon-only sizing. The announced implementation supports top and bottom positions.",
+    "keywords": "reduce taskbar height taskbar",
+    "sources": [
+      "https://blogs.windows.com/windows-insider/2026/07/31/announcing-new-builds-for-31-july-2026/"
+    ],
+    "evidence": "Beta 26220.9022 and Experimental 26300.9032 release notes, 2026-07-31; rollout updated 2026-08-04. Preview availability on this device is unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "StartAppFolders",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Group pinned apps into folders",
+    "body": "In Start, drag one pinned app over another to create a folder. Open the folder to name it. Drag apps back out when you want to return to separate pins.",
+    "keywords": "group pinned apps into folders start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartAllAppsView",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Choose the All apps view",
+    "body": "On the newer Start layout, switch the All section between category, grid, and list views. Choose the arrangement that makes your installed apps easier to locate; older layouts may not expose these choices.",
+    "keywords": "choose the all apps view start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartExpandedPins",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Keep the full pinned area expanded",
+    "body": "On the newer Start layout, select Show all in the pinned area to reveal the complete set. The layout remembers this view; earlier Start versions may behave differently.",
+    "keywords": "keep the full pinned area expanded start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartPowerFolders",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Add folders beside the power button",
+    "body": "Open Personalization → Start → Folders and choose useful destinations such as Downloads or Documents. These shortcuts appear beside the power control; remove unneeded entries from the same settings page.",
+    "keywords": "add folders beside the power button start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartPins",
+    "kind": "Guide",
+    "category": "Start",
+    "title": "Pin apps and folders to Start",
+    "body": "Right-click an application or a supported folder and choose Pin to Start. Drag pinned items into a useful order. Use Unpin from Start to remove an entry without deleting its target.",
+    "keywords": "pin apps and folders to start start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartSections",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Choose visible Start sections",
+    "body": "Open Personalization → Start on the supported preview layout and choose which of Pinned, Recent, and All are visible. This is the newer section-level control, not the older More pins layout preference.",
+    "keywords": "choose visible start sections start",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-insider/release-notes/experimental/preview-build-26300-8553"
+    ],
+    "evidence": "Experimental 26300.8553, 2026-05-29; controlled rollout. This is introduction evidence, not a universal minimum build. Current device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "Experimental",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartSize",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Set the Start menu size",
+    "body": "Open Personalization → Start on supported preview builds and choose Small, Large, or Automatic. Pick a size appropriate for your screen; return to Automatic to restore the default sizing behavior.",
+    "keywords": "set the start menu size start",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-insider/release-notes/experimental/preview-build-26300-8553"
+    ],
+    "evidence": "Experimental 26300.8553, 2026-05-29; controlled rollout. This is introduction evidence, not a universal minimum build. Current device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "Experimental",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartIdentity",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Hide your name in Start",
+    "body": "Open Personalization → Start on supported preview builds and use the option to hide your name and profile picture. It changes the Start presentation, not account visibility throughout Windows.",
+    "keywords": "hide your name in start start",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-insider/release-notes/experimental/preview-build-26300-8553"
+    ],
+    "evidence": "Experimental 26300.8553, 2026-05-29; controlled rollout. This is introduction evidence, not a universal minimum build. Current device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "Experimental",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "Extensions",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Show file extensions",
+    "body": "In File Explorer, choose View → Show → File name extensions. Seeing the full suffix helps distinguish similar-looking files. Changing this display option does not convert files or alter their underlying formats.",
+    "keywords": "show file extensions explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "Hidden",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Show hidden files",
+    "body": "In File Explorer, choose View → Show → Hidden items. This reveals normally hidden content for inspection. Do not delete unfamiliar system or application files merely because they have become visible.",
+    "keywords": "show hidden files explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerSelectionBoxes",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Select files using checkboxes",
+    "body": "In File Explorer, choose View → Show → Item check boxes. Use the boxes to collect multiple selections without holding a modifier key; clear the option to restore the previous presentation.",
+    "keywords": "select files using checkboxes explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerCompact",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Use denser file rows",
+    "body": "In File Explorer, choose View → Compact view to reduce space between entries. It can show more files on screen, but smaller targets may be less comfortable for touch interaction.",
+    "keywords": "use denser file rows explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerView",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Choose icons or file details",
+    "body": "In File Explorer, open View and select an icon, list, or details layout. Use details when comparing file information and icons for visual browsing; return to the previous layout whenever needed.",
+    "keywords": "choose icons or file details explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerNavigationPane",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Restore the folder navigation pane",
+    "body": "In File Explorer, choose View → Show → Navigation pane. The left-hand folder tree makes frequent locations easier to reach; toggle it again if you prefer more room for file contents.",
+    "keywords": "restore the folder navigation pane explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerHome",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Open Explorer at This PC",
+    "body": "In File Explorer, open the three-dot menu → Options. Change Open File Explorer to to This PC instead of Home. Restore the previous choice if you prefer recent and pinned items first.",
+    "keywords": "open explorer at this pc explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerQuickAccess",
+    "kind": "Guide",
+    "category": "Explorer",
+    "title": "Pin a frequently used folder",
+    "body": "Right-click a folder in File Explorer and choose Pin to Quick access. This adds a navigation shortcut without moving the folder. Right-click the entry and unpin it to remove that shortcut.",
+    "keywords": "pin a frequently used folder explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ClassicMenu",
+    "kind": "NativeShortcut",
+    "category": "ContextMenu",
+    "title": "Open the classic context menu",
+    "body": "Right-click a file and choose Show more options. Shift+right-click opens the full menu on documented builds. This is a per-use shortcut; it does not permanently replace the Windows 11 menu.",
+    "keywords": "open the classic context menu contextmenu",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows",
+      "https://blogs.windows.com/windows-insider/2022/03/09/announcing-windows-11-insider-preview-build-22572/"
+    ],
+    "evidence": "Windows 11 documentation; Shift+right-click introduced in Dev 22572, 2022-03-09. Current device support unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Context"
+  },
+  {
+    "id": "ContextMenu",
+    "kind": "NativeSettings",
+    "category": "ContextMenu",
+    "title": "Customize the preview context menu",
+    "body": "On the new preview menu, select Customize menu. Its Personalization page controls built-in commands, app-extension placement, text versus icon commands, and the position of Properties. Restore earlier choices on that page; stable Windows availability is not established.",
+    "keywords": "customize the preview context menu contextmenu",
+    "sources": [
+      "https://blogs.windows.com/windows-insider/2026/08/17/improving-file-explorer-context-menu-faster-simpler-and-more-customizable/",
+      "https://blogs.windows.com/windows-insider/2026/08/17/announcing-new-builds-for-17-august-2026/"
+    ],
+    "evidence": "Experimental 26340.9212 / 28120.2738 / 29648.1000 announcement, 2026-08-17; staged preview rollout. No numerical ViVe ID verified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Context"
+  },
+  {
+    "id": "Snap",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Configure Snap layouts and assistance",
+    "body": "Open System → Multitasking → Snap windows. Enable snapping and choose whether hovering over maximize or dragging to the screen top offers layouts, and whether Windows suggests another app beside a snapped window.",
+    "keywords": "configure snap layouts and assistance windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/snap-your-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SnapGroups",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Show window groups when switching tasks",
+    "body": "Open System → Multitasking → Snap windows and change whether snapped windows are shown together in taskbar previews, Task View, and Alt+Tab. This helps return to a working arrangement rather than individual windows.",
+    "keywords": "show window groups when switching tasks windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/snap-your-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SnapResize",
+    "kind": "Guide",
+    "category": "Windows",
+    "title": "Resize neighboring snapped windows together",
+    "body": "After snapping two windows beside each other, drag the divider between them to change their widths together. Drag it back to restore the balance, or unsnap the windows to arrange them independently.",
+    "keywords": "resize neighboring snapped windows together windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/snap-your-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "AltTab",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Limit browser tabs in Alt+Tab",
+    "body": "Open System → Multitasking and choose how many application tabs appear when snapping or using Alt+Tab. Select no tabs for a window-focused switcher. Browser support is required; the documentation illustrates Microsoft Edge.",
+    "keywords": "limit browser tabs in alt+tab windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/how-to-multitask-in-windows-b4fa0333-98f8-ef43-e25c-06d4fb1d6960"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "VirtualDesktops",
+    "kind": "NativeShortcut",
+    "category": "Windows",
+    "title": "Organize projects into virtual desktops",
+    "body": "Press Win+Tab and choose New desktop. Select its name to rename the workspace for a project. Close an unwanted desktop from Task View after checking where you want its windows to live.",
+    "keywords": "organize projects into virtual desktops windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/configure-multiple-desktops-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "DesktopBackgrounds",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Give virtual desktops distinct pictures",
+    "body": "Press Win+Tab, right-click a desktop, and choose its background. Select Picture to distinguish workspaces visually. Independent backgrounds require pictures; the documented feature does not support separate slideshows or different solid colors.",
+    "keywords": "give virtual desktops distinct pictures windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/configure-multiple-desktops-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-background",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "DesktopWindowScope",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Control switching across virtual desktops",
+    "body": "Open System → Multitasking → Desktops. Choose whether the taskbar and Alt+Tab show windows from every desktop or only the current one. Keep them local to reduce clutter, or global for easier cross-project access.",
+    "keywords": "control switching across virtual desktops windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/configure-multiple-desktops-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "DesktopWallpaper",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Choose a desktop background",
+    "body": "Open Personalization → Background and select a picture, slideshow, solid color, or Windows Spotlight. Configure the fit or slideshow timing there. Spotlight downloads imagery, and multiple virtual desktops impose additional limitations.",
+    "keywords": "choose a desktop background appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/change-the-desktop-background-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-background",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MonitorWallpapers",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Assign pictures to individual monitors",
+    "body": "Open Personalization → Background and choose Picture. Right-click a recent picture to assign its target monitor. Microsoft documentation note this per-monitor assignment is unavailable when multiple virtual desktops are in use.",
+    "keywords": "assign pictures to individual monitors appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/change-the-desktop-background-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-background",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopSystemIcons",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Show familiar desktop system icons",
+    "body": "Open Personalization → Themes → Desktop icon settings. Choose system entries such as This PC or Recycle Bin. This controls their desktop shortcuts and does not create or remove the underlying system features.",
+    "keywords": "show familiar desktop system icons appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:themes",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ThemeIconProtection",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Keep desktop icons when changing themes",
+    "body": "Open Personalization → Themes → Desktop icon settings and clear the option allowing themes to change desktop icons. Your chosen icons can then remain consistent when applying another visual theme.",
+    "keywords": "keep desktop icons when changing themes appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:themes",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopIconSize",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Adjust desktop icon size",
+    "body": "Right-click an empty desktop area and use View to choose an icon size, or hold Ctrl while turning the mouse wheel. Smaller icons leave more space but can be harder to identify.",
+    "keywords": "adjust desktop icon size appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopIconVisibility",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Temporarily hide desktop icons",
+    "body": "Right-click an empty desktop area and use View → Show desktop icons to hide or reveal the complete set. The files remain on disk; this is a presentation change rather than deletion.",
+    "keywords": "temporarily hide desktop icons appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopShortcut",
+    "kind": "Guide",
+    "category": "Appearance",
+    "title": "Create a desktop shortcut",
+    "body": "Right-click an empty desktop area and choose New → Shortcut. Select the intended target and give it a recognizable name. To undo, delete only the newly created shortcut, not its target file.",
+    "keywords": "create a desktop shortcut appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsThemes",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Save and apply a visual theme",
+    "body": "Open Personalization → Themes to choose an installed theme or save your current combination. Themes can affect several visual and sound settings together; return to your previous theme if the result is unsuitable.",
+    "keywords": "save and apply a visual theme appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/personalize-your-windows-experience-with-themes"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:themes",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsColorMode",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Choose separate app and system color modes",
+    "body": "Open Personalization → Colors and choose Custom mode to configure Windows and applications separately. Select light or dark for each. Some applications use their own theme settings and may not follow this preference.",
+    "keywords": "choose separate app and system color modes appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/personalize-your-colors-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-colors",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsAccent",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Apply an accent color to window surfaces",
+    "body": "Open Personalization → Colors, choose an accent, and select where it appears, including window borders and title bars. Applying it to Start and the taskbar requires a dark Windows mode.",
+    "keywords": "apply an accent color to window surfaces appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/personalize-your-colors-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-colors",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsTransparency",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Control transparent interface materials",
+    "body": "Open Personalization → Colors and change Transparency effects. Disable the effect if translucent surfaces make content harder to read; enable it again to restore the material appearance in supported Windows surfaces.",
+    "keywords": "control transparent interface materials appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/personalize-your-colors-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-colors",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SearchIndexScope",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose classic or enhanced indexing",
+    "body": "Open Privacy & security → Search, called Searching Windows on some versions, and locate Find my files. Choose Classic or Enhanced coverage. A larger initial index consumes additional disk activity, processing time, and battery.",
+    "keywords": "choose classic or enhanced indexing privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/performance-optimization/search-indexing-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchIndexFolders",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Select folders included in the index",
+    "body": "Open Privacy & security → Search and follow the custom search locations link. Choose Modify to select folders. Removing a location can make its files slower to find or absent from indexed results.",
+    "keywords": "select folders included in the index privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/performance-optimization/search-indexing-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchIndexTypes",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose indexed file types and contents",
+    "body": "Open custom search locations from Privacy & security → Search, then Advanced → File Types. Configure which extensions are indexed and how. Changes may require rebuilding the index and are not immediately reflected in results.",
+    "keywords": "choose indexed file types and contents privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/performance-optimization/search-indexing-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchCloudSources",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose accounts used for cloud search",
+    "body": "Open Privacy & security → Search, or Search permissions on older versions, and review Cloud content search. Control Microsoft and work or school account sources separately. These switches do not represent a general web-search toggle.",
+    "keywords": "choose accounts used for cloud search privacy",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/privacy/windows-search-and-privacy"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search-permissions",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchSafeFilter",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Set the search safety filter",
+    "body": "Open Privacy & security → Search, or Search permissions, and select a SafeSearch level. Filtering affects web content in search; family or organizational policies may restrict which level you are allowed to choose.",
+    "keywords": "set the search safety filter privacy",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/privacy/windows-search-and-privacy"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search-permissions",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchDeviceHistory",
+    "kind": "Guide",
+    "category": "Privacy",
+    "title": "Clear search history stored on this device",
+    "body": "Open Privacy & security → Search, or Search permissions, and locate the history controls. Clear device search history only when intended: this does not delete cloud Bing records, and local history cannot be restored through Settings.",
+    "keywords": "clear search history stored on this device privacy",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/privacy/windows-search-and-privacy"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search-permissions",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "None",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchWebSuggestions",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Control web and Store search suggestions",
+    "body": "On the supported preview experience, open Privacy & security → Search and choose whether web and Microsoft Store suggestions appear alongside local results. Region and rollout affect availability; do not substitute an unverified registry recipe if the controls are absent.",
+    "keywords": "control web and store search suggestions privacy",
+    "sources": [
+      "https://blogs.windows.com/windows-insider/2026/07/13/improving-windows-search-box-with-less-clutter-and-more-control/"
+    ],
+    "evidence": "Experimental channel announcement, 2026-07-13; controlled rollout and regional variation. No numerical ViVe ID or current-device support verified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "WidgetsFeed",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Hide the Widgets discovery feed",
+    "body": "Press Win+W, open Widgets settings, and review the dashboard controls for the Discover feed. Turn off that feed when you only want widgets; names and availability vary with the Widgets version and region.",
+    "keywords": "hide the widgets discovery feed taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/stay-up-to-date-with-widgets-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "WidgetsHover",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Stop Widgets opening on hover",
+    "body": "Press Win+W and open Widgets settings. Turn off opening the board on hover to avoid accidental expansion while crossing the taskbar. You can still deliberately open it from its button or shortcut.",
+    "keywords": "stop widgets opening on hover taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/stay-up-to-date-with-widgets-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "WidgetsNotifications",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Choose where Widgets notifications appear",
+    "body": "Press Win+W and open Widgets settings → More settings → Notifications. Review notification behavior for the taskbar, navigation area, and board. Suppressing prompts may hide useful updates, without changing the source application data.",
+    "keywords": "choose where widgets notifications appear taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/stay-up-to-date-with-widgets-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  }
+]

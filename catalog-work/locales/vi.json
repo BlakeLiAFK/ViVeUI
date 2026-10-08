@@ -1,0 +1,1280 @@
+{
+  "ContextMenu": {
+    "title": "Tùy chỉnh menu ngữ cảnh hiện đại",
+    "body": "Xem menu ngữ cảnh được thiết kế lại và các tùy chọn tùy chỉnh, gồm Gửi tới, Làm mới thư mục và bố cục mặc định đơn giản hơn. Đây là quan sát trên một bản Experimental cụ thể, không phải cách khôi phục vĩnh viễn menu Windows 10.",
+    "keywords": "tùy chỉnh menu ngữ cảnh hiện đại thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26340.9212 · Experimental (2026-08-17). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "ExplorerTabsHistory": {
+    "title": "Cách triển khai thẻ File Explorer trước đây",
+    "body": "Các thẻ trước đây dùng 37634385; Beta 22621 còn cần 39145991. ExplorerPatcher ghi nhận TIFE bị loại bỏ trong Dev 23575. Việc tắt 37634385, 36354489 và 39145991 được báo cáo gây sập Explorer trên 22621.2361. Không xem chuỗi thao tác đó là cách hoàn tác chung.",
+    "keywords": "cách triển khai thẻ file explorer trước đây thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25136 · Dev; 22621 · Beta. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "ExplorerNavigationHistory": {
+    "title": "Thiết kế lại điều hướng File Explorer",
+    "body": "Điều hướng trước đây dùng 36354489, với 39145991 bắt buộc trên Beta 22621. ExplorerPatcher báo cáo rằng tắt cặp này cùng ID thẻ 37634385 gây sập Explorer trên 22621.2361. Ánh xạ không cung cấp cách hoàn tác an toàn áp dụng cho mọi bản mới hơn.",
+    "keywords": "thiết kế lại điều hướng file explorer thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25136 · Dev; 22621 · Beta. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "ExternalFolderTabs": {
+    "title": "Mở thư mục ngoài trong cửa sổ có thẻ",
+    "body": "Mở một thư mục trên màn hình nền hoặc liên kết thư mục bên ngoài để quan sát một thẻ mới trong cửa sổ Explorer hiện có, thay vì mở thêm một cửa sổ.",
+    "keywords": "mở thư mục ngoài trong cửa sổ có thẻ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4515 · Beta (2024-11-23). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "RestoreExplorerTabs": {
+    "title": "Khôi phục thẻ Explorer khi đăng nhập",
+    "body": "Quan sát xem Explorer có khôi phục các thẻ đang mở sau khi đăng nhập hay không. Nguồn cũng yêu cầu bật tùy chọn Windows lưu các ứng dụng có thể khởi động lại và mở lại chúng khi đăng nhập.",
+    "keywords": "khôi phục thẻ explorer khi đăng nhập thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4580 · Beta (2024-12-07). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "StartCustomization": {
+    "title": "Nhóm tùy chỉnh menu Bắt đầu",
+    "body": "Xem phần tùy chỉnh Bắt đầu để tìm bố cục nhỏ hơn và tùy chọn hiển thị Gần đây, Tất cả ứng dụng, tên tài khoản và ảnh hồ sơ. Sáu ID thuộc một công thức được quan sát; bài đăng gốc không nêu kênh phát hành.",
+    "keywords": "nhóm tùy chỉnh menu bắt đầu thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26300.8553 (2026-05-29). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "RedesignedStartRecipe": {
+    "title": "Nhóm ID của menu Bắt đầu mới",
+    "body": "Xem menu Bắt đầu được thiết kế lại theo tổ hợp sáu thành phần được báo cáo khi bắt đầu triển khai. Nguồn nêu ngày và kênh nhưng không nêu số bản dựng đầy đủ; không tính sáu ID thành sáu tính năng độc lập.",
+    "keywords": "nhóm id của menu bắt đầu mới thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 2025-06-10 · Dev/Beta (2025-06-10). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "TaskbarPositionHistory": {
+    "title": "Thử nghiệm vị trí thanh tác vụ",
+    "body": "Xem cài đặt thanh tác vụ để tìm tùy chọn thay đổi vị trí. Đây là cách triển khai được tác giả quan sát vào tháng 5 năm 2026; bài đăng lệnh nêu bản dựng nhưng không nêu kênh và không chứng minh hỗ trợ trên bản khác.",
+    "keywords": "thử nghiệm vị trí thanh tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26300.8493 (2026-05-15). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SmallTaskbarHistory": {
+    "title": "Thử nghiệm thanh tác vụ nhỏ",
+    "body": "Xem cài đặt thanh tác vụ để tìm tùy chọn thanh nhỏ. Cách triển khai tháng 5 năm 2026 khác với thử nghiệm cũ 29785184 chỉ thu nhỏ nút; nguồn không nêu kênh và không bảo đảm khả năng hỗ trợ về sau.",
+    "keywords": "thử nghiệm thanh tác vụ nhỏ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26300.8493 (2026-05-15). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SmallTaskbarButtonsHistory": {
+    "title": "Thử nghiệm nút thanh tác vụ nhỏ",
+    "body": "Xem cài đặt thanh tác vụ để tìm các nút ứng dụng nhỏ hơn. Cách triển khai ban đầu giảm kích thước nút nhưng không giảm chiều cao thanh; khác với cách triển khai thanh nhỏ sau này dùng 61090762.",
+    "keywords": "thử nghiệm nút thanh tác vụ nhỏ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4291 · Beta (2024-09-30). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "ExplorerAiActions": {
+    "title": "Tác vụ AI trong menu Explorer",
+    "body": "Xem menu ngữ cảnh của một tệp được hỗ trợ để tìm Tác vụ AI. Nguồn gộp cả hai ID thành một công thức; không chứng minh rằng mỗi ID tương ứng với một chức năng riêng cho người dùng.",
+    "keywords": "tác vụ ai trong menu explorer thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5603 · Dev; 26120.4151 · Beta (2025-05-19). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "QuickAccessibilityGroups": {
+    "title": "Nhóm trợ năng trong Cài đặt nhanh",
+    "body": "Mở Cài đặt nhanh và xem các điều khiển trợ năng được nhóm theo thị giác, thính giác và vận động. Đây là việc sắp xếp lại điều khiển hiện có, không chứng minh mọi thiết bị hỗ trợ tất cả khả năng được liệt kê.",
+    "keywords": "nhóm trợ năng trong cài đặt nhanh thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5570 · Dev; 26120.3941 · Beta (2025-04-25). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "VoiceVocabulary": {
+    "title": "Từ vựng tùy chỉnh của Truy cập bằng giọng nói",
+    "body": "Xem Truy cập bằng giọng nói để tìm công cụ bổ sung từ tùy chỉnh vào từ điển. Ngôn ngữ và hỗ trợ nhận dạng giọng nói đã cài vẫn quan trọng; ID được ghi nhận không bảo đảm chất lượng nhận dạng trên thiết bị này.",
+    "keywords": "từ vựng tùy chỉnh của truy cập bằng giọng nói thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "VoiceQuickSettings": {
+    "title": "Truy cập bằng giọng nói trong Cài đặt nhanh",
+    "body": "Xem phần trợ năng của Cài đặt nhanh để tìm nút Truy cập bằng giọng nói. Đây là lối vào thuận tiện; không thay thế thiết lập ban đầu hoặc việc tải các thành phần nhận dạng giọng nói cần thiết.",
+    "keywords": "truy cập bằng giọng nói trong cài đặt nhanh thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SettingsAnimatedIcons": {
+    "title": "Biểu tượng điều hướng động trong Cài đặt",
+    "body": "Quan sát hoạt ảnh của các biểu tượng điều hướng trong ứng dụng Cài đặt. Ánh xạ lịch sử chỉ ra thay đổi hình ảnh nhưng không cung cấp bằng chứng hiệu năng hoặc công thức phụ thuộc đầy đủ; không nên mô tả đây là cách tăng tốc.",
+    "keywords": "biểu tượng điều hướng động trong cài đặt thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25188 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "HdrSettingsHistory": {
+    "title": "Thử nghiệm cải tiến cài đặt HDR",
+    "body": "Xem cài đặt Màn hình để tìm mô tả khả năng mới, điều khiển truyền video HDR và các chế độ Dolby Vision. Các lựa chọn vẫn phụ thuộc màn hình tương thích; ghi đè không thể bổ sung khả năng phần cứng còn thiếu.",
+    "keywords": "thử nghiệm cải tiến cài đặt hdr thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5581 · Dev; 26120.3950 · Beta (2025-05-06). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SpotlightHover": {
+    "title": "Bảng nổi Spotlight khi di chuột",
+    "body": "Di chuột lên biểu tượng Spotlight trên màn hình nền để xem bảng nổi nhỏ hơn; nhấp một lần sẽ mở trang Bing liên quan. Thay đổi này tác động cách tương tác với biểu tượng, không cung cấp một nguồn hình nền độc lập mới.",
+    "keywords": "bảng nổi spotlight khi di chuột thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4655 · Beta (2024-12-13). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SpotlightCaption": {
+    "title": "Biểu tượng Spotlight và chú thích động",
+    "body": "Xem biểu tượng Spotlight trên màn hình nền. Biến thể 1 thêm chú thích ảnh động; biến thể 2 giữ chú thích tĩnh với biểu tượng mới. Chọn một phương án, không áp dụng lần lượt cả hai; nguồn còn yêu cầu đổi nền sang kiểu khác rồi trở lại sau khi khởi động lại.",
+    "keywords": "biểu tượng spotlight và chú thích động thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4660 · Beta (2025-01-04). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SpotlightThemeHistory": {
+    "title": "Chủ đề Windows Spotlight",
+    "body": "Ánh xạ xác định việc tích hợp Spotlight dưới dạng chủ đề Windows. Xem lựa chọn chủ đề trên bản dựng được ghi nhận; khác với tương tác biểu tượng màn hình nền về sau và không chứng minh ảnh có sẵn ngoại tuyến hoặc dịch vụ tồn tại vĩnh viễn.",
+    "keywords": "chủ đề windows spotlight thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25169 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "FluentOpenWithHistory": {
+    "title": "Bộ chọn ứng dụng Fluent",
+    "body": "Ánh xạ lịch sử gắn ID này với bộ chọn ứng dụng mang thiết kế Fluent. Xem giao diện Mở bằng trên bản dựng đã ghi nhận; thay đổi hình thức bộ chọn khác với chủ động chọn hoặc đổi ứng dụng mặc định.",
+    "keywords": "bộ chọn ứng dụng fluent thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25174 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "ExplorerSendPhone": {
+    "title": "Gửi tệp Explorer sang điện thoại",
+    "body": "Xem menu ngữ cảnh của tệp để tìm Gửi tới điện thoại của tôi. Hai ID tạo thành tổ hợp được báo cáo; vẫn cần kết nối điện thoại tương thích để thực sự hoàn tất việc truyền tệp.",
+    "keywords": "gửi tệp explorer sang điện thoại thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4225 · Beta (2024-09-20). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "ExplorerShareApps": {
+    "title": "Chia sẻ trực tiếp tới ứng dụng từ Explorer",
+    "body": "Xem menu ngữ cảnh của tệp và màn hình nền để tìm Chia sẻ với và các ứng dụng đích được hỗ trợ. Nguồn ghi nhận 45286384 và 52800817 cùng nhau; không chứng minh mỗi ID là một chức năng riêng.",
+    "keywords": "chia sẻ trực tiếp tới ứng dụng từ explorer thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4367 · Beta (2024-10-11). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "OpenWithStore": {
+    "title": "Gợi ý Store trong Mở bằng",
+    "body": "Xem Mở bằng để tìm gợi ý ứng dụng Microsoft Store. ID chính là 55805655. Bộ chọn mới dùng 41118774 là điều kiện bắt buộc nếu chưa có; các gợi ý không tự động cài ứng dụng.",
+    "keywords": "gợi ý store trong mở bằng thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.4161 · Beta (2025-05-24). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "DarkFolderOptions": {
+    "title": "Hộp thoại Tùy chọn thư mục tối",
+    "body": "Xem hộp thoại Tùy chọn thư mục của Explorer ở chế độ tối. ID chính là 59203365; nguồn yêu cầu 58383338. Bản dựng viết tắt 26x20.6972 là nhãn quan sát, không phải phạm vi tương thích không giới hạn.",
+    "keywords": "hộp thoại tùy chọn thư mục tối thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26x20.6972 · Dev/Beta (2025-10-17). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "DarkFileDialogs": {
+    "title": "Hộp thoại thao tác tệp tối",
+    "body": "Quan sát hộp thoại sao chép và từ chối truy cập ở chế độ tối. Cặp chính là 57857165 và 57994323. Nguồn thêm 48433719 theo điều kiện và 49453572 trên Release Preview; các điều kiện rộng này không phải tính năng độc lập.",
+    "keywords": "hộp thoại thao tác tệp tối thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: .5751 · Dev/Beta; Release Preview (2025-08-15). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "ExplorerHomeRecommendations": {
+    "title": "Tệp cục bộ trong gợi ý Trang chủ",
+    "body": "Xem Trang chủ Explorer để tìm tệp cục bộ được đề xuất với tài khoản Microsoft cá nhân hoặc tài khoản cục bộ. ID chính là 51721485; 48895801 là phụ thuộc tùy chọn về hình thức thẻ, không phải điều kiện mở khóa bắt buộc.",
+    "keywords": "tệp cục bộ trong gợi ý trang chủ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4800 · Beta (2025-01-18). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "BackupReminderSnooze": {
+    "title": "Tạm hoãn nhắc sao lưu trong Explorer",
+    "body": "Xem lời nhắc Bắt đầu sao lưu trên thanh địa chỉ Explorer để tìm lựa chọn tắt hoặc hoãn nhắc trong một tháng.",
+    "keywords": "tạm hoãn nhắc sao lưu trong explorer thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4515 · Beta (2024-11-23). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "VoiceTypingFilter": {
+    "title": "Tùy chọn lọc từ tục khi nhập bằng giọng nói",
+    "body": "Mở cài đặt nhập bằng giọng nói để xem lựa chọn tắt bộ lọc từ tục. Kiểm tra văn bản trước khi gửi; tùy chọn ảnh hưởng bộ lọc phiên âm, không phải quyền micrô hoặc độ chính xác nhận dạng.",
+    "keywords": "tùy chọn lọc từ tục khi nhập bằng giọng nói thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta (2025-04-25). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "NotificationClock": {
+    "title": "Đồng hồ trong Trung tâm thông báo",
+    "body": "Xem cài đặt Ngày và giờ để tìm tùy chọn đồng hồ Trung tâm thông báo sau khi khởi động lại Explorer. ID chính là 42651849; 48433719 là điều kiện bổ sung. Đồng hồ này khác với hiển thị giây trên khay thanh tác vụ.",
+    "keywords": "đồng hồ trong trung tâm thông báo thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.5240 · Beta (2025-04-18). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SecondaryNotificationCenter": {
+    "title": "Trung tâm thông báo trên màn hình phụ",
+    "body": "Xem Trung tâm thông báo trên màn hình phụ. Nguồn yêu cầu khởi động lại máy nhưng chỉ nêu hậu tố bản dựng .5722, nên chưa xác lập được khả năng tương thích theo số bản dựng đầy đủ.",
+    "keywords": "trung tâm thông báo trên màn hình phụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: .5722 · Dev/Beta (2025-07-28). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "BatteryGraphLabels": {
+    "title": "Nhãn biểu đồ sử dụng pin",
+    "body": "Xem nhãn dưới biểu đồ sử dụng pin trong Cài đặt để tìm giải thích các biểu tượng. ID chính là 53092139; điều kiện rộng 48433719 chỉ áp dụng khi cần. Thay đổi ảnh hưởng cách hiển thị, không tăng dung lượng hoặc thời lượng pin.",
+    "keywords": "nhãn biểu đồ sử dụng pin thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.2510 · Dev (2024-12-06). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "Energy": {
+    "title": "Thử nghiệm đề xuất năng lượng",
+    "body": "Ánh xạ xác định điều khiển đề xuất năng lượng bằng 39427030 và giao diện tối bằng 41249924. Hai ID được gộp thành một hồ sơ tính năng; quan hệ phụ thuộc chính xác chưa rõ. Áp dụng đề xuất gốc có thể thay đổi nhiều lựa chọn nguồn điện.",
+    "keywords": "thử nghiệm đề xuất năng lượng thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25231 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "StartFolderCommands": {
+    "title": "Tạo thư mục Bắt đầu từ menu ngữ cảnh",
+    "body": "Nhấp chuột phải một ứng dụng đã ghim trong Bắt đầu để xem lệnh tạo thư mục ứng dụng hoặc chuyển mục ghim vào thư mục có sẵn. Nguồn mô tả các thao tác này riêng với việc dịch mục ghim sang hai bên.",
+    "keywords": "tạo thư mục bắt đầu từ menu ngữ cảnh thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "MoveStartPins": {
+    "title": "Di chuyển mục ghim bằng lệnh ngữ cảnh",
+    "body": "Nhấp chuột phải ứng dụng đã ghim trong Bắt đầu để xem lệnh dịch một vị trí sang trái hoặc phải. Hồ sơ này nói về sắp xếp mục ghim thuận tiện cho bàn phím, không phải thiết kế lại toàn bộ menu Bắt đầu về sau.",
+    "keywords": "di chuyển mục ghim bằng lệnh ngữ cảnh thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "AboutFaq": {
+    "title": "Câu hỏi thường gặp về phần cứng trong Giới thiệu",
+    "body": "Xem Cài đặt Giới thiệu để tìm phần câu hỏi thường gặp giải thích phiên bản Windows và thông số thiết bị. Đây là nội dung giải thích; không nâng cấp phần cứng hoặc xác nhận khả năng tương thích của ứng dụng khác.",
+    "keywords": "câu hỏi thường gặp về phần cứng trong giới thiệu thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-17). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "AboutHardwareCards": {
+    "title": "Thẻ tóm tắt phần cứng trong Giới thiệu",
+    "body": "Xem Cài đặt Giới thiệu để tìm thẻ tóm tắt lưu trữ, bộ nhớ đồ họa và RAM. Cặp chính là 51784082 và 54618938; 48433719 là điều kiện bổ sung. Nguồn yêu cầu khởi động lại; các thiết kế Giới thiệu về sau có thể dùng công thức khác.",
+    "keywords": "thẻ tóm tắt phần cứng trong giới thiệu thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4660 · Beta (2025-01-04). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "AdvancedCameraHistory": {
+    "title": "Thử nghiệm cài đặt camera nâng cao",
+    "body": "Xem cài đặt camera nâng cao để tìm lựa chọn loại phương tiện và độ phân giải. Dev 26120.2702 dùng cặp 49575624/50292326; Canary 27744 dùng 52142480. Đây là các quan sát trên bản dựng riêng, không phải tổ hợp ba ID. Vẫn cần phần cứng camera hỗ trợ.",
+    "keywords": "thử nghiệm cài đặt camera nâng cao thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.2702 · Dev; 27744 · Canary (2024-12-13). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "ModernSettingsDialogs": {
+    "title": "Giao diện hộp thoại Cài đặt hiện đại",
+    "body": "Ánh xạ lịch sử gộp cập nhật giao diện Đổi tên PC (38228963), ngày giờ (39811196) và đặt lại (41598133), cùng ID chính 36390579. Quan hệ phụ thuộc và thứ tự kích hoạt chưa rõ. Hồ sơ nghiên cứu này không đổi tên, chỉnh giờ hay đặt lại PC; thao tác đặt lại có thể xóa ứng dụng và dữ liệu.",
+    "keywords": "giao diện hộp thoại cài đặt hiện đại thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25231 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "TaskManagerDisconnectDialog": {
+    "title": "Hộp thoại ngắt kết nối người dùng hiện đại",
+    "body": "Xem hình thức hộp thoại xác nhận ngắt kết nối người dùng trong Trình quản lý Tác vụ. Hồ sơ chỉ nói về giao diện; thực sự ngắt phiên khác có thể làm gián đoạn công việc và không được danh mục này thực hiện.",
+    "keywords": "hộp thoại ngắt kết nối người dùng hiện đại thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4225 · Beta (2024-09-21). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "TaskManagerCpuCalculation": {
+    "title": "Cập nhật cách tính CPU trong Trình quản lý Tác vụ",
+    "body": "Xem thay đổi cách tính mức sử dụng CPU và cột CPU utility trong Trình quản lý Tác vụ. Quan sát này thay đổi cách hiển thị số liệu; không tăng tốc bộ xử lý và kết quả có thể khác các bản trước.",
+    "keywords": "cập nhật cách tính cpu trong trình quản lý tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.3360 · Dev/Beta (2025-02-28). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "TaskManagerDiskTypes": {
+    "title": "Nhãn kết nối ổ đĩa trong Trình quản lý Tác vụ",
+    "body": "Mở trang Hiệu năng của Trình quản lý Tác vụ để xem nhãn kết nối ổ đĩa như NVMe và SATA trong danh sách và biểu đồ. Đây là mô tả phần cứng, không phải điều khiển thay đổi hiệu năng ổ đĩa.",
+    "keywords": "nhãn kết nối ổ đĩa trong trình quản lý tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4225 · Beta (2024-09-21). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "KernelDumpHistory": {
+    "title": "Kết xuất nhân trực tiếp trong Trình quản lý Tác vụ",
+    "body": "Ánh xạ lịch sử gắn ID này với kết xuất nhân trực tiếp của Trình quản lý Tác vụ. Tệp kết xuất có thể chứa nội dung bộ nhớ nhạy cảm; đọc tài liệu trước khi thu thập hoặc chia sẻ. Hồ sơ này không bắt đầu kết xuất.",
+    "keywords": "kết xuất nhân trực tiếp trong trình quản lý tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25231 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "TaskManagerSearchHistory": {
+    "title": "Tìm tiến trình trong Trình quản lý Tác vụ",
+    "body": "Ánh xạ lịch sử xác định ô tìm tiến trình của Trình quản lý Tác vụ. Xem khả năng lọc tiến trình trên bản dựng đó; ánh xạ không xác lập đầy đủ điều kiện hoặc khả năng tiếp tục hỗ trợ ở bản mới hơn.",
+    "keywords": "tìm tiến trình trong trình quản lý tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25231 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "ArchiveAppsHistory": {
+    "title": "Cài đặt lưu trữ ứng dụng được cập nhật",
+    "body": "Xem thiết kế lại trang Lưu trữ ứng dụng trước đây gắn với ID này. Ánh xạ xác định cập nhật trang, không bảo đảm mọi ứng dụng đã cài có thể được lưu trữ hoặc khôi phục về sau mà không cần tải xuống.",
+    "keywords": "cài đặt lưu trữ ứng dụng được cập nhật thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25231 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "AnimatedTaskbarPreviews": {
+    "title": "Chuyển cảnh động cho bản xem trước thanh tác vụ",
+    "body": "Di chuột lên các ứng dụng trên thanh tác vụ để quan sát chuyển cảnh bản xem trước, thay đổi kích thước và đóng. Nguồn nêu hậu tố cập nhật thay vì số bản dựng đầy đủ; không xác lập cải thiện hiệu năng.",
+    "keywords": "chuyển cảnh động cho bản xem trước thanh tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: .5751 · Dev/Beta; KB5064071 (2025-08-15). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "BatteryPercentageHistory": {
+    "title": "Phần trăm pin và biểu tượng mới",
+    "body": "Xem biểu tượng pin và tùy chọn phần trăm. Công thức tháng 1 năm 2025 này dành cho bản 26120.3000; nguồn cũng nhắc bản xem trước ẩn sớm hơn, nhưng cả hai quan sát đều không bảo đảm tương thích với cập nhật Windows sau đó.",
+    "keywords": "phần trăm pin và biểu tượng mới thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26120.3000 · Dev (2025-01-24). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "EmojiTray": {
+    "title": "Nút Biểu tượng cảm xúc và hơn thế trong khay",
+    "body": "Xem khay hệ thống để tìm Biểu tượng cảm xúc và hơn thế, gồm cách hiển thị khi đang nhập và lối tắt tới cài đặt thanh tác vụ. Nguồn phân biệt nút hoạt động ở bản này với các quan sát trước chỉ có cài đặt.",
+    "keywords": "nút biểu tượng cảm xúc và hơn thế trong khay thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4655 · Beta (2024-12-14). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "LowerLeftSearchHistory": {
+    "title": "Thử nghiệm ô tìm kiếm ở góc dưới trái",
+    "body": "Ánh xạ gọi ID này là thử nghiệm ô tìm kiếm ở góc dưới trái. Xem vị trí tìm kiếm trên bản dựng đã ghi nhận; nguồn không mô tả mọi tương tác và hồ sơ không hứa hẹn bố cục này trên thanh tác vụ hiện nay.",
+    "keywords": "thử nghiệm ô tìm kiếm ở góc dưới trái thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25136 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "TaskbarAnimationHistory": {
+    "title": "Thử nghiệm hoạt ảnh thanh tác vụ",
+    "body": "Xem thử nghiệm hoạt ảnh thanh tác vụ được người bảo trì ghi nhận cho bản dựng này. Ánh xạ không nêu công thức kích hoạt đầy đủ hoặc mọi hoạt ảnh bị ảnh hưởng; hồ sơ không khẳng định hành vi giống nhau trên thanh tác vụ hiện đại.",
+    "keywords": "thử nghiệm hoạt ảnh thanh tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25182 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "TaskbarOverflowHistory": {
+    "title": "Nhóm triển khai vùng tràn thanh tác vụ",
+    "body": "Người bảo trì liệt kê hai phần của cách triển khai vùng tràn thanh tác vụ. Giữ 35620393 và 35620394 cùng nhau như một hồ sơ tính năng, không phải hai tính năng. Xem hành vi vùng tràn khi nhiều ứng dụng chiếm thanh tác vụ trên bản đã ghi nhận.",
+    "keywords": "nhóm triển khai vùng tràn thanh tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 22622.436 · Beta. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "TaskbarStartupHistory": {
+    "title": "Thử nghiệm khởi động thanh tác vụ",
+    "body": "Người bảo trì gọi đây là thử nghiệm khởi động thanh tác vụ nhanh hơn. Ánh xạ không kèm đo hiệu năng hoặc bằng chứng tương thích hiện tại. Chỉ xem đây là ghi chú triển khai lịch sử, không phải lời hứa tăng tốc hay khuyến nghị tối ưu hóa.",
+    "keywords": "thử nghiệm khởi động thanh tác vụ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25182 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "TaskbarTrayHistory": {
+    "title": "Vùng khay thanh tác vụ được cập nhật",
+    "body": "Người bảo trì gắn ID này với vùng khay thanh tác vụ được cập nhật. Xem cách hiển thị khay trên bản dựng đã ghi nhận; thay đổi hành vi chi tiết và phụ thuộc đầy đủ không được nêu, nên đây vẫn là quan sát lịch sử chỉ đọc.",
+    "keywords": "vùng khay thanh tác vụ được cập nhật thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25193 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "DarkRun": {
+    "title": "Hộp thoại Chạy tối",
+    "body": "Mở Chạy bằng Win+R để xem giao diện tối. ID chính là 59270880; điều kiện bắt buộc là 58383338. Nguồn viết tắt bản dựng thành 26x20.6972, không xác lập phạm vi tương thích chính xác theo số bản dựng đầy đủ.",
+    "keywords": "hộp thoại chạy tối thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26x20.6972 · Dev/Beta (2025-10-17). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "DragShareTray": {
+    "title": "Thử nghiệm khay kéo để chia sẻ",
+    "body": "Kéo một tệp về phía trên màn hình để xem khay chia sẻ với ứng dụng đích và bảng Chia sẻ đầy đủ. Cặp chính là 45624564 và 53397005; 48433719 áp dụng theo điều kiện và nguồn yêu cầu khởi động lại.",
+    "keywords": "thử nghiệm khay kéo để chia sẻ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4805 · Beta (2025-01-25). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "EdgeDesktopSearchHistory": {
+    "title": "Ô tìm kiếm Edge trên màn hình nền",
+    "body": "Người bảo trì xác định ô tìm kiếm Edge trên màn hình nền gắn với ID này. Xem bề mặt giao diện lịch sử đó; ánh xạ không chứng minh tính độc lập với thành phần Edge đã cài hoặc hỗ trợ trên Windows hiện tại.",
+    "keywords": "ô tìm kiếm edge trên màn hình nền thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25136 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "WidgetExpansionHistory": {
+    "title": "Bảng Tiện ích mở rộng",
+    "body": "Ánh xạ lịch sử gắn ID này với chế độ xem Tiện ích mở rộng. Xem bố cục bảng trên bản dựng đã quan sát; nội dung vẫn phụ thuộc tiện ích và dịch vụ đã cài, và khả năng tương thích hiện tại chưa được xác minh.",
+    "keywords": "bảng tiện ích mở rộng thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25201 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "ModernAutoPlay": {
+    "title": "Hộp thoại Tự động phát hiện đại",
+    "body": "Xem hộp thoại WinUI ở giữa màn hình của Tự động phát để tìm hỗ trợ chế độ tối và lựa chọn một lần hoặc luôn luôn. Nguồn nêu bản dựng chính xác nhưng không nêu kênh; thao tác thật với thiết bị vẫn cần người dùng chủ động chọn.",
+    "keywords": "hộp thoại tự động phát hiện đại thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26340.9212 (2026-08-17). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "SharePhotoEditing": {
+    "title": "Chỉnh sửa ảnh trong Chia sẻ",
+    "body": "Xem bảng Chia sẻ của Windows để tìm công cụ chỉnh sửa ảnh trước khi chia sẻ. Cả hai ID tạo thành công thức được báo cáo; giữ ảnh gốc và kiểm tra kết quả trước khi gửi đi nơi khác.",
+    "keywords": "chỉnh sửa ảnh trong chia sẻ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 26200.5516 · Dev; 26120.3653 · Beta (2025-03-28). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "ShareWebPreview": {
+    "title": "Xem trước liên kết web trong Chia sẻ",
+    "body": "Xem bảng Chia sẻ của Windows để tìm bản xem trước trực quan của liên kết web. Hồ sơ ghi lại công thức trên Beta 22635.4655; nguồn không xác lập tương thích với mọi bản ổn định hoặc mọi ứng dụng chia sẻ.",
+    "keywords": "xem trước liên kết web trong chia sẻ thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Quan sát: 22635.4655 · Beta (2024-12-14). Chưa xác minh hỗ trợ trên thiết bị hiện tại; không phải phạm vi được hỗ trợ."
+  },
+  "GamePassWidgetHistory": {
+    "title": "Tiện ích Xbox Game Pass",
+    "body": "Ánh xạ xác định tiện ích Xbox Game Pass nhưng không nêu tên tính năng nội bộ. Xem bảng Tiện ích để tìm nội dung này; cờ tính năng không cấp gói đăng ký hoặc quyền sở hữu trò chơi.",
+    "keywords": "tiện ích xbox game pass thử nghiệm lịch sử nguồn phiên bản",
+    "evidence": "Ánh xạ lịch sử của người bảo trì: 25201 · Dev. Hỗ trợ hiện tại và công thức đầy đủ chưa được xác minh."
+  },
+  "ClassicMenu": {
+    "title": "Mở menu ngữ cảnh cổ điển",
+    "body": "Nhấp chuột phải một tệp rồi chọn Hiển thị thêm tùy chọn. Shift+nhấp chuột phải mở menu đầy đủ trên các bản đã được ghi nhận. Đây là lối tắt dùng từng lần, không thay thế vĩnh viễn menu Windows 11.",
+    "keywords": "mở menu ngữ cảnh cổ điển cài đặt hướng dẫn tùy chọn Windows nhấp chuột phải menu ngữ cảnh cổ điển",
+    "evidence": "Tài liệu Windows 11; Shift+nhấp chuột phải ra mắt trong Dev 22572, ngày 2022-03-09. Chưa xác minh hỗ trợ thiết bị hiện tại."
+  },
+  "ToggleKeys": {
+    "title": "Âm báo khi đổi trạng thái phím khóa",
+    "body": "Bật Phím bật/tắt trong Trợ năng → Bàn phím để nghe khi Caps Lock, Num Lock hoặc Scroll Lock đổi trạng thái. Cân nhắc người xung quanh trước khi bật âm báo trong phòng yên tĩnh.",
+    "keywords": "âm báo khi đổi trạng thái phím khóa cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "CaptionMicrophone": {
+    "title": "Tạo phụ đề cho trò chuyện trực tiếp",
+    "body": "Trong cửa sổ phụ đề trực tiếp, mở cài đặt và thêm âm thanh micrô. Cách này đưa lời nói gần đó vào phụ đề; kiểm tra quyền micrô và thông báo cho người tham gia trước khi tạo phụ đề cuộc trò chuyện.",
+    "keywords": "tạo phụ đề cho trò chuyện trực tiếp cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Phụ đề trực tiếp Windows 11 22H2+; cần ngôn ngữ hỗ trợ và micrô. Chưa kiểm chứng thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "LiveCaptions": {
+    "title": "Tạo phụ đề cho âm thanh trên PC",
+    "body": "Nhấn Win+Ctrl+L và hoàn tất tải ngôn ngữ ban đầu. Sau thiết lập, phụ đề trực tiếp xử lý lời nói cục bộ. Ngôn ngữ nhận dạng được hỗ trợ khác nhau; dịch còn cần phần cứng Copilot+ tương thích và phiên bản được hỗ trợ.",
+    "keywords": "tạo phụ đề cho âm thanh trên pc cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Phụ đề trực tiếp cần Windows 11 22H2+; dịch cần Copilot+ PC và 24H2+. Chưa kiểm chứng thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "ColorFilters": {
+    "title": "Bộ lọc hỗ trợ nhận biết màu",
+    "body": "Mở Trợ năng → Bộ lọc màu và chọn bộ lọc phù hợp thị lực. Màu màn hình sẽ thay đổi, vì vậy hãy tắt bộ lọc khi cần đánh giá màu chính xác.",
+    "keywords": "bộ lọc hỗ trợ nhận biết màu cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "VoiceAccess": {
+    "title": "Điều khiển Windows bằng giọng nói",
+    "body": "Mở Trợ năng → Giọng nói và bật Truy cập bằng giọng nói. Chọn ngôn ngữ được hỗ trợ, tải tệp và cấu hình micrô. Nhận dạng sau đó chạy trên thiết bị; kiểm tra quyền micrô và luyện tập trước khi phụ thuộc vào chức năng này.",
+    "keywords": "điều khiển windows bằng giọng nói cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "StickyKeys": {
+    "title": "Nhập tổ hợp phím lần lượt",
+    "body": "Trong Trợ năng → Bàn phím, bật Phím dính để nhập phím tắt từng phím một. Tùy chọn thay đổi cách hoạt động của phím bổ trợ; tắt nếu các tổ hợp thông thường hoạt động không như mong đợi.",
+    "keywords": "nhập tổ hợp phím lần lượt cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "PointerVisibility": {
+    "title": "Dễ tìm con trỏ hơn",
+    "body": "Mở Trợ năng → Con trỏ chuột và cảm ứng. Tăng kích thước con trỏ hoặc chọn màu tương phản; kiểm tra để con trỏ không che khuất các điều khiển nhỏ.",
+    "keywords": "dễ tìm con trỏ hơn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "MonoAudio": {
+    "title": "Nghe cả hai kênh bằng một tai",
+    "body": "Mở Trợ năng → Âm thanh và bật Âm thanh mono để kết hợp hai kênh stereo. Hữu ích khi nghe bằng một tai; tắt để khôi phục định vị stereo khi nghe nhạc hoặc chơi trò chơi.",
+    "keywords": "nghe cả hai kênh bằng một tai cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "ContrastTheme": {
+    "title": "Giao diện tương phản cao",
+    "body": "Mở Trợ năng → Chủ đề tương phản và áp dụng bảng màu phù hợp. Kiểm tra các ứng dụng thường dùng trước khi giữ lại; chọn Không có để trở về chủ đề bình thường.",
+    "keywords": "giao diện tương phản cao cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "FilterKeys": {
+    "title": "Bỏ qua phím lặp ngoài ý muốn",
+    "body": "Mở Trợ năng → Bàn phím → Phím lọc và chỉnh độ nhạy. Thử gõ sau đó: lọc quá mạnh có thể khiến bàn phím tưởng như không phản hồi. Khôi phục độ nhạy cũ nếu thao tác gõ chủ ý bị bỏ qua.",
+    "keywords": "bỏ qua phím lặp ngoài ý muốn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "NarratorDucking": {
+    "title": "Giữ lời đọc rõ trên âm thanh khác",
+    "body": "Trong cài đặt Trình tường thuật, bật giảm âm lượng ứng dụng khác khi Trình tường thuật nói. Cách này giúp phân biệt lời đọc điều khiển; nhạc hoặc âm thanh cuộc họp có thể tạm nhỏ đi. Khôi phục nếu gây phân tâm.",
+    "keywords": "giữ lời đọc rõ trên âm thanh khác cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "TextSize": {
+    "title": "Chữ hệ thống lớn hơn",
+    "body": "Mở Trợ năng → Cỡ văn bản, chỉnh thanh trượt xem trước rồi áp dụng. Tùy chọn phóng to chữ mà không phóng mọi thành phần giao diện; một số ứng dụng có thể bỏ qua lựa chọn này.",
+    "keywords": "chữ hệ thống lớn hơn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "Magnifier": {
+    "title": "Phóng to giao diện khó nhìn",
+    "body": "Nhấn Win và dấu cộng để mở Kính lúp; dùng Win với dấu cộng hoặc trừ để thu phóng. Chọn chế độ thấu kính, neo hoặc toàn màn hình trong cài đặt; Win+Esc để thoát.",
+    "keywords": "phóng to giao diện khó nhìn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "MouseKeys": {
+    "title": "Di chuyển con trỏ bằng bàn phím số",
+    "body": "Bật Phím chuột trong Trợ năng → Chuột để điều khiển con trỏ bằng bàn phím số. Cách này thay đổi hành vi bàn phím số; bảo đảm bạn có thể quay lại nhập số bình thường khi cần.",
+    "keywords": "di chuyển con trỏ bằng bàn phím số cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "NarratorStartup": {
+    "title": "Trình tường thuật trước hoặc sau đăng nhập",
+    "body": "Mở cài đặt Trình tường thuật bằng Win+Ctrl+N và mở rộng tùy chọn khởi động. Chọn bắt đầu đọc trước hay sau đăng nhập; hành vi trước đăng nhập đặc biệt đáng lưu ý trên máy dùng chung.",
+    "keywords": "trình tường thuật trước hoặc sau đăng nhập cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "CaptionStyle": {
+    "title": "Phụ đề dễ đọc hơn",
+    "body": "Mở Trợ năng → Phụ đề và chỉnh kiểu phụ đề, gồm chữ và nền. Xem trước trên nội dung video; một số trình phát có thể dùng kiểu phụ đề riêng.",
+    "keywords": "phụ đề dễ đọc hơn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "AccessKeyUnderlines": {
+    "title": "Hiện gạch chân phím truy cập",
+    "body": "Bật gạch chân phím truy cập trong Trợ năng → Bàn phím. Các menu hỗ trợ sẽ hiện ký tự phím rõ hơn; ứng dụng không có phím truy cập sẽ không tự có thêm phím tắt nhờ cài đặt này.",
+    "keywords": "hiện gạch chân phím truy cập cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "Narrator": {
+    "title": "Đọc màn hình với Trình tường thuật",
+    "body": "Nhấn Win+Ctrl+Enter để bắt đầu Trình tường thuật. Dùng Win+Ctrl+N để chỉnh giọng, mức chi tiết và thiết bị phát. Kiểm tra âm lượng ở nơi dùng chung; phím tắt khởi động cũng dùng để dừng đọc.",
+    "keywords": "đọc màn hình với trình tường thuật cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "VisualAudioAlerts": {
+    "title": "Nhìn thấy thông báo âm thanh",
+    "body": "Trong Trợ năng → Âm thanh, chọn nháy hình ảnh cho thông báo âm thanh. Chọn thanh tiêu đề, cửa sổ đang hoạt động hoặc màn hình; cân nhắc kỹ nếu hình ảnh nhấp nháy khiến bạn khó chịu.",
+    "keywords": "nhìn thấy thông báo âm thanh cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "TouchIndicator": {
+    "title": "Hiện điểm chạm trên màn hình",
+    "body": "Mở Trợ năng → Con trỏ chuột và cảm ứng rồi bật chỉ báo cảm ứng. Vòng tròn lớn và đậm hơn có thể hỗ trợ trình diễn; chức năng cần màn hình cảm ứng.",
+    "keywords": "hiện điểm chạm trên màn hình cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "OnScreenKeyboard": {
+    "title": "Gõ không cần bàn phím vật lý",
+    "body": "Nhấn Win+Ctrl+O để mở bàn phím trên màn hình hỗ trợ trợ năng, hoặc bật trong Trợ năng → Bàn phím. Nó hỗ trợ nhập bằng con trỏ và khác bàn phím cảm ứng; nhấn lại phím tắt để đóng.",
+    "keywords": "gõ không cần bàn phím vật lý cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "TextCursorVisibility": {
+    "title": "Dễ thấy vị trí chèn văn bản",
+    "body": "Mở Trợ năng → Con trỏ văn bản. Chỉnh cả độ dày và chỉ báo màu để tìm vị trí chèn; một số trình soạn thảo có thể tự vẽ con trỏ riêng.",
+    "keywords": "dễ thấy vị trí chèn văn bản cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "DesktopIconSize": {
+    "title": "Chỉnh cỡ biểu tượng màn hình nền",
+    "body": "Nhấp chuột phải vùng trống trên màn hình nền và dùng Xem để chọn cỡ biểu tượng, hoặc giữ Ctrl khi lăn bánh xe chuột. Biểu tượng nhỏ để lại nhiều chỗ hơn nhưng có thể khó nhận biết hơn.",
+    "keywords": "chỉnh cỡ biểu tượng màn hình nền cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "WindowsAccent": {
+    "title": "Áp dụng màu nhấn cho cửa sổ",
+    "body": "Mở Cá nhân hóa → Màu, chọn màu nhấn và nơi áp dụng, gồm viền và thanh tiêu đề cửa sổ. Áp dụng cho Bắt đầu và thanh tác vụ yêu cầu chế độ Windows tối.",
+    "keywords": "áp dụng màu nhấn cho cửa sổ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "MonitorWallpapers": {
+    "title": "Gán ảnh cho từng màn hình",
+    "body": "Mở Cá nhân hóa → Nền và chọn Ảnh. Nhấp chuột phải ảnh gần đây để chọn màn hình đích. Tài liệu Microsoft lưu ý việc gán riêng từng màn hình không khả dụng khi đang dùng nhiều màn hình nền ảo.",
+    "keywords": "gán ảnh cho từng màn hình cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DynamicRefreshRate": {
+    "title": "Cân bằng độ mượt bằng tần số quét động",
+    "body": "Mở Hệ thống → Màn hình → Màn hình nâng cao và bật tần số quét động nếu có. DRR cần VRR và ít nhất 120 Hz; tắt nếu trò chơi mất mức tần số quét tối đa mong đợi.",
+    "keywords": "cân bằng độ mượt bằng tần số quét động cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "DesktopWallpaper": {
+    "title": "Chọn nền màn hình",
+    "body": "Mở Cá nhân hóa → Nền và chọn ảnh, trình chiếu, màu đồng nhất hoặc Windows Spotlight. Chỉnh độ vừa ảnh hoặc thời gian trình chiếu tại đó. Spotlight tải ảnh qua mạng; nhiều màn hình nền ảo có thêm giới hạn.",
+    "keywords": "chọn nền màn hình cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "LockScreenAppearance": {
+    "title": "Chọn màn hình khóa ít lộ thông tin",
+    "body": "Mở Cá nhân hóa → Màn hình khóa và chọn cả nền lẫn nội dung trạng thái. Người khác có thể thấy màn hình này trước đăng nhập; kiểm tra xem ảnh cá nhân hoặc thông tin trạng thái có nên tiếp tục hiển thị không.",
+    "keywords": "chọn màn hình khóa ít lộ thông tin cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "WindowsColorMode": {
+    "title": "Chọn màu riêng cho ứng dụng và hệ thống",
+    "body": "Mở Cá nhân hóa → Màu và chọn chế độ Tùy chỉnh để cấu hình Windows và ứng dụng riêng. Chọn sáng hoặc tối cho từng phần. Một số ứng dụng có cài đặt chủ đề riêng và có thể không theo lựa chọn này.",
+    "keywords": "chọn màu riêng cho ứng dụng và hệ thống cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "AmbientBrightness": {
+    "title": "Điều chỉnh độ sáng theo ánh sáng xung quanh",
+    "body": "Trong Hệ thống → Màn hình → Độ sáng, xem tùy chọn tự điều chỉnh khi ánh sáng thay đổi. Tùy chọn cần cảm biến ánh sáng tương thích; tắt nếu thay đổi theo cảm biến khiến màn hình khó đọc.",
+    "keywords": "điều chỉnh độ sáng theo ánh sáng xung quanh cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "ContentAdaptiveBrightness": {
+    "title": "Kiểm soát đổi độ sáng theo nội dung",
+    "body": "Mở Hệ thống → Màn hình → Độ sáng và xem điều chỉnh độ sáng theo nội dung. Tắt có thể tránh thay đổi gây phân tâm khi làm việc trực quan; chỉ màn hình được hỗ trợ mới hiện tùy chọn.",
+    "keywords": "kiểm soát đổi độ sáng theo nội dung cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "WindowsTransparency": {
+    "title": "Kiểm soát hiệu ứng trong suốt",
+    "body": "Mở Cá nhân hóa → Màu và đổi Hiệu ứng trong suốt. Tắt nếu các bề mặt mờ trong làm nội dung khó đọc; bật lại để khôi phục hình thức vật liệu trên những bề mặt Windows được hỗ trợ.",
+    "keywords": "kiểm soát hiệu ứng trong suốt cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DesktopShortcut": {
+    "title": "Tạo lối tắt trên màn hình nền",
+    "body": "Nhấp chuột phải vùng trống trên màn hình nền rồi chọn Mới → Lối tắt. Chọn đích cần mở và đặt tên dễ nhận biết. Để hoàn tác, chỉ xóa lối tắt vừa tạo, không xóa tệp đích.",
+    "keywords": "tạo lối tắt trên màn hình nền cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ThemeIconProtection": {
+    "title": "Giữ biểu tượng khi đổi chủ đề",
+    "body": "Mở Cá nhân hóa → Chủ đề → Cài đặt biểu tượng màn hình nền và bỏ chọn cho phép chủ đề đổi biểu tượng. Các biểu tượng đã chọn có thể giữ nguyên khi áp dụng chủ đề hình ảnh khác.",
+    "keywords": "giữ biểu tượng khi đổi chủ đề cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DisplayColorProfile": {
+    "title": "Quản lý cấu hình màu màn hình",
+    "body": "Mở Hệ thống → Màn hình → Cấu hình màu, chọn đúng màn hình và đặt cấu hình. Giữ cấu hình gốc để dùng lại: cấu hình thay thế không phù hợp có thể làm sai màu trong các ứng dụng hỗ trợ.",
+    "keywords": "quản lý cấu hình màu màn hình cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "AutomaticColorManagement": {
+    "title": "Tự động quản lý màu ứng dụng",
+    "body": "Trong Hệ thống → Màn hình → Cấu hình màu, chọn màn hình và tìm quản lý màu tự động. Chức năng cải thiện tính nhất quán trên phần cứng đồ họa hỗ trợ; không thay thế màn hình đã hiệu chuẩn.",
+    "keywords": "tự động quản lý màu ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "WindowsThemes": {
+    "title": "Lưu và áp dụng chủ đề hình ảnh",
+    "body": "Mở Cá nhân hóa → Chủ đề để chọn chủ đề đã cài hoặc lưu tổ hợp hiện tại. Chủ đề có thể thay đổi đồng thời nhiều cài đặt hình ảnh và âm thanh; trở về chủ đề trước nếu kết quả không phù hợp.",
+    "keywords": "lưu và áp dụng chủ đề hình ảnh cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "NightLight": {
+    "title": "Lên lịch màu màn hình ấm hơn",
+    "body": "Mở Hệ thống → Màn hình → Ánh sáng đêm và đặt cả độ ấm lẫn lịch. Màu sẽ kém chính xác hơn; tắt khi làm việc cần đúng màu. Thời điểm hoàng hôn có thể phụ thuộc cài đặt vị trí.",
+    "keywords": "lên lịch màu màn hình ấm hơn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "DesktopSystemIcons": {
+    "title": "Hiện biểu tượng hệ thống quen thuộc",
+    "body": "Mở Cá nhân hóa → Chủ đề → Cài đặt biểu tượng màn hình nền. Chọn mục hệ thống như PC này hoặc Thùng rác. Tùy chọn điều khiển lối tắt trên màn hình nền, không tạo hay xóa tính năng hệ thống bên dưới.",
+    "keywords": "hiện biểu tượng hệ thống quen thuộc cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DesktopIconVisibility": {
+    "title": "Tạm ẩn biểu tượng màn hình nền",
+    "body": "Nhấp chuột phải vùng trống trên màn hình nền và dùng Xem → Hiển thị biểu tượng màn hình nền để ẩn hoặc hiện toàn bộ. Tệp vẫn còn trên ổ đĩa; đây là thay đổi cách hiển thị, không phải xóa.",
+    "keywords": "tạm ẩn biểu tượng màn hình nền cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "EndTask": {
+    "title": "Hiện Kết thúc tác vụ trên thanh tác vụ",
+    "body": "Mở Cài đặt → Hệ thống → Nâng cao và bật Kết thúc tác vụ nếu có; các bản cũ đặt trong Dành cho nhà phát triển. Nhấp chuột phải ứng dụng trên thanh tác vụ để thấy lệnh. Buộc kết thúc có thể mất việc chưa lưu. Tắt cài đặt chỉ bỏ lệnh, không khôi phục việc đã mất.",
+    "keywords": "hiện kết thúc tác vụ trên thanh tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Nâng cao hiện tại; trang được chuyển trong Windows 11 25H2+. Khả dụng trên bản cũ khác nhau; hỗ trợ thiết bị chưa được xác minh."
+  },
+  "DefaultApps": {
+    "title": "Chọn ứng dụng mở tệp và liên kết",
+    "body": "Mở Cài đặt → Ứng dụng → Ứng dụng mặc định. Tìm phần mở rộng hoặc giao thức, hoặc chọn ứng dụng để xem liên kết loại tệp. Chỉ gán loại muốn đổi. Ghi lại ứng dụng cũ để khôi phục mà không đặt lại mọi mặc định.",
+    "keywords": "chọn ứng dụng mở tệp và liên kết cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "ExplorerView": {
+    "title": "Chọn biểu tượng hoặc chi tiết tệp",
+    "body": "Trong File Explorer, mở Xem và chọn bố cục biểu tượng, danh sách hoặc chi tiết. Dùng chi tiết khi so sánh thông tin tệp và biểu tượng khi duyệt bằng hình ảnh; trở lại bố cục cũ khi cần.",
+    "keywords": "chọn biểu tượng hoặc chi tiết tệp cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ExplorerHome": {
+    "title": "Mở Explorer tại PC này",
+    "body": "Trong File Explorer, mở menu ba chấm → Tùy chọn. Đổi Mở File Explorer tới thành PC này thay vì Trang chủ. Khôi phục lựa chọn trước nếu muốn thấy mục gần đây và đã ghim trước tiên.",
+    "keywords": "mở explorer tại pc này cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ExplorerQuickAccess": {
+    "title": "Ghim thư mục thường dùng",
+    "body": "Nhấp chuột phải thư mục trong File Explorer rồi chọn Ghim vào Truy cập nhanh. Cách này thêm lối tắt điều hướng mà không di chuyển thư mục. Nhấp chuột phải mục và bỏ ghim để gỡ lối tắt.",
+    "keywords": "ghim thư mục thường dùng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ExplorerNavigationPane": {
+    "title": "Khôi phục ngăn điều hướng thư mục",
+    "body": "Trong File Explorer, chọn Xem → Hiển thị → Ngăn điều hướng. Cây thư mục bên trái giúp tới vị trí thường dùng dễ hơn; bật/tắt lại nếu muốn dành thêm chỗ cho nội dung tệp.",
+    "keywords": "khôi phục ngăn điều hướng thư mục cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ExplorerSelectionBoxes": {
+    "title": "Chọn tệp bằng hộp kiểm",
+    "body": "Trong File Explorer, chọn Xem → Hiển thị → Hộp kiểm mục. Dùng hộp kiểm để chọn nhiều mục mà không giữ phím bổ trợ; bỏ tùy chọn để khôi phục cách hiển thị trước.",
+    "keywords": "chọn tệp bằng hộp kiểm cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "Extensions": {
+    "title": "Hiện phần mở rộng tên tệp",
+    "body": "Trong File Explorer, chọn Xem → Hiển thị → Phần mở rộng tên tệp. Thấy đầy đủ hậu tố giúp phân biệt tệp trông giống nhau. Đổi tùy chọn hiển thị không chuyển đổi tệp hoặc thay đổi định dạng bên dưới.",
+    "keywords": "hiện phần mở rộng tên tệp cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "Hidden": {
+    "title": "Hiện tệp ẩn",
+    "body": "Trong File Explorer, chọn Xem → Hiển thị → Mục ẩn. Cách này hiện nội dung thường bị ẩn để kiểm tra. Không xóa tệp hệ thống hoặc ứng dụng lạ chỉ vì chúng vừa trở nên nhìn thấy được.",
+    "keywords": "hiện tệp ẩn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "LongPaths": {
+    "title": "Hiểu hỗ trợ đường dẫn dài Win32",
+    "body": "Trên phiên bản hỗ trợ, mở Group Policy → Cấu hình máy tính → Mẫu quản trị → Hệ thống → Hệ thống tệp → Bật đường dẫn dài Win32. Ghi trạng thái cũ. Ứng dụng cũng phải khai báo longPathAware; không phải mọi giới hạn đường dẫn đều bị bỏ. Khởi động lại tiến trình liên quan và khôi phục chính sách nếu cần.",
+    "keywords": "hiểu hỗ trợ đường dẫn dài win32 cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11; trình chỉnh sửa Group Policy phụ thuộc phiên bản. Ứng dụng vẫn phải chủ động hỗ trợ; chưa thử trên thiết bị."
+  },
+  "ExplorerCompact": {
+    "title": "Hiện hàng tệp dày hơn",
+    "body": "Trong File Explorer, chọn Xem → Chế độ xem thu gọn để giảm khoảng cách giữa các mục. Có thể thấy nhiều tệp hơn, nhưng mục tiêu nhỏ hơn có thể kém thuận tiện cho thao tác cảm ứng.",
+    "keywords": "hiện hàng tệp dày hơn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "PenShortcuts": {
+    "title": "Gán thao tác nút bút",
+    "body": "Mở Bluetooth và thiết bị → Bút và Windows Ink rồi cấu hình nút lối tắt của bút. Kết hợp nhấn một lần, hai lần và giữ theo công việc; các thao tác có sẵn phụ thuộc bút.",
+    "keywords": "gán thao tác nút bút cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "WindowsDisplayLanguage": {
+    "title": "Đổi ngôn ngữ hiển thị Windows",
+    "body": "Mở Thời gian và ngôn ngữ → Ngôn ngữ và khu vực, cài ngôn ngữ cần dùng rồi chọn cho Windows. Lưu công việc trước khi đăng xuất; phiên bản đơn ngôn ngữ hạn chế thay đổi này và bố cục bàn phím có thể khác sau đó.",
+    "keywords": "đổi ngôn ngữ hiển thị windows cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "TouchpadGestures": {
+    "title": "Tùy chỉnh cử chỉ nhiều ngón trên bàn di chuột",
+    "body": "Mở Bluetooth và thiết bị → Bàn di chuột, mở rộng cử chỉ ba hoặc bốn ngón. Gán các thao tác chuyển đổi hữu ích cùng nhau; một số cử chỉ cần bàn di chuột chính xác và có thể xung đột với thói quen cũ.",
+    "keywords": "tùy chỉnh cử chỉ nhiều ngón trên bàn di chuột cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "VoiceTyping": {
+    "title": "Đọc văn bản với dấu câu tự động",
+    "body": "Đặt con trỏ trong ô văn bản và nhấn Win+H. Cấu hình dấu câu tự động qua nút bánh răng, kiểm tra văn bản trước khi gửi; nhập bằng giọng nói cần micrô và nhận dạng lời nói trực tuyến.",
+    "keywords": "đọc văn bản với dấu câu tự động cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "MouseClickLock": {
+    "title": "Kéo mà không giữ nút chuột",
+    "body": "Mở Bluetooth và thiết bị → Chuột → Cài đặt chuột bổ sung → Nút và bật Khóa bấm. Chức năng giảm nhu cầu giữ nút khi kéo; trước tiên hãy thử với vùng chọn không quan trọng.",
+    "keywords": "kéo mà không giữ nút chuột cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "TypingSuggestions": {
+    "title": "Nhận gợi ý khi gõ",
+    "body": "Mở Thời gian và ngôn ngữ → Nhập và bật gợi ý văn bản cho bàn phím vật lý, gồm gợi ý đa ngôn ngữ nếu hữu ích. Hỗ trợ khác nhau theo ứng dụng và ngôn ngữ; xem xét gợi ý, đừng mặc định chúng là sửa lỗi chính xác.",
+    "keywords": "nhận gợi ý khi gõ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "PointerLocator": {
+    "title": "Tìm con trỏ bằng Ctrl",
+    "body": "Mở cài đặt chuột bổ sung → Tùy chọn con trỏ và bật hiện vị trí con trỏ khi nhấn Ctrl. Nhấn Ctrl để kiểm tra; chức năng không di chuyển con trỏ hoặc nhấp chuột.",
+    "keywords": "tìm con trỏ bằng ctrl cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "TouchscreenGestures": {
+    "title": "Quản lý cử chỉ cảm ứng hệ thống",
+    "body": "Mở Bluetooth và thiết bị → Cảm ứng và cấu hình cử chỉ ba, bốn ngón. Tắt nếu ứng dụng cần dùng chính các cử chỉ đó; nếu không, hệ thống có thể chặn những chuyển động này.",
+    "keywords": "quản lý cử chỉ cảm ứng hệ thống cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "Clipboard": {
+    "title": "Dùng lại lịch sử bảng nhớ tạm an toàn",
+    "body": "Nhấn Win+V và bật lịch sử bảng nhớ tạm để dùng lại mục vừa sao chép. Xem xét nội dung nhạy cảm trước khi bật đồng bộ; Hệ thống → Bảng nhớ tạm điều khiển lịch sử và xóa, còn mục ghim cần xử lý riêng.",
+    "keywords": "dùng lại lịch sử bảng nhớ tạm an toàn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "InactiveWindowScroll": {
+    "title": "Cuộn cửa sổ mà không kích hoạt",
+    "body": "Mở Bluetooth và thiết bị → Chuột rồi bật cuộn cửa sổ không hoạt động khi di chuột lên. Thử với các cửa sổ chồng nhau: cuộn có thể tác động nội dung nền dù tiêu điểm bàn phím vẫn ở nơi khác.",
+    "keywords": "cuộn cửa sổ mà không kích hoạt cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "AppLanguageOrder": {
+    "title": "Đặt thứ tự ngôn ngữ cho ứng dụng",
+    "body": "Trong Thời gian và ngôn ngữ → Ngôn ngữ và khu vực, sắp xếp lại ngôn ngữ ưu tiên. Ứng dụng hỗ trợ dùng thứ tự này khi chọn bản dịch; ứng dụng không thể hiển thị ngôn ngữ mà nó không cung cấp.",
+    "keywords": "đặt thứ tự ngôn ngữ cho ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "PenHandedness": {
+    "title": "Chọn tay viết khi dùng bút",
+    "body": "Trong Bluetooth và thiết bị → Bút và Windows Ink, chọn tay viết. Tùy chọn giúp tương tác bút được hỗ trợ phù hợp cách cầm; cần phần cứng bút tương thích và không hiệu chuẩn lại màn hình.",
+    "keywords": "chọn tay viết khi dùng bút cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "KeyboardLayouts": {
+    "title": "Chuyển bố cục bàn phím có chủ đích",
+    "body": "Mở tùy chọn của một ngôn ngữ trong Ngôn ngữ và khu vực rồi thêm bố cục bàn phím. Chuyển bằng Win+Space; kiểm tra bố cục đang dùng trước khi nhập mật khẩu, rồi xóa bố cục không dùng nếu cần.",
+    "keywords": "chuyển bố cục bàn phím có chủ đích cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "PrintScreenCapture": {
+    "title": "Dùng PrtSc để cắt ảnh màn hình",
+    "body": "Trong Trợ năng → Bàn phím, bật tùy chọn chụp bằng Print Screen. PrtSc sẽ mở công cụ cắt màn hình thay cho hành vi cũ; kiểm tra các phím tắt chụp ảnh hiện có vẫn hoạt động như mong đợi.",
+    "keywords": "dùng prtsc để cắt ảnh màn hình cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "NotificationDuration": {
+    "title": "Thêm thời gian đọc biểu ngữ",
+    "body": "Mở Trợ năng → Hiệu ứng hình ảnh và tăng thời gian trước khi thông báo biến mất. Biểu ngữ hiện lâu hơn giúp đọc nhưng có thể che công việc; khôi phục thời lượng cũ khi không còn cần.",
+    "keywords": "thêm thời gian đọc biểu ngữ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "SecurityNotifications": {
+    "title": "Giảm thông báo bảo mật mang tính thông tin",
+    "body": "Mở Bảo mật Windows → Cài đặt → Quản lý thông báo. Xem thông tin quét và cảnh báo theo mạng, giữ lại thông điệp quan trọng cho công việc. Cảnh báo cần hành động ngay vẫn được gửi. Chính sách tổ chức có thể khóa điều khiển; khôi phục lựa chọn cũ nếu thiếu thông tin hữu ích.",
+    "keywords": "giảm thông báo bảo mật mang tính thông tin cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "PerAppNotifications": {
+    "title": "Giảm biểu ngữ ứng dụng gây ồn",
+    "body": "Mở Hệ thống → Thông báo, chọn ứng dụng được liệt kê rồi cấu hình biểu ngữ, âm thanh và mức ưu tiên cùng nhau. Giữ cảnh báo quan trọng dễ thấy; các điều khiển đổi cách gửi thông báo mà không xóa dữ liệu ứng dụng.",
+    "keywords": "giảm biểu ngữ ứng dụng gây ồn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "DoNotDisturb": {
+    "title": "Lên lịch yên tĩnh với ngoại lệ",
+    "body": "Mở Hệ thống → Thông báo và cấu hình điều kiện tự động Không làm phiền cùng ngoại lệ ưu tiên. Kiểm tra ứng dụng và cuộc gọi quan trọng trước khi dựa vào chế độ im lặng; tắt quy tắc không nhất thiết kết thúc khoảng yên tĩnh hiện tại.",
+    "keywords": "lên lịch yên tĩnh với ngoại lệ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "Focus": {
+    "title": "Bắt đầu phiên tập trung có thời hạn",
+    "body": "Mở Hệ thống → Tập trung, chọn thời lượng và bắt đầu. Xem tùy chọn thông báo và thanh tác vụ trước; sau khi kết thúc, kiểm tra Không làm phiền còn bật không trước khi trông đợi cảnh báo khẩn cấp.",
+    "keywords": "bắt đầu phiên tập trung có thời hạn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị; kiểm tra ngày 2026-10-08."
+  },
+  "HibernateEntry": {
+    "title": "Thêm tùy chọn nguồn ngủ đông",
+    "body": "Mở Bảng điều khiển → Tùy chọn nguồn → Chọn chức năng nút nguồn → Thay đổi cài đặt hiện không khả dụng. Nếu có, chọn Ngủ đông và lưu. Bỏ tùy chọn menu sẽ đảo ngược thay đổi này; không xóa tệp ngủ đông.",
+    "keywords": "thêm tùy chọn nguồn ngủ đông cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11; ngủ đông cần phần cứng và cấu hình tương thích. Chưa xác minh khả dụng trên thiết bị này."
+  },
+  "PowerMode": {
+    "title": "Cân bằng hiệu năng và điện năng",
+    "body": "Mở Cài đặt → Hệ thống → Nguồn và pin → Chế độ nguồn. Chọn mức cân bằng phù hợp công việc và ghi lại chế độ trước. Hiệu năng cao có thể tăng nhiệt và dùng pin; chế độ có sẵn phụ thuộc phần cứng và gói nguồn đang hoạt động.",
+    "keywords": "cân bằng hiệu năng và điện năng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "LidPowerActions": {
+    "title": "Chọn thao tác nắp máy và nút nguồn",
+    "body": "Mở Bảng điều khiển → Hệ thống và Bảo mật → Tùy chọn nguồn → Chọn chức năng nút nguồn. Đặt riêng thao tác khi dùng pin và cắm điện rồi lưu. Máy tính xách tay tiếp tục hoạt động có thể quá nóng trong túi; tắt máy có thể mất việc chưa lưu.",
+    "keywords": "chọn thao tác nắp máy và nút nguồn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "StartupApps": {
+    "title": "Chọn ứng dụng khởi động khi đăng nhập",
+    "body": "Mở Cài đặt → Ứng dụng → Khởi động và xem ứng dụng đã đăng ký. Trình quản lý Tác vụ → Ứng dụng khởi động cũng cho thấy tác động đo được. Chỉ tắt ứng dụng tùy chọn bạn nhận biết; đồng bộ hoặc bảo vệ quan trọng có thể ngừng tự chạy. Bật lại để khôi phục lần đăng nhập sau.",
+    "keywords": "chọn ứng dụng khởi động khi đăng nhập cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "EnergySaver": {
+    "title": "Cấu hình tiết kiệm năng lượng",
+    "body": "Mở Cài đặt → Hệ thống → Nguồn và pin → Tiết kiệm năng lượng. Xem cả ngưỡng kích hoạt và hành vi độ sáng. Hạn chế hoạt động nền có thể làm chậm thông báo và đồng bộ. Khôi phục ngưỡng cũ hoặc tắt khi đánh đổi này không còn phù hợp.",
+    "keywords": "cấu hình tiết kiệm năng lượng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11 hiện tại; bản cũ dùng tên và tùy chọn khác. Chưa xác minh hỗ trợ thiết bị."
+  },
+  "DeliveryOptimization": {
+    "title": "Kiểm soát chia sẻ và băng thông tải cập nhật",
+    "body": "Mở Cài đặt → Windows Update → Tùy chọn nâng cao → Tối ưu hóa phân phối. Xem phạm vi chia sẻ ngang hàng, giới hạn băng thông và thống kê. Chia sẻ qua Internet có thể dùng hạn mức tải lên. Khôi phục giới hạn đã ghi nếu tải quá chậm; tắt chia sẻ không tắt Windows Update.",
+    "keywords": "kiểm soát chia sẻ và băng thông tải cập nhật cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SleepDiagnosis": {
+    "title": "Chẩn đoán chặn ngủ và đánh thức",
+    "body": "Dùng terminal để xem powercfg /requests cho tác nhân chặn ngủ, /lastwake cho nguồn đánh thức cuối và /waketimers cho lịch đánh thức. Một số truy vấn cần quyền quản trị. Đây là truy vấn chẩn đoán; không áp dụng ghi đè yêu cầu hoặc tắt tác vụ cập nhật theo hướng dẫn này.",
+    "keywords": "chẩn đoán chặn ngủ và đánh thức cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "BatteryReport": {
+    "title": "Xem lịch sử dung lượng pin",
+    "body": "Trong terminal mở tại thư mục có quyền ghi, chạy powercfg /batteryreport rồi mở đường dẫn HTML do lệnh in ra. So sánh dung lượng thiết kế và sạc đầy được báo cáo mà không xem đó là bảo đảm sức khỏe pin chính xác. Xem lịch sử sử dụng trước khi chia sẻ; xóa báo cáo khi xong.",
+    "keywords": "xem lịch sử dung lượng pin cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu powercfg của Windows; hữu ích cho thiết bị có pin. Độ chính xác báo cáo phụ thuộc firmware; chưa thử trên thiết bị."
+  },
+  "WslResources": {
+    "title": "Giới hạn tài nguyên WSL 2",
+    "body": "Dùng WSL Settings hoặc sửa memory và processors trong [wsl2] của .wslconfig tại hồ sơ người dùng. Giữ tệp gốc. Lưu mọi công việc Linux trước khi khởi động lại WSL; giới hạn ảnh hưởng mọi bản phân phối WSL 2. Khôi phục cấu hình cũ nếu bản dựng hoặc dịch vụ thiếu tài nguyên.",
+    "keywords": "giới hạn tài nguyên wsl 2 cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Chỉ WSL 2; cần phiên bản WSL hỗ trợ các tùy chọn đã chọn. Chưa kiểm tra tương thích thiết bị."
+  },
+  "BackgroundApps": {
+    "title": "Giới hạn hoạt động nền theo ứng dụng",
+    "body": "Mở Cài đặt → Hệ thống → Nguồn và pin → Mức sử dụng pin. Với ứng dụng hỗ trợ, chọn Tùy chọn khác → Quản lý hoạt động nền và xem quyền. Không bao giờ có thể dừng thông báo và đồng bộ; khôi phục lựa chọn trước nếu bỏ lỡ cập nhật.",
+    "keywords": "giới hạn hoạt động nền theo ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11; đường dẫn Mức sử dụng pin cần thiết bị có pin và ứng dụng hỗ trợ. Chưa xác minh giới hạn chính sách."
+  },
+  "SearchCloudSources": {
+    "title": "Chọn tài khoản dùng trong tìm kiếm đám mây",
+    "body": "Mở Quyền riêng tư và bảo mật → Tìm kiếm, hoặc Quyền tìm kiếm trên bản cũ, rồi xem Tìm kiếm nội dung đám mây. Điều khiển riêng nguồn tài khoản Microsoft và cơ quan hoặc trường học. Các công tắc này không phải công tắc tìm kiếm web tổng quát.",
+    "keywords": "chọn tài khoản dùng trong tìm kiếm đám mây cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "SearchIndexScope": {
+    "title": "Chọn lập chỉ mục cổ điển hoặc nâng cao",
+    "body": "Mở Quyền riêng tư và bảo mật → Tìm kiếm, tên Tìm kiếm Windows trên một số bản, rồi tìm Tìm tệp của tôi. Chọn phạm vi Cổ điển hoặc Nâng cao. Lập chỉ mục ban đầu rộng hơn tốn thêm hoạt động ổ đĩa, thời gian xử lý và pin.",
+    "keywords": "chọn lập chỉ mục cổ điển hoặc nâng cao cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "SearchIndexTypes": {
+    "title": "Chọn loại và nội dung tệp được lập chỉ mục",
+    "body": "Mở vị trí tìm kiếm tùy chỉnh từ Quyền riêng tư và bảo mật → Tìm kiếm, rồi Nâng cao → Loại tệp. Chọn phần mở rộng được lập chỉ mục và cách xử lý. Thay đổi có thể cần xây dựng lại chỉ mục và chưa phản ánh ngay trong kết quả.",
+    "keywords": "chọn loại và nội dung tệp được lập chỉ mục cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "OptionalDiagnostics": {
+    "title": "Chọn chia sẻ chẩn đoán tùy chọn",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Chẩn đoán và phản hồi rồi xem dữ liệu tùy chọn. Chẩn đoán bắt buộc vẫn áp dụng khi tắt chia sẻ tùy chọn. Báo cáo tùy chọn có thể chứa hoạt động và chi tiết bộ nhớ khi lỗi. Cân nhắc kỹ; chính sách tổ chức có thể khóa điều khiển.",
+    "keywords": "chọn chia sẻ chẩn đoán tùy chọn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SearchDeviceHistory": {
+    "title": "Xóa lịch sử tìm kiếm trên thiết bị",
+    "body": "Mở Quyền riêng tư và bảo mật → Tìm kiếm, hoặc Quyền tìm kiếm, rồi tìm điều khiển lịch sử. Chỉ xóa lịch sử thiết bị khi thực sự muốn: việc này không xóa hồ sơ Bing trên đám mây và không thể khôi phục lịch sử cục bộ qua Cài đặt.",
+    "keywords": "xóa lịch sử tìm kiếm trên thiết bị cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "AdvertisingIdentifier": {
+    "title": "Kiểm soát mã quảng cáo ứng dụng",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Đề xuất và ưu đãi rồi xem quyền ứng dụng dùng ID quảng cáo. Tắt thay đổi cá nhân hóa, không đổi số quảng cáo hoặc cookie trang web. Bật lại đặt lại mã, không khôi phục giá trị trước.",
+    "keywords": "kiểm soát mã quảng cáo ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SearchWebSuggestions": {
+    "title": "Kiểm soát gợi ý web và Store",
+    "body": "Trong trải nghiệm xem trước được hỗ trợ, mở Quyền riêng tư và bảo mật → Tìm kiếm rồi chọn có hiện gợi ý web và Microsoft Store cùng kết quả cục bộ không. Khu vực và triển khai ảnh hưởng khả dụng; không thay bằng công thức registry chưa kiểm chứng khi thiếu điều khiển.",
+    "keywords": "kiểm soát gợi ý web và store cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Thông báo kênh Experimental ngày 2026-07-13; triển khai có kiểm soát và khác nhau theo khu vực. Chưa xác minh ID ViVe dạng số hoặc hỗ trợ thiết bị hiện tại."
+  },
+  "AppDiagnosticPrivacy": {
+    "title": "Hạn chế ứng dụng xem chẩn đoán ứng dụng khác",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Chẩn đoán ứng dụng rồi xem quyền từng ứng dụng. Dữ liệu có thể gồm tên ứng dụng đang chạy và bộ nhớ dùng. Điều khiển áp dụng cho ứng dụng hỗ trợ; phần mềm desktop truyền thống có thể không bị ảnh hưởng. Khôi phục quyền cần thiết nếu công việc chẩn đoán bị lỗi.",
+    "keywords": "hạn chế ứng dụng xem chẩn đoán ứng dụng khác cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "FileAccessPrivacy": {
+    "title": "Xem quyền truy cập hệ thống tệp của ứng dụng",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Hệ thống tệp rồi xem quyền ứng dụng được liệt kê. Quyền có thể cho phép xem tệp tài khoản bạn truy cập được; thu hồi có thể làm hỏng quy trình ứng dụng. Một số phần mềm desktop nằm ngoài danh sách và không chịu giới hạn bởi công tắc này.",
+    "keywords": "xem quyền truy cập hệ thống tệp của ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "LocationPermissions": {
+    "title": "Xem quyền vị trí theo ứng dụng",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Vị trí. Xem dịch vụ vị trí, quyền ứng dụng và truy cập gần đây trước khi đổi. Ứng dụng phụ thuộc vị trí có thể mất chức năng. Phần mềm desktop và trang web có thể có điều khiển thêm; trang này không bảo đảm ẩn danh vị trí hoàn toàn.",
+    "keywords": "xem quyền vị trí theo ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "PersonalizedOffers": {
+    "title": "Xem ưu đãi Windows được cá nhân hóa",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật rồi tìm Ưu đãi cá nhân hóa hoặc Đề xuất và ưu đãi tùy phiên bản. Xem quyền dùng hoạt động Windows cho gợi ý riêng. Tùy chọn kiểm soát cơ chế cá nhân hóa đó, không phải mọi quảng cáo trong Windows, trình duyệt hoặc ứng dụng bên thứ ba.",
+    "keywords": "xem ưu đãi windows được cá nhân hóa cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SearchIndexFolders": {
+    "title": "Chọn thư mục trong chỉ mục",
+    "body": "Mở Quyền riêng tư và bảo mật → Tìm kiếm rồi theo liên kết vị trí tìm kiếm tùy chỉnh. Chọn Sửa đổi để chọn thư mục. Loại một vị trí có thể khiến tệp ở đó được tìm chậm hơn hoặc không có trong kết quả chỉ mục.",
+    "keywords": "chọn thư mục trong chỉ mục cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DefaultLocation": {
+    "title": "Đặt vị trí dự phòng của thiết bị",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Vị trí → Vị trí mặc định → Đặt mặc định. Chọn vị trí để dùng khi không định vị chính xác được. Địa chỉ có thể được cung cấp cho dịch vụ đủ quyền; xóa địa chỉ và lưu để bỏ vị trí dự phòng.",
+    "keywords": "đặt vị trí dự phòng của thiết bị cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SearchSafeFilter": {
+    "title": "Đặt bộ lọc tìm kiếm an toàn",
+    "body": "Mở Quyền riêng tư và bảo mật → Tìm kiếm, hoặc Quyền tìm kiếm, rồi chọn mức SafeSearch. Bộ lọc tác động nội dung web trong tìm kiếm; chính sách gia đình hoặc tổ chức có thể hạn chế mức bạn được phép chọn.",
+    "keywords": "đặt bộ lọc tìm kiếm an toàn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "StartPowerFolders": {
+    "title": "Thêm thư mục cạnh nút nguồn",
+    "body": "Mở Cá nhân hóa → Bắt đầu → Thư mục và chọn đích hữu ích như Tải xuống hoặc Tài liệu. Lối tắt xuất hiện cạnh điều khiển nguồn; bỏ mục không cần trên cùng trang cài đặt.",
+    "keywords": "thêm thư mục cạnh nút nguồn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "StartPins": {
+    "title": "Ghim ứng dụng và thư mục vào Bắt đầu",
+    "body": "Nhấp chuột phải ứng dụng hoặc thư mục được hỗ trợ rồi chọn Ghim vào Bắt đầu. Kéo các mục ghim thành thứ tự hữu ích. Dùng Bỏ ghim khỏi Bắt đầu để gỡ mục mà không xóa đích.",
+    "keywords": "ghim ứng dụng và thư mục vào bắt đầu cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "StorageSense": {
+    "title": "Quy tắc dọn dẹp tự động",
+    "body": "Mở Cài đặt → Hệ thống → Lưu trữ → Nhận biết Lưu trữ. Xem cùng lúc tần suất, thời gian giữ Thùng rác và Tải xuống. Giữ Tải xuống ở Không bao giờ nếu chưa sao lưu. Tệp đám mây có thể thành chỉ trực tuyến; tắt dọn dẹp không khôi phục tệp đã xóa.",
+    "keywords": "quy tắc dọn dẹp tự động cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "DeviceEncryption": {
+    "title": "Kiểm tra mã hóa và khả năng khôi phục",
+    "body": "Mở Cài đặt → Quyền riêng tư và bảo mật → Mã hóa thiết bị bằng quyền quản trị. Xác nhận ai giữ khóa khôi phục và bảo đảm bản sao dùng được trước khi bật. Thiết bị Home hỗ trợ cũng có thể đủ điều kiện. Mất quyền khôi phục có thể khiến dữ liệu không truy cập được; giải mã là thao tác riêng có thể lâu.",
+    "keywords": "kiểm tra mã hóa và khả năng khôi phục cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SudoMode": {
+    "title": "Chọn mức cô lập của sudo gốc",
+    "body": "Mở cài đặt nhà phát triển hoặc Hệ thống → Nâng cao và xem Bật sudo. Ưu tiên chế độ cửa sổ mới mặc định nếu chưa hiểu rủi ro tương tác thêm của chạy nội tuyến. Vẫn cần cấp phép UAC. Tắt sudo về sau không hoàn tác lệnh đã chạy bằng quyền quản trị.",
+    "keywords": "chọn mức cô lập của sudo gốc cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11 24H2+; cài đặt chuyển tới Nâng cao trong 25H2+. Chưa xác minh hỗ trợ thiết bị hiện tại."
+  },
+  "NetworkProfile": {
+    "title": "Chọn khả năng hiển thị mạng công khai hoặc riêng",
+    "body": "Mở Cài đặt → Mạng và Internet → thuộc tính kết nối → Loại cấu hình mạng. Giữ Công khai cho mạng không tin cậy; Riêng tư cho phép phát hiện hữu ích khi chia sẻ. Ghi cấu hình cũ và kiểm tra nhu cầu chia sẻ trước khi đổi. Khôi phục nếu quyền truy cập thay đổi ngoài ý muốn.",
+    "keywords": "chọn khả năng hiển thị mạng công khai hoặc riêng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "DefaultTerminal": {
+    "title": "Chọn trình chủ terminal mặc định",
+    "body": "Mở Cài đặt → Hệ thống → Nâng cao → Terminal và chọn trình chủ đã cài mong muốn. Các bản cũ đặt trong Dành cho nhà phát triển. Thử ứng dụng console thường dùng; đổi trình chủ có thể thay đổi hình thức và tương tác. Khôi phục trình chủ trước nếu cần.",
+    "keywords": "chọn trình chủ terminal mặc định cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Trang Nâng cao Windows 11 25H2+; bản cũ dùng Dành cho nhà phát triển. Lựa chọn phụ thuộc ứng dụng terminal đã cài."
+  },
+  "ContentDrive": {
+    "title": "Chọn nơi lưu nội dung mới",
+    "body": "Mở Cài đặt → Hệ thống → Lưu trữ → Cài đặt lưu trữ nâng cao → Nơi lưu nội dung mới. Chọn ổ cho từng loại nội dung. Cách này không chuyển tệp có sẵn hoặc buộc mọi bộ cài dùng ổ đó; giữ ổ tháo rời luôn khả dụng.",
+    "keywords": "chọn nơi lưu nội dung mới cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "WslSystemd": {
+    "title": "Cấu hình systemd cho bản phân phối WSL",
+    "body": "Kiểm tra bản phân phối đã dùng systemd chưa. Nếu cần, giữ bản gốc /etc/wsl.conf rồi thêm systemd=true dưới [boot]. Lưu công việc Linux trước khi khởi động lại WSL. Cách khởi động dịch vụ sẽ đổi; khôi phục cấu hình khởi động cũ để hoàn tác và xem lại dịch vụ đã bật riêng.",
+    "keywords": "cấu hình systemd cho bản phân phối wsl cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "WSL 2 với WSL 0.67.6+; một số bản phân phối đã dùng systemd. Chưa xác minh hỗ trợ thiết bị và bản phân phối."
+  },
+  "SandboxIsolation": {
+    "title": "Hạn chế mạng và chia sẻ tệp của Sandbox",
+    "body": "Tạo cấu hình .wsb đã kiểm tra với Networking đặt thành Disable; tránh ánh xạ thư mục máy chủ nếu không cần và đặt chỉ đọc khi dùng. Khởi chạy cấu hình đó. Ánh xạ cho ghi làm lộ dữ liệu máy chủ, còn thay đổi chỉ trong sandbox mất khi đóng. Khôi phục cấu hình cũ riêng với tệp máy chủ đã hỏng.",
+    "keywords": "hạn chế mạng và chia sẻ tệp của sandbox cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows Sandbox phải được cài trước. Tùy chọn cấu hình phụ thuộc phiên bản Windows; chưa xác minh hành vi thiết bị."
+  },
+  "RestorePoint": {
+    "title": "Tạo điểm khôi phục trước khi thử nghiệm",
+    "body": "Tìm Tạo điểm khôi phục trong Bắt đầu. Chọn ổ hệ thống, cấu hình Bảo vệ hệ thống và giới hạn dung lượng nếu cần, rồi chọn Tạo với mô tả có ý nghĩa. Giữ bản sao lưu tệp cá nhân riêng: điểm khôi phục hết hạn và không bảo đảm đảo ngược mọi thay đổi tính năng hoặc bên thứ ba.",
+    "keywords": "tạo điểm khôi phục trước khi thử nghiệm cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "DeveloperMode": {
+    "title": "Bật công cụ phát triển ứng dụng",
+    "body": "Tìm Chế độ nhà phát triển trong Cài đặt. Trên 25H2 trở lên, dùng Hệ thống → Nâng cao → Dành cho nhà phát triển. Đọc lời nhắc trước khi bật; cần quyền quản trị. Sử dụng thông thường không cần chế độ này. Tắt không nhất thiết gỡ ứng dụng hoặc thành phần phát triển đã cài.",
+    "keywords": "bật công cụ phát triển ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11; Nâng cao thay trang Dành cho nhà phát triển trong 25H2+. Chưa xác minh chính sách và khả dụng thiết bị."
+  },
+  "DevDrive": {
+    "title": "Lập kế hoạch Dev Drive cho mã nguồn",
+    "body": "Mở Cài đặt → Hệ thống → Lưu trữ → Cài đặt lưu trữ nâng cao → Đĩa và ổ đĩa → Tạo dev drive. Xem tùy chọn VHD mới sau khi sao lưu. Ổ có sẵn không chuyển đổi tại chỗ được. Kiểm tra tương thích ReFS và giữ lọc bảo mật; chuyển dữ liệu ra trước khi xóa ổ về sau.",
+    "keywords": "lập kế hoạch dev drive cho mã nguồn cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Microsoft yêu cầu Windows 11 bản 22621.2338+, quyền quản trị, RAM ≥8 GB và dung lượng trống ≥50 GB. Chưa kiểm chứng thiết bị."
+  },
+  "OfflineScan": {
+    "title": "Chuẩn bị quét Defender ngoại tuyến",
+    "body": "Mở Bảo mật Windows → Bảo vệ khỏi vi-rút và mối đe dọa → Tùy chọn quét rồi xem Microsoft Defender Offline. Lưu công việc và bảo đảm có khóa khôi phục trước khi xác nhận. Quét sẽ khởi động lại PC vào môi trường khôi phục; xem hành động cách ly sau đó, không giả định mọi thay đổi đều tự đảo ngược được.",
+    "keywords": "chuẩn bị quét defender ngoại tuyến cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "ActiveHours": {
+    "title": "Giảm gián đoạn do khởi động lại cập nhật",
+    "body": "Mở Cài đặt → Windows Update → Tùy chọn nâng cao → Giờ hoạt động. Chọn phát hiện tự động hoặc đặt giờ làm thủ công. Cách này giúp lên lịch khởi động lại quanh giờ dùng thường lệ; không chặn khởi động lại vĩnh viễn. Lưu công việc và xem riêng thông báo khởi động lại đang chờ.",
+    "keywords": "giảm gián đoạn do khởi động lại cập nhật cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "MeteredConnection": {
+    "title": "Giảm dùng dữ liệu trên kết nối hạn chế",
+    "body": "Mở Cài đặt → Mạng và Internet, chọn kết nối Wi-Fi hoặc Ethernet rồi xem Kết nối được đo lưu lượng. Nó có thể giảm truyền nền nhưng cũng trì hoãn đồng bộ và một số cập nhật. Khôi phục cài đặt trước khi phù hợp; đây không phải giới hạn dữ liệu được bảo đảm.",
+    "keywords": "giảm dùng dữ liệu trên kết nối hạn chế cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "RepairApps": {
+    "title": "Sửa ứng dụng trước khi đặt lại",
+    "body": "Mở Cài đặt → Ứng dụng → Ứng dụng đã cài → menu ứng dụng → Tùy chọn nâng cao. Thử Sửa chữa nếu có. Đặt lại là phương án riêng có thể xóa dữ liệu và cài đặt ứng dụng; sao lưu trước và đọc xác nhận. Không phải mọi phần mềm desktop đều có các điều khiển này.",
+    "keywords": "sửa ứng dụng trước khi đặt lại cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "WslNetworking": {
+    "title": "Xem mạng phản chiếu WSL",
+    "body": "Trong WSL Settings, xem mạng phản chiếu hoặc đặt networkingMode=mirrored dưới [wsl2] trong .wslconfig. Lưu công việc đang chạy trước khi khởi động lại WSL. Việc này đổi mức tiếp xúc mạng; giữ bộ lọc tường lửa. Để hoàn tác, khôi phục chế độ mạng trước rồi khởi động lại WSL.",
+    "keywords": "xem mạng phản chiếu wsl cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11 22H2+ và bản WSL 2 tương thích; chưa xác minh chính sách và tương thích mạng cục bộ."
+  },
+  "RepairWindows": {
+    "title": "Xem phương án sửa Windows tại chỗ",
+    "body": "Mở Cài đặt → Hệ thống → Khôi phục → Khắc phục sự cố bằng Windows Update. Sao lưu trước, giữ nguồn và Internet, rồi xem xác nhận cài lại và khởi động lại. Thiết kế nhằm giữ ứng dụng, tệp và cài đặt nhưng không có hoàn tác tức thì, và không có trên một số thiết bị được quản lý.",
+    "keywords": "xem phương án sửa windows tại chỗ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Windows 11 22H2+ với cập nhật tùy chọn tháng 2 năm 2024 hoặc mới hơn. Có giới hạn quản lý cập nhật; chưa kiểm chứng thiết bị."
+  },
+  "ProxyConfiguration": {
+    "title": "Xem cấu hình proxy của tổ chức",
+    "body": "Mở Cài đặt → Mạng và Internet → Proxy. Chỉ dùng thông tin phát hiện, tập lệnh hoặc máy chủ do quản trị viên tin cậy cung cấp. Cài sai có thể ngắt truy cập; proxy có thể quan sát lưu lượng liên quan. Ghi cấu hình trước; proxy VPN được cấu hình riêng.",
+    "keywords": "xem cấu hình proxy của tổ chức cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "ReputationProtection": {
+    "title": "Xem bảo vệ dựa trên uy tín tải xuống",
+    "body": "Mở Bảo mật Windows → Kiểm soát ứng dụng và trình duyệt → Bảo vệ dựa trên uy tín. Xem đồng thời kiểm tra ứng dụng, tệp, chặn ứng dụng không mong muốn và cảnh báo mật khẩu. Giữ bảo vệ trừ khi xử lý vấn đề đã xác minh; công tắc không hoàn tác mã độc đã chạy hoặc khôi phục mật khẩu đã lộ.",
+    "keywords": "xem bảo vệ dựa trên uy tín tải xuống cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "DriveOptimization": {
+    "title": "Xem tối ưu hóa ổ đĩa",
+    "body": "Mở Cài đặt → Hệ thống → Lưu trữ → Cài đặt lưu trữ nâng cao → Tối ưu hóa ổ đĩa. Xem loại phương tiện và trạng thái trước khi chỉnh lịch. Để Windows dùng phương pháp phù hợp SSD hoặc HDD; đổi lịch không hoàn tác tối ưu hóa đã thực hiện.",
+    "keywords": "xem tối ưu hóa ổ đĩa cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "MemoryIntegrity": {
+    "title": "Xem bảo vệ toàn vẹn bộ nhớ",
+    "body": "Mở Bảo mật Windows → Bảo mật thiết bị → Chi tiết cách ly lõi rồi xem Toàn vẹn bộ nhớ. Xử lý trình điều khiển không tương thích bằng cập nhật tin cậy trước khi bật. Không xem tắt bảo vệ là mẹo tăng hiệu năng chung. Lưu việc nếu Windows yêu cầu khởi động lại; khả dụng phụ thuộc ảo hóa và trình điều khiển.",
+    "keywords": "xem bảo vệ toàn vẹn bộ nhớ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "FirewallExceptions": {
+    "title": "Xem ngoại lệ tường lửa cụ thể cho ứng dụng",
+    "body": "Mở Bảo mật Windows → Tường lửa và bảo vệ mạng → Cho phép ứng dụng qua tường lửa. Sau xác nhận quản trị, chỉ cho phép ứng dụng nhận biết và thực sự cần. Ưu tiên ngoại lệ ứng dụng cụ thể thay vì mở cổng rộng; gỡ quyền cũ. Xóa quy tắc không đảo ngược việc đã phơi lộ trước đó.",
+    "keywords": "xem ngoại lệ tường lửa cụ thể cho ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "ControlledFolders": {
+    "title": "Xem bảo vệ thư mục khỏi mã độc tống tiền",
+    "body": "Mở Bảo mật Windows → Bảo vệ khỏi vi-rút và mối đe dọa → Quản lý bảo vệ khỏi mã độc tống tiền. Xem Truy cập thư mục được kiểm soát và thư mục được bảo vệ. Có thể chặn ứng dụng hợp lệ lưu tệp; điều tra từng ngoại lệ thay vì cho phép tất cả. Bảo vệ bổ trợ sao lưu, không khôi phục tệp đã hỏng.",
+    "keywords": "xem bảo vệ thư mục khỏi mã độc tống tiền cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "DevicePortal": {
+    "title": "Xem chẩn đoán phát triển từ xa",
+    "body": "Sau khi cấu hình Chế độ nhà phát triển, xem Device Portal trong cài đặt nhà phát triển. Chỉ dùng cho mục tiêu thử nghiệm từ xa thực sự trên mạng tin cậy và kiểm tra xác thực. Nó mở khả năng quản lý từ xa; tắt cổng sau khi dùng và xác minh truy cập từ xa đã dừng.",
+    "keywords": "xem chẩn đoán phát triển từ xa cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Cần gói tính năng nhà phát triển Windows 11; trang chuyển tới Hệ thống → Nâng cao trong 25H2+. Chưa thử trên thiết bị."
+  },
+  "CleanupReview": {
+    "title": "Xem đề xuất dọn dẹp lưu trữ",
+    "body": "Mở Cài đặt → Hệ thống → Lưu trữ → Đề xuất dọn dẹp và xem từng mục trước khi xóa. Sao lưu tệp quan trọng trước. Xóa tệp tải xuống hoặc bản cài Windows trước có thể mất tệp vĩnh viễn hoặc mất lựa chọn quay lại phiên bản đó.",
+    "keywords": "xem đề xuất dọn dẹp lưu trữ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "WindowsSandbox": {
+    "title": "Thiết lập Windows Sandbox dùng tạm",
+    "body": "Tìm Bật hoặc tắt tính năng Windows, chọn Windows Sandbox nếu hỗ trợ rồi khởi động lại khi được yêu cầu. Lưu việc trước. Sandbox mặc định có mạng và một số chuyển hướng; không phải cô lập tuyệt đối. Xuất tệp cần giữ trước khi đóng vì trạng thái bên trong sẽ bị bỏ.",
+    "keywords": "thiết lập windows sandbox dùng tạm cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Cần phiên bản Windows hỗ trợ và ảo hóa phần cứng; RAM ≥4 GB. Hỗ trợ ARM64 từ Windows 11 22H2+. Chưa kiểm chứng thiết bị."
+  },
+  "MobileHotspot": {
+    "title": "Chia sẻ kết nối bằng điểm truy cập di động",
+    "body": "Mở Cài đặt → Mạng và Internet → Điểm truy cập di động. Chọn kết nối nguồn, xem tên mạng và mật khẩu rồi chỉ bật chia sẻ khi cần. Thiết bị kết nối dùng hạn mức dữ liệu của bạn. Tắt sau khi dùng và tránh chia sẻ rộng rãi mật khẩu.",
+    "keywords": "chia sẻ kết nối bằng điểm truy cập di động cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "NetworkDataLimit": {
+    "title": "Theo dõi hạn mức dữ liệu mạng",
+    "body": "Mở Cài đặt → Mạng và Internet → Wi-Fi → mạng đang kết nối → Đặt giới hạn dữ liệu. Nhập chu kỳ thanh toán và hạn mức. Windows cảnh báo khi gần giới hạn nhưng không bảo đảm nhà mạng ngừng tính phí; so sánh cả bộ đếm của nhà cung cấp.",
+    "keywords": "theo dõi hạn mức dữ liệu mạng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh hỗ trợ thiết bị và giới hạn chính sách."
+  },
+  "SmartAppControl": {
+    "title": "Hiểu trạng thái Smart App Control",
+    "body": "Mở Bảo mật Windows → Kiểm soát ứng dụng và trình duyệt → Cài đặt Smart App Control. Xem Đánh giá, Bật hoặc Tắt trước khi đổi. Tài liệu hiện tại giới hạn khả dụng ở bản cài mới đủ điều kiện; quay lại đánh giá có thể cần đặt lại hoặc cài lại Windows. Không giả định đây là công tắc đảo ngược tự do.",
+    "keywords": "hiểu trạng thái smart app control cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu Microsoft Windows 11 hiện tại nêu giới hạn về bản cài mới và chế độ đánh giá. Chưa xác minh trạng thái thiết bị."
+  },
+  "TaskbarAlignment": {
+    "title": "Căn biểu tượng thanh tác vụ sang trái",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ. Đặt Căn chỉnh thanh tác vụ thành Trái để có vị trí khởi chạy quen thuộc. Thay đổi này căn biểu tượng, không đổi cạnh màn hình chứa thanh tác vụ.",
+    "keywords": "căn biểu tượng thanh tác vụ sang trái cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarAutoHide": {
+    "title": "Tự động ẩn thanh tác vụ",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ và bật tự động ẩn. Đưa con trỏ tới cạnh đó để hiện lại; bỏ tùy chọn để giữ thanh luôn hiển thị.",
+    "keywords": "tự động ẩn thanh tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarSearchStyle": {
+    "title": "Chọn cách hiện tìm kiếm trên thanh tác vụ",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Mục thanh tác vụ → Tìm kiếm. Chọn hộp, biểu tượng hoặc ẩn để có thêm chỗ. Tùy chọn điều khiển cách hiển thị, không tắt Windows Search.",
+    "keywords": "chọn cách hiện tìm kiếm trên thanh tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarTrayApps": {
+    "title": "Chọn ứng dụng khay hệ thống luôn hiện",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Biểu tượng khay hệ thống khác. Chọn biểu tượng ứng dụng luôn hiện thay vì nằm trong menu biểu tượng ẩn; giữ chỉ báo đồng bộ hoặc bảo mật quan trọng dễ truy cập.",
+    "keywords": "chọn ứng dụng khay hệ thống luôn hiện cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "WidgetsNotifications": {
+    "title": "Chọn nơi hiện thông báo Tiện ích",
+    "body": "Nhấn Win+W và mở cài đặt Tiện ích → Cài đặt khác → Thông báo. Xem hành vi thông báo trên thanh tác vụ, vùng điều hướng và bảng. Ẩn lời nhắc có thể che cập nhật hữu ích mà không đổi dữ liệu ứng dụng nguồn.",
+    "keywords": "chọn nơi hiện thông báo tiện ích cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarFlashing": {
+    "title": "Kiểm soát ứng dụng nhấp nháy cảnh báo",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ rồi đổi tùy chọn nhấp nháy ứng dụng. Tắt để giảm gián đoạn thị giác, rồi khôi phục nếu yêu cầu quan trọng dễ bị bỏ lỡ.",
+    "keywords": "kiểm soát ứng dụng nhấp nháy cảnh báo cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarTouchTools": {
+    "title": "Hiện công cụ cảm ứng và bút trong khay",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Biểu tượng khay hệ thống. Chọn mục bàn phím cảm ứng, menu bút hoặc bàn di chuột ảo cần cho thiết bị. Mức hữu ích phụ thuộc phần cứng nhập liệu.",
+    "keywords": "hiện công cụ cảm ứng và bút trong khay cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này. Phải có phần cứng nhập liệu cần thiết."
+  },
+  "WidgetsFeed": {
+    "title": "Ẩn nguồn cấp khám phá của Tiện ích",
+    "body": "Nhấn Win+W, mở cài đặt Tiện ích và xem điều khiển bảng cho nguồn cấp Khám phá. Tắt nguồn cấp đó khi chỉ muốn tiện ích; tên và khả dụng khác nhau theo phiên bản Tiện ích và khu vực.",
+    "keywords": "ẩn nguồn cấp khám phá của tiện ích cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ClockVisibility": {
+    "title": "Ẩn ngày giờ trong khay",
+    "body": "Nhấp chuột phải đồng hồ thanh tác vụ và chọn Điều chỉnh ngày giờ. Đổi tùy chọn khay hệ thống có hiện ngày giờ hay không; bật lại khi cần thấy đồng hồ.",
+    "keywords": "ẩn ngày giờ trong khay cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarLabels": {
+    "title": "Giữ cửa sổ thanh tác vụ riêng biệt",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ. Đặt Kết hợp nút thanh tác vụ và ẩn nhãn thành Không bao giờ khi cần cửa sổ riêng có nhãn. Khôi phục giá trị cũ nếu thanh quá đông.",
+    "keywords": "giữ cửa sổ thanh tác vụ riêng biệt cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarPins": {
+    "title": "Ghim và sắp xếp ứng dụng thường dùng",
+    "body": "Nhấp chuột phải ứng dụng trong Tìm kiếm hoặc biểu tượng đang chạy trên thanh tác vụ rồi chọn Ghim vào thanh tác vụ. Kéo biểu tượng để sắp xếp. Bỏ ghim chỉ gỡ lối tắt, không xóa ứng dụng.",
+    "keywords": "ghim và sắp xếp ứng dụng thường dùng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarWindowSharing": {
+    "title": "Chia sẻ cửa sổ từ nút thanh tác vụ",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ và bật chia sẻ cửa sổ từ thanh tác vụ. Cần ứng dụng họp được hỗ trợ. Kiểm tra nội dung cửa sổ trước khi chọn chia sẻ.",
+    "keywords": "chia sẻ cửa sổ từ nút thanh tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarBadges": {
+    "title": "Hiện huy hiệu ứng dụng",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ và chọn có hiện huy hiệu trên nút ứng dụng không. Huy hiệu cho thấy hoạt động đang chờ mà không mở ứng dụng; tắt có thể che dấu hiệu trạng thái hữu ích.",
+    "keywords": "hiện huy hiệu ứng dụng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "ClockSeconds": {
+    "title": "Hiện giây trên đồng hồ khay",
+    "body": "Nhấp chuột phải đồng hồ thanh tác vụ rồi mở Điều chỉnh ngày giờ. Mở rộng điều khiển ngày giờ trong khay và bật giây nếu có. Việc cập nhật đồng hồ nhiều hơn có thể tăng tiêu thụ điện.",
+    "keywords": "hiện giây trên đồng hồ khay cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarDisplays": {
+    "title": "Hiện thanh tác vụ trên nhiều màn hình",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ và bật thanh trên mọi màn hình. Dùng cho bố trí nhiều màn hình; trở về lựa chọn trước nếu gây lộn xộn.",
+    "keywords": "hiện thanh tác vụ trên nhiều màn hình cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarTaskView": {
+    "title": "Hiện nút Chế độ xem tác vụ",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Mục thanh tác vụ rồi bật/tắt Chế độ xem tác vụ. Dùng nút để quản lý cửa sổ và màn hình nền ảo. Ẩn nút vẫn giữ phím tắt Win+Tab.",
+    "keywords": "hiện nút chế độ xem tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarWidgets": {
+    "title": "Hiện mục Tiện ích trên thanh tác vụ",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Mục thanh tác vụ rồi bật/tắt Tiện ích. Ẩn mục để giảm lộn xộn; việc này không gỡ trải nghiệm Tiện ích hoặc thành phần bên dưới.",
+    "keywords": "hiện mục tiện ích trên thanh tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "WidgetsHover": {
+    "title": "Ngăn mở Tiện ích khi di chuột qua",
+    "body": "Nhấn Win+W và mở cài đặt Tiện ích. Tắt mở bảng khi di chuột để tránh bung ra ngoài ý muốn khi đi qua thanh tác vụ. Bạn vẫn có thể chủ động mở bằng nút hoặc phím tắt.",
+    "keywords": "ngăn mở tiện ích khi di chuột qua cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "TaskbarTablet": {
+    "title": "Dùng thanh tác vụ tối ưu cho cảm ứng",
+    "body": "Trên máy chuyển đổi được hỗ trợ, mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ rồi bật tối ưu khi dùng như máy tính bảng. Tùy chọn phụ thuộc khả năng thiết bị và có thể không xuất hiện trên máy desktop.",
+    "keywords": "dùng thanh tác vụ tối ưu cho cảm ứng cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này. Phải có phần cứng nhập liệu cần thiết."
+  },
+  "TaskbarDesktopCorner": {
+    "title": "Dùng góc thanh tác vụ để hiện màn hình nền",
+    "body": "Mở Cá nhân hóa → Thanh tác vụ → Hành vi thanh tác vụ và bật chọn góc xa để hiện màn hình nền. Cách này truy cập nhanh mục trên màn hình nền mà không đóng ứng dụng.",
+    "keywords": "dùng góc thanh tác vụ để hiện màn hình nền cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "Snap": {
+    "title": "Cấu hình bố cục và hỗ trợ đính cửa sổ",
+    "body": "Mở Hệ thống → Đa nhiệm → Đính cửa sổ. Bật đính và chọn có gợi ý bố cục khi di chuột lên nút phóng to hoặc kéo lên đầu màn hình, cũng như có gợi ý ứng dụng khác cạnh cửa sổ đã đính không.",
+    "keywords": "cấu hình bố cục và hỗ trợ đính cửa sổ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DesktopWindowScope": {
+    "title": "Kiểm soát chuyển đổi giữa màn hình nền ảo",
+    "body": "Mở Hệ thống → Đa nhiệm → Màn hình nền. Chọn thanh tác vụ và Alt+Tab hiện cửa sổ từ mọi màn hình nền hay chỉ màn hình hiện tại. Giữ phạm vi cục bộ để giảm lộn xộn hoặc toàn bộ để truy cập dự án khác dễ hơn.",
+    "keywords": "kiểm soát chuyển đổi giữa màn hình nền ảo cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "DesktopBackgrounds": {
+    "title": "Dùng ảnh riêng cho màn hình nền ảo",
+    "body": "Nhấn Win+Tab, nhấp chuột phải một màn hình nền rồi chọn nền. Chọn Ảnh để phân biệt không gian làm việc trực quan. Nền riêng yêu cầu ảnh; tính năng được ghi nhận không hỗ trợ trình chiếu riêng hoặc màu đồng nhất khác nhau.",
+    "keywords": "dùng ảnh riêng cho màn hình nền ảo cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "AltTab": {
+    "title": "Giới hạn thẻ trình duyệt trong Alt+Tab",
+    "body": "Mở Hệ thống → Đa nhiệm và chọn số thẻ ứng dụng xuất hiện khi đính hoặc dùng Alt+Tab. Chọn không có thẻ để bộ chuyển tập trung vào cửa sổ. Cần trình duyệt hỗ trợ; tài liệu minh họa Microsoft Edge.",
+    "keywords": "giới hạn thẻ trình duyệt trong alt+tab cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "VirtualDesktops": {
+    "title": "Sắp xếp dự án bằng màn hình nền ảo",
+    "body": "Nhấn Win+Tab rồi chọn Màn hình nền mới. Chọn tên để đổi tên không gian làm việc theo dự án. Đóng màn hình nền không cần từ Chế độ xem tác vụ sau khi kiểm tra bạn muốn các cửa sổ của nó ở đâu.",
+    "keywords": "sắp xếp dự án bằng màn hình nền ảo cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "SnapResize": {
+    "title": "Đổi cỡ các cửa sổ đính liền nhau",
+    "body": "Sau khi đính hai cửa sổ cạnh nhau, kéo đường phân chia để đổi độ rộng cùng lúc. Kéo trở lại để khôi phục tỷ lệ hoặc bỏ đính để sắp xếp từng cửa sổ độc lập.",
+    "keywords": "đổi cỡ các cửa sổ đính liền nhau cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  },
+  "SnapGroups": {
+    "title": "Hiện nhóm cửa sổ khi chuyển tác vụ",
+    "body": "Mở Hệ thống → Đa nhiệm → Đính cửa sổ rồi đổi tùy chọn hiện các cửa sổ đã đính cùng nhau trong xem trước thanh tác vụ, Chế độ xem tác vụ và Alt+Tab. Cách này giúp quay lại bố trí làm việc thay vì từng cửa sổ riêng.",
+    "keywords": "hiện nhóm cửa sổ khi chuyển tác vụ cài đặt hướng dẫn tùy chọn Windows",
+    "evidence": "Tài liệu chính thức Windows 11; không nêu bản dựng tối thiểu chính xác. Chưa xác minh khả dụng và giới hạn chính sách trên thiết bị này."
+  }
+}

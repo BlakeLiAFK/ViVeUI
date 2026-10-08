@@ -1,0 +1,866 @@
+[
+  {
+    "id": "TextSize",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Larger system text",
+    "body": "Open Accessibility → Text size, adjust the preview slider, then apply. This enlarges text without scaling every interface element; individual apps may ignore the preference.",
+    "keywords": "larger system text",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-display",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ContrastTheme",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "High-contrast interface",
+    "body": "Open Accessibility → Contrast themes and apply a suitable palette. Check your usual apps before keeping it; return to None to recover the normal theme.",
+    "keywords": "high-contrast interface",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-highcontrast",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ColorFilters",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Color-vision filters",
+    "body": "Open Accessibility → Color filters and choose a filter suited to your vision. Screen colors change, so disable the filter when accurate color judgment matters.",
+    "keywords": "color-vision filters",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-colorfilter",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PointerVisibility",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Find the pointer more easily",
+    "body": "Open Accessibility → Mouse pointer and touch. Increase pointer size or choose a contrasting color; check that the pointer does not obscure small controls.",
+    "keywords": "find the pointer more easily",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-mousepointer",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TextCursorVisibility",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Visible text insertion point",
+    "body": "Open Accessibility → Text cursor. Adjust thickness and the colored indicator together to locate the insertion point; some editors may render their own cursor instead.",
+    "keywords": "visible text insertion point",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-cursor",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TouchIndicator",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Show touch contact points",
+    "body": "Open Accessibility → Mouse pointer and touch, then enable the touch indicator. The larger, darker circle can help demonstrations; this requires a touchscreen.",
+    "keywords": "show touch contact points",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-mousepointer",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Magnifier",
+    "kind": "NativeShortcut",
+    "category": "Accessibility",
+    "title": "Magnify a difficult interface",
+    "body": "Press Win and plus to open Magnifier; use Win with plus or minus to zoom. Choose lens, docked or full-screen view in its settings; Win+Esc exits.",
+    "keywords": "magnify a difficult interface",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-magnifier",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Narrator",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Screen reading with Narrator",
+    "body": "Press Win+Ctrl+Enter to start Narrator. Use Win+Ctrl+N to adjust voice, reading detail and output device together. Check volume in shared spaces; the starting shortcut also stops reading.",
+    "keywords": "screen reading with narrator",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/narrator/chapter-7-customizing-narrator"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-narrator",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "NarratorStartup",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Narrator before or after sign-in",
+    "body": "Open Narrator settings with Win+Ctrl+N and expand startup options. Choose whether reading begins before or after sign-in; pre-sign-in behavior matters on a shared computer.",
+    "keywords": "narrator before or after sign-in",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/narrator/chapter-7-customizing-narrator"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-narrator",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "NarratorDucking",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Keep speech audible over other audio",
+    "body": "In Narrator settings, enable lowering other apps while Narrator speaks. This helps distinguish spoken controls; music or meeting audio may become quieter temporarily. Restore the setting if distracting.",
+    "keywords": "keep speech audible over other audio",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/narrator/chapter-7-customizing-narrator"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-narrator",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "OnScreenKeyboard",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Type without a physical keyboard",
+    "body": "Press Win+Ctrl+O for the accessibility on-screen keyboard, or enable it under Accessibility → Keyboard. It supports pointer input and differs from the touch keyboard; press the shortcut again to close.",
+    "keywords": "type without a physical keyboard",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Settings"
+  },
+  {
+    "id": "StickyKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Enter key combinations sequentially",
+    "body": "Under Accessibility → Keyboard, enable Sticky keys to enter shortcuts one key at a time. This changes modifier behavior; disable it if normal combinations feel unexpected.",
+    "keywords": "enter key combinations sequentially",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ToggleKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Audible lock-key feedback",
+    "body": "Enable Toggle keys under Accessibility → Keyboard to hear Caps Lock, Num Lock and Scroll Lock changes. Consider nearby people before enabling audible feedback in a quiet room.",
+    "keywords": "audible lock-key feedback",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FilterKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Ignore accidental repeated keys",
+    "body": "Open Accessibility → Keyboard → Filter keys and adjust sensitivity. Test typing afterward: excessive filtering can make the keyboard appear unresponsive. Restore the original sensitivity if intended presses disappear.",
+    "keywords": "ignore accidental repeated keys",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AccessKeyUnderlines",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Reveal keyboard access keys",
+    "body": "Enable access-key underlines in Accessibility → Keyboard. Supported menus display their keyboard letters more clearly; applications without access keys will not gain new shortcuts from this setting.",
+    "keywords": "reveal keyboard access keys",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PrintScreenCapture",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Use PrtSc for screen snipping",
+    "body": "Under Accessibility → Keyboard, enable the Print Screen capture option. PrtSc then opens screen snipping instead of its previous behavior; verify your existing screenshot shortcuts still work as expected.",
+    "keywords": "use prtsc for screen snipping",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MouseKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Move the pointer from a keypad",
+    "body": "Enable Mouse keys under Accessibility → Mouse to control the pointer using a numeric keypad. This changes keypad behavior; confirm you can return to ordinary number entry when needed.",
+    "keywords": "move the pointer from a keypad",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-mouse",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MonoAudio",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Hear both channels in one ear",
+    "body": "Open Accessibility → Audio and enable Mono audio to combine stereo channels. Useful when listening through one ear; disable it to restore stereo positioning for music or games.",
+    "keywords": "hear both channels in one ear",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-audio",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "VisualAudioAlerts",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "See sound notifications",
+    "body": "Under Accessibility → Audio, choose a visual flash for audio notifications. Select the title bar, active window or screen; choose carefully if flashing content is uncomfortable for you.",
+    "keywords": "see sound notifications",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-audio",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "NotificationDuration",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Allow more time to read banners",
+    "body": "Open Accessibility → Visual effects and increase notification dismissal time. Banners remain visible longer, which helps reading but may cover work; restore the previous duration when no longer needed.",
+    "keywords": "allow more time to read banners",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-visualeffects",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "LiveCaptions",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Caption audio playing on the PC",
+    "body": "Press Win+Ctrl+L and complete the initial language download. Live captions processes speech locally after setup. Supported recognition languages vary; translation additionally requires compatible Copilot+ hardware and a supported release.",
+    "keywords": "caption audio playing on the pc",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/use-live-captions-to-better-understand-audio"
+    ],
+    "evidence": "Windows 11 22H2+ for live captions; translation requires Copilot+ PC and 24H2+. Device unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-closedcaptioning",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "CaptionMicrophone",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Caption an in-person conversation",
+    "body": "In the live captions window, open settings and include microphone audio. This adds nearby speech to captions; confirm microphone access and inform other participants before captioning a conversation.",
+    "keywords": "caption an in-person conversation",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/use-live-captions-to-better-understand-audio"
+    ],
+    "evidence": "Windows 11 22H2+ live captions; supported language and microphone required. Device unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-closedcaptioning",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "CaptionStyle",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Readable caption appearance",
+    "body": "Open Accessibility → Captions and edit the caption style, including text and background. Preview the result against video content; individual players may use their own caption styling instead.",
+    "keywords": "readable caption appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-closedcaptioning",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "VoiceAccess",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Control Windows by voice",
+    "body": "Open Accessibility → Speech and enable Voice access. Choose a supported language, download its files and configure your microphone. Recognition then runs on-device; review microphone permissions and practice before relying on it.",
+    "keywords": "control windows by voice",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/voice-access/set-up-voice-access"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-speechrecognition",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MouseClickLock",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Drag without holding the mouse button",
+    "body": "Open Bluetooth & devices → Mouse → Additional mouse settings → Buttons and enable ClickLock. It reduces the need to hold a button while dragging; try it with an expendable selection first.",
+    "keywords": "drag without holding the mouse button",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/change-mouse-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:mousetouchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PointerLocator",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Locate the pointer with Ctrl",
+    "body": "Open additional mouse settings → Pointer Options and enable showing pointer location when Ctrl is pressed. Press Ctrl to check the locator; it does not move or click the pointer.",
+    "keywords": "locate the pointer with ctrl",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/change-mouse-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:mousetouchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "InactiveWindowScroll",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Scroll a window without activating it",
+    "body": "Open Bluetooth & devices → Mouse and enable scrolling inactive windows on hover. Test with overlapping windows: scrolling can affect background content even though keyboard focus remains elsewhere.",
+    "keywords": "scroll a window without activating it",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/change-mouse-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:mousetouchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TouchpadGestures",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Customize multi-finger touchpad gestures",
+    "body": "Open Bluetooth & devices → Touchpad and expand three-finger or four-finger gestures. Assign useful switching actions together; some gestures require a precision touchpad and may conflict with established habits.",
+    "keywords": "customize multi-finger touchpad gestures",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/touch-gestures-for-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:devices-touchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TouchscreenGestures",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Manage system touch gestures",
+    "body": "Open Bluetooth & devices → Touch and configure three- and four-finger gestures. Disable them if an app needs the same gestures; the system can otherwise intercept those movements.",
+    "keywords": "manage system touch gestures",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/touch-gestures-for-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:devices-touch",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PenShortcuts",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Assign pen-button actions",
+    "body": "Open Bluetooth & devices → Pen & Windows Ink and configure the pen shortcut button. Group single, double and held presses around your workflow; available actions depend on the pen.",
+    "keywords": "assign pen-button actions",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/use-a-pen-with-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:pen",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PenHandedness",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Set the writing hand for pen input",
+    "body": "Under Bluetooth & devices → Pen & Windows Ink, choose your writing hand. This helps supported pen interactions suit your grip; it requires compatible pen hardware and does not recalibrate the screen.",
+    "keywords": "set the writing hand for pen input",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/use-a-pen-with-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:pen",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LockScreenAppearance",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Choose a less revealing lock screen",
+    "body": "Open Personalization → Lock screen and choose your background and status content together. Other people can see this surface before sign-in; check whether personal photos or status information should remain visible.",
+    "keywords": "choose a less revealing lock screen",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-lock-screen-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:lockscreen",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ContentAdaptiveBrightness",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Control brightness changes caused by content",
+    "body": "Open System → Display → Brightness and review content-based brightness adjustment. Turning it off can prevent distracting brightness shifts during visual work; only supported displays expose this option.",
+    "keywords": "control brightness changes caused by content",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AmbientBrightness",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Control ambient-light brightness adjustment",
+    "body": "In System → Display → Brightness, review automatic adjustment when lighting changes. The option requires a compatible light sensor; disable it if sensor-driven changes make the screen hard to read.",
+    "keywords": "control ambient-light brightness adjustment",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NightLight",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Schedule warmer screen colors",
+    "body": "Open System → Display → Night light and set warmth and a schedule together. Colors become less accurate; disable it for color-sensitive work. Sunset timing may depend on location settings.",
+    "keywords": "schedule warmer screen colors",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:nightlight",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DisplayColorProfile",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Manage a display color profile",
+    "body": "Open System → Display → Color profile, select the intended display and set its profile. Keep the original profile available: an unsuitable replacement can distort color across supported applications.",
+    "keywords": "manage a display color profile",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AutomaticColorManagement",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Manage application colors automatically",
+    "body": "In System → Display → Color profile, select a display and look for automatic color management. It improves consistency on supported graphics hardware; it does not replace a calibrated display.",
+    "keywords": "manage application colors automatically",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DynamicRefreshRate",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Balance smoothness with dynamic refresh",
+    "body": "Open System → Display → Advanced display and enable dynamic refresh where offered. DRR needs VRR and at least 120 Hz; disable it if a game loses its expected maximum refresh rate.",
+    "keywords": "balance smoothness with dynamic refresh",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-the-refresh-rate-on-your-monitor-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display-advanced",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "HdrDesktop",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Configure HDR and SDR balance",
+    "body": "Open System → Display → HDR, choose a compatible screen and review HDR plus SDR brightness. Adjust the balance while viewing your usual apps; some applications need reopening to reflect changes.",
+    "keywords": "configure hdr and sdr balance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/hdr-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Accessibility",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsDisplayLanguage",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Change the Windows display language",
+    "body": "Open Time & language → Language & region, install the needed language and select it for Windows. Save work before signing out; single-language editions restrict this change and keyboard layouts may differ afterward.",
+    "keywords": "change the windows display language",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:regionlanguage",
+    "risk": "UnsavedWork",
+    "restart": "SignOut",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AppLanguageOrder",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Set preferred languages for apps",
+    "body": "In Time & language → Language & region, reorder preferred languages. Supported apps use this preference when choosing translations; an app cannot display a language it does not provide.",
+    "keywords": "set preferred languages for apps",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:regionlanguage",
+    "risk": "Accessibility",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "KeyboardLayouts",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Switch keyboard layouts deliberately",
+    "body": "Open a language’s options under Language & region and add a keyboard layout. Switch with Win+Space; verify the active layout before typing passwords, then remove unused layouts if needed.",
+    "keywords": "switch keyboard layouts deliberately",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:regionlanguage",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceTyping",
+    "kind": "NativeShortcut",
+    "category": "Input",
+    "title": "Dictate text with automatic punctuation",
+    "body": "Place the caret in a text field and press Win+H. Configure automatic punctuation through the gear button and proofread before submitting; voice typing needs a microphone and online speech recognition.",
+    "keywords": "dictate text with automatic punctuation",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/use-voice-typing-to-talk-instead-of-type-on-your-pc"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TypingSuggestions",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Get suggestions while typing",
+    "body": "Open Time & language → Typing and enable hardware-keyboard text suggestions, including multilingual suggestions if useful. Support varies by app and language; review suggestions rather than treating them as corrections.",
+    "keywords": "get suggestions while typing",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/enable-text-suggestions-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:typing",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Clipboard",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Reuse clipboard history safely",
+    "body": "Press Win+V and enable clipboard history to reuse recent copied items. Review sensitive content before enabling sync; System → Clipboard controls history and clearing, while pinned items need separate attention.",
+    "keywords": "reuse clipboard history safely",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/apps/using-the-clipboard"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:clipboard",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Focus",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Start a timed focus session",
+    "body": "Open System → Focus, choose a duration and start the session. Review its notification and taskbar options first; after ending, check whether Do not disturb remains enabled before expecting urgent alerts.",
+    "keywords": "start a timed focus session",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/focus-stay-on-task-without-distractions-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DoNotDisturb",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Schedule quiet periods with exceptions",
+    "body": "Open System → Notifications and configure automatic Do not disturb conditions plus priority exceptions. Check important apps and calls before relying on silence; disabling a rule does not necessarily end the current quiet period.",
+    "keywords": "schedule quiet periods with exceptions",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:notifications",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PerAppNotifications",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Reduce noisy app banners",
+    "body": "Open System → Notifications, select a listed app and configure its banners, sounds and priority together. Keep important alerts visible; these controls change delivery behavior without deleting the app’s data.",
+    "keywords": "reduce noisy app banners",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:notifications",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  }
+]

@@ -18,6 +18,8 @@ jobs:
         run: dotnet run --project src/ViVeUI.Tests -c Release
       - name: Localization resource and wiring audit
         run: python tools/check_localization.py
+      - name: Curated catalog coverage and duplicate audit
+        run: python tools/check_catalog.py --report catalog-audit.json
       - name: Build native WPF app
         run: dotnet build src/ViVeUI.Windows -c Release
       - name: Cross-integrity authenticated IPC, no feature writes
@@ -48,6 +50,13 @@ jobs:
           if (-not $p.WaitForExit(180000)) { $p.Kill(); throw 'UX validation timed out' }
           if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'UX validation failed' }
           Get-Content ux-result.json
+      - name: Large catalog paging, filters and localized native detail validation
+        shell: pwsh
+        run: |
+          $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--catalog-smoke' -PassThru
+          if (-not $p.WaitForExit(180000)) { $p.Kill(); throw 'Catalog validation timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'Catalog validation failed' }
+          Get-Content catalog-result.json
       - name: Publish standalone self-contained EXEs and corresponding source
         shell: pwsh
         run: |
@@ -68,7 +77,7 @@ jobs:
             }
           }
           Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
-          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.4.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.5.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
           Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
       - name: Verify all shell icon frames in both packaged architectures
         run: python tools/verify_pe_icons.py .artifacts/ViVeUI-win-x64.exe .artifacts/ViVeUI-win-arm64.exe
@@ -103,6 +112,9 @@ jobs:
             previews/*.png
             previews/localization/**/*.png
             previews/ux/*.png
+            previews/catalog/*.png
+            catalog-result.json
+            catalog-audit.json
             ux-result.json
             icon-result.json
             standalone-icon-result.json

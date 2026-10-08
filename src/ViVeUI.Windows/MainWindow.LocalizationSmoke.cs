@@ -17,8 +17,8 @@ public partial class MainWindow
         if (Root.GetBindingExpression(FlowDirectionProperty) is null) throw new Exception("Initial root direction binding is missing before any offscreen capture.");
         ThemeBox.SelectedIndex = 1; Root.Width = 1440; Root.Height = 900;
         Search = ""; searchTimer.Stop(); Category = "All"; Filter();
-        foreach (var id in new uint[] { 37634385, 39420424 }) { Selected = catalog.Single(f => f.Id == id); Desired = OverrideState.Enabled; Stage(); }
-        Selected = catalog.Single(f => f.Id == 37634385);
+        foreach (var id in new uint[] { 4294967201, 4294967202 }) { Selected = new Feature(id, "Demo localization " + id); Desired = OverrideState.Enabled; Stage(); }
+        Selected = new Feature(4294967201, "Demo localization one");
         var glyphs = new HashSet<int>();
         foreach (var typeface in Fonts.SystemTypefaces)
             if (typeface.TryGetGlyphTypeface(out var glyph)) glyphs.UnionWith(glyph.CharacterToGlyphMap.Keys);
@@ -45,8 +45,8 @@ public partial class MainWindow
             ShowPage(ChangesPage); await Capture($"localization/{language.Code}/compact-review.png");
             Root.Width = 960; Root.Height = 800; UpdateLayoutMode(); ShowPage(ExplorePage); OpenDetailClick(this, new()); await Capture($"localization/{language.Code}/scale-150.png", 1.5);
             Root.LayoutTransform = Transform.Identity; Root.Width = 1440; Root.Height = 900; UpdateLayoutMode();
-            ShowPage(ExplorePage); SelectGuide(GuideCatalog.All[0]); await Capture($"localization/{language.Code}/guide.png");
-            Selected = catalog.Single(f => f.Id == 37634385);
+            ShowPage(ExplorePage); SelectGuide(CuratedCatalog.All[0]); await Capture($"localization/{language.Code}/guide.png");
+            Selected = new Feature(4294967201, "Demo localization one");
             var dialog = LocalizedDialog.Create(this, L, L["Review"], L["UserOverride"] + "\n\n" + L["DefaultHelp"], true, @"C:\ViVeUI\downloads\ViVeUI-win-x64.exe", Staged.ToArray());
             var panel = (FrameworkElement)dialog.Content;
             var scopeGrid = EnumerateLogicalChildren(panel).OfType<Grid>().Single(g => g.ColumnDefinitions.Count == 3);
@@ -66,7 +66,8 @@ public partial class MainWindow
             var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
             using (var stream = File.Create(Path.Combine("previews","localization",language.Code,"confirmation.png"))) encoder.Save(stream);
             host.Child = null; dialog.Close();
-            var missing = Localization.Resource(language.Code).Values.SelectMany(t => t.EnumerateRunes()).Where(r => Rune.IsLetterOrDigit(r) || Rune.GetUnicodeCategory(r) is UnicodeCategory.NonSpacingMark or UnicodeCategory.SpacingCombiningMark).Select(r => r.Value).Distinct().Where(c => !glyphs.Contains(c)).Select(c => $"U+{c:X4}").ToArray();
+            var catalogStrings = CuratedCatalog.All.Select(entry => CuratedCatalog.Text(entry, language.Code)).SelectMany(text => new[] { text.Title, text.Body, text.Evidence, text.Keywords });
+            var missing = Localization.Resource(language.Code).Values.Concat(catalogStrings).SelectMany(t => t.EnumerateRunes()).Where(r => Rune.IsLetterOrDigit(r) || Rune.GetUnicodeCategory(r) is UnicodeCategory.NonSpacingMark or UnicodeCategory.SpacingCombiningMark).Select(r => r.Value).Distinct().Where(c => !glyphs.Contains(c)).Select(c => $"U+{c:X4}").ToArray();
             missingGlyphs |= missing.Length > 0;
             reports.Add(new { language.Code, language.NativeName, language.FontFamily, rtl = language.IsRightToLeft, missingSystemGlyphs = missing, renders = 9, persisted = true, statePreserved = true, noFeatureWrites = true });
         }

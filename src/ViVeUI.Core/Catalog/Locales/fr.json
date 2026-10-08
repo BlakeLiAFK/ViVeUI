@@ -1,0 +1,1280 @@
+{
+  "ClassicMenu": {
+    "title": "Ouvrir le menu contextuel classique",
+    "body": "Faites un clic droit sur un fichier et choisissez Afficher plus d’options. Maj+clic droit ouvre directement le menu complet dans les builds documentées. Ce raccourci s’utilise à chaque fois ; il ne remplace pas définitivement le menu de Windows 11.",
+    "keywords": "Ouvrir le menu contextuel classique clic droit menu contextuel",
+    "evidence": "Documentation Windows 11 ; Maj+clic droit introduit dans Dev 22572, 2022-03-09. Prise en charge actuelle de cet appareil non vérifiée."
+  },
+  "ContextMenu": {
+    "title": "Menus contextuels modernes personnalisables",
+    "body": "Examinez le menu contextuel remanié et ses réglages, dont Envoyer vers, Actualiser un dossier et une présentation initiale simplifiée. Il s’agit d’une observation dans une build Experimental précise, pas d’une recette de restauration permanente du menu de Windows 10.",
+    "keywords": "Menus contextuels modernes personnalisables historique expérimental lecture seule",
+    "evidence": "Observation : 26340.9212 · Experimental (2026-08-17). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "ExplorerTabsHistory": {
+    "title": "Implémentation historique des onglets de l’Explorateur",
+    "body": "Les anciens onglets utilisaient 37634385 ; Beta 22621 exigeait aussi 39145991. ExplorerPatcher signale la suppression de TIFE dans Dev 23575. Désactiver 37634385, 36354489 et 39145991 ferait planter l’Explorateur sur 22621.2361. N’utilisez jamais cette séquence comme retour arrière universel.",
+    "keywords": "Implémentation historique des onglets de l’Explorateur historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25136 · Dev; 22621 · Beta. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "ExplorerNavigationHistory": {
+    "title": "Refonte de la navigation de l’Explorateur",
+    "body": "L’ancienne navigation utilisait 36354489, avec 39145991 nécessaire sur Beta 22621. Selon ExplorerPatcher, désactiver cette paire avec l’identifiant d’onglets 37634385 fait planter l’Explorateur sur 22621.2361. Cette correspondance ne fournit aucun retour arrière universel sûr pour les versions ultérieures.",
+    "keywords": "Refonte de la navigation de l’Explorateur historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25136 · Dev; 22621 · Beta. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "ExternalFolderTabs": {
+    "title": "Ouvrir des dossiers externes dans les onglets existants",
+    "body": "Ouvrez un dossier du Bureau ou un lien externe vers un dossier pour observer son ouverture dans un nouvel onglet d’une fenêtre existante de l’Explorateur plutôt que dans une autre fenêtre.",
+    "keywords": "Ouvrir des dossiers externes dans les onglets existants historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4515 · Beta (2024-11-23). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "RestoreExplorerTabs": {
+    "title": "Restaurer les onglets à la connexion",
+    "body": "Observez si l’Explorateur restaure ses onglets après connexion. La source exige aussi le réglage Windows qui enregistre les applications redémarrables et les relance à la connexion.",
+    "keywords": "Restaurer les onglets à la connexion historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4580 · Beta (2024-12-07). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "StartCustomization": {
+    "title": "Combinaison de personnalisation de Démarrer",
+    "body": "Examinez les tailles réduites de Démarrer et la visibilité de Récent, Toutes les applications, du nom et de la photo du compte. Gardez les six identifiants groupés comme une seule procédure observée ; le billet original ne précise aucun canal.",
+    "keywords": "Combinaison de personnalisation de Démarrer historique expérimental lecture seule",
+    "evidence": "Observation : 26300.8553 (2026-05-29). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "RedesignedStartRecipe": {
+    "title": "Combinaison du menu Démarrer remanié",
+    "body": "Examinez le menu Démarrer remanié avec la combinaison de six composants rapportée au début du déploiement. La source indique une date et des canaux, pas les numéros de build complets. Ces six identifiants ne sont pas six fonctions indépendantes.",
+    "keywords": "Combinaison du menu Démarrer remanié historique expérimental lecture seule",
+    "evidence": "Observation : 2025-06-10 · Dev/Beta (2025-06-10). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "TaskbarPositionHistory": {
+    "title": "Expérience de position de la barre des tâches",
+    "body": "Examinez les réglages de position de la barre des tâches. Il s’agit de l’implémentation observée par l’auteur en mai 2026. Le billet de commande nomme une build sans canal et n’établit pas de prise en charge d’autres builds.",
+    "keywords": "Expérience de position de la barre des tâches historique expérimental lecture seule",
+    "evidence": "Observation : 26300.8493 (2026-05-15). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SmallTaskbarHistory": {
+    "title": "Expérience de petite barre des tâches",
+    "body": "Examinez l’option de petite barre dans ses paramètres. Cette implémentation de mai 2026 diffère de l’ancienne expérience limitée aux boutons, 29785184. La source ne précise ni canal ni garantie de prise en charge durable.",
+    "keywords": "Expérience de petite barre des tâches historique expérimental lecture seule",
+    "evidence": "Observation : 26300.8493 (2026-05-15). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SmallTaskbarButtonsHistory": {
+    "title": "Expérience de boutons de barre plus petits",
+    "body": "Examinez l’option de boutons d’applications plus petits dans la barre des tâches. Cette première implémentation réduit les boutons sans réduire la hauteur de la barre. Elle diffère de la petite barre ultérieure utilisant 61090762.",
+    "keywords": "Expérience de boutons de barre plus petits historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4291 · Beta (2024-09-30). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "ExplorerAiActions": {
+    "title": "Actions IA dans les menus de l’Explorateur",
+    "body": "Examinez le menu contextuel d’un fichier compatible pour y trouver Actions IA. La source regroupe les deux identifiants dans une seule procédure ; elle n’établit pas une fonction distincte pour chaque identifiant.",
+    "keywords": "Actions IA dans les menus de l’Explorateur historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5603 · Dev; 26120.4151 · Beta (2025-05-19). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "QuickAccessibilityGroups": {
+    "title": "Accessibilité groupée dans les paramètres rapides",
+    "body": "Ouvrez les paramètres rapides et examinez les commandes d’accessibilité regroupées en vision, audition et motricité ou mobilité. Cela réorganise les commandes existantes sans établir que chaque appareil prend en charge toutes les fonctions affichées.",
+    "keywords": "Accessibilité groupée dans les paramètres rapides historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5570 · Dev; 26120.3941 · Beta (2025-04-25). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "VoiceVocabulary": {
+    "title": "Vocabulaire personnalisé de l’accès vocal",
+    "body": "Examinez l’accès vocal pour trouver un outil d’ajout de mots au dictionnaire personnel. Langue et composants vocaux installés restent déterminants ; un identifiant documenté ne garantit pas la qualité de reconnaissance sur cet appareil.",
+    "keywords": "Vocabulaire personnalisé de l’accès vocal historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "VoiceQuickSettings": {
+    "title": "Accès vocal dans les paramètres rapides",
+    "body": "Examinez la section d’accessibilité des paramètres rapides pour y trouver l’accès vocal. Ce raccourci ne remplace ni la configuration initiale de l’accès vocal ni le téléchargement des composants de reconnaissance nécessaires.",
+    "keywords": "Accès vocal dans les paramètres rapides historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SettingsAnimatedIcons": {
+    "title": "Icônes animées de navigation des Paramètres",
+    "body": "Examinez les animations des icônes de navigation dans Paramètres. La correspondance historique identifie cet effet visuel, mais ne fournit ni preuve de performances ni procédure complète de dépendances. Ne le présentez pas comme une accélération.",
+    "keywords": "Icônes animées de navigation des Paramètres historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25188 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "HdrSettingsHistory": {
+    "title": "Expérience de paramètres HDR améliorés",
+    "body": "Examinez les paramètres d’affichage : libellés de capacités revus, diffusion vidéo HDR et modes Dolby Vision. Les choix restent conditionnés par un écran compatible. Le remplacement d’un état ne peut pas ajouter des capacités matérielles absentes.",
+    "keywords": "Expérience de paramètres HDR améliorés historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5581 · Dev; 26120.3950 · Beta (2025-05-06). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SpotlightHover": {
+    "title": "Volet de Windows à la une au survol",
+    "body": "Survolez l’icône Windows à la une du Bureau pour examiner un volet réduit ; un simple clic ouvre la page Bing correspondante. Cela modifie l’interaction de l’icône sans ajouter une source indépendante de fonds d’écran.",
+    "keywords": "Volet de Windows à la une au survol historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4655 · Beta (2024-12-13). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SpotlightCaption": {
+    "title": "Icône et légende dynamique de Windows à la une",
+    "body": "Examinez l’icône du Bureau. La variante 1 ajoute une légende dynamique ; la variante 2 conserve la légende fixe avec la nouvelle icône. Choisissez une seule alternative, jamais les deux successivement. La source change aussi l’arrière-plan puis le rétablit après redémarrage.",
+    "keywords": "Icône et légende dynamique de Windows à la une historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4660 · Beta (2025-01-04). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SpotlightThemeHistory": {
+    "title": "Thème Windows à la une",
+    "body": "La correspondance identifie l’intégration de Windows à la une comme thème. Examinez les thèmes de la build observée. Cela diffère des interactions ultérieures de l’icône du Bureau et ne prouve ni disponibilité hors ligne des images ni pérennité du service.",
+    "keywords": "Thème Windows à la une historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25169 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "FluentOpenWithHistory": {
+    "title": "Sélecteur d’applications Fluent",
+    "body": "La correspondance historique associe cet identifiant à un sélecteur d’applications Fluent. Examinez la présentation d’Ouvrir avec dans la build indiquée. Son apparence est distincte du choix volontaire ou du changement d’une application par défaut.",
+    "keywords": "Sélecteur d’applications Fluent historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25174 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "ExplorerSendPhone": {
+    "title": "Envoyer un fichier de l’Explorateur au téléphone",
+    "body": "Examinez le menu contextuel d’un fichier pour trouver Envoyer vers mon téléphone. Les deux identifiants constituent la combinaison rapportée. Une connexion téléphonique compatible reste nécessaire pour réaliser un transfert.",
+    "keywords": "Envoyer un fichier de l’Explorateur au téléphone historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4225 · Beta (2024-09-20). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "ExplorerShareApps": {
+    "title": "Partager directement vers des applications",
+    "body": "Examinez les menus contextuels des fichiers et du Bureau pour trouver Partager avec et les applications compatibles. La source réunit 45286384 et 52800817 dans la procédure observée ; elle ne définit pas une fonction distincte par identifiant.",
+    "keywords": "Partager directement vers des applications historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4367 · Beta (2024-10-11). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "OpenWithStore": {
+    "title": "Recommandations du Store dans Ouvrir avec",
+    "body": "Examinez les recommandations Microsoft Store dans Ouvrir avec. Identifiant principal : 55805655. Le sélecteur remanié utilisant 41118774 est nécessaire s’il n’est pas déjà présent. Les recommandations n’installent pas automatiquement les applications.",
+    "keywords": "Recommandations du Store dans Ouvrir avec historique expérimental lecture seule",
+    "evidence": "Observation : 26120.4161 · Beta (2025-05-24). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "DarkFolderOptions": {
+    "title": "Options des dossiers en mode sombre",
+    "body": "Examinez la boîte Options des dossiers de l’Explorateur en mode sombre. Identifiant principal : 59203365 ; la source exige 58383338. La build abrégée 26x20.6972 est un libellé d’observation, pas une plage de compatibilité illimitée.",
+    "keywords": "Options des dossiers en mode sombre historique expérimental lecture seule",
+    "evidence": "Observation : 26x20.6972 · Dev/Beta (2025-10-17). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "DarkFileDialogs": {
+    "title": "Boîtes d’opérations sur fichiers sombres",
+    "body": "Observez les boîtes de copie et d’accès refusé en mode sombre. Paire principale : 57857165 et 57994323. La source ajoute conditionnellement 48433719, et 49453572 sur Release Preview. Ces prérequis larges ne sont pas des fonctions indépendantes.",
+    "keywords": "Boîtes d’opérations sur fichiers sombres historique expérimental lecture seule",
+    "evidence": "Observation : .5751 · Dev/Beta; Release Preview (2025-08-15). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "ExplorerHomeRecommendations": {
+    "title": "Fichiers locaux recommandés dans Accueil",
+    "body": "Examinez les recommandations de fichiers locaux dans l’Accueil de l’Explorateur avec un compte Microsoft personnel ou local. Identifiant principal : 51721485 ; 48895801 est une dépendance facultative d’apparence des cartes, pas un déverrouillage obligatoire.",
+    "keywords": "Fichiers locaux recommandés dans Accueil historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4800 · Beta (2025-01-18). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "BackupReminderSnooze": {
+    "title": "Reporter les rappels de sauvegarde",
+    "body": "Examinez le rappel Démarrer la sauvegarde dans la barre d’adresse de l’Explorateur pour trouver les options de désactivation ou de report d’un mois.",
+    "keywords": "Reporter les rappels de sauvegarde historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4515 · Beta (2024-11-23). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "VoiceTypingFilter": {
+    "title": "Filtre de grossièretés de la saisie vocale",
+    "body": "Ouvrez les réglages de saisie vocale pour examiner l’option désactivant le filtre de grossièretés. Relisez les dictées avant envoi. Ce réglage concerne le filtrage de transcription, pas les autorisations du microphone ni la précision de reconnaissance.",
+    "keywords": "Filtre de grossièretés de la saisie vocale historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta (2025-04-25). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "NotificationClock": {
+    "title": "Horloge du centre de notifications",
+    "body": "Après redémarrage de l’Explorateur, examinez Date et heure pour l’option d’horloge du centre de notifications. Identifiant principal : 42651849 ; 48433719 est conditionnel. Cette horloge est distincte des secondes dans la barre des tâches.",
+    "keywords": "Horloge du centre de notifications historique expérimental lecture seule",
+    "evidence": "Observation : 22635.5240 · Beta (2025-04-18). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SecondaryNotificationCenter": {
+    "title": "Centre de notifications sur les écrans secondaires",
+    "body": "Examinez le centre de notifications sur un écran secondaire. La source demande explicitement un redémarrage, mais indique seulement le suffixe .5722. La compatibilité avec une build complète exacte n’est donc pas établie.",
+    "keywords": "Centre de notifications sur les écrans secondaires historique expérimental lecture seule",
+    "evidence": "Observation : .5722 · Dev/Beta (2025-07-28). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "BatteryGraphLabels": {
+    "title": "Légendes du graphique de batterie",
+    "body": "Examinez sous le graphique d’utilisation de batterie dans Paramètres les explications des icônes. Identifiant principal : 53092139 ; le prérequis large 48433719 est conditionnel. Cela change la présentation, pas la capacité ni l’autonomie.",
+    "keywords": "Légendes du graphique de batterie historique expérimental lecture seule",
+    "evidence": "Observation : 26120.2510 · Dev (2024-12-06). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "Energy": {
+    "title": "Expérience de recommandations énergétiques",
+    "body": "La correspondance identifie les recommandations énergétiques avec 39427030 et leur thème sombre avec 41249924. Elles forment une seule archive de fonctionnalité ; leur dépendance exacte est inconnue. Appliquer les recommandations natives peut modifier plusieurs préférences d’alimentation.",
+    "keywords": "Expérience de recommandations énergétiques historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25231 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "StartFolderCommands": {
+    "title": "Créer des dossiers depuis le menu contextuel de Démarrer",
+    "body": "Faites un clic droit sur une application épinglée pour examiner les commandes de création d’un dossier ou de déplacement vers un dossier existant. La source distingue ces actions du déplacement latéral des éléments épinglés.",
+    "keywords": "Créer des dossiers depuis le menu contextuel de Démarrer historique expérimental lecture seule",
+    "evidence": "Observation : 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "MoveStartPins": {
+    "title": "Déplacer les éléments épinglés par commande",
+    "body": "Faites un clic droit sur une application épinglée à Démarrer pour examiner les commandes de déplacement d’une position à gauche ou à droite. Cette archive concerne l’organisation accessible au clavier, pas la refonte complète ultérieure du menu.",
+    "keywords": "Déplacer les éléments épinglés par commande historique expérimental lecture seule",
+    "evidence": "Observation : 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "AboutFaq": {
+    "title": "FAQ matérielle dans Informations système",
+    "body": "Examinez la page Informations système de Paramètres pour trouver les questions fréquentes sur la version Windows et les caractéristiques de l’appareil. Ce contenu explicatif ne met pas le matériel à niveau et ne vérifie pas la compatibilité d’autres applications.",
+    "keywords": "FAQ matérielle dans Informations système historique expérimental lecture seule",
+    "evidence": "Observation : 26120.3576 · Dev; 22635.5090 · Beta (2025-03-17). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "AboutHardwareCards": {
+    "title": "Cartes de caractéristiques matérielles",
+    "body": "Examinez les cartes de stockage, mémoire graphique et RAM dans Informations système. Paire principale : 51784082 et 54618938 ; 48433719 est conditionnel. La source demande un redémarrage. Les refontes ultérieures peuvent utiliser d’autres procédures.",
+    "keywords": "Cartes de caractéristiques matérielles historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4660 · Beta (2025-01-04). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "AdvancedCameraHistory": {
+    "title": "Expérience de paramètres avancés de caméra",
+    "body": "Examinez les choix de type de média et résolution de caméra. Dev 26120.2702 utilisait 49575624/50292326 ; Canary 27744 utilisait 52142480. Ce sont des observations séparées, pas une combinaison de trois identifiants. Le matériel compatible reste nécessaire.",
+    "keywords": "Expérience de paramètres avancés de caméra historique expérimental lecture seule",
+    "evidence": "Observation : 26120.2702 · Dev; 27744 · Canary (2024-12-13). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "ModernSettingsDialogs": {
+    "title": "Style moderne des boîtes des Paramètres",
+    "body": "La correspondance historique regroupe Renommer le PC (38228963), date et heure (39811196), réinitialisation (41598133) et l’identifiant maître 36390579. Dépendances et ordre d’activation sont inconnus. Cette archive de recherche ne renomme ni ne réinitialise le PC et ne change pas l’heure. Une réinitialisation peut supprimer applications et données.",
+    "keywords": "Style moderne des boîtes des Paramètres historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25231 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "TaskManagerDisconnectDialog": {
+    "title": "Boîte moderne de déconnexion utilisateur",
+    "body": "Examinez l’apparence de la confirmation de déconnexion d’un utilisateur dans le Gestionnaire des tâches. Cette archive concerne uniquement le style. Déconnecter réellement une autre session peut interrompre son travail ; le catalogue ne le fait pas.",
+    "keywords": "Boîte moderne de déconnexion utilisateur historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4225 · Beta (2024-09-21). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "TaskManagerCpuCalculation": {
+    "title": "Nouveau calcul CPU du Gestionnaire des tâches",
+    "body": "Examinez le calcul modifié d’utilisation CPU et la colonne d’utilité CPU du Gestionnaire des tâches. Cela change la présentation des mesures, sans accélérer le processeur. Les valeurs peuvent différer des anciennes builds.",
+    "keywords": "Nouveau calcul CPU du Gestionnaire des tâches historique expérimental lecture seule",
+    "evidence": "Observation : 26120.3360 · Dev/Beta (2025-02-28). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "TaskManagerDiskTypes": {
+    "title": "Types de connexion des disques",
+    "body": "Ouvrez la page Performances du Gestionnaire des tâches et examinez les libellés comme NVMe et SATA dans listes et graphiques. Ils décrivent le matériel et ne commandent pas les performances du disque.",
+    "keywords": "Types de connexion des disques historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4225 · Beta (2024-09-21). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "KernelDumpHistory": {
+    "title": "Vidages mémoire du noyau en direct",
+    "body": "La correspondance historique associe cet identifiant aux vidages du noyau en direct du Gestionnaire des tâches. Ils peuvent contenir de la mémoire sensible. Lisez la documentation avant collecte ou partage. Cette archive ne lance pas de vidage.",
+    "keywords": "Vidages mémoire du noyau en direct historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25231 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "TaskManagerSearchHistory": {
+    "title": "Recherche de processus dans le Gestionnaire",
+    "body": "La correspondance historique identifie le champ de recherche des processus du Gestionnaire des tâches. Examinez le filtrage dans cette build. La correspondance n’établit ni les prérequis complets ni la prise en charge durable dans les versions ultérieures.",
+    "keywords": "Recherche de processus dans le Gestionnaire historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25231 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "ArchiveAppsHistory": {
+    "title": "Page d’archivage des applications remaniée",
+    "body": "Examinez la refonte historique de la page Archiver les applications associée à cet identifiant. Elle identifie une mise à jour de page, sans garantir que toute application installée soit archivable ou restaurable sans nouveau téléchargement.",
+    "keywords": "Page d’archivage des applications remaniée historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25231 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "AnimatedTaskbarPreviews": {
+    "title": "Transitions animées des aperçus de la barre",
+    "body": "Survolez les applications de la barre pour observer les changements d’aperçu, de taille et leur fermeture animés. La source donne un suffixe de mise à jour plutôt qu’une build complète. Aucune amélioration de performances n’est établie.",
+    "keywords": "Transitions animées des aperçus de la barre historique expérimental lecture seule",
+    "evidence": "Observation : .5751 · Dev/Beta; KB5064071 (2025-08-15). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "BatteryPercentageHistory": {
+    "title": "Pourcentage de batterie et nouvelle icône",
+    "body": "Examinez l’icône de batterie et l’option de pourcentage. Cette procédure de janvier 2025 concerne 26120.3000. La source mentionne aussi une préversion cachée antérieure, mais aucune observation ne garantit la compatibilité avec les mises à jour ultérieures.",
+    "keywords": "Pourcentage de batterie et nouvelle icône historique expérimental lecture seule",
+    "evidence": "Observation : 26120.3000 · Dev (2025-01-24). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "EmojiTray": {
+    "title": "Bouton Emoji et plus dans la barre d’état",
+    "body": "Examinez le bouton Emoji et plus, notamment son affichage pendant la saisie et son raccourci vers les paramètres de barre des tâches. La source distingue le bouton fonctionnel de cette build des observations antérieures limitées aux paramètres.",
+    "keywords": "Bouton Emoji et plus dans la barre d’état historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4655 · Beta (2024-12-14). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "LowerLeftSearchHistory": {
+    "title": "Expérience de recherche en bas à gauche",
+    "body": "La correspondance décrit cet identifiant comme une expérience de zone de recherche en bas à gauche. Examinez son placement dans la build indiquée. Tous les comportements ne sont pas décrits et cette archive ne promet pas cette disposition sur les barres actuelles.",
+    "keywords": "Expérience de recherche en bas à gauche historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25136 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "TaskbarAnimationHistory": {
+    "title": "Expérience d’animation de la barre",
+    "body": "Examinez l’expérience d’animation relevée par le mainteneur pour cette build. La correspondance ne précise ni procédure complète d’activation ni toutes les animations concernées. Cette archive ne prétend donc pas à un comportement identique sur les barres modernes.",
+    "keywords": "Expérience d’animation de la barre historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25182 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "TaskbarOverflowHistory": {
+    "title": "Combinaison du débordement de la barre",
+    "body": "Le mainteneur décrit deux composants du débordement de barre des tâches. Conservez 35620393 et 35620394 ensemble comme une archive, pas deux fonctionnalités. Examinez le débordement lorsque beaucoup d’applications occupent la barre de la build indiquée.",
+    "keywords": "Combinaison du débordement de la barre historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 22622.436 · Beta. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "TaskbarStartupHistory": {
+    "title": "Expérience de démarrage de la barre",
+    "body": "Le mainteneur décrit un démarrage plus rapide de la barre. Aucune mesure ni preuve de compatibilité actuelle n’accompagne la correspondance. Conservez-la comme note historique d’implémentation, sans promettre un gain ni recommander une optimisation.",
+    "keywords": "Expérience de démarrage de la barre historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25182 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "TaskbarTrayHistory": {
+    "title": "Zone de notification remaniée",
+    "body": "Le mainteneur associe cet identifiant à une zone de notification mise à jour. Examinez sa présentation dans la build indiquée. Changements détaillés et dépendances complètes sont inconnus ; cela reste une observation historique en lecture seule.",
+    "keywords": "Zone de notification remaniée historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25193 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "DarkRun": {
+    "title": "Boîte Exécuter en mode sombre",
+    "body": "Ouvrez Exécuter avec Win+R pour examiner son apparence sombre. Identifiant principal : 59270880 ; prérequis obligatoire : 58383338. La source abrège la build en 26x20.6972 sans établir une plage exacte de compatibilité de builds complètes.",
+    "keywords": "Boîte Exécuter en mode sombre historique expérimental lecture seule",
+    "evidence": "Observation : 26x20.6972 · Dev/Beta (2025-10-17). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "DragShareTray": {
+    "title": "Expérience de partage par glisser-déposer",
+    "body": "Faites glisser un fichier vers le haut de l’écran pour examiner un volet de cibles d’applications et la feuille de partage complète. Paire principale : 45624564 et 53397005 ; 48433719 est conditionnel. La source demande un redémarrage.",
+    "keywords": "Expérience de partage par glisser-déposer historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4805 · Beta (2025-01-25). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "EdgeDesktopSearchHistory": {
+    "title": "Zone de recherche Edge sur le Bureau",
+    "body": "Le mainteneur identifie une zone de recherche Edge du Bureau associée à cet identifiant. Examinez cette ancienne interface. La correspondance ne prouve ni son indépendance des composants Edge installés ni sa prise en charge dans Windows actuel.",
+    "keywords": "Zone de recherche Edge sur le Bureau historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25136 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "WidgetExpansionHistory": {
+    "title": "Tableau des widgets agrandi",
+    "body": "La correspondance historique associe cet identifiant à une vue agrandie des widgets. Examinez la disposition dans la build observée. Le contenu dépend toujours des widgets et services installés ; la compatibilité actuelle reste non vérifiée.",
+    "keywords": "Tableau des widgets agrandi historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25201 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "ModernAutoPlay": {
+    "title": "Boîte moderne d’exécution automatique",
+    "body": "Examinez la boîte WinUI centrée d’exécution automatique : mode sombre et choix ponctuels ou permanents. La source indique une build exacte sans canal. Les actions réelles sur l’appareil nécessitent toujours un choix délibéré.",
+    "keywords": "Boîte moderne d’exécution automatique historique expérimental lecture seule",
+    "evidence": "Observation : 26340.9212 (2026-08-17). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "SharePhotoEditing": {
+    "title": "Modifier une photo avant partage",
+    "body": "Examinez la feuille de partage Windows pour y trouver des outils de retouche avant envoi. Les deux identifiants constituent la procédure rapportée. Conservez l’image originale et vérifiez le résultat avant de l’envoyer ailleurs.",
+    "keywords": "Modifier une photo avant partage historique expérimental lecture seule",
+    "evidence": "Observation : 26200.5516 · Dev; 26120.3653 · Beta (2025-03-28). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "ShareWebPreview": {
+    "title": "Aperçu des liens web dans Partager",
+    "body": "Examinez la feuille de partage Windows pour un aperçu visuel des liens web. Cette archive décrit la procédure observée dans Beta 22635.4655. La source ne prouve pas la compatibilité avec toute version stable ou toute application de partage.",
+    "keywords": "Aperçu des liens web dans Partager historique expérimental lecture seule",
+    "evidence": "Observation : 22635.4655 · Beta (2024-12-14). Prise en charge actuelle de cet appareil non vérifiée ; il ne s’agit pas d’une plage de compatibilité."
+  },
+  "GamePassWidgetHistory": {
+    "title": "Widget Xbox Game Pass",
+    "body": "La correspondance identifie un widget Xbox Game Pass sans connaître son nom de fonctionnalité interne. Examinez le tableau des widgets pour ce contenu. L’indicateur de fonctionnalité ne donne ni abonnement ni droit d’accès aux jeux.",
+    "keywords": "Widget Xbox Game Pass historique expérimental lecture seule",
+    "evidence": "Correspondance historique du mainteneur : 25201 · Dev. Prise en charge actuelle et procédure complète non vérifiées."
+  },
+  "ToggleKeys": {
+    "title": "Entendre les changements de verrouillage",
+    "body": "Activez les touches bascules dans Accessibilité → Clavier pour entendre les changements de Verr. maj, Verr. num et Arrêt défil. Pensez aux personnes présentes avant d’activer ces sons dans une pièce calme.",
+    "keywords": "Entendre les changements de verrouillage accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "CaptionMicrophone": {
+    "title": "Sous-titrer le microphone",
+    "body": "Dans la fenêtre des sous-titres en direct, ouvrez les paramètres et incluez l’audio du microphone. Les paroles proches sont alors sous-titrées ; vérifiez l’accès au microphone et prévenez les participants avant de sous-titrer une conversation.",
+    "keywords": "Sous-titrer le microphone accessibilité",
+    "evidence": "Sous-titres en direct de Windows 11 22H2+ ; langue prise en charge et microphone requis. Appareil non vérifié ; sources consultées le 2026-10-08."
+  },
+  "LiveCaptions": {
+    "title": "Afficher les sous-titres en direct",
+    "body": "Appuyez sur Win+Ctrl+L et terminez le téléchargement initial de langue. La reconnaissance vocale s’effectue ensuite localement. Les langues disponibles varient ; la traduction exige en plus un PC Copilot+ compatible et une version prise en charge.",
+    "keywords": "Afficher les sous-titres en direct accessibilité",
+    "evidence": "Windows 11 22H2+ pour les sous-titres en direct ; traduction nécessitant un PC Copilot+ et 24H2+. Appareil non vérifié ; sources consultées le 2026-10-08."
+  },
+  "ColorFilters": {
+    "title": "Appliquer un filtre de couleurs",
+    "body": "Ouvrez Accessibilité → Filtres de couleur et choisissez un filtre adapté à votre vision. Les couleurs affichées changent ; désactivez-le lorsque leur appréciation exacte est importante.",
+    "keywords": "Appliquer un filtre de couleurs accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "VoiceAccess": {
+    "title": "Commander le PC à la voix",
+    "body": "Ouvrez Accessibilité → Parole et activez l’accès vocal. Choisissez une langue compatible, téléchargez ses fichiers et configurez le microphone. La reconnaissance fonctionne ensuite sur l’appareil ; vérifiez les autorisations et entraînez-vous avant de vous y fier.",
+    "keywords": "Commander le PC à la voix accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "StickyKeys": {
+    "title": "Saisir les raccourcis touche par touche",
+    "body": "Dans Accessibilité → Clavier, activez les touches rémanentes pour saisir les raccourcis une touche à la fois. Le comportement des touches modificatrices change ; désactivez-les si les combinaisons habituelles deviennent déroutantes.",
+    "keywords": "Saisir les raccourcis touche par touche accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "PointerVisibility": {
+    "title": "Mieux distinguer le pointeur",
+    "body": "Ouvrez Accessibilité → Pointeur de souris et interaction tactile. Agrandissez le pointeur ou choisissez une couleur contrastée ; vérifiez qu’il ne masque pas les petites commandes.",
+    "keywords": "Mieux distinguer le pointeur accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "MonoAudio": {
+    "title": "Fusionner les canaux audio",
+    "body": "Ouvrez Accessibilité → Audio et activez l’audio mono pour combiner les canaux stéréo. Cela aide à écouter d’une seule oreille ; désactivez-le pour retrouver le positionnement stéréo dans la musique ou les jeux.",
+    "keywords": "Fusionner les canaux audio accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "ContrastTheme": {
+    "title": "Utiliser un thème contrasté",
+    "body": "Ouvrez Accessibilité → Thèmes de contraste et appliquez une palette adaptée. Vérifiez vos applications habituelles avant de la conserver ; choisissez Aucun pour retrouver le thème normal.",
+    "keywords": "Utiliser un thème contrasté accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "FilterKeys": {
+    "title": "Filtrer les frappes répétées ou brèves",
+    "body": "Ouvrez Accessibilité → Clavier → Touches filtres et réglez la sensibilité. Essayez ensuite de taper : un filtrage excessif peut donner l’impression d’un clavier inactif. Rétablissez la sensibilité initiale si des frappes voulues disparaissent.",
+    "keywords": "Filtrer les frappes répétées ou brèves accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "NarratorDucking": {
+    "title": "Réduire les autres sons pendant la lecture",
+    "body": "Dans les paramètres du Narrateur, activez la réduction du volume des autres applications pendant la lecture. Les commandes parlées se distinguent mieux, mais musique et réunions peuvent devenir temporairement moins audibles. Rétablissez l’option si cela gêne.",
+    "keywords": "Réduire les autres sons pendant la lecture accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "TextSize": {
+    "title": "Agrandir le texte",
+    "body": "Ouvrez Accessibilité → Taille du texte, ajustez le curseur avec aperçu, puis appliquez. Le texte s’agrandit sans redimensionner toute l’interface ; certaines applications peuvent ignorer cette préférence.",
+    "keywords": "Agrandir le texte accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "Magnifier": {
+    "title": "Agrandir avec la Loupe",
+    "body": "Appuyez sur Win et plus pour ouvrir la Loupe, puis sur Win avec plus ou moins pour zoomer. Choisissez le mode loupe, ancré ou plein écran dans ses paramètres ; Win+Échap ferme la Loupe.",
+    "keywords": "Agrandir avec la Loupe accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "MouseKeys": {
+    "title": "Piloter le pointeur au pavé numérique",
+    "body": "Activez les touches souris dans Accessibilité → Souris pour piloter le pointeur au pavé numérique. Son comportement change ; assurez-vous de pouvoir revenir à la saisie des nombres lorsque nécessaire.",
+    "keywords": "Piloter le pointeur au pavé numérique accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "NarratorStartup": {
+    "title": "Démarrer automatiquement le Narrateur",
+    "body": "Ouvrez les paramètres du Narrateur avec Win+Ctrl+N et développez les options de démarrage. Choisissez la lecture avant ou après la connexion ; le comportement avant connexion concerne tous les utilisateurs d’un ordinateur partagé.",
+    "keywords": "Démarrer automatiquement le Narrateur accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "CaptionStyle": {
+    "title": "Personnaliser les sous-titres",
+    "body": "Ouvrez Accessibilité → Sous-titres et modifiez le style, notamment texte et arrière-plan. Prévisualisez le résultat sur une vidéo ; certains lecteurs utilisent leurs propres styles de sous-titres.",
+    "keywords": "Personnaliser les sous-titres accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "AccessKeyUnderlines": {
+    "title": "Souligner les touches d’accès",
+    "body": "Activez le soulignement des touches d’accès dans Accessibilité → Clavier. Les menus compatibles montrent plus clairement leurs lettres de commande ; ce réglage ne crée pas de raccourcis dans les applications qui en sont dépourvues.",
+    "keywords": "Souligner les touches d’accès accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "Narrator": {
+    "title": "Utiliser le Narrateur",
+    "body": "Appuyez sur Win+Ctrl+Entrée pour lancer le Narrateur. Win+Ctrl+N permet de régler la voix, les détails de lecture et la sortie audio. Vérifiez le volume dans les espaces partagés ; le raccourci de lancement arrête aussi la lecture.",
+    "keywords": "Utiliser le Narrateur accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "VisualAudioAlerts": {
+    "title": "Afficher les alertes sonores visuellement",
+    "body": "Dans Accessibilité → Audio, choisissez un clignotement pour les notifications sonores : barre de titre, fenêtre active ou écran. Choisissez avec précaution si les contenus clignotants vous incommodent.",
+    "keywords": "Afficher les alertes sonores visuellement accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "TouchIndicator": {
+    "title": "Visualiser les contacts tactiles",
+    "body": "Ouvrez Accessibilité → Pointeur de souris et interaction tactile, puis activez l’indicateur tactile. Le cercle plus grand et plus sombre peut faciliter les démonstrations ; un écran tactile est nécessaire.",
+    "keywords": "Visualiser les contacts tactiles accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "OnScreenKeyboard": {
+    "title": "Ouvrir le clavier visuel",
+    "body": "Appuyez sur Win+Ctrl+O ou activez le clavier visuel dans Accessibilité → Clavier. Il s’utilise au pointeur et diffère du clavier tactile ; appuyez de nouveau sur le raccourci pour le fermer.",
+    "keywords": "Ouvrir le clavier visuel accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "TextCursorVisibility": {
+    "title": "Repérer le curseur de texte",
+    "body": "Ouvrez Accessibilité → Curseur de texte. Réglez ensemble l’épaisseur et l’indicateur coloré pour repérer le point d’insertion ; certains éditeurs dessinent leur propre curseur.",
+    "keywords": "Repérer le curseur de texte accessibilité",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "DesktopIconSize": {
+    "title": "Régler la taille des icônes du Bureau",
+    "body": "Faites un clic droit sur un espace vide du Bureau, puis choisissez une taille dans Afficher, ou maintenez Ctrl en tournant la molette. De petites icônes libèrent de l’espace mais peuvent être moins reconnaissables.",
+    "keywords": "Régler la taille des icônes du Bureau apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "WindowsAccent": {
+    "title": "Appliquer une couleur d’accentuation",
+    "body": "Ouvrez Personnalisation → Couleurs, choisissez un accent et ses emplacements, notamment bordures et barres de titre. L’appliquer à Démarrer et à la barre des tâches nécessite un mode Windows sombre.",
+    "keywords": "Appliquer une couleur d’accentuation apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "MonitorWallpapers": {
+    "title": "Attribuer une image à chaque moniteur",
+    "body": "Ouvrez Personnalisation → Arrière-plan et choisissez Image. Faites un clic droit sur une image récente pour choisir son moniteur. La documentation Microsoft indique que cette attribution par écran n’est pas disponible avec plusieurs bureaux virtuels.",
+    "keywords": "Attribuer une image à chaque moniteur apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DynamicRefreshRate": {
+    "title": "Activer la fréquence dynamique",
+    "body": "Ouvrez Système → Affichage → Affichage avancé et activez la fréquence dynamique si proposée. DRR exige VRR et au moins 120 Hz ; désactivez-la si un jeu perd sa fréquence maximale attendue.",
+    "keywords": "Activer la fréquence dynamique apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "DesktopWallpaper": {
+    "title": "Choisir l’arrière-plan du Bureau",
+    "body": "Ouvrez Personnalisation → Arrière-plan et choisissez une image, un diaporama, une couleur unie ou Windows à la une. Réglez l’ajustement ou l’intervalle du diaporama. Windows à la une télécharge des images ; plusieurs bureaux virtuels imposent des limites supplémentaires.",
+    "keywords": "Choisir l’arrière-plan du Bureau apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "LockScreenAppearance": {
+    "title": "Personnaliser l’écran de verrouillage",
+    "body": "Ouvrez Personnalisation → Écran de verrouillage et choisissez ensemble l’arrière-plan et le contenu d’état. D’autres personnes peuvent les voir avant connexion ; vérifiez si photos personnelles et informations doivent rester visibles.",
+    "keywords": "Personnaliser l’écran de verrouillage apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "WindowsColorMode": {
+    "title": "Séparer les modes de couleur système et applications",
+    "body": "Ouvrez Personnalisation → Couleurs et choisissez Personnalisé pour régler séparément Windows et les applications. Choisissez Clair ou Sombre pour chacun. Certaines applications possèdent leurs propres thèmes et peuvent ignorer cette préférence.",
+    "keywords": "Séparer les modes de couleur système et applications apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "AmbientBrightness": {
+    "title": "Adapter la luminosité à l’éclairage",
+    "body": "Dans Système → Affichage → Luminosité, vérifiez l’ajustement automatique selon l’éclairage. Un capteur compatible est requis ; désactivez l’option si ses variations gênent la lecture.",
+    "keywords": "Adapter la luminosité à l’éclairage apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "ContentAdaptiveBrightness": {
+    "title": "Régler la luminosité selon le contenu",
+    "body": "Ouvrez Système → Affichage → Luminosité et vérifiez l’ajustement selon le contenu. Le désactiver évite des variations gênantes pendant un travail visuel ; seuls les écrans compatibles proposent cette option.",
+    "keywords": "Régler la luminosité selon le contenu apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "WindowsTransparency": {
+    "title": "Régler les effets de transparence",
+    "body": "Ouvrez Personnalisation → Couleurs et modifiez les effets de transparence. Désactivez-les si les surfaces translucides gênent la lecture ; réactivez-les pour retrouver cet aspect sur les surfaces Windows compatibles.",
+    "keywords": "Régler les effets de transparence apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DesktopShortcut": {
+    "title": "Créer un raccourci sur le Bureau",
+    "body": "Faites un clic droit sur un espace vide du Bureau, puis choisissez Nouveau → Raccourci. Indiquez la cible et un nom reconnaissable. Pour annuler, supprimez uniquement le nouveau raccourci, pas le fichier ciblé.",
+    "keywords": "Créer un raccourci sur le Bureau apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ThemeIconProtection": {
+    "title": "Conserver les icônes en changeant de thème",
+    "body": "Ouvrez Personnalisation → Thèmes → Paramètres des icônes du Bureau et décochez l’autorisation donnée aux thèmes de modifier ces icônes. Vos icônes choisies peuvent ainsi rester identiques lors de l’application d’un autre thème.",
+    "keywords": "Conserver les icônes en changeant de thème apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DisplayColorProfile": {
+    "title": "Choisir un profil de couleurs",
+    "body": "Ouvrez Système → Affichage → Profil de couleurs, sélectionnez l’écran voulu et son profil. Gardez le profil original disponible : un remplacement inadapté peut fausser les couleurs dans les applications compatibles.",
+    "keywords": "Choisir un profil de couleurs apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "AutomaticColorManagement": {
+    "title": "Gérer automatiquement les couleurs",
+    "body": "Dans Système → Affichage → Profil de couleurs, sélectionnez un écran et recherchez la gestion automatique des couleurs. Elle améliore la cohérence sur le matériel graphique compatible ; elle ne remplace pas l’étalonnage de l’écran.",
+    "keywords": "Gérer automatiquement les couleurs apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "WindowsThemes": {
+    "title": "Enregistrer et appliquer un thème",
+    "body": "Ouvrez Personnalisation → Thèmes pour choisir un thème installé ou enregistrer votre combinaison actuelle. Un thème peut modifier plusieurs paramètres visuels et sonores ; revenez à l’ancien si le résultat ne convient pas.",
+    "keywords": "Enregistrer et appliquer un thème apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "NightLight": {
+    "title": "Régler l’éclairage nocturne",
+    "body": "Ouvrez Système → Affichage → Éclairage nocturne et réglez ensemble la chaleur et les horaires. Les couleurs perdent en fidélité ; désactivez-le pour les travaux sensibles à la couleur. Le coucher du soleil peut dépendre de la localisation.",
+    "keywords": "Régler l’éclairage nocturne apparence personnalisation",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "DesktopSystemIcons": {
+    "title": "Afficher les icônes système du Bureau",
+    "body": "Ouvrez Personnalisation → Thèmes → Paramètres des icônes du Bureau. Choisissez des éléments comme Ce PC ou Corbeille. Cela contrôle leurs raccourcis sur le Bureau, sans créer ni supprimer les fonctions système correspondantes.",
+    "keywords": "Afficher les icônes système du Bureau apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DesktopIconVisibility": {
+    "title": "Masquer temporairement les icônes du Bureau",
+    "body": "Faites un clic droit sur un espace vide du Bureau et utilisez Afficher → Afficher les éléments du Bureau pour masquer ou révéler l’ensemble. Les fichiers restent sur le disque ; seule la présentation change.",
+    "keywords": "Masquer temporairement les icônes du Bureau apparence personnalisation",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "EndTask": {
+    "title": "Ajouter Fin de tâche à la barre",
+    "body": "Ouvrez Paramètres → Système → Avancé et activez Fin de tâche si disponible ; les anciennes versions utilisent Pour les développeurs. Faites un clic droit sur une application dans la barre pour voir la commande. L’arrêt forcé peut perdre le travail non enregistré ; masquer la commande ne le récupère pas.",
+    "keywords": "Ajouter Fin de tâche à la barre clic droit menu contextuel",
+    "evidence": "Documentation actuelle d’Avancé ; page déplacée dans Windows 11 25H2+. Disponibilité antérieure variable ; prise en charge de cet appareil non vérifiée."
+  },
+  "DefaultApps": {
+    "title": "Choisir les applications pour fichiers et liens",
+    "body": "Ouvrez Paramètres → Applications → Applications par défaut. Recherchez une extension ou un protocole, ou consultez les associations d’une application. Ne changez que les types voulus. Notez les anciens gestionnaires pour les rétablir sans réinitialiser toutes les applications par défaut.",
+    "keywords": "Choisir les applications pour fichiers et liens Explorateur fichiers",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "ExplorerView": {
+    "title": "Choisir icônes, liste ou détails",
+    "body": "Dans l’Explorateur, ouvrez Afficher et choisissez des icônes, une liste ou les détails. Les détails facilitent la comparaison des informations, les icônes la navigation visuelle ; revenez à l’ancienne vue selon vos besoins.",
+    "keywords": "Choisir icônes, liste ou détails Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ExplorerHome": {
+    "title": "Ouvrir l’Explorateur sur Ce PC",
+    "body": "Dans l’Explorateur, ouvrez le menu à trois points → Options. Choisissez Ce PC comme emplacement d’ouverture au lieu d’Accueil. Rétablissez l’ancien choix si vous préférez voir d’abord les éléments récents et épinglés.",
+    "keywords": "Ouvrir l’Explorateur sur Ce PC Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ExplorerQuickAccess": {
+    "title": "Épingler un dossier à Accès rapide",
+    "body": "Faites un clic droit sur un dossier dans l’Explorateur et choisissez Épingler à Accès rapide. Cela ajoute un raccourci sans déplacer le dossier. Faites un clic droit sur l’entrée et détachez-la pour retirer ce raccourci.",
+    "keywords": "Épingler un dossier à Accès rapide Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ExplorerNavigationPane": {
+    "title": "Rétablir le volet de navigation",
+    "body": "Dans l’Explorateur, choisissez Afficher → Afficher → Volet de navigation. L’arborescence à gauche facilite l’accès aux emplacements fréquents ; masquez-la de nouveau si vous préférez davantage d’espace pour les fichiers.",
+    "keywords": "Rétablir le volet de navigation Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ExplorerSelectionBoxes": {
+    "title": "Sélectionner avec des cases à cocher",
+    "body": "Dans l’Explorateur, choisissez Afficher → Afficher → Cases à cocher des éléments. Elles permettent une sélection multiple sans maintenir une touche modificatrice ; désactivez l’option pour rétablir la présentation précédente.",
+    "keywords": "Sélectionner avec des cases à cocher Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "Extensions": {
+    "title": "Afficher les extensions de fichiers",
+    "body": "Dans l’Explorateur de fichiers, choisissez Afficher → Afficher → Extensions de noms de fichiers. Le suffixe complet aide à distinguer les fichiers semblables. Cette option d’affichage ne convertit pas les fichiers et ne change pas leur format réel.",
+    "keywords": "Afficher les extensions de fichiers Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "Hidden": {
+    "title": "Afficher les fichiers masqués",
+    "body": "Dans l’Explorateur, choisissez Afficher → Afficher → Éléments masqués pour examiner le contenu normalement caché. Ne supprimez pas des fichiers système ou d’application inconnus simplement parce qu’ils sont devenus visibles.",
+    "keywords": "Afficher les fichiers masqués Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "LongPaths": {
+    "title": "Comprendre les chemins longs Win32",
+    "body": "Sur une édition compatible, ouvrez Stratégie de groupe → Configuration ordinateur → Modèles d’administration → Système → Système de fichiers → Activer les chemins Win32 longs. Notez l’état initial. Les applications doivent aussi déclarer longPathAware ; toutes les limites ne disparaissent pas. Redémarrez les processus concernés et restaurez la stratégie au besoin.",
+    "keywords": "Comprendre les chemins longs Win32 Explorateur fichiers",
+    "evidence": "Windows 11 ; disponibilité de l’éditeur de stratégie de groupe selon l’édition. Activation explicite par l’application toujours requise ; aucun essai sur appareil."
+  },
+  "ExplorerCompact": {
+    "title": "Resserrer les lignes de fichiers",
+    "body": "Dans l’Explorateur, choisissez Afficher → Affichage compact pour réduire l’espacement. Davantage de fichiers tiennent à l’écran, mais les cibles plus petites peuvent être moins confortables avec un écran tactile.",
+    "keywords": "Resserrer les lignes de fichiers Explorateur fichiers",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "PenShortcuts": {
+    "title": "Configurer les raccourcis du stylet",
+    "body": "Ouvrez Bluetooth et appareils → Stylet et Windows Ink, puis configurez le bouton de raccourci. Associez clic simple, double clic et appui prolongé à votre travail ; les actions disponibles dépendent du stylet.",
+    "keywords": "Configurer les raccourcis du stylet saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "WindowsDisplayLanguage": {
+    "title": "Changer la langue de Windows",
+    "body": "Ouvrez Heure et langue → Langue et région, installez la langue souhaitée et sélectionnez-la pour Windows. Enregistrez avant de vous déconnecter ; les éditions monolingues limitent ce changement et les dispositions de clavier peuvent ensuite différer.",
+    "keywords": "Changer la langue de Windows saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "TouchpadGestures": {
+    "title": "Personnaliser les gestes du pavé tactile",
+    "body": "Ouvrez Bluetooth et appareils → Pavé tactile et développez les gestes à trois ou quatre doigts. Affectez des actions de navigation utiles ; certains gestes exigent un pavé de précision et peuvent contredire vos habitudes.",
+    "keywords": "Personnaliser les gestes du pavé tactile saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "VoiceTyping": {
+    "title": "Dicter du texte",
+    "body": "Placez le curseur dans un champ de texte et appuyez sur Win+H. Réglez la ponctuation automatique avec l’engrenage et relisez avant d’envoyer ; la saisie vocale exige un microphone et la reconnaissance vocale en ligne.",
+    "keywords": "Dicter du texte saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "MouseClickLock": {
+    "title": "Faire glisser sans maintenir le bouton",
+    "body": "Ouvrez Bluetooth et appareils → Souris → Paramètres supplémentaires → Boutons et activez le verrouillage du clic. Il évite de maintenir le bouton pendant un déplacement ; essayez d’abord avec une sélection sans importance.",
+    "keywords": "Faire glisser sans maintenir le bouton saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "TypingSuggestions": {
+    "title": "Afficher des suggestions de texte",
+    "body": "Ouvrez Heure et langue → Saisie et activez les suggestions pour clavier physique, y compris multilingues si utiles. La prise en charge dépend de l’application et de la langue ; vérifiez les propositions au lieu de les considérer comme des corrections.",
+    "keywords": "Afficher des suggestions de texte saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "PointerLocator": {
+    "title": "Retrouver le pointeur avec Ctrl",
+    "body": "Ouvrez les paramètres supplémentaires de souris → Options du pointeur et activez l’affichage de sa position avec Ctrl. Appuyez sur Ctrl pour essayer ; cela ne déplace pas le pointeur et ne clique pas.",
+    "keywords": "Retrouver le pointeur avec Ctrl saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "TouchscreenGestures": {
+    "title": "Régler les gestes de l’écran tactile",
+    "body": "Ouvrez Bluetooth et appareils → Interaction tactile et configurez les gestes à trois et quatre doigts. Désactivez-les si une application utilise les mêmes gestes ; le système pourrait sinon intercepter ces mouvements.",
+    "keywords": "Régler les gestes de l’écran tactile saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "Clipboard": {
+    "title": "Réutiliser l’historique du Presse-papiers",
+    "body": "Appuyez sur Win+V et activez l’historique pour réutiliser les éléments copiés. Vérifiez les données sensibles avant d’activer la synchronisation ; Système → Presse-papiers règle l’historique et son effacement, mais les éléments épinglés nécessitent une attention séparée.",
+    "keywords": "Réutiliser l’historique du Presse-papiers saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "InactiveWindowScroll": {
+    "title": "Faire défiler une fenêtre inactive",
+    "body": "Ouvrez Bluetooth et appareils → Souris et activez le défilement des fenêtres inactives au survol. Essayez avec des fenêtres superposées : le défilement peut toucher l’arrière-plan alors que le clavier reste dirigé ailleurs.",
+    "keywords": "Faire défiler une fenêtre inactive saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "AppLanguageOrder": {
+    "title": "Classer les langues des applications",
+    "body": "Dans Heure et langue → Langue et région, réorganisez les langues préférées. Les applications compatibles utilisent cet ordre pour choisir leur traduction ; elles ne peuvent pas afficher une langue qu’elles ne fournissent pas.",
+    "keywords": "Classer les langues des applications saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "PenHandedness": {
+    "title": "Choisir votre main d’écriture",
+    "body": "Dans Bluetooth et appareils → Stylet et Windows Ink, choisissez votre main d’écriture. Les interactions compatibles s’adaptent ainsi à votre prise ; un stylet compatible est requis et l’écran n’est pas recalibré.",
+    "keywords": "Choisir votre main d’écriture saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "KeyboardLayouts": {
+    "title": "Ajouter et changer une disposition de clavier",
+    "body": "Ouvrez les options d’une langue dans Langue et région et ajoutez un clavier. Changez avec Win+Espace ; vérifiez la disposition active avant de saisir un mot de passe, puis retirez les dispositions inutiles si nécessaire.",
+    "keywords": "Ajouter et changer une disposition de clavier saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "PrintScreenCapture": {
+    "title": "Ouvrir la capture avec Impr. écran",
+    "body": "Dans Accessibilité → Clavier, activez l’option de capture par Impr. écran. Cette touche ouvre alors la capture de zone au lieu de son action précédente ; vérifiez que vos autres raccourcis de capture restent conformes à vos attentes.",
+    "keywords": "Ouvrir la capture avec Impr. écran saisie clavier",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "NotificationDuration": {
+    "title": "Laisser les notifications visibles plus longtemps",
+    "body": "Ouvrez Accessibilité → Effets visuels et augmentez la durée d’affichage des notifications. Les bannières restent lisibles plus longtemps mais peuvent couvrir votre travail ; rétablissez l’ancienne durée lorsque ce n’est plus nécessaire.",
+    "keywords": "Laisser les notifications visibles plus longtemps notifications",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "SecurityNotifications": {
+    "title": "Réduire les avis informatifs de sécurité",
+    "body": "Ouvrez Sécurité Windows → Paramètres → Gérer les notifications. Examinez les avis d’analyse et alertes propres aux réseaux, sans masquer les messages utiles. Les avertissements d’action immédiate restent transmis. Une stratégie peut verrouiller les commandes ; rétablissez l’ancien choix si du contexte utile manque.",
+    "keywords": "Réduire les avis informatifs de sécurité notifications",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "PerAppNotifications": {
+    "title": "Régler les alertes d’une application",
+    "body": "Ouvrez Système → Notifications, sélectionnez une application et réglez ensemble bannières, sons et priorité. Gardez visibles les alertes importantes ; ces commandes changent la diffusion sans supprimer les données de l’application.",
+    "keywords": "Régler les alertes d’une application notifications",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "DoNotDisturb": {
+    "title": "Régler Ne pas déranger",
+    "body": "Ouvrez Système → Notifications et configurez les conditions automatiques de Ne pas déranger et les exceptions prioritaires. Vérifiez applications et appels importants avant de compter sur le silence ; désactiver une règle ne termine pas forcément la période calme actuelle.",
+    "keywords": "Régler Ne pas déranger notifications",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "Focus": {
+    "title": "Démarrer une session de concentration",
+    "body": "Ouvrez Système → Concentration, choisissez une durée et démarrez la session. Vérifiez d’abord ses options de notifications et de barre des tâches ; à la fin, contrôlez si Ne pas déranger reste actif avant d’attendre des alertes urgentes.",
+    "keywords": "Démarrer une session de concentration notifications",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de cet appareil non vérifiée ; sources consultées le 2026-10-08."
+  },
+  "HibernateEntry": {
+    "title": "Afficher la mise en veille prolongée",
+    "body": "Ouvrez Panneau de configuration → Options d’alimentation → Choisir l’action des boutons → Modifier les paramètres actuellement non disponibles. Si proposée, cochez Veille prolongée et enregistrez. Retirer l’option du menu annule ce changement sans supprimer le fichier de veille prolongée.",
+    "keywords": "Afficher la mise en veille prolongée performances",
+    "evidence": "Windows 11 ; mise en veille prolongée nécessitant du matériel et une configuration compatibles. Disponibilité sur cet appareil non vérifiée."
+  },
+  "PowerMode": {
+    "title": "Choisir le mode d’alimentation",
+    "body": "Ouvrez Paramètres → Système → Alimentation et batterie → Mode d’alimentation. Choisissez l’équilibre adapté à votre travail et notez l’ancien mode. Les performances élevées peuvent augmenter chaleur et consommation ; les modes dépendent du matériel et du plan actif.",
+    "keywords": "Choisir le mode d’alimentation performances",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "LidPowerActions": {
+    "title": "Configurer les boutons d’alimentation et le capot",
+    "body": "Ouvrez Panneau de configuration → Système et sécurité → Options d’alimentation → Choisir l’action des boutons. Réglez séparément batterie et secteur, puis enregistrez. Un portable maintenu éveillé peut surchauffer dans un sac ; l’arrêt peut perdre le travail non enregistré.",
+    "keywords": "Configurer les boutons d’alimentation et le capot performances",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "StartupApps": {
+    "title": "Choisir les applications au démarrage",
+    "body": "Ouvrez Paramètres → Applications → Démarrage et examinez les applications enregistrées. Le Gestionnaire des tâches → Applications de démarrage montre aussi leur impact mesuré. Désactivez seulement les applications facultatives connues, pour préserver synchronisation et protection essentielles. Réactivez une entrée pour la prochaine connexion.",
+    "keywords": "Choisir les applications au démarrage performances",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "EnergySaver": {
+    "title": "Régler l’économiseur d’énergie",
+    "body": "Ouvrez Paramètres → Système → Alimentation et batterie → Économiseur d’énergie. Vérifiez ensemble seuil d’activation et luminosité. Limiter l’activité en arrière-plan peut retarder notifications et synchronisation. Rétablissez l’ancien seuil ou désactivez-le si ce compromis ne convient plus.",
+    "keywords": "Régler l’économiseur d’énergie performances",
+    "evidence": "Documentation actuelle de Windows 11 ; les anciennes versions utilisent d’autres noms et options. Prise en charge de cet appareil non vérifiée."
+  },
+  "DeliveryOptimization": {
+    "title": "Régler le partage des téléchargements de mises à jour",
+    "body": "Ouvrez Paramètres → Windows Update → Options avancées → Optimisation de la distribution. Vérifiez la portée du partage entre pairs, les limites de débit et les statistiques. Partager sur Internet consomme du débit montant. Rétablissez les limites notées si les téléchargements ralentissent ; couper ce partage ne désactive pas Windows Update.",
+    "keywords": "Régler le partage des téléchargements de mises à jour performances",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SleepDiagnosis": {
+    "title": "Diagnostiquer les blocages de veille",
+    "body": "Dans un terminal, consultez powercfg /requests pour les blocages, /lastwake pour le dernier réveil et /waketimers pour les réveils programmés. Certaines requêtes exigent les droits administrateur. Ce sont des diagnostics : n’ajoutez pas de dérogations aux demandes et ne désactivez pas de tâches de mise à jour.",
+    "keywords": "Diagnostiquer les blocages de veille performances",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "BatteryReport": {
+    "title": "Examiner l’historique de capacité de batterie",
+    "body": "Dans un terminal ouvert dans un dossier accessible en écriture, exécutez powercfg /batteryreport, puis ouvrez le chemin HTML indiqué. Comparez capacité nominale et pleine charge estimée sans en faire une garantie précise de santé. Vérifiez l’historique d’utilisation avant partage ; supprimez le rapport après usage.",
+    "keywords": "Examiner l’historique de capacité de batterie performances",
+    "evidence": "Documentation de powercfg pour Windows ; utile sur les appareils à batterie. Précision du rapport dépendant du microprogramme ; aucun essai sur appareil."
+  },
+  "WslResources": {
+    "title": "Limiter les ressources de WSL 2",
+    "body": "Utilisez les paramètres WSL ou modifiez memory et processors dans [wsl2] du fichier .wslconfig de votre profil. Conservez l’original. Enregistrez tout travail Linux avant de redémarrer WSL ; les limites touchent toutes les distributions WSL 2. Restaurez l’ancienne configuration si compilations ou services manquent de ressources.",
+    "keywords": "Limiter les ressources de WSL 2 performances",
+    "evidence": "WSL 2 uniquement ; version de WSL prenant en charge les options choisies requise. Aucun test de compatibilité sur appareil effectué."
+  },
+  "BackgroundApps": {
+    "title": "Limiter l’activité en arrière-plan",
+    "body": "Ouvrez Paramètres → Système → Alimentation et batterie → Utilisation de la batterie. Pour une application compatible, choisissez Autres options → Gérer l’activité en arrière-plan et vérifiez son autorisation. Jamais peut arrêter notifications et synchronisation ; rétablissez l’ancien choix si des mises à jour manquent.",
+    "keywords": "Limiter l’activité en arrière-plan performances",
+    "evidence": "Windows 11 ; la page d’utilisation de la batterie nécessite un appareil à batterie et des applications compatibles. Restrictions de stratégie non vérifiées."
+  },
+  "SearchCloudSources": {
+    "title": "Choisir les comptes de recherche cloud",
+    "body": "Ouvrez Confidentialité et sécurité → Recherche, ou Autorisations de recherche dans les anciennes versions, puis Recherche de contenu cloud. Réglez séparément les sources du compte Microsoft et du compte professionnel ou scolaire. Ce n’est pas un interrupteur général de recherche web.",
+    "keywords": "Choisir les comptes de recherche cloud confidentialité recherche",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "SearchIndexScope": {
+    "title": "Choisir l’indexation classique ou améliorée",
+    "body": "Ouvrez Confidentialité et sécurité → Recherche, ou Recherche Windows selon la version, et trouvez Rechercher mes fichiers. Choisissez Classique ou Amélioré. Une indexation initiale plus vaste augmente l’activité disque, le temps de traitement et la consommation de batterie.",
+    "keywords": "Choisir l’indexation classique ou améliorée confidentialité recherche",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "SearchIndexTypes": {
+    "title": "Choisir les types et contenus indexés",
+    "body": "Depuis Confidentialité et sécurité → Recherche, ouvrez les emplacements personnalisés, puis Avancé → Types de fichiers. Définissez les extensions et leur mode d’indexation. Les changements peuvent nécessiter une reconstruction et ne se reflètent pas immédiatement dans les résultats.",
+    "keywords": "Choisir les types et contenus indexés confidentialité recherche",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "OptionalDiagnostics": {
+    "title": "Choisir les diagnostics facultatifs",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Diagnostics et commentaires. Vérifiez les données facultatives ; les diagnostics requis restent actifs sans elles. Les rapports facultatifs peuvent contenir activité et mémoire de plantage. Choisissez délibérément ; une stratégie d’organisation peut verrouiller la commande.",
+    "keywords": "Choisir les diagnostics facultatifs confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SearchDeviceHistory": {
+    "title": "Effacer l’historique local de recherche",
+    "body": "Ouvrez Confidentialité et sécurité → Recherche, ou Autorisations de recherche, puis les commandes d’historique. Effacez l’historique de l’appareil seulement si voulu : cela n’efface pas celui de Bing dans le cloud, et les Paramètres ne permettent pas de le restaurer.",
+    "keywords": "Effacer l’historique local de recherche confidentialité recherche",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "AdvertisingIdentifier": {
+    "title": "Régler l’identifiant publicitaire des applications",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Recommandations et offres et vérifiez l’usage de l’identifiant publicitaire. Le désactiver change la personnalisation, pas la quantité de publicités ni les cookies web. Le réactiver génère un nouvel identifiant au lieu de restaurer l’ancien.",
+    "keywords": "Régler l’identifiant publicitaire des applications confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SearchWebSuggestions": {
+    "title": "Régler les suggestions web et Store",
+    "body": "Dans la préversion compatible, ouvrez Confidentialité et sécurité → Recherche et choisissez si les suggestions web et Microsoft Store accompagnent les résultats locaux. La région et le déploiement conditionnent la disponibilité ; n’utilisez pas une recette de Registre non vérifiée si les commandes manquent.",
+    "keywords": "Régler les suggestions web et Store confidentialité recherche",
+    "evidence": "Annonce du canal Experimental, 2026-07-13 ; déploiement contrôlé et variations régionales. Aucun identifiant numérique ViVe ni prise en charge de cet appareil vérifiés."
+  },
+  "AppDiagnosticPrivacy": {
+    "title": "Limiter l’inspection des autres applications",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Diagnostics de l’application et vérifiez chaque accès. Ces diagnostics peuvent révéler noms d’applications actives et mémoire utilisée. Les applications classiques peuvent ne pas être concernées. Rétablissez les droits nécessaires si un diagnostic ne fonctionne plus.",
+    "keywords": "Limiter l’inspection des autres applications confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "FileAccessPrivacy": {
+    "title": "Vérifier l’accès des applications aux fichiers",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Système de fichiers et examinez les applications listées. L’autorisation peut exposer les fichiers de votre compte ; la retirer peut perturber une application. Certains programmes classiques ne figurent pas dans cette liste et échappent à ce contrôle.",
+    "keywords": "Vérifier l’accès des applications aux fichiers confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "LocationPermissions": {
+    "title": "Vérifier les autorisations de localisation",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Localisation. Examinez service, autorisations des applications et accès récents avant modification. Certaines fonctions peuvent cesser de marcher. Applications classiques et sites web peuvent avoir d’autres commandes ; cette page ne garantit pas un anonymat géographique complet.",
+    "keywords": "Vérifier les autorisations de localisation confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "PersonalizedOffers": {
+    "title": "Examiner les offres Windows personnalisées",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité et trouvez Offres personnalisées ou Recommandations et offres selon la version. Vérifiez l’utilisation de votre activité Windows pour les suggestions. Ce réglage contrôle cette personnalisation, pas toutes les publicités de Windows, des navigateurs ou des applications tierces.",
+    "keywords": "Examiner les offres Windows personnalisées confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SearchIndexFolders": {
+    "title": "Choisir les dossiers indexés",
+    "body": "Ouvrez Confidentialité et sécurité → Recherche et suivez le lien des emplacements personnalisés. Choisissez Modifier pour sélectionner les dossiers. Retirer un emplacement peut ralentir la recherche de ses fichiers ou les exclure des résultats indexés.",
+    "keywords": "Choisir les dossiers indexés confidentialité recherche",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DefaultLocation": {
+    "title": "Définir une position de secours",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Localisation → Emplacement par défaut → Définir. Choisissez la position utilisée faute de localisation précise. Cette adresse peut être transmise aux services autorisés ; effacez-la et enregistrez pour supprimer cette position de secours.",
+    "keywords": "Définir une position de secours confidentialité recherche",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SearchSafeFilter": {
+    "title": "Régler le filtre de recherche sécurisée",
+    "body": "Ouvrez Confidentialité et sécurité → Recherche, ou Autorisations de recherche, et choisissez le niveau SafeSearch. Il filtre le contenu web des résultats ; les stratégies familiales ou d’organisation peuvent limiter votre choix.",
+    "keywords": "Régler le filtre de recherche sécurisée confidentialité recherche",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "StartPowerFolders": {
+    "title": "Ajouter des dossiers près du bouton Marche",
+    "body": "Ouvrez Personnalisation → Démarrer → Dossiers et choisissez des destinations utiles comme Téléchargements ou Documents. Ces raccourcis apparaissent près du bouton d’alimentation ; retirez les entrées inutiles sur la même page.",
+    "keywords": "Ajouter des dossiers près du bouton Marche menu Démarrer",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "StartPins": {
+    "title": "Épingler applications et dossiers à Démarrer",
+    "body": "Faites un clic droit sur une application ou un dossier compatible et choisissez Épingler à Démarrer. Réorganisez les éléments par glisser-déposer. Détacher de Démarrer retire l’entrée sans supprimer sa cible.",
+    "keywords": "Épingler applications et dossiers à Démarrer menu Démarrer",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "StorageSense": {
+    "title": "Configurer l’Assistant Stockage",
+    "body": "Ouvrez Paramètres → Système → Stockage → Assistant Stockage. Vérifiez ensemble fréquence et conservation de Corbeille et Téléchargements. Gardez Téléchargements sur Jamais sans sauvegarde. Les fichiers cloud peuvent devenir accessibles uniquement en ligne ; désactiver le nettoyage ne restaure pas les fichiers supprimés.",
+    "keywords": "Configurer l’Assistant Stockage outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "DeviceEncryption": {
+    "title": "Vérifier le chiffrement et les clés de récupération",
+    "body": "Ouvrez Paramètres → Confidentialité et sécurité → Chiffrement de l’appareil avec les droits administrateur. Identifiez le détenteur de la clé et sauvegardez-la de façon utilisable avant activation. Des appareils Famille compatibles sont aussi éligibles. Perdre la récupération peut rendre les données inaccessibles ; déchiffrer est une opération distincte et parfois longue.",
+    "keywords": "Vérifier le chiffrement et les clés de récupération outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SudoMode": {
+    "title": "Choisir l’isolation de sudo",
+    "body": "Ouvrez les paramètres développeur ou Système → Avancé et examinez Activer sudo. Préférez la nouvelle fenêtre par défaut sauf si vous comprenez les risques supplémentaires de l’exécution intégrée. L’autorisation UAC reste nécessaire. Désactiver sudo n’annule pas les commandes déjà exécutées comme administrateur.",
+    "keywords": "Choisir l’isolation de sudo outils système",
+    "evidence": "Windows 11 24H2+ ; paramètres déplacés vers Avancé dans 25H2+. Prise en charge actuelle de cet appareil non vérifiée."
+  },
+  "NetworkProfile": {
+    "title": "Choisir le profil réseau public ou privé",
+    "body": "Ouvrez Paramètres → Réseau et Internet → propriétés de la connexion → Type de profil réseau. Gardez Public sur les réseaux non fiables ; Privé permet la découverte pour le partage. Notez l’ancien profil et vérifiez les besoins de partage. Restaurez-le si l’accès change de façon inattendue.",
+    "keywords": "Choisir le profil réseau public ou privé outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "DefaultTerminal": {
+    "title": "Choisir l’hôte de terminal par défaut",
+    "body": "Ouvrez Paramètres → Système → Avancé → Terminal et choisissez l’hôte installé souhaité. Les anciennes versions placent ce réglage dans Pour les développeurs. Testez vos applications console : présentation et interactions peuvent changer. Rétablissez l’ancien hôte si nécessaire.",
+    "keywords": "Choisir l’hôte de terminal par défaut outils système",
+    "evidence": "Page Avancé de Windows 11 25H2+ ; les anciennes versions utilisent Pour les développeurs. Choix dépendant des applications de terminal installées."
+  },
+  "ContentDrive": {
+    "title": "Choisir où enregistrer les nouveaux contenus",
+    "body": "Ouvrez Paramètres → Système → Stockage → Paramètres de stockage avancés → Emplacement d’enregistrement du nouveau contenu. Choisissez un lecteur par catégorie. Cela ne déplace pas les fichiers existants et n’impose pas ce lecteur à tous les installateurs ; gardez les lecteurs amovibles disponibles.",
+    "keywords": "Choisir où enregistrer les nouveaux contenus outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "WslSystemd": {
+    "title": "Configurer systemd dans une distribution WSL",
+    "body": "Vérifiez si la distribution utilise déjà systemd. Sinon, conservez /etc/wsl.conf et ajoutez systemd=true sous [boot] si nécessaire. Enregistrez le travail Linux avant de redémarrer WSL. Le démarrage des services change ; restaurez l’ancienne configuration et vérifiez les services activés séparément pour revenir en arrière.",
+    "keywords": "Configurer systemd dans une distribution WSL outils système",
+    "evidence": "WSL 2 avec WSL 0.67.6+ ; certaines distributions utilisent déjà systemd. Prise en charge de l’appareil et de la distribution non vérifiée."
+  },
+  "SandboxIsolation": {
+    "title": "Limiter le réseau et le partage du bac à sable",
+    "body": "Créez une configuration .wsb vérifiée avec Networking sur Disable ; évitez les dossiers hôtes mappés, ou limitez-les à la lecture seule. Lancez cette configuration. Les mappages modifiables exposent les données hôtes ; les changements internes disparaissent à la fermeture. Restaurer la configuration ne répare pas des fichiers hôtes endommagés.",
+    "keywords": "Limiter le réseau et le partage du bac à sable outils système",
+    "evidence": "Windows Sandbox doit déjà être installé. Options de configuration selon la version de Windows ; comportement de l’appareil non vérifié."
+  },
+  "RestorePoint": {
+    "title": "Créer un point de restauration",
+    "body": "Recherchez Créer un point de restauration dans Démarrer. Sélectionnez le lecteur système, configurez Protection du système et son quota si nécessaire, puis créez un point nommé clairement. Sauvegardez séparément les fichiers personnels : les points expirent et ne garantissent pas l’annulation de chaque changement système ou tiers.",
+    "keywords": "Créer un point de restauration outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "DeveloperMode": {
+    "title": "Activer les outils de développement",
+    "body": "Recherchez Mode développeur dans Paramètres. À partir de 25H2, ouvrez Système → Avancé → Pour les développeurs. Lisez la demande avant activation ; des droits administrateur sont requis. L’usage courant n’en a pas besoin. Le désactiver ne retire pas forcément applications ou composants déjà installés.",
+    "keywords": "Activer les outils de développement outils système",
+    "evidence": "Windows 11 ; la page Avancé remplace Pour les développeurs dans 25H2+. Stratégies et disponibilité sur cet appareil non vérifiées."
+  },
+  "DevDrive": {
+    "title": "Préparer un Dev Drive pour le code source",
+    "body": "Ouvrez Paramètres → Système → Stockage → Paramètres avancés → Disques et volumes → Créer un lecteur de développement. Après sauvegarde, examinez l’option d’un nouveau VHD. Aucun volume existant ne se convertit sur place. Vérifiez ReFS et gardez le filtrage de sécurité ; déplacez les données avant suppression ultérieure du lecteur.",
+    "keywords": "Préparer un Dev Drive pour le code source outils système",
+    "evidence": "Microsoft exige Windows 11 build 22621.2338+, les droits administrateur, ≥8 Go de RAM et ≥50 Go libres. Appareil non vérifié."
+  },
+  "OfflineScan": {
+    "title": "Préparer une analyse Defender hors ligne",
+    "body": "Ouvrez Sécurité Windows → Protection contre les virus et menaces → Options d’analyse et examinez Microsoft Defender hors ligne. Enregistrez votre travail et assurez la disponibilité des clés de récupération avant confirmation. Le PC redémarre en récupération ; vérifiez ensuite les quarantaines sans supposer leur réversibilité automatique.",
+    "keywords": "Préparer une analyse Defender hors ligne outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "ActiveHours": {
+    "title": "Éviter les redémarrages pendant le travail",
+    "body": "Ouvrez Paramètres → Windows Update → Options avancées → Heures d’activité. Choisissez la détection automatique ou indiquez vos horaires. Cela organise les redémarrages autour de l’usage normal sans les bloquer définitivement. Enregistrez votre travail et vérifiez séparément les avis de redémarrage en attente.",
+    "keywords": "Éviter les redémarrages pendant le travail outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "MeteredConnection": {
+    "title": "Réduire l’usage d’une connexion limitée",
+    "body": "Ouvrez Paramètres → Réseau et Internet, sélectionnez la connexion Wi-Fi ou Ethernet, puis vérifiez Connexion limitée. Cela peut réduire les transferts en arrière-plan mais retarder synchronisation et mises à jour. Rétablissez l’ancien réglage au besoin ; ce n’est pas un plafond de données garanti.",
+    "keywords": "Réduire l’usage d’une connexion limitée outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "RepairApps": {
+    "title": "Réparer avant de réinitialiser une application",
+    "body": "Ouvrez Paramètres → Applications → Applications installées → menu de l’application → Options avancées. Essayez Réparer si disponible. Réinitialiser est un autre recours pouvant effacer données et paramètres : sauvegardez et lisez la confirmation. Ces commandes ne sont pas proposées par tous les programmes classiques.",
+    "keywords": "Réparer avant de réinitialiser une application outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "WslNetworking": {
+    "title": "Examiner le réseau en miroir de WSL",
+    "body": "Dans les paramètres WSL, examinez le réseau en miroir, ou définissez networkingMode=mirrored sous [wsl2] dans .wslconfig. Enregistrez avant de redémarrer WSL. L’exposition réseau change : gardez le filtrage du pare-feu. Pour revenir en arrière, restaurez l’ancien mode et redémarrez encore WSL.",
+    "keywords": "Examiner le réseau en miroir de WSL outils système",
+    "evidence": "Windows 11 22H2+ et version compatible de WSL 2 ; stratégies et compatibilité réseau locale non vérifiées."
+  },
+  "RepairWindows": {
+    "title": "Examiner la réparation de Windows sur place",
+    "body": "Ouvrez Paramètres → Système → Récupération → Résoudre les problèmes à l’aide de Windows Update. Sauvegardez, maintenez alimentation et Internet, puis examinez les confirmations de réinstallation et de redémarrage. Cette réparation vise à préserver applications, fichiers et paramètres, mais sans annulation immédiate ; certains appareils gérés en sont exclus.",
+    "keywords": "Examiner la réparation de Windows sur place outils système",
+    "evidence": "Windows 11 22H2+ avec la mise à jour facultative de février 2024 ou ultérieure. Restrictions de gestion des mises à jour applicables ; appareil non vérifié."
+  },
+  "ProxyConfiguration": {
+    "title": "Vérifier le proxy de votre organisation",
+    "body": "Ouvrez Paramètres → Réseau et Internet → Proxy. Utilisez seulement les paramètres de détection, de script ou de serveur fournis par un administrateur fiable. Une erreur peut couper l’accès et le proxy peut observer le trafic concerné. Notez la configuration précédente ; les proxys VPN se règlent séparément.",
+    "keywords": "Vérifier le proxy de votre organisation outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "ReputationProtection": {
+    "title": "Vérifier la protection fondée sur la réputation",
+    "body": "Ouvrez Sécurité Windows → Contrôle des applications et du navigateur → Protection fondée sur la réputation. Vérifiez ensemble applications, fichiers, logiciels indésirables et alertes de mots de passe. Gardez la protection sauf problème confirmé ; un réglage n’annule ni un logiciel malveillant exécuté ni un mot de passe déjà exposé.",
+    "keywords": "Vérifier la protection fondée sur la réputation outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "DriveOptimization": {
+    "title": "Planifier l’optimisation des lecteurs",
+    "body": "Ouvrez Paramètres → Système → Stockage → Paramètres avancés → Optimisation des lecteurs. Vérifiez le type de support et son état avant de changer la planification. Laissez Windows choisir la méthode adaptée aux SSD ou HDD ; modifier l’horaire n’annule pas une optimisation terminée.",
+    "keywords": "Planifier l’optimisation des lecteurs outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "MemoryIntegrity": {
+    "title": "Vérifier l’intégrité de la mémoire",
+    "body": "Ouvrez Sécurité Windows → Sécurité de l’appareil → Détails de l’isolation du noyau et examinez l’intégrité de la mémoire. Corrigez les pilotes incompatibles par des mises à jour fiables avant activation. Ne la désactivez pas comme optimisation générique. Enregistrez avant un redémarrage demandé ; virtualisation et pilotes conditionnent sa disponibilité.",
+    "keywords": "Vérifier l’intégrité de la mémoire outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "FirewallExceptions": {
+    "title": "Limiter les exceptions du pare-feu",
+    "body": "Ouvrez Sécurité Windows → Pare-feu et protection réseau → Autoriser une application via le pare-feu. Après confirmation administrateur, n’autorisez qu’une application connue et nécessaire. Préférez une exception ciblée à un port largement ouvert ; retirez les droits obsolètes. Leur retrait n’annule pas une exposition passée.",
+    "keywords": "Limiter les exceptions du pare-feu outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "ControlledFolders": {
+    "title": "Vérifier la protection des dossiers contre les rançongiciels",
+    "body": "Ouvrez Sécurité Windows → Protection contre les virus et menaces → Gérer la protection contre les ransomwares. Vérifiez l’accès contrôlé aux dossiers et les dossiers protégés. Il peut bloquer des applications légitimes : examinez chaque exception. Il complète les sauvegardes sans restaurer les fichiers déjà endommagés.",
+    "keywords": "Vérifier la protection des dossiers contre les rançongiciels outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "DevicePortal": {
+    "title": "Examiner les diagnostics de développement à distance",
+    "body": "Après configuration du mode développeur, examinez Device Portal dans les paramètres développeur. Réservez-le à une véritable cible de test sur un réseau fiable et vérifiez l’authentification. Il expose des fonctions d’administration distante ; désactivez-le après usage et vérifiez la fin de l’accès distant.",
+    "keywords": "Examiner les diagnostics de développement à distance outils système",
+    "evidence": "Package de fonctionnalités de développement Windows 11 requis ; page déplacée vers Système → Avancé dans 25H2+. Aucun essai sur appareil."
+  },
+  "CleanupReview": {
+    "title": "Examiner les recommandations de nettoyage",
+    "body": "Ouvrez Paramètres → Système → Stockage → Recommandations de nettoyage et examinez chaque élément avant suppression. Sauvegardez d’abord les fichiers importants. Supprimer des téléchargements ou une ancienne installation de Windows peut faire perdre définitivement des fichiers ou la possibilité de revenir à cette version.",
+    "keywords": "Examiner les recommandations de nettoyage outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "WindowsSandbox": {
+    "title": "Configurer un bac à sable jetable",
+    "body": "Recherchez Activer ou désactiver des fonctionnalités Windows, cochez Windows Sandbox si compatible et redémarrez sur demande après enregistrement. Réseau et certaines redirections sont actifs par défaut : l’isolation n’est pas absolue. Exportez les fichiers nécessaires avant fermeture, car l’état interne est supprimé.",
+    "keywords": "Configurer un bac à sable jetable outils système",
+    "evidence": "Édition de Windows compatible et virtualisation matérielle requises ; ≥4 Go de RAM. Prise en charge ARM64 : Windows 11 22H2+. Appareil non vérifié."
+  },
+  "MobileHotspot": {
+    "title": "Partager une connexion par point d’accès",
+    "body": "Ouvrez Paramètres → Réseau et Internet → Point d’accès sans fil mobile. Choisissez la connexion source, vérifiez nom et mot de passe, puis activez le partage seulement au besoin. Les appareils connectés consomment votre forfait. Désactivez-le ensuite et ne diffusez pas largement le mot de passe.",
+    "keywords": "Partager une connexion par point d’accès outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "NetworkDataLimit": {
+    "title": "Suivre un forfait de données",
+    "body": "Ouvrez Paramètres → Réseau et Internet → Wi-Fi → réseau connecté → Définir une limite de données. Indiquez période de facturation et quota. Windows avertit près de la limite, sans garantir l’arrêt de la facturation opérateur ; comparez aussi son compteur.",
+    "keywords": "Suivre un forfait de données outils système",
+    "evidence": "Documentation Windows 11 ; build minimale exacte non précisée. Prise en charge de l’appareil et restrictions de stratégie non vérifiées."
+  },
+  "SmartAppControl": {
+    "title": "Comprendre le contrôle intelligent des applications",
+    "body": "Ouvrez Sécurité Windows → Contrôle des applications et du navigateur → Paramètres de Smart App Control. Examinez Évaluation, Activé ou Désactivé avant de changer. La documentation actuelle limite l’éligibilité aux installations neuves ; revenir à l’évaluation peut exiger réinitialisation ou réinstallation. Ce n’est pas forcément réversible.",
+    "keywords": "Comprendre le contrôle intelligent des applications outils système",
+    "evidence": "La documentation actuelle de Microsoft pour Windows 11 précise les restrictions d’installation neuve et du mode d’évaluation. État de cet appareil non vérifié."
+  },
+  "TaskbarAlignment": {
+    "title": "Aligner les icônes à gauche",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements de la barre des tâches. Choisissez l’alignement à gauche pour retrouver une position de lancement familière. Cela déplace les icônes, pas le bord d’écran occupé par la barre.",
+    "keywords": "Aligner les icônes à gauche barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarAutoHide": {
+    "title": "Masquer automatiquement la barre des tâches",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements et activez le masquage automatique. Placez le pointeur sur son bord pour la faire réapparaître ; décochez cette option pour la garder visible.",
+    "keywords": "Masquer automatiquement la barre des tâches barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarSearchStyle": {
+    "title": "Choisir l’affichage de la recherche",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Éléments → Rechercher. Choisissez une zone, une icône ou masquez l’entrée pour gagner de la place. Cela change sa présentation sans désactiver Windows Search.",
+    "keywords": "Choisir l’affichage de la recherche barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarTrayApps": {
+    "title": "Choisir les icônes de la zone de notification",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Autres icônes de la barre d’état système. Choisissez les applications visibles au lieu du menu d’icônes masquées ; gardez accessibles les indicateurs importants de synchronisation ou de sécurité.",
+    "keywords": "Choisir les icônes de la zone de notification barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "WidgetsNotifications": {
+    "title": "Choisir les notifications des widgets",
+    "body": "Appuyez sur Win+W, puis ouvrez Paramètres des widgets → Autres paramètres → Notifications. Réglez la barre des tâches, la navigation et les tableaux de bord. Masquer les messages peut cacher des mises à jour utiles, sans changer les données de l’application source.",
+    "keywords": "Choisir les notifications des widgets barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarFlashing": {
+    "title": "Régler le clignotement des applications",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements et modifiez le clignotement des applications. Désactivez-le pour réduire les distractions visuelles, puis réactivez-le si vous manquez des demandes importantes.",
+    "keywords": "Régler le clignotement des applications barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarTouchTools": {
+    "title": "Afficher les outils tactiles et du stylet",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Icônes de la barre d’état système. Choisissez le clavier tactile, le menu du stylet ou le pavé tactile virtuel selon vos besoins. Leur utilité dépend du matériel de saisie.",
+    "keywords": "Afficher les outils tactiles et du stylet barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées. Le matériel de saisie requis doit être présent."
+  },
+  "WidgetsFeed": {
+    "title": "Masquer le fil Découvrir des widgets",
+    "body": "Appuyez sur Win+W, ouvrez les paramètres des widgets et les commandes de tableau de bord du fil Découvrir. Désactivez ce fil pour garder seulement les widgets ; les noms et la disponibilité varient selon la version et la région.",
+    "keywords": "Masquer le fil Découvrir des widgets barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ClockVisibility": {
+    "title": "Masquer la date et l’heure",
+    "body": "Faites un clic droit sur l’horloge de la barre des tâches et choisissez Ajuster la date et l’heure. Modifiez leur affichage dans la barre d’état ; réactivez l’option lorsque vous souhaitez revoir l’horloge.",
+    "keywords": "Masquer la date et l’heure barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarLabels": {
+    "title": "Garder les fenêtres séparées dans la barre",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements. Réglez la combinaison des boutons et le masquage des étiquettes sur Jamais pour afficher chaque fenêtre avec son libellé. Rétablissez l’ancien choix si la barre devient trop chargée.",
+    "keywords": "Garder les fenêtres séparées dans la barre barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarPins": {
+    "title": "Épingler et ranger les applications",
+    "body": "Faites un clic droit sur une application dans la recherche ou sur son icône active, puis choisissez Épingler à la barre des tâches. Faites glisser les icônes pour les ranger. Détacher retire uniquement le raccourci, pas l’application.",
+    "keywords": "Épingler et ranger les applications barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarWindowSharing": {
+    "title": "Partager une fenêtre depuis la barre",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements et activez le partage de fenêtres depuis la barre des tâches. Une application de réunion compatible est nécessaire. Vérifiez le contenu de la fenêtre avant de la partager.",
+    "keywords": "Partager une fenêtre depuis la barre barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarBadges": {
+    "title": "Afficher les badges des applications",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements et choisissez si les boutons des applications affichent des badges. Ils signalent une activité sans ouvrir l’application ; les masquer peut cacher des indications utiles.",
+    "keywords": "Afficher les badges des applications barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "ClockSeconds": {
+    "title": "Afficher les secondes dans l’horloge",
+    "body": "Faites un clic droit sur l’horloge et ouvrez Ajuster la date et l’heure. Développez les commandes de date et d’heure de la barre d’état et activez les secondes si disponibles. Les actualisations supplémentaires peuvent consommer plus d’énergie.",
+    "keywords": "Afficher les secondes dans l’horloge barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarDisplays": {
+    "title": "Afficher la barre sur plusieurs écrans",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements et activez l’affichage sur tous les écrans. Utilisez cette option avec plusieurs moniteurs ; rétablissez le choix précédent si elle encombre l’affichage.",
+    "keywords": "Afficher la barre sur plusieurs écrans barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarTaskView": {
+    "title": "Afficher le bouton Vue des tâches",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Éléments et activez Vue des tâches. Ce bouton permet de gérer fenêtres et bureaux virtuels. Le raccourci Win+Tab reste disponible si vous masquez le bouton.",
+    "keywords": "Afficher le bouton Vue des tâches barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarWidgets": {
+    "title": "Afficher l’entrée des widgets",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Éléments et réglez Widgets. Masquer l’entrée allège la barre des tâches ; cela ne désinstalle pas les widgets et ne supprime pas leurs composants.",
+    "keywords": "Afficher l’entrée des widgets barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "WidgetsHover": {
+    "title": "Empêcher l’ouverture des widgets au survol",
+    "body": "Appuyez sur Win+W et ouvrez les paramètres des widgets. Désactivez l’ouverture au survol pour éviter un déploiement accidentel lorsque le pointeur traverse la barre. Le bouton et le raccourci permettent toujours une ouverture volontaire.",
+    "keywords": "Empêcher l’ouverture des widgets au survol barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "TaskbarTablet": {
+    "title": "Optimiser la barre pour le tactile",
+    "body": "Sur un convertible compatible, ouvrez Personnalisation → Barre des tâches → Comportements et activez l’optimisation en mode tablette. Cette option dépend du matériel et peut être absente sur un ordinateur de bureau.",
+    "keywords": "Optimiser la barre pour le tactile barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées. Le matériel de saisie requis doit être présent."
+  },
+  "TaskbarDesktopCorner": {
+    "title": "Afficher le Bureau depuis le coin",
+    "body": "Ouvrez Personnalisation → Barre des tâches → Comportements et activez la sélection du coin éloigné pour afficher le Bureau. Vous accédez ainsi aux éléments du Bureau sans fermer vos applications.",
+    "keywords": "Afficher le Bureau depuis le coin barre des tâches",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "Snap": {
+    "title": "Régler les dispositions d’ancrage",
+    "body": "Ouvrez Système → Multitâche → Ancrer les fenêtres. Activez l’ancrage, puis choisissez les dispositions proposées au survol d’Agrandir ou au déplacement vers le haut, et les suggestions d’applications à côté d’une fenêtre ancrée.",
+    "keywords": "Régler les dispositions d’ancrage fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DesktopWindowScope": {
+    "title": "Régler la visibilité entre bureaux",
+    "body": "Ouvrez Système → Multitâche → Bureaux. Choisissez si la barre des tâches et Alt+Tab affichent toutes les fenêtres ou seulement celles du bureau actuel. Une portée locale réduit l’encombrement, une portée globale facilite l’accès entre projets.",
+    "keywords": "Régler la visibilité entre bureaux fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "DesktopBackgrounds": {
+    "title": "Distinguer les bureaux par des images",
+    "body": "Appuyez sur Win+Tab, faites un clic droit sur un bureau et choisissez son arrière-plan. Sélectionnez Image pour distinguer les espaces. Les arrière-plans indépendants exigent des images ; les diaporamas séparés et les couleurs unies différentes ne sont pas pris en charge.",
+    "keywords": "Distinguer les bureaux par des images fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "AltTab": {
+    "title": "Limiter les onglets dans Alt+Tab",
+    "body": "Ouvrez Système → Multitâche et choisissez le nombre d’onglets d’applications affichés lors de l’ancrage ou avec Alt+Tab. Aucun onglet donne priorité aux fenêtres. Le navigateur doit être compatible ; la documentation illustre Microsoft Edge.",
+    "keywords": "Limiter les onglets dans Alt+Tab fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "VirtualDesktops": {
+    "title": "Organiser les projets en bureaux virtuels",
+    "body": "Appuyez sur Win+Tab, puis choisissez Nouveau bureau. Sélectionnez son nom pour le renommer selon le projet. Fermez un bureau inutile dans Vue des tâches après avoir vérifié la destination souhaitée pour ses fenêtres.",
+    "keywords": "Organiser les projets en bureaux virtuels fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "SnapResize": {
+    "title": "Redimensionner ensemble deux fenêtres ancrées",
+    "body": "Après avoir ancré deux fenêtres côte à côte, faites glisser leur séparation pour modifier ensemble leur largeur. Ramenez-la à sa position initiale pour rétablir l’équilibre, ou désancrez les fenêtres pour les disposer séparément.",
+    "keywords": "Redimensionner ensemble deux fenêtres ancrées fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  },
+  "SnapGroups": {
+    "title": "Afficher les groupes de fenêtres",
+    "body": "Ouvrez Système → Multitâche → Ancrer les fenêtres et réglez l’affichage groupé dans les aperçus de la barre, Vue des tâches et Alt+Tab. Cela permet de retrouver une disposition de travail plutôt que chaque fenêtre séparément.",
+    "keywords": "Afficher les groupes de fenêtres fenêtres bureaux",
+    "evidence": "Documentation officielle de Windows 11 ; build minimale exacte non précisée. Disponibilité et restrictions de stratégie sur cet appareil non vérifiées."
+  }
+}

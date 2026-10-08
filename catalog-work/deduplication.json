@@ -1,0 +1,22 @@
+{
+  "nativeCandidates": 165,
+  "flagCandidates": 62,
+  "mergedDialogArchives": 3,
+  "replacedNative": {
+    "TaskbarPosition": "TaskbarPositionHistory",
+    "TaskbarCompactHeight": "SmallTaskbarHistory",
+    "StartSections": "StartCustomization",
+    "StartSize": "StartCustomization",
+    "StartIdentity": "StartCustomization",
+    "StartAllAppsView": "RedesignedStartRecipe",
+    "StartExpandedPins": "RedesignedStartRecipe",
+    "ContextMenu": "ContextMenu",
+    "Energy": "Energy",
+    "StartAppFolders": "StartFolderCommands",
+    "HdrDesktop": "HdrSettingsHistory",
+    "AppNotifications": "PerAppNotifications"
+  },
+  "finalEntries": 213,
+  "historicalEntries": 60,
+  "verifiedActionableFlags": 0
+}

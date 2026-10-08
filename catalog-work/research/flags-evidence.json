@@ -1,0 +1,1748 @@
+{
+  "retrievedAt": "2026-10-08",
+  "count": 62,
+  "directOriginalRecipes": 42,
+  "historicalMappings": 20,
+  "entries": [
+    {
+      "id": "ExternalFolderTabs",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4515 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmz5fh22k2m",
+          "cid": "bafyreieey3qcqgy3v2h6pvh2womytbtgfptbixqf2up6fr5uynv3surv2m",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lbmz5fh22k2m",
+          "published": "2024-11-23T17:24:47.658Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmtr33v7w2j",
+          "cid": "bafyreid4r73wuzz6hyu4rjqqvjn6tkn7zkytibeaauc4ekpwmw7zy6oqze",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lbmtr33v7w2j",
+          "published": "2024-11-23T15:48:23.797Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:49143212"
+      ],
+      "featureIds": [
+        49143212
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Open a desktop folder or external folder link to observe a new tab in an existing Explorer window instead of another window.",
+      "recipeStructure": {
+        "observedGroup": [
+          49143212
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "BackupReminderSnooze",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4515 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmtr33v7w2j",
+          "cid": "bafyreid4r73wuzz6hyu4rjqqvjn6tkn7zkytibeaauc4ekpwmw7zy6oqze",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lbmtr33v7w2j",
+          "published": "2024-11-23T15:48:23.797Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:47944061"
+      ],
+      "featureIds": [
+        47944061
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the Start backup reminder in Explorer's address bar for options to turn it off or postpone it for one month.",
+      "recipeStructure": {
+        "observedGroup": [
+          47944061
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "RestoreExplorerTabs",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4580 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcq3jysmj22g",
+          "cid": "bafyreic4hqffbfplpvysl77hdt5wf5abpwog5vzg3hjijz5mov5cenpdym",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lcq3jysmj22g",
+          "published": "2024-12-07T16:10:48.941Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:54572881"
+      ],
+      "featureIds": [
+        54572881
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Observe whether Explorer restores its open tabs after signing in. The source also requires the Windows setting to save restartable apps and restart them at sign-in.",
+      "recipeStructure": {
+        "observedGroup": [
+          54572881
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "ExplorerHomeRecommendations",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4800 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lg2efctnle2x",
+          "cid": "bafyreiephr2bawjfylldsunggq4d6xlacfogsgtvkeqcbgl5tdqh2ux5ye",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lg2efctnle2x",
+          "published": "2025-01-18T22:31:26.116Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lg2df5lxnp2o",
+          "cid": "bafyreib6zo67crbhvx4jyzuherlrxzzzgonmc5givrsbvjcvcoryj2tijm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lg2df5lxnp2o",
+          "published": "2025-01-18T22:13:25.767Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:51721485"
+      ],
+      "featureIds": [
+        51721485,
+        48895801
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Explorer Home for recommended local files with personal Microsoft or local accounts. Main ID: 51721485; 48895801 is an optional card-appearance dependency, not a required unlock.",
+      "recipeStructure": {
+        "main": [
+          51721485
+        ],
+        "optional": [
+          48895801
+        ]
+      }
+    },
+    {
+      "id": "ExplorerAiActions",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5603 · Dev; 26120.4151 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpkladfnbm2a",
+          "cid": "bafyreihn6wlag3jaxngubt3ajautn3vssefnmdt4kzmv4b3ce73gbvgjre",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lpkladfnbm2a",
+          "published": "2025-05-19T22:03:13.701Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:54792954,55345819"
+      ],
+      "featureIds": [
+        54792954,
+        55345819
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect a supported file's context menu for AI Actions. The source groups both IDs as one recipe; it does not establish a separate user-facing function for each ID.",
+      "recipeStructure": {
+        "observedGroup": [
+          54792954,
+          55345819
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "DarkFileDialogs",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": ".5751 · Dev/Beta; Release Preview",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwhfsly7gn2s",
+          "cid": "bafyreihsxrbyozn6trfnfoj3d57fxhs6capygltdxor6jtx6tojvb7tzwm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lwhfsly7gn2s",
+          "published": "2025-08-15T17:44:26.813Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwh7rkfkt52d",
+          "cid": "bafyreic774xznb5pno4plkwavhywv7uehf7i3bnobjumwyxybcynoptwxe",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lwh7rkfkt52d",
+          "published": "2025-08-15T15:56:27.330Z"
+        }
+      ],
+      "sourceCommands": [],
+      "featureIds": [
+        57857165,
+        57994323,
+        48433719,
+        49453572
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Observe copy and access-denied dialogs under dark mode. Main pair: 57857165 and 57994323. Source conditionally adds 48433719, and 49453572 on Release Preview; these broad prerequisites are not independent features.",
+      "recipeStructure": {
+        "main": [
+          57857165,
+          57994323
+        ],
+        "conditional": [
+          48433719
+        ],
+        "conditionalReleasePreview": [
+          49453572
+        ]
+      }
+    },
+    {
+      "id": "DarkFolderOptions",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26x20.6972 · Dev/Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3m3fxb5srcu2h",
+          "cid": "bafyreihfiwzs7q7kwwh7raajaymi5sebxsef7xosgbbdwtuar6etyaqt4a",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3m3fxb5srcu2h",
+          "published": "2025-10-17T18:57:26.050Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:58383338",
+        "vivetool /enable /id:59270880",
+        "vivetool /enable /id:59203365"
+      ],
+      "featureIds": [
+        59203365,
+        58383338
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Explorer's Folder Options dialog in dark mode. Main ID: 59203365; the source requires 58383338. The abbreviated build 26x20.6972 is an observation label, not an unlimited compatibility range.",
+      "recipeStructure": {
+        "main": [
+          59203365
+        ],
+        "required": [
+          58383338
+        ]
+      }
+    },
+    {
+      "id": "DarkRun",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26x20.6972 · Dev/Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3m3fxb5srcu2h",
+          "cid": "bafyreihfiwzs7q7kwwh7raajaymi5sebxsef7xosgbbdwtuar6etyaqt4a",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3m3fxb5srcu2h",
+          "published": "2025-10-17T18:57:26.050Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:58383338",
+        "vivetool /enable /id:59270880",
+        "vivetool /enable /id:59203365"
+      ],
+      "featureIds": [
+        59270880,
+        58383338
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Open Run with Win+R to inspect its dark appearance. Main ID: 59270880; required prerequisite: 58383338. The source abbreviates the build as 26x20.6972 rather than establishing an exact full-build compatibility range.",
+      "recipeStructure": {
+        "main": [
+          59270880
+        ],
+        "required": [
+          58383338
+        ]
+      }
+    },
+    {
+      "id": "ExplorerShareApps",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4367 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l6axfmgf7q2f",
+          "cid": "bafyreid2t5iezko6mao7uffjieorsbl2zhccylowtprruufwclqumhwjsi",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l6axfmgf7q2f",
+          "published": "2024-10-11T18:06:02.771Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:45286384,52800817"
+      ],
+      "featureIds": [
+        45286384,
+        52800817
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect file and desktop context menus for Share with and supported application targets. The source gives 45286384 and 52800817 together as the observed recipe; it does not establish a separate user-facing function for each ID.",
+      "recipeStructure": {
+        "observedGroup": [
+          45286384,
+          52800817
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "ExplorerSendPhone",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4225 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4mbixargj2a",
+          "cid": "bafyreigclrgyemsefp4pf5nmetdhlkheqev4p7aizzejmjeo2mxvuz3wra",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l4mbixargj2a",
+          "published": "2024-09-20T19:15:47.096Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:45286369,52800817"
+      ],
+      "featureIds": [
+        45286369,
+        52800817
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect a file's context menu for Send to My Phone. The two IDs form the reported combination; a compatible phone connection is still needed to complete an actual transfer.",
+      "recipeStructure": {
+        "observedGroup": [
+          45286369,
+          52800817
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "MoveStartPins",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.3576 · Dev; 22635.5090 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lko7fhslc22d",
+          "cid": "bafyreifk3hds4ieknmpcpxb4r6rn6rrp4pevuiuhkfm5gzssq7vnhkkzjm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lko7fhslc22d",
+          "published": "2025-03-18T17:36:05.409Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkm6xavslg2g",
+          "cid": "bafyreiem7u3oblb7yqipizx3m66xax6bvmw6qcaxqfu3gjvt7w5lehwxuy",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lkm6xavslg2g",
+          "published": "2025-03-17T22:22:46.486Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:50472543",
+        "vivetool /enable /id:50472600"
+      ],
+      "featureIds": [
+        50472543
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Right-click a pinned Start app to inspect commands that move it one position left or right. This archive concerns keyboard-friendly pin arrangement, not the later complete Start-menu redesign.",
+      "recipeStructure": {
+        "observedGroup": [
+          50472543
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "StartFolderCommands",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.3576 · Dev; 22635.5090 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lko7fhslc22d",
+          "cid": "bafyreifk3hds4ieknmpcpxb4r6rn6rrp4pevuiuhkfm5gzssq7vnhkkzjm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lko7fhslc22d",
+          "published": "2025-03-18T17:36:05.409Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkm6xavslg2g",
+          "cid": "bafyreiem7u3oblb7yqipizx3m66xax6bvmw6qcaxqfu3gjvt7w5lehwxuy",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lkm6xavslg2g",
+          "published": "2025-03-17T22:22:46.486Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:50472543",
+        "vivetool /enable /id:50472600"
+      ],
+      "featureIds": [
+        50472600
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Right-click a pinned Start app to inspect commands for creating an app folder or moving the pin into an existing folder. The source describes these actions separately from moving pins sideways.",
+      "recipeStructure": {
+        "observedGroup": [
+          50472600
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SmallTaskbarButtonsHistory",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4291 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l5fqg5kefi22",
+          "cid": "bafyreifp7xchnrcfpdoj3ismcm2u34pa4loreagxm2xne4cvbdkuog3m3m",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l5fqg5kefi22",
+          "published": "2024-09-30T22:19:11.554Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:29785184"
+      ],
+      "featureIds": [
+        29785184
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect taskbar settings for smaller application buttons. This early implementation reduces button size without reducing the taskbar's height; it is distinct from the later small-taskbar implementation using 61090762.",
+      "recipeStructure": {
+        "observedGroup": [
+          29785184
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "BatteryPercentageHistory",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.3000 · Dev",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgiylddyvs2p",
+          "cid": "bafyreia53xf75nfi6zhapkjjcsgv4wmbpxvkem74hkm544wzpk2cnaczo4",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lgiylddyvs2p",
+          "published": "2025-01-24T18:10:00.666Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lfxqvouore2o",
+          "cid": "bafyreia5vs757vul5gxoapgt2fkhodeyeth6dg5y423cktunqmm3dm6qd4",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lfxqvouore2o",
+          "published": "2025-01-17T21:37:20.022Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:48822452"
+      ],
+      "featureIds": [
+        48822452
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the battery icon and its percentage option. This January 2025 recipe concerns build 26120.3000; the source also references an earlier hidden preview, but neither observation guarantees continued compatibility with later Windows updates.",
+      "recipeStructure": {
+        "observedGroup": [
+          48822452
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "NotificationClock",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.5240 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3ln4gqjbnuw2c",
+          "cid": "bafyreiek7exj6jpnflpcjov7xdjhkkzn6sritvjbhf4fitb2i6xhajkki4",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3ln4gqjbnuw2c",
+          "published": "2025-04-18T20:15:09.421Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3ln47pbliz62s",
+          "cid": "bafyreidheimu7p7eb6mciecdg77nyti7evhpxo75oqqewloxx6nxqeb3pi",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3ln47pbliz62s",
+          "published": "2025-04-18T18:09:08.248Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:42651849"
+      ],
+      "featureIds": [
+        42651849,
+        48433719
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Date & time settings for the Notification Center clock option after an Explorer restart. Main ID: 42651849; 48433719 is conditional. This clock is separate from seconds in the taskbar tray.",
+      "recipeStructure": {
+        "main": [
+          42651849
+        ],
+        "conditional": [
+          48433719
+        ]
+      }
+    },
+    {
+      "id": "AnimatedTaskbarPreviews",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": ".5751 · Dev/Beta; KB5064071",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwhec6ijn22t",
+          "cid": "bafyreibrikymwhxany42jyxuldxzwrgufnujqwtdlkiumd62zblz7xfbv4",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lwhec6ijn22t",
+          "published": "2025-08-15T17:17:25.053Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3ltp32qbdzs2y",
+          "cid": "bafyreidbuf5yrnldm354eaisyfjgj4swlrmr5p6qjupgrb44jmgyqvtuyi",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3ltp32qbdzs2y",
+          "published": "2025-07-11T14:37:54.603Z"
+        }
+      ],
+      "sourceCommands": [],
+      "featureIds": [
+        56848060
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Hover taskbar applications to observe animated preview changes, size transitions and dismissal. The source gives an update suffix rather than a complete build number; no performance improvement is established.",
+      "recipeStructure": {
+        "observedGroup": [
+          56848060
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SecondaryNotificationCenter",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": ".5722 · Dev/Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lv2l7uuwjk2q",
+          "cid": "bafyreidnwmbpm5yjzs7jmadvq5cmm2oq5eq34oc3hawe56j6on5pcmfcpa",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lv2l7uuwjk2q",
+          "published": "2025-07-28T21:51:35.830Z"
+        }
+      ],
+      "sourceCommands": [],
+      "featureIds": [
+        38762814
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Notification Center on a secondary monitor. The source explicitly calls for a reboot but only gives build suffix .5722, so the exact full-build compatibility remains unestablished.",
+      "recipeStructure": {
+        "observedGroup": [
+          38762814
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "BatteryGraphLabels",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.2510 · Dev",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof6ie2yb27",
+          "cid": "bafyreiepemmduzuzq4u7g4dfnuedung4hbzxclcztsqit4qonpijdhs5tu",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lcof6ie2yb27",
+          "published": "2024-12-06T23:58:00.154Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof5ufktr2f",
+          "cid": "bafyreicvvr7fryoe2wji4gqovbnaachcvscgo4f4o3fhtlwzstoznbxl2u",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lcof5ufktr2f",
+          "published": "2024-12-06T23:57:38.322Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof57mgdy2b",
+          "cid": "bafyreidxzafy72t2uelomleklo3rmvwjz2we6gxecqvvflkb7kmbvmek6u",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lcof57mgdy2b",
+          "published": "2024-12-06T23:57:16.436Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:48822452",
+        "vivetool /enable /id:53092139"
+      ],
+      "featureIds": [
+        53092139,
+        48433719
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect labels below the battery-usage graph in Settings for explanations of its icons. Main ID: 53092139; broad prerequisite 48433719 is conditional. This affects presentation, not battery capacity or runtime.",
+      "recipeStructure": {
+        "main": [
+          53092139
+        ],
+        "conditional": [
+          48433719
+        ]
+      }
+    },
+    {
+      "id": "TaskManagerDiskTypes",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4225 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4onijtmsp2s",
+          "cid": "bafyreibfl43cu52wvr7a5w6k2ydk7ejh4etczhody2g2tojokagcgdbldi",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l4onijtmsp2s",
+          "published": "2024-09-21T17:55:36.435Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4ongj5oh72c",
+          "cid": "bafyreige72k65pnvi43aisnnpd2jx6y6gj7wbdzfkj6clo4ctefjcsegnm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l4ongj5oh72c",
+          "published": "2024-09-21T17:54:29.067Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:51978387"
+      ],
+      "featureIds": [
+        51978387
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Open Task Manager's Performance page to inspect disk connection labels such as NVMe and SATA in lists and graphs. These are descriptive hardware labels, not controls for changing disk performance.",
+      "recipeStructure": {
+        "observedGroup": [
+          51978387
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskManagerDisconnectDialog",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4225 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4onfs7tu32p",
+          "cid": "bafyreidjprjkuarxlrcn7hwzhnud7qlk5mn7jbr3gb77v42gdvegoyvany",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l4onfs7tu32p",
+          "published": "2024-09-21T17:54:04.461Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4oneqfdf72o",
+          "cid": "bafyreifnwfcjc2vc3sjdjdohszen2ykklvzm24kt6qmfusr3r433nbodka",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3l4oneqfdf72o",
+          "published": "2024-09-21T17:53:29.017Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:53330962"
+      ],
+      "featureIds": [
+        53330962
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the appearance of Task Manager's disconnect-user confirmation dialog. This archive concerns styling only; actually disconnecting another session can interrupt work and is not performed by this catalog.",
+      "recipeStructure": {
+        "observedGroup": [
+          53330962
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskManagerCpuCalculation",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.3360 · Dev/Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3ljbhicqat72j",
+          "cid": "bafyreictl6cx47molzbl7igmbjdmshahg2vdjqrqplzx5ow7ste42lzofu",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3ljbhicqat72j",
+          "published": "2025-02-28T22:30:59.558Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:32145346"
+      ],
+      "featureIds": [
+        32145346
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Task Manager's changed CPU-utilization calculation and CPU utility column. The observation changes how metrics are displayed; it is not a processor speed boost, and readings may differ from earlier builds.",
+      "recipeStructure": {
+        "observedGroup": [
+          32145346
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "HdrSettingsHistory",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5581 · Dev; 26120.3950 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3loidxv5kpg2s",
+          "cid": "bafyreicosyhtxed6udefoi5hszr5tl36uyjysh773vum2kxroq7rjmzlty",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3loidxv5kpg2s",
+          "published": "2025-05-06T07:22:43.164Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:49793372"
+      ],
+      "featureIds": [
+        49793372
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Display settings for revised capability wording, HDR video-streaming controls and Dolby Vision modes. Available choices still depend on compatible display hardware; the override cannot add missing hardware capabilities.",
+      "recipeStructure": {
+        "observedGroup": [
+          49793372
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "QuickAccessibilityGroups",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5570 · Dev; 26120.3941 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnt6zetnd2s",
+          "cid": "bafyreiclyembdi2gxzdfj3jjlwxjxge5ppob6u45dbv7lawulhbmygpsrq",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnnt6zetnd2s",
+          "published": "2025-04-25T18:13:12.082Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:56887314"
+      ],
+      "featureIds": [
+        56887314
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Open Quick Settings and inspect accessibility controls grouped into vision, hearing and motor or mobility sections. This reorganizes existing controls; it does not establish that every device supports every listed capability.",
+      "recipeStructure": {
+        "observedGroup": [
+          56887314
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "VoiceVocabulary",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5562 · Dev; 26120.3872 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k",
+          "cid": "bafyreib6fn56kodnucdw4vcbv2w2jos7hqywmp4wdczq7qf6jrjbxdlbsm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnebixohct2k",
+          "published": "2025-04-21T23:02:42.718Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:56305056",
+        "vivetool /enable /id:56724497"
+      ],
+      "featureIds": [
+        56305056
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Voice Access for a vocabulary builder that adds custom dictionary words. Language and installed speech support still matter; a documented feature ID does not guarantee recognition quality on this device.",
+      "recipeStructure": {
+        "observedGroup": [
+          56305056
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "VoiceQuickSettings",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5562 · Dev; 26120.3872 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k",
+          "cid": "bafyreib6fn56kodnucdw4vcbv2w2jos7hqywmp4wdczq7qf6jrjbxdlbsm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnebixohct2k",
+          "published": "2025-04-21T23:02:42.718Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:56305056",
+        "vivetool /enable /id:56724497"
+      ],
+      "featureIds": [
+        56724497
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the accessibility section of Quick Settings for a Voice Access toggle. This adds a convenient entry point; it does not replace initial Voice Access setup or download required speech components.",
+      "recipeStructure": {
+        "observedGroup": [
+          56724497
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "VoiceTypingFilter",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnsubw5wq2c",
+          "cid": "bafyreigo5jwlgpszza6nmwppz7f7pgjaj3a4b7a5gmfr6b3kpv5yqqbcbu",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnnsubw5wq2c",
+          "published": "2025-04-25T18:07:13.343Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:33289874"
+      ],
+      "featureIds": [
+        33289874
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Open voice typing settings to inspect the option for disabling its profanity filter. Review dictated text before submitting it; this affects transcription filtering rather than microphone permissions or speech accuracy.",
+      "recipeStructure": {
+        "observedGroup": [
+          33289874
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "AdvancedCameraHistory",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.2702 · Dev; 27744 · Canary",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3ld7idxgkcv23",
+          "cid": "bafyreic4sgdsqfn75urockxw6vfrdqhkwmz7efiwyuokjlww52h42fefne",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3ld7idxgkcv23",
+          "published": "2024-12-13T19:09:59.390Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcj4icczc62j",
+          "cid": "bafyreicfa24hkdawnhytuk4zb747i732r6xu6gywk5jyuhixpby26kygzm",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lcj4icczc62j",
+          "published": "2024-12-04T21:39:05.994Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:49575624,50292326"
+      ],
+      "featureIds": [
+        49575624,
+        50292326,
+        52142480
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect advanced camera settings for media-type and resolution choices. Dev 26120.2702 used the pair 49575624/50292326; Canary 27744 used 52142480. These are separate build observations, not a three-ID combination. Camera hardware support remains necessary.",
+      "recipeStructure": {
+        "alternativesByBuild": {
+          "26120.2702": [
+            49575624,
+            50292326
+          ],
+          "27744": [
+            52142480
+          ]
+        },
+        "mode": "separate_build_observations_never_combined"
+      }
+    },
+    {
+      "id": "AboutHardwareCards",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4660 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3leuzqwnye62d",
+          "cid": "bafyreih2syfkosz7pm2jqwpxx46ohsbbv6qfll5flyourxlkixhxjla7ra",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3leuzqwnye62d",
+          "published": "2025-01-04T02:12:34.894Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3leulochoc62f",
+          "cid": "bafyreibzwbk3ectsxiiovrphiilmqgrfpiuuing7sqt7cvohle2vgaziae",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3leulochoc62f",
+          "published": "2025-01-03T22:00:32.916Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:51784082,54618938"
+      ],
+      "featureIds": [
+        51784082,
+        54618938,
+        48433719
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Settings About for storage, graphics-memory and RAM summary cards. Main pair: 51784082 and 54618938; 48433719 is conditional. The source requests reboot; later About redesigns may use different recipes.",
+      "recipeStructure": {
+        "main": [
+          51784082,
+          54618938
+        ],
+        "conditional": [
+          48433719
+        ]
+      }
+    },
+    {
+      "id": "AboutFaq",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.3576 · Dev; 22635.5090 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkmdy5p35s2g",
+          "cid": "bafyreib23ykmxtsfxmpywux2pxeivl56xzcbk3tnbpzf6okp2zoscnsipi",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lkmdy5p35s2g",
+          "published": "2025-03-17T23:52:44.970Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:55305888"
+      ],
+      "featureIds": [
+        55305888
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Settings About for a frequently asked questions section explaining the Windows version and device specifications. This is explanatory content; it neither upgrades hardware nor verifies compatibility of unrelated applications.",
+      "recipeStructure": {
+        "observedGroup": [
+          55305888
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "OpenWithStore",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26120.4161 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpuuu6u64r2m",
+          "cid": "bafyreia4zz3ein3vjc5bqzp36n6h5jfehh3uqiyiipfgvkcswp66py5ku4",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lpuuu6u64r2m",
+          "published": "2025-05-24T00:22:02.073Z"
+        }
+      ],
+      "sourceCommands": [],
+      "featureIds": [
+        55805655,
+        41118774
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Open With for Microsoft Store application recommendations. Main ID: 55805655. The redesigned picker using 41118774 is required if not already present; recommendations do not automatically install applications.",
+      "recipeStructure": {
+        "main": [
+          55805655
+        ],
+        "requiredIfRedesignedPickerAbsent": [
+          41118774
+        ]
+      }
+    },
+    {
+      "id": "SpotlightCaption",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4660 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3leuzgadpaj22",
+          "cid": "bafyreidecykvvmcqbkuuyv4nxxddwpmnboghtqnzzvzisi267lzkxlgei4",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3leuzgadpaj22",
+          "published": "2025-01-04T02:06:36.368Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3leureqyswy22",
+          "cid": "bafyreigfcfj7x4mvcjzscpyrdb7mnlx6g7kdf5dfmp4zhlw2ucvxobfpoq",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3leureqyswy22",
+          "published": "2025-01-03T23:42:34.203Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:52145430 /variant:X"
+      ],
+      "featureIds": [
+        52145430
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the desktop Spotlight icon. Variant 1 adds a dynamic image caption; variant 2 keeps the static caption with the updated icon. Choose one alternative, never both sequentially; the source also changes background away and back after reboot.",
+      "recipeStructure": {
+        "main": [
+          52145430
+        ],
+        "mode": "choose_one_variant",
+        "variants": [
+          {
+            "value": 1,
+            "effect": "Updated icon and dynamic image caption"
+          },
+          {
+            "value": 2,
+            "effect": "Updated icon and existing static caption"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SpotlightHover",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4655 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3ld7p4wyjqc2m",
+          "cid": "bafyreigo5oqqap27eph7fabvrbaffckgts3b7oaowoiwohwg6kcb6b76za",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3ld7p4wyjqc2m",
+          "published": "2024-12-13T21:11:21.741Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:48656084"
+      ],
+      "featureIds": [
+        48656084
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Hover the desktop Spotlight icon to inspect a smaller flyout; a single click opens the related Bing page. This changes the icon's interaction, rather than providing a new independent wallpaper source.",
+      "recipeStructure": {
+        "observedGroup": [
+          48656084
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "EmojiTray",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4655 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda7yovs622i",
+          "cid": "bafyreia3lvjmhj3tbmsnelsphlko46uzjlptplymzhwjs5cxsh4epq4vwe",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lda7yovs622i",
+          "published": "2024-12-14T02:13:12.657Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcnyiq5nu22z",
+          "cid": "bafyreih4n72gxfkapwpzg73yylvlvnwqcpej3pszpcmy5oh264zahpitoy",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lcnyiq5nu22z",
+          "published": "2024-12-06T20:11:05.607Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:48504539"
+      ],
+      "featureIds": [
+        48504539
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the system tray for Emoji and more, including its show-while-typing behavior and taskbar-settings shortcut. The source distinguishes a working button in this build from earlier settings-only observations.",
+      "recipeStructure": {
+        "observedGroup": [
+          48504539
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "ShareWebPreview",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4655 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda4sgaxqc2y",
+          "cid": "bafyreih4jlhma5hn5kdpofxppfntgvmpl7ed6on2tcsoarxi4kmapv5pri",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lda4sgaxqc2y",
+          "published": "2024-12-14T01:15:59.903Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:53871483"
+      ],
+      "featureIds": [
+        53871483
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the Windows Share sheet for a visual preview of shared web links. This records the recipe observed in Beta 22635.4655; the source does not establish compatibility with arbitrary stable releases or every sharing application.",
+      "recipeStructure": {
+        "observedGroup": [
+          53871483
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SharePhotoEditing",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26200.5516 · Dev; 26120.3653 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3llhrij7bn22s",
+          "cid": "bafyreibvvyldoffynllednuxtpvhkf363tsdgdxrebeb5pk2bydseq2rqy",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3llhrij7bn22s",
+          "published": "2025-03-28T21:36:28.347Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda4sgaxqc2y",
+          "cid": "bafyreih4jlhma5hn5kdpofxppfntgvmpl7ed6on2tcsoarxi4kmapv5pri",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lda4sgaxqc2y",
+          "published": "2024-12-14T01:15:59.903Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:53433910,54475355"
+      ],
+      "featureIds": [
+        53433910,
+        54475355
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the Windows Share sheet for photo-editing tools before sharing an image. Both IDs form the reported recipe; preserve the original image and review the result before sending it elsewhere.",
+      "recipeStructure": {
+        "observedGroup": [
+          53433910,
+          54475355
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskbarPositionHistory",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26300.8493",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w",
+          "cid": "bafyreig7ygdgxmp5fmrnr3kdhku66khm272ki5r2pbsfifv35de5wsxvza",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mlwadx2yyd2w",
+          "published": "2026-05-15T21:05:44.246Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:59213768",
+        "vivetool /enable /id:61090762"
+      ],
+      "featureIds": [
+        59213768
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect taskbar settings for movable position options. This is the author's May 2026 observed implementation; the command post names a build but no channel, and does not establish support for other builds.",
+      "recipeStructure": {
+        "observedGroup": [
+          59213768
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SmallTaskbarHistory",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26300.8493",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w",
+          "cid": "bafyreig7ygdgxmp5fmrnr3kdhku66khm272ki5r2pbsfifv35de5wsxvza",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mlwadx2yyd2w",
+          "published": "2026-05-15T21:05:44.246Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:59213768",
+        "vivetool /enable /id:61090762"
+      ],
+      "featureIds": [
+        61090762
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect taskbar settings for the small-taskbar option. This May 2026 implementation is distinct from the older button-only experiment 29785184; the source does not identify a channel or guarantee ongoing support.",
+      "recipeStructure": {
+        "observedGroup": [
+          61090762
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "DragShareTray",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "22635.4805 · Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgjoyivfw22b",
+          "cid": "bafyreiccu6zeadvdmbpcm6qfuvh7e6j5xgpqphpjiwouyohppukn4vxjam",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lgjoyivfw22b",
+          "published": "2025-01-25T00:51:05.009Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgjgs3die22z",
+          "cid": "bafyreig5bxlqcpikbinz62axo5xb2pfnqchhz2eequ5wcml5ffdlnro23e",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lgjgs3die22z",
+          "published": "2025-01-24T22:24:19.529Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:45624564,53397005"
+      ],
+      "featureIds": [
+        45624564,
+        53397005,
+        48433719
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Drag a file toward the screen top to inspect a sharing tray with application targets and the full Share sheet. Main pair: 45624564 and 53397005; 48433719 is conditional, and the source requests reboot.",
+      "recipeStructure": {
+        "main": [
+          45624564,
+          53397005
+        ],
+        "conditional": [
+          48433719
+        ]
+      }
+    },
+    {
+      "id": "RedesignedStartRecipe",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "2025-06-10 · Dev/Beta",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lr7llswlxf27",
+          "cid": "bafyreifta2arj5fq6yp2nxyfbktivxe23bjm6m5ibvsaatxppoe3yzvcqa",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lr7llswlxf27",
+          "published": "2025-06-10T00:00:44.636Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:47205210,49221331,49381526,49402389,49820095,55495322"
+      ],
+      "featureIds": [
+        47205210,
+        49221331,
+        49381526,
+        49402389,
+        49820095,
+        55495322
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the redesigned Start menu using the six-component combination reported as rollout began. The source gives a date and channels, not full build numbers; do not treat the six IDs as six independent features.",
+      "recipeStructure": {
+        "observedGroup": [
+          47205210,
+          49221331,
+          49381526,
+          49402389,
+          49820095,
+          55495322
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "ContextMenu",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26340.9212 · Experimental",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqs7acvk2x",
+          "cid": "bafyreif75hnbwhvwdze5mvzdem75xwf7f7dp4heyv3p7uscqoiqswwi65y",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mtcqs7acvk2x",
+          "published": "2026-08-17T22:28:26.118Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mt53myztyn2q",
+          "cid": "bafyreigqb5wvmxhnrxn7soz552iyojncmityguflgy4wa33olgzc2avrba",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mt53myztyn2q",
+          "published": "2026-08-15T16:26:21.162Z"
+        }
+      ],
+      "sourceCommands": [],
+      "featureIds": [
+        60813048
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect the redesigned context menu and its customization settings, including Send to, folder Refresh and a simpler default layout. This is a specific Experimental-build observation, not a permanent Windows 10 menu restoration recipe.",
+      "recipeStructure": {
+        "observedGroup": [
+          60813048
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "ModernAutoPlay",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26340.9212",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqshfid22x",
+          "cid": "bafyreieshjg3ikz3bq2zbtacjhagcbv5msgoi3hgwvw6ai3q43eq545oam",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mtcqshfid22x",
+          "published": "2026-08-17T22:28:34.676Z"
+        },
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mt5hpbygmr27",
+          "cid": "bafyreielq37ou5eawmeoethiiqksbopygj6lfd4xzqdjjxdy2yar2p3yji",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mt5hpbygmr27",
+          "published": "2026-08-15T20:02:21.360Z"
+        }
+      ],
+      "sourceCommands": [],
+      "featureIds": [
+        62141177
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect AutoPlay's centered WinUI dialog for dark-mode support and one-time versus always choices. The source gives an exact build without a channel; actual device actions still require deliberate selection.",
+      "recipeStructure": {
+        "observedGroup": [
+          62141177
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "StartCustomization",
+      "sourceKind": "OriginalDiscoverer",
+      "observedBuildLabel": "26300.8553",
+      "sources": [
+        {
+          "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mmzi7erbxu25",
+          "cid": "bafyreif22qy652hs2jsdtt5drrquhcllhxq2jurr3cp64xgbthnppul6xq",
+          "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3mmzi7erbxu25",
+          "published": "2026-05-29T21:29:33.026Z"
+        }
+      ],
+      "sourceCommands": [
+        "vivetool /enable /id:61754985,61225604,61596616,61596617,61596618,61596619"
+      ],
+      "featureIds": [
+        61754985,
+        61225604,
+        61596616,
+        61596617,
+        61596618,
+        61596619
+      ],
+      "executionPolicy": "Read-only historical observation; never executed",
+      "dependencyAndVariantNotes": "Inspect Start customization for smaller layouts and visibility of Recent, All apps, account name and profile picture. Keep the six IDs grouped as one observed recipe; the original post does not name a channel.",
+      "recipeStructure": {
+        "observedGroup": [
+          61754985,
+          61225604,
+          61596616,
+          61596617,
+          61596618,
+          61596619
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "KernelDumpHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        40430431
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The historical mapping associates this ID with Task Manager live kernel dumps. Such dumps can contain sensitive memory contents; inspect documentation before collecting or sharing one. This archive does not initiate a dump.",
+      "recipeStructure": {
+        "observedGroup": [
+          40430431
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskManagerSearchHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        39420424
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The historical mapping identifies Task Manager's process search field. Inspect process filtering in that build's Task Manager; the mapping does not establish complete prerequisites or continued support on later releases.",
+      "recipeStructure": {
+        "observedGroup": [
+          39420424
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SettingsRenameHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        38228963,
+        36390579
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping links 38228963 to Rename PC dialog styling and separately lists master ID 36390579. Their exact dependency and activation order are unknown. Research-only: do not treat this as a complete rename or activation recipe.",
+      "recipeStructure": {
+        "main": [
+          38228963
+        ],
+        "relatedMasterDependencyUnverified": [
+          36390579
+        ]
+      }
+    },
+    {
+      "id": "SettingsDateHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        39811196,
+        36390579
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping links 39811196 to date-and-time dialog styling and separately lists master ID 36390579. The relationship is not established. This research-only archive does not change the clock, time zone or synchronization settings.",
+      "recipeStructure": {
+        "main": [
+          39811196
+        ],
+        "relatedMasterDependencyUnverified": [
+          36390579
+        ]
+      }
+    },
+    {
+      "id": "SettingsResetHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        41598133,
+        36390579
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping associates 41598133 with a redesigned reset dialog and lists 36390579 as a related master flag. Dependencies remain unverified. This research-only visual archive never starts a reset; reset operations can remove applications or data.",
+      "recipeStructure": {
+        "main": [
+          41598133
+        ],
+        "relatedMasterDependencyUnverified": [
+          36390579
+        ]
+      }
+    },
+    {
+      "id": "EnergyHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        39427030,
+        41249924
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping identifies energy-recommendation controls with 39427030 and their dark theme with 41249924. They are grouped as one feature archive; the exact dependency is unknown. Applying native recommendations can change several power preferences.",
+      "recipeStructure": {
+        "controls": [
+          39427030
+        ],
+        "darkTreatment": [
+          41249924
+        ],
+        "dependencyUnknown": true
+      }
+    },
+    {
+      "id": "ArchiveAppsHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25231 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        40762871
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "Inspect the historical Archive Apps settings-page redesign associated with this ID. The mapping identifies a page update, not a guarantee that an arbitrary installed application can be archived or subsequently restored without downloading it.",
+      "recipeStructure": {
+        "observedGroup": [
+          40762871
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "WidgetExpansionHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25201 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        34300186
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The historical mapping associates this ID with an expanded Widgets view. Inspect the board's layout in the observed build; content availability still depends on installed widgets and services, and current compatibility is unverified.",
+      "recipeStructure": {
+        "observedGroup": [
+          34300186
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "GamePassWidgetHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25201 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        36094217
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping identifies an Xbox Game Pass widget, while leaving its internal feature name unknown. Inspect the Widgets board for this content; the feature flag does not confer a subscription or game entitlement.",
+      "recipeStructure": {
+        "observedGroup": [
+          36094217
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskbarTrayHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25193 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        26008830
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The maintainer maps this ID to an updated taskbar tray area. Inspect the tray presentation on the recorded build; finer behavioral changes and complete dependencies are unspecified, so this remains a read-only historical observation.",
+      "recipeStructure": {
+        "observedGroup": [
+          26008830
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SettingsAnimatedIcons",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25188 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        34878152
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "Inspect navigation icons in the Settings application for animation. The historical mapping identifies the visual treatment, but supplies no performance evidence or complete dependency recipe; it should not be described as a speed optimization.",
+      "recipeStructure": {
+        "observedGroup": [
+          34878152
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskbarStartupHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25182 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        39751186
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The maintainer labels this a faster-taskbar-startup experiment. No benchmark or current compatibility evidence accompanies the mapping. Keep it as a historical implementation note rather than a promised performance improvement or recommended optimization.",
+      "recipeStructure": {
+        "observedGroup": [
+          39751186
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskbarAnimationHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25182 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        39072097
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "Inspect the taskbar animation experiment recorded by the maintainer for this build. The mapping does not specify a complete activation recipe or every animation affected; this archive deliberately avoids claiming identical behavior on modern taskbars.",
+      "recipeStructure": {
+        "observedGroup": [
+          39072097
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "FluentOpenWithHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25174 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        36302090
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The historical mapping associates this ID with a Fluent-design app picker. Inspect Open With presentation in the recorded build; changing the picker appearance is separate from deliberately selecting or changing a default application.",
+      "recipeStructure": {
+        "observedGroup": [
+          36302090
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "SpotlightThemeHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25169 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        39258685
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping identifies Spotlight integration as a Windows theme. Inspect the theme choices on the observed build; this is distinct from later desktop-icon interactions and does not establish offline image availability or service permanence.",
+      "recipeStructure": {
+        "observedGroup": [
+          39258685
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "ExplorerTabsHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25136 · Dev; 22621 · Beta",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19",
+        "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+      ],
+      "featureIds": [
+        37634385,
+        39145991
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "Historical tabs used 37634385; Beta 22621 also required 39145991. ExplorerPatcher reports TIFE removed in Dev 23575. Disabling 37634385, 36354489 and 39145991 reportedly crashes Explorer on 22621.2361. Never treat that sequence as universal rollback.",
+      "recipeStructure": {
+        "main": [
+          37634385
+        ],
+        "requiredOnlyOnObservedBeta22621": [
+          39145991
+        ]
+      }
+    },
+    {
+      "id": "ExplorerNavigationHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25136 · Dev; 22621 · Beta",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19",
+        "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+      ],
+      "featureIds": [
+        36354489,
+        39145991
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "Historical navigation used 36354489, with 39145991 required on Beta 22621. ExplorerPatcher reports that disabling this pair together with tabs ID 37634385 crashes Explorer on 22621.2361. The mapping provides no safe universal rollback for later builds.",
+      "recipeStructure": {
+        "main": [
+          36354489
+        ],
+        "requiredOnlyOnObservedBeta22621": [
+          39145991
+        ]
+      }
+    },
+    {
+      "id": "EdgeDesktopSearchHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25136 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        37969115
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The maintainer identifies an Edge desktop search box associated with this ID. Inspect that historical desktop surface; the mapping does not establish independence from installed Edge components or support on current Windows releases.",
+      "recipeStructure": {
+        "observedGroup": [
+          37969115
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "LowerLeftSearchHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "25136 · Dev",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        37010913
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The mapping labels this ID as a lower-left search-box experiment. Inspect search placement on the recorded build; the source does not describe every interaction, and the archive does not promise this layout on current taskbars.",
+      "recipeStructure": {
+        "observedGroup": [
+          37010913
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    },
+    {
+      "id": "TaskbarOverflowHistory",
+      "sourceKind": "UpstreamMaintainerMapping",
+      "observedBuildLabel": "22622.436 · Beta",
+      "sources": [
+        "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+      ],
+      "featureIds": [
+        35620393,
+        35620394
+      ],
+      "executionPolicy": "Read-only; no generated enable commands",
+      "dependencyAndVariantNotes": "The maintainer lists two parts of the taskbar-overflow implementation. Keep 35620393 and 35620394 together as one feature archive, not two features. Inspect overflow behavior when many apps occupy the recorded build's taskbar.",
+      "recipeStructure": {
+        "observedGroup": [
+          35620393,
+          35620394
+        ],
+        "independentMeaningsNotAsserted": true
+      }
+    }
+  ],
+  "resetSemantics": "Disable forces off; reset removes only the specified override. Restoring a captured prior state is different. Never reset untouched prerequisites or use fullreset."
+}

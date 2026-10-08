@@ -1,0 +1,1280 @@
+{
+  "ClassicMenu": {
+    "title": "Buka menu konteks klasik",
+    "body": "Klik kanan berkas lalu pilih Tampilkan opsi lainnya. Shift+klik kanan membuka menu lengkap pada build yang didokumentasikan. Pintasan ini berlaku sekali pakai; tidak menggantikan menu Windows 11 secara permanen.",
+    "keywords": "buka menu konteks klasik",
+    "evidence": "Dokumentasi Windows 11; Shift+klik kanan diperkenalkan pada Dev 22572, 2022-03-09. Dukungan perangkat ini belum diverifikasi."
+  },
+  "ContextMenu": {
+    "title": "Menu konteks modern yang dapat disesuaikan",
+    "body": "Periksa menu konteks baru dan pengaturannya, termasuk Kirim ke, Segarkan folder, dan tata letak bawaan yang lebih sederhana. Ini pengamatan pada build Experimental tertentu, bukan resep pemulihan permanen menu Windows 10.",
+    "keywords": "menu konteks modern yang dapat disesuaikan",
+    "evidence": "Diamati: 26340.9212 · Experimental (2026-08-17). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "ExplorerTabsHistory": {
+    "title": "Implementasi historis tab File Explorer",
+    "body": "Tab historis memakai 37634385; Beta 22621 juga memerlukan 39145991. ExplorerPatcher melaporkan TIFE dihapus pada Dev 23575. Menonaktifkan 37634385, 36354489, dan 39145991 dilaporkan membuat Explorer macet pada 22621.2361. Jangan gunakan urutan ini sebagai pemulihan universal.",
+    "keywords": "implementasi historis tab file explorer",
+    "evidence": "Pemetaan historis pengelola: 25136 · Dev; 22621 · Beta. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "ExplorerNavigationHistory": {
+    "title": "Desain ulang navigasi File Explorer",
+    "body": "Navigasi historis memakai 36354489, dengan 39145991 diperlukan pada Beta 22621. ExplorerPatcher melaporkan penonaktifan pasangan ini bersama ID tab 37634385 membuat Explorer macet pada 22621.2361. Pemetaan ini tidak menyediakan pemulihan universal yang aman untuk build berikutnya.",
+    "keywords": "desain ulang navigasi file explorer",
+    "evidence": "Pemetaan historis pengelola: 25136 · Dev; 22621 · Beta. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "ExternalFolderTabs": {
+    "title": "Folder eksternal dalam tab yang ada",
+    "body": "Buka folder desktop atau tautan folder eksternal untuk mengamati tab baru dalam jendela Explorer yang sudah ada, bukan jendela lain.",
+    "keywords": "folder eksternal dalam tab yang ada",
+    "evidence": "Diamati: 22635.4515 · Beta (2024-11-23). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "RestoreExplorerTabs": {
+    "title": "Pulihkan tab Explorer saat masuk",
+    "body": "Amati apakah Explorer memulihkan tab terbuka setelah masuk. Sumber juga mensyaratkan pengaturan Windows untuk menyimpan aplikasi yang dapat dimulai ulang dan memulainya kembali saat masuk.",
+    "keywords": "pulihkan tab explorer saat masuk",
+    "evidence": "Diamati: 22635.4580 · Beta (2024-12-07). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "StartCustomization": {
+    "title": "Kombinasi penyesuaian menu Mulai",
+    "body": "Periksa penyesuaian Mulai untuk tata letak lebih kecil serta tampilan Terbaru, Semua aplikasi, nama akun, dan foto profil. Enam ID tetap dihitung sebagai satu resep pengamatan; kiriman asli tidak menyebut saluran.",
+    "keywords": "kombinasi penyesuaian menu mulai",
+    "evidence": "Diamati: 26300.8553 (2026-05-29). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "RedesignedStartRecipe": {
+    "title": "Kombinasi menu Mulai baru",
+    "body": "Periksa menu Mulai yang didesain ulang memakai kombinasi enam komponen yang dilaporkan saat peluncuran dimulai. Sumber mencantumkan tanggal dan saluran, bukan nomor build lengkap; enam ID bukan enam fitur mandiri.",
+    "keywords": "kombinasi menu mulai baru",
+    "evidence": "Diamati: 2025-06-10 · Dev/Beta (2025-06-10). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "TaskbarPositionHistory": {
+    "title": "Eksperimen posisi bilah tugas",
+    "body": "Periksa opsi pemindahan posisi pada pengaturan bilah tugas. Ini implementasi yang diamati penulis pada Mei 2026; kiriman perintah menyebut build tanpa saluran dan tidak membuktikan dukungan build lain.",
+    "keywords": "eksperimen posisi bilah tugas",
+    "evidence": "Diamati: 26300.8493 (2026-05-15). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SmallTaskbarHistory": {
+    "title": "Eksperimen bilah tugas kecil",
+    "body": "Periksa opsi bilah tugas kecil dalam pengaturannya. Implementasi Mei 2026 ini berbeda dari eksperimen lama 29785184 yang hanya mengecilkan tombol; sumber tidak menyebut saluran atau menjamin dukungan berkelanjutan.",
+    "keywords": "eksperimen bilah tugas kecil",
+    "evidence": "Diamati: 26300.8493 (2026-05-15). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SmallTaskbarButtonsHistory": {
+    "title": "Eksperimen tombol bilah tugas lebih kecil",
+    "body": "Periksa opsi tombol aplikasi lebih kecil pada pengaturan bilah tugas. Implementasi awal ini mengecilkan tombol tanpa mengurangi tinggi bilah; berbeda dari implementasi bilah tugas kecil berikutnya yang memakai 61090762.",
+    "keywords": "eksperimen tombol bilah tugas lebih kecil",
+    "evidence": "Diamati: 22635.4291 · Beta (2024-09-30). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "ExplorerAiActions": {
+    "title": "Tindakan AI di menu konteks Explorer",
+    "body": "Periksa Tindakan AI pada menu konteks berkas yang didukung. Sumber mengelompokkan kedua ID sebagai satu resep; fungsi mandiri masing-masing ID bagi pengguna tidak ditetapkan.",
+    "keywords": "tindakan ai di menu konteks explorer",
+    "evidence": "Diamati: 26200.5603 · Dev; 26120.4151 · Beta (2025-05-19). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "QuickAccessibilityGroups": {
+    "title": "Pengelompokan aksesibilitas Pengaturan Cepat",
+    "body": "Buka Pengaturan Cepat dan periksa kontrol aksesibilitas yang dikelompokkan menurut penglihatan, pendengaran, dan motorik atau mobilitas. Ini menata ulang kontrol yang ada; tidak membuktikan semua perangkat mendukung setiap kemampuan.",
+    "keywords": "pengelompokan aksesibilitas pengaturan cepat",
+    "evidence": "Diamati: 26200.5570 · Dev; 26120.3941 · Beta (2025-04-25). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "VoiceVocabulary": {
+    "title": "Kosakata khusus Akses Suara",
+    "body": "Periksa pembuat kosakata di Akses Suara untuk menambahkan kata kamus khusus. Bahasa dan dukungan ucapan terpasang tetap berpengaruh; ID terdokumentasi tidak menjamin kualitas pengenalan pada perangkat ini.",
+    "keywords": "kosakata khusus akses suara",
+    "evidence": "Diamati: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "VoiceQuickSettings": {
+    "title": "Akses Suara di Pengaturan Cepat",
+    "body": "Periksa tombol Akses Suara pada bagian aksesibilitas Pengaturan Cepat. Ini menambahkan pintu masuk praktis, bukan menggantikan penyiapan awal Akses Suara atau mengunduh komponen ucapan yang diperlukan.",
+    "keywords": "akses suara di pengaturan cepat",
+    "evidence": "Diamati: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SettingsAnimatedIcons": {
+    "title": "Animasi ikon navigasi Pengaturan",
+    "body": "Periksa animasi ikon navigasi aplikasi Pengaturan. Pemetaan historis mengidentifikasi tampilannya, tetapi tidak memberikan bukti kinerja atau resep dependensi lengkap; jangan menyebutnya sebagai optimasi kecepatan.",
+    "keywords": "animasi ikon navigasi pengaturan",
+    "evidence": "Pemetaan historis pengelola: 25188 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "HdrSettingsHistory": {
+    "title": "Eksperimen pengaturan HDR yang diperbarui",
+    "body": "Periksa keterangan kemampuan layar, kontrol streaming video HDR, dan mode Dolby Vision yang diperbarui. Pilihan tetap bergantung pada perangkat keras layar yang kompatibel; penimpaan tidak menambahkan kemampuan perangkat keras yang tidak ada.",
+    "keywords": "eksperimen pengaturan hdr yang diperbarui",
+    "evidence": "Diamati: 26200.5581 · Dev; 26120.3950 · Beta (2025-05-06). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SpotlightHover": {
+    "title": "Panel melayang Spotlight",
+    "body": "Arahkan penunjuk ke ikon Spotlight desktop untuk melihat panel lebih kecil; sekali klik membuka halaman Bing terkait. Ini mengubah interaksi ikon, bukan menyediakan sumber wallpaper mandiri baru.",
+    "keywords": "panel melayang spotlight",
+    "evidence": "Diamati: 22635.4655 · Beta (2024-12-13). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SpotlightCaption": {
+    "title": "Ikon dan keterangan dinamis Spotlight",
+    "body": "Periksa ikon Spotlight desktop. Varian 1 menambahkan keterangan gambar dinamis; varian 2 mempertahankan keterangan statis dengan ikon baru. Pilih satu alternatif, jangan keduanya berurutan; sumber juga mengganti latar lalu mengembalikannya setelah mulai ulang.",
+    "keywords": "ikon dan keterangan dinamis spotlight",
+    "evidence": "Diamati: 22635.4660 · Beta (2025-01-04). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SpotlightThemeHistory": {
+    "title": "Tema Windows Spotlight",
+    "body": "Pemetaan mengidentifikasi integrasi Spotlight sebagai tema Windows. Periksa pilihan tema pada build pengamatan; ini berbeda dari interaksi ikon desktop berikutnya dan tidak membuktikan gambar tersedia luring atau layanan bersifat permanen.",
+    "keywords": "tema windows spotlight",
+    "evidence": "Pemetaan historis pengelola: 25169 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "FluentOpenWithHistory": {
+    "title": "Pemilih aplikasi Fluent",
+    "body": "Pemetaan historis menghubungkan ID ini dengan pemilih aplikasi berdesain Fluent. Periksa tampilan Buka dengan pada build tercatat; perubahan tampilan pemilih terpisah dari tindakan memilih atau mengganti aplikasi bawaan.",
+    "keywords": "pemilih aplikasi fluent",
+    "evidence": "Pemetaan historis pengelola: 25174 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "ExplorerSendPhone": {
+    "title": "Kirim berkas Explorer ke ponsel",
+    "body": "Periksa Kirim ke Ponsel Saya pada menu konteks berkas. Kedua ID membentuk kombinasi yang dilaporkan; koneksi ponsel kompatibel tetap diperlukan untuk menyelesaikan transfer nyata.",
+    "keywords": "kirim berkas explorer ke ponsel",
+    "evidence": "Diamati: 22635.4225 · Beta (2024-09-20). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "ExplorerShareApps": {
+    "title": "Bagikan langsung ke aplikasi dari Explorer",
+    "body": "Periksa Bagikan dengan dan aplikasi tujuan yang didukung pada menu konteks berkas dan desktop. Sumber memberikan 45286384 dan 52800817 bersama sebagai resep pengamatan, bukan fungsi terpisah masing-masing ID.",
+    "keywords": "bagikan langsung ke aplikasi dari explorer",
+    "evidence": "Diamati: 22635.4367 · Beta (2024-10-11). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "OpenWithStore": {
+    "title": "Rekomendasi Store pada Buka dengan",
+    "body": "Periksa rekomendasi aplikasi Microsoft Store di Buka dengan. ID utama: 55805655. Pemilih baru 41118774 diperlukan jika belum tersedia; rekomendasi tidak memasang aplikasi secara otomatis.",
+    "keywords": "rekomendasi store pada buka dengan",
+    "evidence": "Diamati: 26120.4161 · Beta (2025-05-24). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "DarkFolderOptions": {
+    "title": "Dialog Opsi Folder gelap",
+    "body": "Periksa dialog Opsi Folder Explorer dalam mode gelap. ID utama: 59203365; sumber memerlukan 58383338. Singkatan build 26x20.6972 merupakan label pengamatan, bukan rentang kompatibilitas tanpa batas.",
+    "keywords": "dialog opsi folder gelap",
+    "evidence": "Diamati: 26x20.6972 · Dev/Beta (2025-10-17). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "DarkFileDialogs": {
+    "title": "Dialog operasi berkas gelap",
+    "body": "Amati dialog penyalinan dan akses ditolak dalam mode gelap. Pasangan utama: 57857165 dan 57994323. Sumber menambahkan 48433719 secara bersyarat, serta 49453572 pada Release Preview; prasyarat luas ini bukan fitur mandiri.",
+    "keywords": "dialog operasi berkas gelap",
+    "evidence": "Diamati: .5751 · Dev/Beta; Release Preview (2025-08-15). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "ExplorerHomeRecommendations": {
+    "title": "Berkas lokal dalam rekomendasi Beranda",
+    "body": "Periksa rekomendasi berkas lokal di Beranda Explorer dengan akun Microsoft pribadi atau akun lokal. ID utama: 51721485; 48895801 merupakan dependensi tampilan kartu opsional, bukan syarat membuka fitur.",
+    "keywords": "berkas lokal dalam rekomendasi beranda",
+    "evidence": "Diamati: 22635.4800 · Beta (2025-01-18). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "BackupReminderSnooze": {
+    "title": "Tunda pengingat pencadangan Explorer",
+    "body": "Periksa pengingat Mulai pencadangan pada bilah alamat Explorer untuk pilihan menonaktifkannya atau menunda selama satu bulan.",
+    "keywords": "tunda pengingat pencadangan explorer",
+    "evidence": "Diamati: 22635.4515 · Beta (2024-11-23). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "VoiceTypingFilter": {
+    "title": "Opsi filter kata kasar pengetikan suara",
+    "body": "Buka pengaturan pengetikan suara untuk memeriksa opsi penonaktifan filter kata kasar. Periksa teks dikte sebelum mengirim; ini memengaruhi penyaringan transkripsi, bukan izin mikrofon atau ketepatan pengenalan.",
+    "keywords": "opsi filter kata kasar pengetikan suara",
+    "evidence": "Diamati: 26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta (2025-04-25). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "NotificationClock": {
+    "title": "Jam di Pusat Pemberitahuan",
+    "body": "Setelah Explorer dimulai ulang, periksa opsi jam Pusat Pemberitahuan pada pengaturan Tanggal & waktu. ID utama: 42651849; 48433719 bersyarat. Jam ini terpisah dari detik pada baki bilah tugas.",
+    "keywords": "jam di pusat pemberitahuan",
+    "evidence": "Diamati: 22635.5240 · Beta (2025-04-18). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SecondaryNotificationCenter": {
+    "title": "Pusat Pemberitahuan di monitor tambahan",
+    "body": "Periksa Pusat Pemberitahuan pada monitor tambahan. Sumber secara jelas meminta mulai ulang tetapi hanya memberikan akhiran build .5722, sehingga kompatibilitas nomor build lengkap belum ditetapkan.",
+    "keywords": "pusat pemberitahuan di monitor tambahan",
+    "evidence": "Diamati: .5722 · Dev/Beta (2025-07-28). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "BatteryGraphLabels": {
+    "title": "Label grafik penggunaan baterai",
+    "body": "Periksa label di bawah grafik penggunaan baterai dalam Pengaturan untuk penjelasan ikonnya. ID utama: 53092139; prasyarat luas 48433719 bersyarat. Ini memengaruhi tampilan, bukan kapasitas atau daya tahan baterai.",
+    "keywords": "label grafik penggunaan baterai",
+    "evidence": "Diamati: 26120.2510 · Dev (2024-12-06). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "Energy": {
+    "title": "Eksperimen rekomendasi energi",
+    "body": "Pemetaan mengidentifikasi kontrol rekomendasi energi dengan 39427030 dan tema gelapnya dengan 41249924. Keduanya dikelompokkan sebagai satu arsip fitur; dependensi tepat belum diketahui. Menerapkan rekomendasi bawaan dapat mengubah beberapa preferensi daya.",
+    "keywords": "eksperimen rekomendasi energi",
+    "evidence": "Pemetaan historis pengelola: 25231 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "StartFolderCommands": {
+    "title": "Buat folder Mulai lewat menu konteks",
+    "body": "Klik kanan aplikasi yang disematkan di Mulai untuk memeriksa perintah pembuatan folder aplikasi atau pemindahan sematan ke folder yang ada. Sumber membedakan tindakan ini dari menggeser sematan ke samping.",
+    "keywords": "buat folder mulai lewat menu konteks",
+    "evidence": "Diamati: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "MoveStartPins": {
+    "title": "Pindahkan sematan Mulai lewat menu konteks",
+    "body": "Klik kanan aplikasi yang disematkan di Mulai untuk melihat perintah pemindahan satu posisi ke kiri atau kanan. Arsip ini membahas penataan sematan ramah papan ketik, bukan desain ulang lengkap menu Mulai berikutnya.",
+    "keywords": "pindahkan sematan mulai lewat menu konteks",
+    "evidence": "Diamati: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "AboutFaq": {
+    "title": "Tanya jawab perangkat keras pada Tentang",
+    "body": "Periksa bagian tanya jawab pada Pengaturan Tentang yang menjelaskan versi Windows dan spesifikasi perangkat. Konten ini bersifat penjelasan; tidak meningkatkan perangkat keras atau memverifikasi kompatibilitas aplikasi lain.",
+    "keywords": "tanya jawab perangkat keras pada tentang",
+    "evidence": "Diamati: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-17). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "AboutHardwareCards": {
+    "title": "Kartu ringkasan perangkat keras pada Tentang",
+    "body": "Periksa kartu penyimpanan, memori grafis, dan RAM pada Pengaturan Tentang. Pasangan utama: 51784082 dan 54618938; 48433719 bersyarat. Sumber meminta mulai ulang; desain Tentang berikutnya mungkin memakai resep lain.",
+    "keywords": "kartu ringkasan perangkat keras pada tentang",
+    "evidence": "Diamati: 22635.4660 · Beta (2025-01-04). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "AdvancedCameraHistory": {
+    "title": "Eksperimen pengaturan kamera lanjutan",
+    "body": "Periksa pilihan jenis media dan resolusi kamera lanjutan. Dev 26120.2702 memakai pasangan 49575624/50292326; Canary 27744 memakai 52142480. Ini pengamatan build terpisah, bukan kombinasi tiga ID. Dukungan perangkat keras kamera tetap diperlukan.",
+    "keywords": "eksperimen pengaturan kamera lanjutan",
+    "evidence": "Diamati: 26120.2702 · Dev; 27744 · Canary (2024-12-13). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "ModernSettingsDialogs": {
+    "title": "Tampilan dialog Pengaturan modern",
+    "body": "Pemetaan historis mengelompokkan perubahan tampilan Ganti nama PC (38228963), tanggal dan waktu (39811196), serta reset (41598133), bersama ID induk 36390579. Dependensi dan urutan aktivasi tidak diketahui. Arsip penelitian ini tidak mengganti nama, jam, atau mereset PC; reset dapat menghapus aplikasi dan data.",
+    "keywords": "tampilan dialog pengaturan modern",
+    "evidence": "Pemetaan historis pengelola: 25231 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "TaskManagerDisconnectDialog": {
+    "title": "Dialog putuskan pengguna modern",
+    "body": "Periksa tampilan dialog konfirmasi pemutusan pengguna pada Task Manager. Arsip ini hanya membahas gaya; benar-benar memutus sesi lain dapat mengganggu pekerjaan dan tidak dilakukan oleh katalog ini.",
+    "keywords": "dialog putuskan pengguna modern",
+    "evidence": "Diamati: 22635.4225 · Beta (2024-09-21). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "TaskManagerCpuCalculation": {
+    "title": "Pembaruan perhitungan CPU Task Manager",
+    "body": "Periksa perubahan perhitungan penggunaan CPU dan kolom utilitas CPU pada Task Manager. Pengamatan ini mengubah penyajian metrik, bukan mempercepat prosesor; hasil dapat berbeda dari build sebelumnya.",
+    "keywords": "pembaruan perhitungan cpu task manager",
+    "evidence": "Diamati: 26120.3360 · Dev/Beta (2025-02-28). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "TaskManagerDiskTypes": {
+    "title": "Label koneksi disk Task Manager",
+    "body": "Buka halaman Kinerja Task Manager untuk memeriksa label koneksi disk seperti NVMe dan SATA pada daftar dan grafik. Ini keterangan perangkat keras, bukan kontrol pengubah kinerja disk.",
+    "keywords": "label koneksi disk task manager",
+    "evidence": "Diamati: 22635.4225 · Beta (2024-09-21). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "KernelDumpHistory": {
+    "title": "Dump kernel langsung Task Manager",
+    "body": "Pemetaan historis menghubungkan ID ini dengan dump kernel langsung Task Manager. Dump dapat berisi memori sensitif; baca dokumentasi sebelum mengumpulkan atau membagikannya. Arsip ini tidak memulai dump.",
+    "keywords": "dump kernel langsung task manager",
+    "evidence": "Pemetaan historis pengelola: 25231 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "TaskManagerSearchHistory": {
+    "title": "Pencarian proses Task Manager",
+    "body": "Pemetaan historis mengidentifikasi kolom pencarian proses Task Manager. Periksa penyaringan proses pada build tersebut; pemetaan tidak menetapkan prasyarat lengkap atau dukungan berkelanjutan pada rilis berikutnya.",
+    "keywords": "pencarian proses task manager",
+    "evidence": "Pemetaan historis pengelola: 25231 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "ArchiveAppsHistory": {
+    "title": "Pengaturan Arsipkan Aplikasi yang diperbarui",
+    "body": "Periksa desain ulang historis halaman Arsipkan Aplikasi yang terkait dengan ID ini. Pemetaan menunjukkan pembaruan halaman, bukan jaminan setiap aplikasi terpasang dapat diarsipkan atau dipulihkan tanpa mengunduhnya.",
+    "keywords": "pengaturan arsipkan aplikasi yang diperbarui",
+    "evidence": "Pemetaan historis pengelola: 25231 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "AnimatedTaskbarPreviews": {
+    "title": "Animasi peralihan pratinjau bilah tugas",
+    "body": "Arahkan penunjuk ke aplikasi bilah tugas untuk mengamati animasi perubahan pratinjau, ukuran, dan penutupan. Sumber memberikan akhiran pembaruan alih-alih nomor build lengkap; peningkatan kinerja tidak terbukti.",
+    "keywords": "animasi peralihan pratinjau bilah tugas",
+    "evidence": "Diamati: .5751 · Dev/Beta; KB5064071 (2025-08-15). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "BatteryPercentageHistory": {
+    "title": "Persentase baterai dan ikon baru",
+    "body": "Periksa ikon baterai dan opsi persentasenya. Resep Januari 2025 ini terkait build 26120.3000; sumber juga merujuk pratinjau tersembunyi sebelumnya, tetapi keduanya tidak menjamin kompatibilitas berkelanjutan dengan pembaruan Windows berikutnya.",
+    "keywords": "persentase baterai dan ikon baru",
+    "evidence": "Diamati: 26120.3000 · Dev (2025-01-24). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "EmojiTray": {
+    "title": "Tombol Emoji dan lainnya di baki",
+    "body": "Periksa Emoji dan lainnya pada baki sistem, termasuk perilaku tampil saat mengetik dan pintasan pengaturan bilah tugas. Sumber membedakan tombol yang berfungsi pada build ini dari pengamatan sebelumnya yang hanya menampilkan pengaturan.",
+    "keywords": "tombol emoji dan lainnya di baki",
+    "evidence": "Diamati: 22635.4655 · Beta (2024-12-14). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "LowerLeftSearchHistory": {
+    "title": "Eksperimen kotak pencarian kiri bawah",
+    "body": "Pemetaan menamai ID ini sebagai eksperimen kotak pencarian kiri bawah. Periksa posisi pencarian pada build tercatat; sumber tidak menjelaskan semua interaksi dan arsip tidak menjanjikan tata letak ini pada bilah tugas sekarang.",
+    "keywords": "eksperimen kotak pencarian kiri bawah",
+    "evidence": "Pemetaan historis pengelola: 25136 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "TaskbarAnimationHistory": {
+    "title": "Eksperimen animasi bilah tugas",
+    "body": "Periksa eksperimen animasi bilah tugas yang dicatat pengelola untuk build ini. Pemetaan tidak menjelaskan resep aktivasi lengkap atau setiap animasi yang berubah; arsip tidak mengklaim perilaku identik pada bilah tugas modern.",
+    "keywords": "eksperimen animasi bilah tugas",
+    "evidence": "Pemetaan historis pengelola: 25182 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "TaskbarOverflowHistory": {
+    "title": "Kombinasi luapan bilah tugas",
+    "body": "Pengelola mencatat dua bagian implementasi luapan bilah tugas. Simpan 35620393 dan 35620394 sebagai satu arsip fitur, bukan dua fitur. Periksa luapan ketika banyak aplikasi memenuhi bilah tugas pada build tercatat.",
+    "keywords": "kombinasi luapan bilah tugas",
+    "evidence": "Pemetaan historis pengelola: 22622.436 · Beta. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "TaskbarStartupHistory": {
+    "title": "Eksperimen awal bilah tugas",
+    "body": "Pengelola menamainya eksperimen mempercepat awal bilah tugas. Pemetaan tidak menyertakan tolok ukur atau bukti kompatibilitas saat ini. Pertahankan sebagai catatan historis implementasi, bukan janji peningkatan kinerja atau rekomendasi optimasi.",
+    "keywords": "eksperimen awal bilah tugas",
+    "evidence": "Pemetaan historis pengelola: 25182 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "TaskbarTrayHistory": {
+    "title": "Area baki bilah tugas baru",
+    "body": "Pengelola memetakan ID ini ke area baki bilah tugas yang diperbarui. Periksa tampilan baki pada build tercatat; rincian perubahan perilaku dan dependensi lengkap tidak dijelaskan, sehingga ini tetap pengamatan historis hanya baca.",
+    "keywords": "area baki bilah tugas baru",
+    "evidence": "Pemetaan historis pengelola: 25193 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "DarkRun": {
+    "title": "Dialog Jalankan gelap",
+    "body": "Buka Jalankan dengan Win+R untuk memeriksa tampilan gelapnya. ID utama: 59270880; prasyarat wajib: 58383338. Sumber menyingkat build menjadi 26x20.6972, bukan menetapkan rentang kompatibilitas build lengkap yang pasti.",
+    "keywords": "dialog jalankan gelap",
+    "evidence": "Diamati: 26x20.6972 · Dev/Beta (2025-10-17). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "DragShareTray": {
+    "title": "Eksperimen baki seret untuk berbagi",
+    "body": "Seret berkas ke bagian atas layar untuk memeriksa baki berbagi dengan aplikasi tujuan dan panel Bagikan lengkap. Pasangan utama: 45624564 dan 53397005; 48433719 bersyarat, dan sumber meminta mulai ulang.",
+    "keywords": "eksperimen baki seret untuk berbagi",
+    "evidence": "Diamati: 22635.4805 · Beta (2025-01-25). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "EdgeDesktopSearchHistory": {
+    "title": "Kotak pencarian desktop Edge",
+    "body": "Pengelola mengidentifikasi kotak pencarian desktop Edge terkait ID ini. Periksa antarmuka desktop historis tersebut; pemetaan tidak membuktikan kemandirian dari komponen Edge terpasang atau dukungan pada rilis Windows sekarang.",
+    "keywords": "kotak pencarian desktop edge",
+    "evidence": "Pemetaan historis pengelola: 25136 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "WidgetExpansionHistory": {
+    "title": "Panel Widget yang diperluas",
+    "body": "Pemetaan historis menghubungkan ID ini dengan tampilan Widget yang diperluas. Periksa tata letak pada build pengamatan; ketersediaan konten tetap bergantung pada widget dan layanan terpasang, dan kompatibilitas sekarang belum diverifikasi.",
+    "keywords": "panel widget yang diperluas",
+    "evidence": "Pemetaan historis pengelola: 25201 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "ModernAutoPlay": {
+    "title": "Dialog AutoPlay modern",
+    "body": "Periksa dialog WinUI AutoPlay yang terpusat untuk dukungan mode gelap dan pilihan sekali atau selalu. Sumber memberikan build tepat tanpa saluran; tindakan nyata pada perangkat tetap membutuhkan pemilihan secara sadar.",
+    "keywords": "dialog autoplay modern",
+    "evidence": "Diamati: 26340.9212 (2026-08-17). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "SharePhotoEditing": {
+    "title": "Edit foto saat berbagi",
+    "body": "Periksa alat edit foto pada panel Bagikan Windows sebelum membagikan gambar. Kedua ID membentuk resep yang dilaporkan; simpan gambar asli dan periksa hasil sebelum mengirimkannya ke tempat lain.",
+    "keywords": "edit foto saat berbagi",
+    "evidence": "Diamati: 26200.5516 · Dev; 26120.3653 · Beta (2025-03-28). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "ShareWebPreview": {
+    "title": "Pratinjau tautan web saat berbagi",
+    "body": "Periksa pratinjau visual tautan web pada panel Bagikan Windows. Catatan ini berasal dari Beta 22635.4655; sumber tidak membuktikan kompatibilitas dengan sembarang rilis stabil atau semua aplikasi berbagi.",
+    "keywords": "pratinjau tautan web saat berbagi",
+    "evidence": "Diamati: 22635.4655 · Beta (2024-12-14). Dukungan perangkat ini belum diverifikasi; bukan rentang kompatibilitas."
+  },
+  "GamePassWidgetHistory": {
+    "title": "Widget Xbox Game Pass",
+    "body": "Pemetaan mengidentifikasi widget Xbox Game Pass, sementara nama fitur internalnya tidak diketahui. Periksa konten ini pada panel Widget; tanda fitur tidak memberikan langganan atau hak memainkan game.",
+    "keywords": "widget xbox game pass",
+    "evidence": "Pemetaan historis pengelola: 25201 · Dev. Dukungan saat ini dan kelengkapan resep belum diverifikasi."
+  },
+  "ToggleKeys": {
+    "title": "Bunyi penanda tombol pengunci",
+    "body": "Aktifkan Tombol alih pada Aksesibilitas → Papan ketik untuk mendengar perubahan Caps Lock, Num Lock, dan Scroll Lock. Pertimbangkan orang di sekitar sebelum mengaktifkan bunyi dalam ruangan sunyi.",
+    "keywords": "bunyi penanda tombol pengunci",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "CaptionMicrophone": {
+    "title": "Takarir untuk percakapan langsung",
+    "body": "Pada jendela takarir langsung, buka pengaturan dan sertakan audio mikrofon. Ucapan sekitar akan masuk ke takarir; pastikan akses mikrofon dan beri tahu peserta lain sebelum menakarir percakapan.",
+    "keywords": "takarir untuk percakapan langsung",
+    "evidence": "Takarir langsung Windows 11 22H2+; memerlukan bahasa yang didukung dan mikrofon. Perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "LiveCaptions": {
+    "title": "Takarir audio yang diputar PC",
+    "body": "Tekan Win+Ctrl+L dan selesaikan unduhan bahasa awal. Setelah penyiapan, takarir langsung memproses ucapan secara lokal. Bahasa pengenalan bervariasi; penerjemahan juga memerlukan perangkat keras Copilot+ yang kompatibel dan rilis yang didukung.",
+    "keywords": "takarir audio yang diputar pc",
+    "evidence": "Windows 11 22H2+ untuk takarir langsung; penerjemahan memerlukan Copilot+ PC dan 24H2+. Perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "ColorFilters": {
+    "title": "Filter penglihatan warna",
+    "body": "Buka Aksesibilitas → Filter warna dan pilih filter sesuai penglihatan Anda. Warna layar berubah, jadi nonaktifkan filter ketika penilaian warna yang akurat penting.",
+    "keywords": "filter penglihatan warna",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "VoiceAccess": {
+    "title": "Kendalikan Windows dengan suara",
+    "body": "Buka Aksesibilitas → Ucapan dan aktifkan Akses suara. Pilih bahasa yang didukung, unduh berkasnya, dan atur mikrofon. Pengenalan lalu berlangsung di perangkat; periksa izin mikrofon dan berlatih sebelum mengandalkannya.",
+    "keywords": "kendalikan windows dengan suara",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "StickyKeys": {
+    "title": "Masukkan kombinasi tombol berurutan",
+    "body": "Pada Aksesibilitas → Papan ketik, aktifkan Tombol lengket untuk memasukkan pintasan satu tombol sekali tekan. Perilaku tombol pengubah berubah; nonaktifkan jika kombinasi biasa terasa tidak sesuai.",
+    "keywords": "masukkan kombinasi tombol berurutan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "PointerVisibility": {
+    "title": "Temukan penunjuk lebih mudah",
+    "body": "Buka Aksesibilitas → Penunjuk mouse dan sentuhan. Perbesar penunjuk atau pilih warna kontras; pastikan penunjuk tidak menutupi kontrol kecil.",
+    "keywords": "temukan penunjuk lebih mudah",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "MonoAudio": {
+    "title": "Dengarkan kedua saluran melalui satu telinga",
+    "body": "Buka Aksesibilitas → Audio dan aktifkan Audio mono untuk menggabungkan saluran stereo. Berguna saat mendengarkan dengan satu telinga; nonaktifkan untuk memulihkan posisi stereo pada musik atau game.",
+    "keywords": "dengarkan kedua saluran melalui satu telinga",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "ContrastTheme": {
+    "title": "Antarmuka kontras tinggi",
+    "body": "Buka Aksesibilitas → Tema kontras dan terapkan palet yang sesuai. Periksa aplikasi biasa sebelum mempertahankannya; pilih Tidak ada untuk memulihkan tema normal.",
+    "keywords": "antarmuka kontras tinggi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "FilterKeys": {
+    "title": "Abaikan pengulangan tombol tak sengaja",
+    "body": "Buka Aksesibilitas → Papan ketik → Tombol filter dan sesuaikan sensitivitas. Uji pengetikan: penyaringan berlebihan dapat membuat papan ketik tampak tidak merespons. Pulihkan sensitivitas awal jika tekanan yang disengaja hilang.",
+    "keywords": "abaikan pengulangan tombol tak sengaja",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "NarratorDucking": {
+    "title": "Pastikan ucapan terdengar di atas audio lain",
+    "body": "Pada pengaturan Narator, aktifkan penurunan volume aplikasi lain saat Narator berbicara. Kontrol yang dibacakan lebih mudah dibedakan; musik atau audio rapat dapat sementara mengecil. Pulihkan pengaturan jika mengganggu.",
+    "keywords": "pastikan ucapan terdengar di atas audio lain",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "TextSize": {
+    "title": "Teks sistem lebih besar",
+    "body": "Buka Aksesibilitas → Ukuran teks, atur penggeser pratinjau, lalu terapkan. Ini memperbesar teks tanpa menskalakan semua elemen antarmuka; beberapa aplikasi mungkin mengabaikan preferensi ini.",
+    "keywords": "teks sistem lebih besar",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "Magnifier": {
+    "title": "Perbesar antarmuka yang sulit dibaca",
+    "body": "Tekan Win dan plus untuk membuka Kaca Pembesar; gunakan Win bersama plus atau minus untuk memperbesar atau memperkecil. Pilih tampilan lensa, tertambat, atau layar penuh pada pengaturannya; Win+Esc menutupnya.",
+    "keywords": "perbesar antarmuka yang sulit dibaca",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "MouseKeys": {
+    "title": "Gerakkan penunjuk dengan papan angka",
+    "body": "Aktifkan Tombol mouse pada Aksesibilitas → Mouse untuk mengendalikan penunjuk dengan papan angka. Perilaku papan angka berubah; pastikan Anda dapat kembali memasukkan angka biasa saat diperlukan.",
+    "keywords": "gerakkan penunjuk dengan papan angka",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "NarratorStartup": {
+    "title": "Narator sebelum atau sesudah masuk",
+    "body": "Buka pengaturan Narator dengan Win+Ctrl+N dan perluas opsi awal. Pilih apakah pembacaan dimulai sebelum atau sesudah masuk; perilaku sebelum masuk penting pada komputer bersama.",
+    "keywords": "narator sebelum atau sesudah masuk",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "CaptionStyle": {
+    "title": "Tampilan takarir yang mudah dibaca",
+    "body": "Buka Aksesibilitas → Takarir dan ubah gaya, termasuk teks dan latarnya. Pratinjau di atas video; pemutar tertentu mungkin menggunakan gaya takarir sendiri.",
+    "keywords": "tampilan takarir yang mudah dibaca",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "AccessKeyUnderlines": {
+    "title": "Tampilkan tombol akses papan ketik",
+    "body": "Aktifkan garis bawah tombol akses pada Aksesibilitas → Papan ketik. Menu yang mendukungnya menampilkan huruf pintasan lebih jelas; aplikasi tanpa tombol akses tidak memperoleh pintasan baru dari pengaturan ini.",
+    "keywords": "tampilkan tombol akses papan ketik",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "Narrator": {
+    "title": "Pembacaan layar dengan Narator",
+    "body": "Tekan Win+Ctrl+Enter untuk memulai Narator. Gunakan Win+Ctrl+N untuk mengatur suara, tingkat rincian, dan perangkat keluaran. Periksa volume di ruang bersama; pintasan awal juga menghentikan pembacaan.",
+    "keywords": "pembacaan layar dengan narator",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "VisualAudioAlerts": {
+    "title": "Lihat pemberitahuan suara",
+    "body": "Pada Aksesibilitas → Audio, pilih kedipan visual untuk pemberitahuan audio. Pilih bilah judul, jendela aktif, atau layar; pertimbangkan dengan hati-hati jika kedipan membuat Anda tidak nyaman.",
+    "keywords": "lihat pemberitahuan suara",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "TouchIndicator": {
+    "title": "Tampilkan titik sentuhan",
+    "body": "Buka Aksesibilitas → Penunjuk mouse dan sentuhan, lalu aktifkan indikator sentuhan. Lingkaran lebih besar dan gelap dapat membantu demonstrasi; diperlukan layar sentuh.",
+    "keywords": "tampilkan titik sentuhan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "OnScreenKeyboard": {
+    "title": "Mengetik tanpa papan ketik fisik",
+    "body": "Tekan Win+Ctrl+O untuk papan ketik layar aksesibilitas, atau aktifkan melalui Aksesibilitas → Papan ketik. Mendukung masukan penunjuk dan berbeda dari papan ketik sentuh; tekan pintasannya lagi untuk menutup.",
+    "keywords": "mengetik tanpa papan ketik fisik",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "TextCursorVisibility": {
+    "title": "Titik penyisipan teks yang terlihat",
+    "body": "Buka Aksesibilitas → Kursor teks. Atur ketebalan dan indikator warna bersama untuk menemukan titik penyisipan; sebagian editor mungkin menggambar kursornya sendiri.",
+    "keywords": "titik penyisipan teks yang terlihat",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "DesktopIconSize": {
+    "title": "Sesuaikan ukuran ikon desktop",
+    "body": "Klik kanan area desktop kosong dan pilih ukuran ikon melalui Tampilan, atau tahan Ctrl sambil memutar roda mouse. Ikon kecil menyisakan ruang lebih besar tetapi dapat lebih sulit dikenali.",
+    "keywords": "sesuaikan ukuran ikon desktop",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "WindowsAccent": {
+    "title": "Terapkan warna aksen pada jendela",
+    "body": "Buka Personalisasi → Warna, pilih aksen, dan tentukan tempat tampilnya, termasuk tepi jendela dan bilah judul. Penerapan pada Mulai dan bilah tugas memerlukan mode Windows gelap.",
+    "keywords": "terapkan warna aksen pada jendela",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "MonitorWallpapers": {
+    "title": "Tetapkan gambar untuk setiap monitor",
+    "body": "Buka Personalisasi → Latar belakang dan pilih Gambar. Klik kanan gambar terbaru untuk menetapkan monitor tujuan. Dokumentasi Microsoft menyatakan penetapan per monitor tidak tersedia ketika beberapa desktop virtual digunakan.",
+    "keywords": "tetapkan gambar untuk setiap monitor",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DynamicRefreshRate": {
+    "title": "Seimbangkan kelancaran dengan penyegaran dinamis",
+    "body": "Buka Sistem → Layar → Layar lanjutan dan aktifkan penyegaran dinamis jika tersedia. DRR memerlukan VRR dan minimal 120 Hz; nonaktifkan jika game kehilangan laju penyegaran maksimum yang diharapkan.",
+    "keywords": "seimbangkan kelancaran dengan penyegaran dinamis",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "DesktopWallpaper": {
+    "title": "Pilih latar desktop",
+    "body": "Buka Personalisasi → Latar belakang lalu pilih gambar, peragaan slide, warna solid, atau Windows Spotlight. Atur penyesuaian gambar atau waktu slide. Spotlight mengunduh gambar, dan beberapa desktop virtual memiliki batasan tambahan.",
+    "keywords": "pilih latar desktop",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "LockScreenAppearance": {
+    "title": "Pilih layar kunci yang lebih menjaga privasi",
+    "body": "Buka Personalisasi → Layar kunci dan pilih latar serta konten status bersama. Orang lain dapat melihatnya sebelum masuk; periksa apakah foto pribadi atau informasi status sebaiknya tetap terlihat.",
+    "keywords": "pilih layar kunci yang lebih menjaga privasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "WindowsColorMode": {
+    "title": "Pilih mode warna aplikasi dan sistem terpisah",
+    "body": "Buka Personalisasi → Warna dan pilih mode Kustom untuk mengatur Windows dan aplikasi secara terpisah. Pilih terang atau gelap untuk masing-masing. Beberapa aplikasi memakai tema sendiri dan mungkin tidak mengikuti preferensi ini.",
+    "keywords": "pilih mode warna aplikasi dan sistem terpisah",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "AmbientBrightness": {
+    "title": "Kendalikan kecerahan berdasarkan cahaya sekitar",
+    "body": "Pada Sistem → Layar → Kecerahan, periksa penyesuaian otomatis saat pencahayaan berubah. Opsi memerlukan sensor cahaya kompatibel; nonaktifkan jika perubahan dari sensor membuat layar sulit dibaca.",
+    "keywords": "kendalikan kecerahan berdasarkan cahaya sekitar",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "ContentAdaptiveBrightness": {
+    "title": "Kendalikan perubahan kecerahan akibat konten",
+    "body": "Buka Sistem → Layar → Kecerahan dan periksa penyesuaian berdasarkan konten. Menonaktifkannya dapat mencegah perubahan kecerahan yang mengganggu pekerjaan visual; hanya layar yang didukung menampilkan opsi ini.",
+    "keywords": "kendalikan perubahan kecerahan akibat konten",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "WindowsTransparency": {
+    "title": "Kendalikan bahan antarmuka transparan",
+    "body": "Buka Personalisasi → Warna dan ubah Efek transparansi. Nonaktifkan jika permukaan tembus pandang mempersulit pembacaan; aktifkan lagi untuk memulihkan tampilannya pada bagian Windows yang didukung.",
+    "keywords": "kendalikan bahan antarmuka transparan",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DesktopShortcut": {
+    "title": "Buat pintasan desktop",
+    "body": "Klik kanan area desktop kosong lalu pilih Baru → Pintasan. Pilih tujuan yang benar dan beri nama mudah dikenali. Untuk membatalkan, hapus hanya pintasan baru, bukan berkas tujuannya.",
+    "keywords": "buat pintasan desktop",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ThemeIconProtection": {
+    "title": "Pertahankan ikon desktop saat berganti tema",
+    "body": "Buka Personalisasi → Tema → Pengaturan ikon desktop dan hapus centang izin tema mengubah ikon desktop. Ikon pilihan Anda dapat tetap konsisten saat menerapkan tema tampilan lain.",
+    "keywords": "pertahankan ikon desktop saat berganti tema",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DisplayColorProfile": {
+    "title": "Kelola profil warna layar",
+    "body": "Buka Sistem → Layar → Profil warna, pilih layar tujuan, dan atur profilnya. Simpan profil asli: pengganti yang tidak cocok dapat mendistorsi warna pada aplikasi yang mendukungnya.",
+    "keywords": "kelola profil warna layar",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "AutomaticColorManagement": {
+    "title": "Kelola warna aplikasi secara otomatis",
+    "body": "Pada Sistem → Layar → Profil warna, pilih layar dan cari pengelolaan warna otomatis. Ini meningkatkan konsistensi pada perangkat keras grafis yang didukung, bukan menggantikan kalibrasi layar.",
+    "keywords": "kelola warna aplikasi secara otomatis",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "WindowsThemes": {
+    "title": "Simpan dan terapkan tema tampilan",
+    "body": "Buka Personalisasi → Tema untuk memilih tema terpasang atau menyimpan kombinasi saat ini. Tema dapat mengubah beberapa pengaturan visual dan suara sekaligus; kembali ke tema sebelumnya jika hasilnya tidak sesuai.",
+    "keywords": "simpan dan terapkan tema tampilan",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "NightLight": {
+    "title": "Jadwalkan warna layar lebih hangat",
+    "body": "Buka Sistem → Layar → Cahaya malam dan atur kehangatan serta jadwal bersama. Warna menjadi kurang akurat; nonaktifkan untuk pekerjaan peka warna. Waktu matahari terbenam mungkin bergantung pada pengaturan lokasi.",
+    "keywords": "jadwalkan warna layar lebih hangat",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "DesktopSystemIcons": {
+    "title": "Tampilkan ikon sistem desktop yang familier",
+    "body": "Buka Personalisasi → Tema → Pengaturan ikon desktop. Pilih entri seperti PC ini atau Keranjang Sampah. Ini mengontrol pintasan desktop, bukan membuat atau menghapus fitur sistem yang mendasarinya.",
+    "keywords": "tampilkan ikon sistem desktop yang familier",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DesktopIconVisibility": {
+    "title": "Sembunyikan ikon desktop sementara",
+    "body": "Klik kanan area desktop kosong dan gunakan Tampilan → Tampilkan ikon desktop untuk menyembunyikan atau menampilkan semuanya. Berkas tetap ada pada disk; ini perubahan tampilan, bukan penghapusan.",
+    "keywords": "sembunyikan ikon desktop sementara",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "EndTask": {
+    "title": "Tampilkan Akhiri tugas pada bilah tugas",
+    "body": "Buka Pengaturan → Sistem → Lanjutan dan aktifkan Akhiri tugas jika tersedia; rilis lama menaruhnya di Untuk pengembang. Klik kanan aplikasi bilah tugas untuk melihat perintah. Mengakhiri paksa dapat menghilangkan pekerjaan belum tersimpan. Mematikan pengaturan menghapus entri tetapi tidak memulihkan pekerjaan itu.",
+    "keywords": "tampilkan akhiri tugas pada bilah tugas",
+    "evidence": "Dokumentasi Lanjutan saat ini; halaman dipindahkan pada Windows 11 25H2+. Ketersediaan sebelumnya bervariasi; dukungan perangkat belum diverifikasi."
+  },
+  "DefaultApps": {
+    "title": "Pilih penangan berkas dan tautan",
+    "body": "Buka Pengaturan → Aplikasi → Aplikasi bawaan. Cari ekstensi atau protokol, atau pilih aplikasi untuk memeriksa asosiasinya. Tetapkan hanya jenis yang ingin diubah. Catat penangan lama agar dapat dipulihkan tanpa mereset semua aplikasi bawaan.",
+    "keywords": "pilih penangan berkas dan tautan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "ExplorerView": {
+    "title": "Pilih ikon atau rincian berkas",
+    "body": "Pada File Explorer, buka Tampilan dan pilih tata letak ikon, daftar, atau rincian. Gunakan rincian untuk membandingkan informasi berkas dan ikon untuk penelusuran visual; kembali ke tata letak sebelumnya kapan pun diperlukan.",
+    "keywords": "pilih ikon atau rincian berkas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ExplorerHome": {
+    "title": "Buka Explorer pada PC ini",
+    "body": "Pada File Explorer, buka menu tiga titik → Opsi. Ubah tujuan awal Explorer menjadi PC ini, bukan Beranda. Pulihkan pilihan sebelumnya jika lebih menyukai item terbaru dan sematan terlebih dahulu.",
+    "keywords": "buka explorer pada pc ini",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ExplorerQuickAccess": {
+    "title": "Sematkan folder yang sering dipakai",
+    "body": "Klik kanan folder di File Explorer dan pilih Sematkan ke Akses cepat. Ini menambahkan pintasan navigasi tanpa memindahkan folder. Klik kanan entri lalu lepaskan sematannya untuk menghapus pintasan itu.",
+    "keywords": "sematkan folder yang sering dipakai",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ExplorerNavigationPane": {
+    "title": "Pulihkan panel navigasi folder",
+    "body": "Pada File Explorer, pilih Tampilan → Tampilkan → Panel navigasi. Pohon folder kiri memudahkan menjangkau lokasi yang sering dipakai; alihkan lagi jika menginginkan lebih banyak ruang bagi isi berkas.",
+    "keywords": "pulihkan panel navigasi folder",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ExplorerSelectionBoxes": {
+    "title": "Pilih berkas memakai kotak centang",
+    "body": "Pada File Explorer, pilih Tampilan → Tampilkan → Kotak centang item. Gunakan kotaknya untuk memilih beberapa item tanpa menahan tombol pengubah; hapus opsi untuk memulihkan tampilan sebelumnya.",
+    "keywords": "pilih berkas memakai kotak centang",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "Extensions": {
+    "title": "Tampilkan ekstensi berkas",
+    "body": "Pada File Explorer, pilih Tampilan → Tampilkan → Ekstensi nama berkas. Akhiran lengkap membantu membedakan berkas yang mirip. Opsi tampilan ini tidak mengonversi berkas atau mengubah format dasarnya.",
+    "keywords": "tampilkan ekstensi berkas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "Hidden": {
+    "title": "Tampilkan berkas tersembunyi",
+    "body": "Pada File Explorer, pilih Tampilan → Tampilkan → Item tersembunyi. Konten yang biasanya tersembunyi akan terlihat untuk diperiksa. Jangan menghapus berkas sistem atau aplikasi yang asing hanya karena kini terlihat.",
+    "keywords": "tampilkan berkas tersembunyi",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "LongPaths": {
+    "title": "Pahami dukungan jalur panjang Win32",
+    "body": "Pada edisi yang mendukungnya, buka Kebijakan Grup → Konfigurasi Komputer → Templat Administratif → Sistem → Sistem berkas → Aktifkan jalur panjang Win32. Catat keadaan sebelumnya. Aplikasi juga harus menyatakan longPathAware; tidak semua batas jalur hilang. Mulai ulang proses terkait dan pulihkan kebijakan bila perlu.",
+    "keywords": "pahami dukungan jalur panjang win32",
+    "evidence": "Windows 11; ketersediaan editor Kebijakan Grup bergantung pada edisi. Persetujuan dukungan oleh aplikasi tetap diperlukan; belum diuji di perangkat."
+  },
+  "ExplorerCompact": {
+    "title": "Gunakan baris berkas lebih rapat",
+    "body": "Pada File Explorer, pilih Tampilan → Tampilan ringkas untuk mengurangi jarak antarentri. Lebih banyak berkas dapat terlihat, tetapi sasaran kecil mungkin kurang nyaman disentuh.",
+    "keywords": "gunakan baris berkas lebih rapat",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "PenShortcuts": {
+    "title": "Tetapkan tindakan tombol pena",
+    "body": "Buka Bluetooth & perangkat → Pena & Windows Ink dan atur tombol pintasan pena. Sesuaikan tekan sekali, dua kali, dan tahan dengan alur kerja; tindakan tersedia bergantung pada pena.",
+    "keywords": "tetapkan tindakan tombol pena",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "WindowsDisplayLanguage": {
+    "title": "Ubah bahasa tampilan Windows",
+    "body": "Buka Waktu & bahasa → Bahasa & wilayah, pasang bahasa yang diperlukan lalu pilih untuk Windows. Simpan pekerjaan sebelum keluar; edisi satu bahasa membatasi perubahan ini dan tata letak papan ketik dapat berubah.",
+    "keywords": "ubah bahasa tampilan windows",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "TouchpadGestures": {
+    "title": "Sesuaikan gestur beberapa jari bidang sentuh",
+    "body": "Buka Bluetooth & perangkat → Bidang sentuh dan perluas gestur tiga atau empat jari. Tetapkan tindakan peralihan yang berguna; beberapa gestur memerlukan bidang sentuh presisi dan dapat berbenturan dengan kebiasaan lama.",
+    "keywords": "sesuaikan gestur beberapa jari bidang sentuh",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "VoiceTyping": {
+    "title": "Dikte teks dengan tanda baca otomatis",
+    "body": "Letakkan kursor dalam kolom teks lalu tekan Win+H. Atur tanda baca otomatis melalui tombol roda gigi dan periksa sebelum mengirim; pengetikan suara membutuhkan mikrofon dan pengenalan ucapan daring.",
+    "keywords": "dikte teks dengan tanda baca otomatis",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "MouseClickLock": {
+    "title": "Seret tanpa menahan tombol mouse",
+    "body": "Buka Bluetooth & perangkat → Mouse → Pengaturan mouse tambahan → Tombol dan aktifkan ClickLock. Ini mengurangi kebutuhan menahan tombol saat menyeret; uji dahulu dengan pilihan yang tidak penting.",
+    "keywords": "seret tanpa menahan tombol mouse",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "TypingSuggestions": {
+    "title": "Dapatkan saran saat mengetik",
+    "body": "Buka Waktu & bahasa → Pengetikan dan aktifkan saran teks papan ketik fisik, termasuk saran multibahasa jika berguna. Dukungan berbeda menurut aplikasi dan bahasa; tinjau saran, jangan menganggapnya koreksi pasti.",
+    "keywords": "dapatkan saran saat mengetik",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "PointerLocator": {
+    "title": "Temukan penunjuk dengan Ctrl",
+    "body": "Buka pengaturan mouse tambahan → Opsi Penunjuk dan aktifkan penampilan lokasi penunjuk saat Ctrl ditekan. Tekan Ctrl untuk menguji penanda; tindakan ini tidak menggerakkan atau mengeklik penunjuk.",
+    "keywords": "temukan penunjuk dengan ctrl",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "TouchscreenGestures": {
+    "title": "Kelola gestur sentuh sistem",
+    "body": "Buka Bluetooth & perangkat → Sentuhan dan atur gestur tiga dan empat jari. Nonaktifkan jika aplikasi membutuhkan gestur sama; sistem dapat mengambil alih gerakan tersebut.",
+    "keywords": "kelola gestur sentuh sistem",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "Clipboard": {
+    "title": "Gunakan kembali riwayat papan klip dengan aman",
+    "body": "Tekan Win+V dan aktifkan riwayat papan klip untuk menggunakan item salinan terbaru. Periksa konten sensitif sebelum mengaktifkan sinkronisasi; Sistem → Papan klip mengontrol riwayat dan pembersihan, sedangkan item disematkan perlu perhatian terpisah.",
+    "keywords": "gunakan kembali riwayat papan klip dengan aman",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "InactiveWindowScroll": {
+    "title": "Gulir jendela tanpa mengaktifkannya",
+    "body": "Buka Bluetooth & perangkat → Mouse dan aktifkan menggulir jendela tidak aktif saat penunjuk berada di atasnya. Uji dengan jendela bertumpuk: pengguliran dapat memengaruhi konten latar meski fokus papan ketik berada di tempat lain.",
+    "keywords": "gulir jendela tanpa mengaktifkannya",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "AppLanguageOrder": {
+    "title": "Atur bahasa pilihan aplikasi",
+    "body": "Pada Waktu & bahasa → Bahasa & wilayah, urutkan bahasa pilihan. Aplikasi yang mendukungnya memakai urutan ini untuk terjemahan; aplikasi tidak dapat menampilkan bahasa yang tidak disediakannya.",
+    "keywords": "atur bahasa pilihan aplikasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "PenHandedness": {
+    "title": "Atur tangan menulis untuk pena",
+    "body": "Pada Bluetooth & perangkat → Pena & Windows Ink, pilih tangan menulis. Ini membantu interaksi pena yang didukung sesuai pegangan; diperlukan perangkat keras pena kompatibel dan layar tidak dikalibrasi ulang.",
+    "keywords": "atur tangan menulis untuk pena",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "KeyboardLayouts": {
+    "title": "Beralih tata letak papan ketik dengan sadar",
+    "body": "Buka opsi bahasa di Bahasa & wilayah lalu tambahkan tata letak papan ketik. Beralih dengan Win+Spasi; pastikan tata letak aktif sebelum mengetik kata sandi, lalu hapus tata letak tak terpakai bila perlu.",
+    "keywords": "beralih tata letak papan ketik dengan sadar",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "PrintScreenCapture": {
+    "title": "Gunakan PrtSc untuk potongan layar",
+    "body": "Pada Aksesibilitas → Papan ketik, aktifkan opsi tangkapan Print Screen. PrtSc lalu membuka potongan layar menggantikan perilaku lama; pastikan pintasan tangkapan layar Anda masih berfungsi sesuai harapan.",
+    "keywords": "gunakan prtsc untuk potongan layar",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "NotificationDuration": {
+    "title": "Tambahkan waktu membaca spanduk",
+    "body": "Buka Aksesibilitas → Efek visual dan perpanjang waktu penutupan pemberitahuan. Spanduk terlihat lebih lama sehingga mudah dibaca, tetapi dapat menutupi pekerjaan; pulihkan durasi sebelumnya jika tidak lagi diperlukan.",
+    "keywords": "tambahkan waktu membaca spanduk",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "SecurityNotifications": {
+    "title": "Kurangi pemberitahuan keamanan informatif",
+    "body": "Buka Keamanan Windows → Pengaturan → Kelola pemberitahuan. Tinjau informasi pemindaian dan peringatan jaringan sambil mempertahankan pesan penting. Peringatan tindakan segera tetap dikirim. Kebijakan organisasi dapat mengunci kontrol; pulihkan pilihan lama jika konteks berguna hilang.",
+    "keywords": "kurangi pemberitahuan keamanan informatif",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "PerAppNotifications": {
+    "title": "Kurangi spanduk aplikasi yang mengganggu",
+    "body": "Buka Sistem → Pemberitahuan, pilih aplikasi, lalu atur spanduk, suara, dan prioritas bersama. Pertahankan peringatan penting; kontrol ini mengubah cara pengiriman tanpa menghapus data aplikasi.",
+    "keywords": "kurangi spanduk aplikasi yang mengganggu",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "DoNotDisturb": {
+    "title": "Jadwalkan waktu tenang dengan pengecualian",
+    "body": "Buka Sistem → Pemberitahuan dan atur kondisi otomatis Jangan ganggu serta pengecualian prioritas. Periksa aplikasi dan panggilan penting sebelum mengandalkan keheningan; mematikan aturan belum tentu mengakhiri waktu tenang yang sedang berjalan.",
+    "keywords": "jadwalkan waktu tenang dengan pengecualian",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "Focus": {
+    "title": "Mulai sesi fokus berjangka",
+    "body": "Buka Sistem → Fokus, pilih durasi, lalu mulai sesi. Tinjau opsi pemberitahuan dan bilah tugas terlebih dahulu; setelah selesai, periksa apakah Jangan ganggu masih aktif sebelum mengharapkan peringatan mendesak.",
+    "keywords": "mulai sesi fokus berjangka",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat belum diverifikasi; diperiksa 2026-10-08."
+  },
+  "HibernateEntry": {
+    "title": "Tambahkan opsi daya hibernasi",
+    "body": "Buka Panel Kontrol → Opsi Daya → Pilih fungsi tombol daya → Ubah pengaturan yang saat ini tidak tersedia. Jika ada, pilih Hibernasi lalu simpan. Menghapus opsi menu membatalkan perubahan ini, tetapi tidak menghapus berkas hibernasi.",
+    "keywords": "tambahkan opsi daya hibernasi",
+    "evidence": "Windows 11; hibernasi memerlukan perangkat keras dan konfigurasi kompatibel. Ketersediaan pada perangkat ini belum diverifikasi."
+  },
+  "PowerMode": {
+    "title": "Seimbangkan kinerja dan daya",
+    "body": "Buka Pengaturan → Sistem → Daya & baterai → Mode daya. Pilih keseimbangan sesuai beban kerja dan catat mode sebelumnya. Kinerja tinggi dapat menambah panas dan pemakaian baterai; mode tersedia bergantung pada perangkat keras dan rencana daya aktif.",
+    "keywords": "seimbangkan kinerja dan daya",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "LidPowerActions": {
+    "title": "Pilih tindakan penutup dan tombol daya",
+    "body": "Buka Panel Kontrol → Sistem dan Keamanan → Opsi Daya → Pilih fungsi tombol daya. Atur tindakan baterai dan tersambung listrik secara terpisah, lalu simpan. Laptop yang tetap menyala dapat kepanasan dalam tas; mematikan dapat menghilangkan pekerjaan belum tersimpan.",
+    "keywords": "pilih tindakan penutup dan tombol daya",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "StartupApps": {
+    "title": "Pilih aplikasi awal saat masuk",
+    "body": "Buka Pengaturan → Aplikasi → Mulai dan periksa aplikasi terdaftar. Task Manager → Aplikasi mulai juga menampilkan dampak awal terukur. Nonaktifkan hanya aplikasi opsional yang dikenali; sinkronisasi atau perlindungan penting bisa berhenti dimulai. Aktifkan kembali untuk memulihkan perilaku masuk berikutnya.",
+    "keywords": "pilih aplikasi awal saat masuk",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "EnergySaver": {
+    "title": "Atur penghemat energi",
+    "body": "Buka Pengaturan → Sistem → Daya & baterai → Penghemat energi. Tinjau ambang aktivasi dan perilaku kecerahan bersama. Pembatasan pekerjaan latar dapat menunda pemberitahuan dan sinkronisasi. Pulihkan ambang sebelumnya atau matikan jika kompromi ini tidak lagi sesuai pekerjaan.",
+    "keywords": "atur penghemat energi",
+    "evidence": "Dokumentasi Windows 11 saat ini; rilis lama memakai nama dan opsi berbeda. Dukungan perangkat belum diverifikasi."
+  },
+  "DeliveryOptimization": {
+    "title": "Kendalikan berbagi unduhan dan lebar pita pembaruan",
+    "body": "Buka Pengaturan → Windows Update → Opsi lanjutan → Pengoptimalan Pengiriman. Tinjau cakupan berbagi antarperangkat, batas lebar pita, dan statistik aktivitas. Berbagi internet memakai kuota unggah. Pulihkan batas lama jika unduhan terlalu lambat; mematikan berbagi tidak mematikan Windows Update.",
+    "keywords": "kendalikan berbagi unduhan dan lebar pita pembaruan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SleepDiagnosis": {
+    "title": "Diagnosis penghalang tidur dan pemicu bangun",
+    "body": "Gunakan terminal untuk memeriksa powercfg /requests bagi penghalang tidur, /lastwake bagi sumber bangun terakhir, dan /waketimers bagi jadwal bangun. Beberapa kueri membutuhkan administrator. Ini kueri diagnosis; jangan menerapkan penimpaan permintaan atau mematikan tugas pembaruan melalui panduan ini.",
+    "keywords": "diagnosis penghalang tidur dan pemicu bangun",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "BatteryReport": {
+    "title": "Periksa riwayat kapasitas baterai",
+    "body": "Pada terminal dalam folder yang dapat ditulis, jalankan powercfg /batteryreport lalu buka jalur HTML yang ditampilkan. Bandingkan kapasitas rancangan dan kapasitas penuh yang dilaporkan tanpa menganggapnya jaminan kesehatan presisi. Tinjau riwayat penggunaan sebelum berbagi; hapus laporan setelah selesai.",
+    "keywords": "periksa riwayat kapasitas baterai",
+    "evidence": "Dokumentasi Windows powercfg; berguna pada perangkat berbaterai. Ketepatan laporan bergantung pada firmware; belum diuji di perangkat."
+  },
+  "WslResources": {
+    "title": "Batasi sumber daya WSL 2",
+    "body": "Gunakan WSL Settings atau ubah memory dan processors pada [wsl2] di .wslconfig profil pengguna. Simpan berkas asli. Simpan semua pekerjaan Linux sebelum memulai ulang WSL; batas memengaruhi semua distribusi WSL 2. Pulihkan konfigurasi lama jika proses build atau layanan kekurangan sumber daya.",
+    "keywords": "batasi sumber daya wsl 2",
+    "evidence": "Khusus WSL 2; memerlukan rilis WSL yang mendukung opsi pilihan. Pengujian kompatibilitas perangkat belum dilakukan."
+  },
+  "BackgroundApps": {
+    "title": "Batasi aktivitas latar per aplikasi",
+    "body": "Buka Pengaturan → Sistem → Daya & baterai → Penggunaan baterai. Untuk aplikasi yang mendukungnya, pilih Opsi lainnya → Kelola aktivitas latar lalu tinjau izinnya. Tidak pernah dapat menghentikan pemberitahuan dan sinkronisasi; pulihkan pilihan sebelumnya jika pembaruan terlewat.",
+    "keywords": "batasi aktivitas latar per aplikasi",
+    "evidence": "Windows 11; navigasi Penggunaan baterai memerlukan perangkat berbaterai dan aplikasi yang didukung. Batasan kebijakan belum diverifikasi."
+  },
+  "SearchCloudSources": {
+    "title": "Pilih akun untuk pencarian awan",
+    "body": "Buka Privasi & keamanan → Pencarian, atau Izin pencarian pada versi lama, lalu tinjau Pencarian konten awan. Kendalikan sumber akun Microsoft serta kerja atau sekolah secara terpisah. Sakelar ini bukan pengendali umum pencarian web.",
+    "keywords": "pilih akun untuk pencarian awan",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "SearchIndexScope": {
+    "title": "Pilih pengindeksan klasik atau diperluas",
+    "body": "Buka Privasi & keamanan → Pencarian, disebut Mencari Windows pada sebagian versi, lalu temukan Cari berkas saya. Pilih cakupan Klasik atau Diperluas. Indeks awal yang lebih besar menambah aktivitas disk, waktu pemrosesan, dan penggunaan baterai.",
+    "keywords": "pilih pengindeksan klasik atau diperluas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "SearchIndexTypes": {
+    "title": "Pilih jenis berkas dan konten yang diindeks",
+    "body": "Buka lokasi pencarian kustom dari Privasi & keamanan → Pencarian, lalu Lanjutan → Jenis Berkas. Atur ekstensi yang diindeks dan caranya. Perubahan mungkin memerlukan pembangunan ulang indeks dan tidak langsung terlihat pada hasil.",
+    "keywords": "pilih jenis berkas dan konten yang diindeks",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "OptionalDiagnostics": {
+    "title": "Pilih pembagian diagnosis opsional",
+    "body": "Buka Pengaturan → Privasi & keamanan → Diagnostik & umpan balik lalu tinjau data diagnosis opsional. Diagnosis wajib tetap berlaku saat berbagi opsional dimatikan. Laporan opsional dapat memuat aktivitas dan memori saat macet. Pilih dengan sadar; kebijakan organisasi dapat mengunci kontrol.",
+    "keywords": "pilih pembagian diagnosis opsional",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SearchDeviceHistory": {
+    "title": "Hapus riwayat pencarian pada perangkat ini",
+    "body": "Buka Privasi & keamanan → Pencarian atau Izin pencarian, lalu temukan kontrol riwayat. Hapus riwayat perangkat hanya jika dimaksudkan: ini tidak menghapus catatan Bing di awan dan riwayat lokal tidak dapat dipulihkan melalui Pengaturan.",
+    "keywords": "hapus riwayat pencarian pada perangkat ini",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "AdvertisingIdentifier": {
+    "title": "Kendalikan pengenal iklan aplikasi",
+    "body": "Buka Pengaturan → Privasi & keamanan → Rekomendasi & penawaran lalu tinjau penggunaan ID iklan oleh aplikasi. Mematikannya mengubah personalisasi, bukan jumlah iklan atau kuki situs. Mengaktifkannya lagi mereset pengenal, bukan mengembalikan nilai sebelumnya.",
+    "keywords": "kendalikan pengenal iklan aplikasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SearchWebSuggestions": {
+    "title": "Kendalikan saran pencarian web dan Store",
+    "body": "Pada pratinjau yang mendukungnya, buka Privasi & keamanan → Pencarian dan pilih apakah saran web dan Microsoft Store muncul bersama hasil lokal. Wilayah dan peluncuran memengaruhi ketersediaan; jangan menggantinya dengan resep registri tak terverifikasi jika kontrol tidak ada.",
+    "keywords": "kendalikan saran pencarian web dan store",
+    "evidence": "Pengumuman saluran Experimental, 2026-07-13; peluncuran terkendali dan variasi wilayah. ID ViVe numerik maupun dukungan perangkat saat ini belum diverifikasi."
+  },
+  "AppDiagnosticPrivacy": {
+    "title": "Batasi aplikasi yang memeriksa aplikasi lain",
+    "body": "Buka Pengaturan → Privasi & keamanan → Diagnostik aplikasi lalu tinjau akses setiap aplikasi terdaftar. Diagnosis dapat mencakup nama aplikasi berjalan dan penggunaan memori. Kontrol berlaku bagi aplikasi yang didukung; aplikasi desktop tradisional mungkin tidak terpengaruh. Pulihkan izin yang diperlukan jika alur diagnosis rusak.",
+    "keywords": "batasi aplikasi yang memeriksa aplikasi lain",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "FileAccessPrivacy": {
+    "title": "Tinjau izin sistem berkas aplikasi",
+    "body": "Buka Pengaturan → Privasi & keamanan → Sistem berkas dan tinjau akses aplikasi terdaftar. Izin dapat membuka berkas yang tersedia bagi akun Anda; pencabutan dapat merusak alur kerja aplikasi. Beberapa program desktop tidak termasuk daftar dan tidak dibatasi sakelar ini.",
+    "keywords": "tinjau izin sistem berkas aplikasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "LocationPermissions": {
+    "title": "Tinjau akses lokasi per aplikasi",
+    "body": "Buka Pengaturan → Privasi & keamanan → Lokasi. Tinjau layanan lokasi, izin aplikasi, dan akses terbaru sebelum mengubahnya. Aplikasi berbasis lokasi dapat kehilangan fungsi. Aplikasi desktop dan situs mungkin memiliki kontrol tambahan; halaman ini tidak menjamin anonimitas lokasi lengkap.",
+    "keywords": "tinjau akses lokasi per aplikasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "PersonalizedOffers": {
+    "title": "Tinjau penawaran Windows yang dipersonalisasi",
+    "body": "Buka Pengaturan → Privasi & keamanan dan cari Penawaran yang dipersonalisasi atau Rekomendasi & penawaran menurut rilis. Tinjau izin memakai aktivitas Windows untuk saran khusus. Ini mengontrol mekanisme personalisasi tersebut, bukan semua iklan Windows, peramban, atau aplikasi pihak ketiga.",
+    "keywords": "tinjau penawaran windows yang dipersonalisasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SearchIndexFolders": {
+    "title": "Pilih folder dalam indeks",
+    "body": "Buka Privasi & keamanan → Pencarian dan ikuti tautan lokasi pencarian kustom. Pilih Ubah untuk memilih folder. Menghapus lokasi dapat membuat berkas lebih lambat ditemukan atau hilang dari hasil indeks.",
+    "keywords": "pilih folder dalam indeks",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DefaultLocation": {
+    "title": "Tetapkan lokasi perangkat cadangan",
+    "body": "Buka Pengaturan → Privasi & keamanan → Lokasi → Lokasi bawaan → Tetapkan bawaan. Pilih lokasi ketika penentuan posisi tepat tidak tersedia. Alamat dapat terlihat oleh layanan yang memenuhi syarat; kosongkan alamat lalu simpan untuk menghapus cadangan.",
+    "keywords": "tetapkan lokasi perangkat cadangan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SearchSafeFilter": {
+    "title": "Atur filter keamanan pencarian",
+    "body": "Buka Privasi & keamanan → Pencarian atau Izin pencarian, lalu pilih tingkat SafeSearch. Penyaringan memengaruhi konten web dalam pencarian; kebijakan keluarga atau organisasi dapat membatasi tingkat yang boleh dipilih.",
+    "keywords": "atur filter keamanan pencarian",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "StartPowerFolders": {
+    "title": "Tambahkan folder di samping tombol daya",
+    "body": "Buka Personalisasi → Mulai → Folder dan pilih tujuan berguna seperti Unduhan atau Dokumen. Pintasan tampil di samping kontrol daya; hapus entri yang tidak diperlukan melalui halaman yang sama.",
+    "keywords": "tambahkan folder di samping tombol daya",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "StartPins": {
+    "title": "Sematkan aplikasi dan folder ke Mulai",
+    "body": "Klik kanan aplikasi atau folder yang didukung lalu pilih Sematkan ke Mulai. Seret sematan ke urutan yang berguna. Lepaskan sematan dari Mulai untuk menghapus entri tanpa menghapus tujuannya.",
+    "keywords": "sematkan aplikasi dan folder ke mulai",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "StorageSense": {
+    "title": "Aturan pembersihan otomatis",
+    "body": "Buka Pengaturan → Sistem → Penyimpanan → Sensor Penyimpanan. Tinjau frekuensi serta retensi Keranjang Sampah dan Unduhan bersama. Pertahankan Unduhan pada Tidak pernah kecuali dicadangkan. Berkas awan dapat menjadi khusus daring; mematikan pembersihan tidak memulihkan berkas terhapus.",
+    "keywords": "aturan pembersihan otomatis",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "DeviceEncryption": {
+    "title": "Periksa enkripsi dan kesiapan pemulihan",
+    "body": "Buka Pengaturan → Privasi & keamanan → Enkripsi perangkat sebagai administrator. Pastikan pemegang kunci pemulihan dan amankan cadangan yang dapat digunakan sebelum mengaktifkan enkripsi. Perangkat Home yang didukung juga bisa memenuhi syarat. Kehilangan akses pemulihan dapat mengunci data; dekripsi adalah proses terpisah yang mungkin lama.",
+    "keywords": "periksa enkripsi dan kesiapan pemulihan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SudoMode": {
+    "title": "Pilih isolasi sudo bawaan",
+    "body": "Buka pengaturan pengembang atau Sistem → Lanjutan lalu tinjau Aktifkan sudo. Utamakan mode jendela baru bawaan kecuali memahami risiko interaksi tambahan eksekusi sebaris. Otorisasi UAC tetap berlaku. Mematikan sudo tidak membatalkan perintah yang sudah dijalankan sebagai administrator.",
+    "keywords": "pilih isolasi sudo bawaan",
+    "evidence": "Windows 11 24H2+; pengaturan pindah ke Lanjutan pada 25H2+. Dukungan perangkat saat ini belum diverifikasi."
+  },
+  "NetworkProfile": {
+    "title": "Pilih visibilitas jaringan publik atau privat",
+    "body": "Buka Pengaturan → Jaringan & internet → properti koneksi → Jenis profil jaringan. Pertahankan Publik untuk jaringan tak tepercaya; Privat memungkinkan penemuan untuk berbagi. Catat profil lama dan periksa kebutuhan berbagi sebelum mengubahnya. Pulihkan jika akses berubah tak terduga.",
+    "keywords": "pilih visibilitas jaringan publik atau privat",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "DefaultTerminal": {
+    "title": "Pilih host terminal bawaan",
+    "body": "Buka Pengaturan → Sistem → Lanjutan → Terminal lalu pilih host terminal terpasang yang disukai. Rilis lama menaruhnya di Untuk pengembang. Uji aplikasi konsol yang diandalkan; perubahan host dapat mengubah tampilan dan interaksi. Pulihkan host lama bila perlu.",
+    "keywords": "pilih host terminal bawaan",
+    "evidence": "Halaman Lanjutan Windows 11 25H2+; rilis lama memakai Untuk pengembang. Pilihan bergantung pada aplikasi terminal terpasang."
+  },
+  "ContentDrive": {
+    "title": "Pilih tempat penyimpanan konten baru",
+    "body": "Buka Pengaturan → Sistem → Penyimpanan → Pengaturan penyimpanan lanjutan → Tempat konten baru disimpan. Pilih drive per kategori konten. Ini tidak memindahkan berkas lama atau memaksa semua pemasang memakai drive tersebut; pastikan drive lepas tetap tersedia.",
+    "keywords": "pilih tempat penyimpanan konten baru",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "WslSystemd": {
+    "title": "Atur systemd untuk distribusi WSL",
+    "body": "Periksa apakah distribusi sudah memakai systemd. Jika perlu, simpan /etc/wsl.conf lalu tambahkan systemd=true di [boot]. Simpan pekerjaan Linux sebelum memulai ulang WSL. Perilaku awal layanan berubah; pulihkan konfigurasi boot lama untuk membatalkan dan tinjau layanan yang diaktifkan terpisah.",
+    "keywords": "atur systemd untuk distribusi wsl",
+    "evidence": "WSL 2 dengan WSL 0.67.6+; beberapa distribusi sudah memakai systemd. Dukungan perangkat dan distribusi belum diverifikasi."
+  },
+  "SandboxIsolation": {
+    "title": "Batasi jaringan dan berbagi berkas Sandbox",
+    "body": "Buat konfigurasi .wsb yang sudah ditinjau dengan Networking bernilai Disable; hindari pemetaan folder host kecuali perlu dan jadikan hanya baca. Jalankan konfigurasi itu. Pemetaan dapat ditulis membuka data host, sedangkan perubahan khusus sandbox hilang saat ditutup. Pulihkan konfigurasi lama terpisah dari berkas host yang rusak.",
+    "keywords": "batasi jaringan dan berbagi berkas sandbox",
+    "evidence": "Windows Sandbox harus sudah terpasang. Opsi konfigurasi bergantung pada rilis Windows; perilaku perangkat belum diverifikasi."
+  },
+  "RestorePoint": {
+    "title": "Buat titik pemulihan sebelum bereksperimen",
+    "body": "Cari Buat titik pemulihan pada Mulai. Pilih drive sistem, atur Perlindungan Sistem dan batas ruang bila perlu, lalu pilih Buat dengan deskripsi bermakna. Simpan cadangan berkas pribadi terpisah: titik pemulihan kedaluwarsa dan tidak menjamin pembatalan semua perubahan fitur atau pihak ketiga.",
+    "keywords": "buat titik pemulihan sebelum bereksperimen",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "DeveloperMode": {
+    "title": "Aktifkan alat pengembangan aplikasi",
+    "body": "Cari Mode Pengembang dalam Pengaturan. Pada 25H2 atau sesudahnya, gunakan Sistem → Lanjutan → Untuk pengembang. Baca konfirmasi sebelum mengaktifkan; akses administrator diperlukan. Penggunaan biasa tidak membutuhkannya. Mematikannya belum tentu menghapus aplikasi atau komponen pengembangan yang sudah dipasang.",
+    "keywords": "aktifkan alat pengembangan aplikasi",
+    "evidence": "Windows 11; Lanjutan menggantikan halaman Untuk pengembang pada 25H2+. Kebijakan dan ketersediaan perangkat belum diverifikasi."
+  },
+  "DevDrive": {
+    "title": "Rencanakan Dev Drive untuk kode sumber",
+    "body": "Buka Pengaturan → Sistem → Penyimpanan → Pengaturan penyimpanan lanjutan → Disk & volume → Buat drive pengembang. Tinjau opsi VHD baru setelah mencadangkan. Volume lama tidak dapat dikonversi langsung. Periksa kompatibilitas ReFS dan pertahankan penyaringan keamanan; pindahkan data sebelum menghapus drive nanti.",
+    "keywords": "rencanakan dev drive untuk kode sumber",
+    "evidence": "Microsoft mensyaratkan Windows 11 build 22621.2338+, akses administrator, RAM ≥8 GB, dan ruang kosong ≥50 GB. Perangkat belum diverifikasi."
+  },
+  "OfflineScan": {
+    "title": "Siapkan pemindaian luring Defender",
+    "body": "Buka Keamanan Windows → Perlindungan virus & ancaman → Opsi pemindaian lalu periksa Microsoft Defender Offline. Simpan pekerjaan dan pastikan kunci pemulihan tersedia sebelum menyetujui. Pemindaian memulai ulang PC ke pemulihan; tinjau tindakan karantina sesudahnya, jangan menganggap semua perubahan otomatis dapat dibatalkan.",
+    "keywords": "siapkan pemindaian luring defender",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "ActiveHours": {
+    "title": "Kurangi gangguan mulai ulang pembaruan",
+    "body": "Buka Pengaturan → Windows Update → Opsi lanjutan → Jam aktif. Pilih deteksi otomatis atau atur jam kerja sendiri. Ini membantu menjadwalkan mulai ulang di luar pemakaian normal, bukan blok permanen. Simpan pekerjaan dan tinjau pemberitahuan mulai ulang tertunda secara terpisah.",
+    "keywords": "kurangi gangguan mulai ulang pembaruan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "MeteredConnection": {
+    "title": "Kurangi pemakaian koneksi terbatas",
+    "body": "Buka Pengaturan → Jaringan & internet, pilih koneksi Wi-Fi atau Ethernet, lalu tinjau Koneksi terukur. Ini dapat mengurangi transfer latar tetapi menunda sinkronisasi dan beberapa pembaruan. Pulihkan pengaturan lama bila sesuai; ini bukan jaminan batas data.",
+    "keywords": "kurangi pemakaian koneksi terbatas",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "RepairApps": {
+    "title": "Perbaiki aplikasi sebelum meresetnya",
+    "body": "Buka Pengaturan → Aplikasi → Aplikasi terpasang → menu aplikasi → Opsi lanjutan. Coba Perbaiki jika tersedia. Reset adalah cadangan terpisah yang dapat membuang data dan pengaturan aplikasi; cadangkan dahulu dan baca konfirmasi. Tidak semua program desktop memiliki kontrol ini.",
+    "keywords": "perbaiki aplikasi sebelum meresetnya",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "WslNetworking": {
+    "title": "Tinjau jaringan cermin WSL",
+    "body": "Pada WSL Settings, tinjau jaringan cermin atau atur networkingMode=mirrored di [wsl2] dalam .wslconfig. Simpan pekerjaan berjalan sebelum memulai ulang WSL. Ini mengubah paparan jaringan; pertahankan penyaringan firewall. Untuk membatalkan, pulihkan mode jaringan sebelumnya dan mulai ulang WSL lagi.",
+    "keywords": "tinjau jaringan cermin wsl",
+    "evidence": "Windows 11 22H2+ dan rilis WSL 2 kompatibel; kebijakan serta kompatibilitas jaringan lokal belum diverifikasi."
+  },
+  "RepairWindows": {
+    "title": "Tinjau perbaikan Windows di tempat",
+    "body": "Buka Pengaturan → Sistem → Pemulihan → Perbaiki masalah menggunakan Windows Update. Cadangkan dahulu, pertahankan listrik dan internet, lalu tinjau konfirmasi pemasangan ulang serta mulai ulang. Dirancang mempertahankan aplikasi, berkas, dan pengaturan, tetapi tidak memiliki pembatalan langsung dan tidak tersedia pada sebagian perangkat terkelola.",
+    "keywords": "tinjau perbaikan windows di tempat",
+    "evidence": "Windows 11 22H2+ dengan pembaruan opsional Februari 2024 atau lebih baru. Batasan pengelolaan pembaruan berlaku; perangkat belum diverifikasi."
+  },
+  "ProxyConfiguration": {
+    "title": "Tinjau konfigurasi proksi organisasi",
+    "body": "Buka Pengaturan → Jaringan & internet → Proksi. Gunakan hanya detail deteksi, skrip, atau server dari administrator tepercaya. Pengaturan salah dapat memutus akses dan proksi dapat mengamati lalu lintas terkait. Catat konfigurasi lama; proksi VPN diatur terpisah.",
+    "keywords": "tinjau konfigurasi proksi organisasi",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "ReputationProtection": {
+    "title": "Tinjau perlindungan reputasi unduhan",
+    "body": "Buka Keamanan Windows → Kontrol aplikasi & browser → Perlindungan berbasis reputasi. Tinjau pemeriksaan aplikasi dan berkas, pemblokiran aplikasi tak diinginkan, serta peringatan kata sandi bersama. Pertahankan perlindungan kecuali menyelesaikan masalah terverifikasi; sakelar tidak membatalkan malware yang berjalan atau memulihkan kata sandi bocor.",
+    "keywords": "tinjau perlindungan reputasi unduhan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "DriveOptimization": {
+    "title": "Tinjau pengoptimalan drive",
+    "body": "Buka Pengaturan → Sistem → Penyimpanan → Pengaturan penyimpanan lanjutan → Pengoptimalan drive. Periksa jenis media dan status sebelum mengubah jadwal. Biarkan Windows memakai metode sesuai SSD atau HDD; perubahan jadwal tidak membatalkan pengoptimalan yang selesai.",
+    "keywords": "tinjau pengoptimalan drive",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "MemoryIntegrity": {
+    "title": "Tinjau perlindungan integritas memori",
+    "body": "Buka Keamanan Windows → Keamanan perangkat → Rincian isolasi inti lalu periksa Integritas memori. Selesaikan driver tak kompatibel melalui pembaruan tepercaya sebelum mengaktifkan. Jangan menganggap penonaktifan sebagai penyetelan kinerja umum. Simpan pekerjaan jika Windows meminta mulai ulang; ketersediaan bergantung pada virtualisasi dan driver.",
+    "keywords": "tinjau perlindungan integritas memori",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "FirewallExceptions": {
+    "title": "Tinjau pengecualian firewall aplikasi yang tepat",
+    "body": "Buka Keamanan Windows → Firewall & perlindungan jaringan → Izinkan aplikasi melalui firewall. Setelah konfirmasi administrator, izinkan hanya aplikasi dikenal yang benar-benar diperlukan. Utamakan pengecualian khusus aplikasi daripada port terbuka luas; hapus izin usang. Paparan sebelumnya tidak dapat dibatalkan dengan menghapus aturan.",
+    "keywords": "tinjau pengecualian firewall aplikasi yang tepat",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "ControlledFolders": {
+    "title": "Tinjau perlindungan folder dari ransomware",
+    "body": "Buka Keamanan Windows → Perlindungan virus & ancaman → Kelola perlindungan ransomware. Tinjau Akses folder terkontrol dan folder terlindungi. Aplikasi sah dapat terhalang menyimpan; selidiki setiap pengecualian alih-alih mengizinkan semuanya. Perlindungan ini melengkapi cadangan, bukan memulihkan berkas yang sudah rusak.",
+    "keywords": "tinjau perlindungan folder dari ransomware",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "DevicePortal": {
+    "title": "Tinjau diagnosis pengembangan jarak jauh",
+    "body": "Setelah Mode Pengembang diatur, periksa Portal Perangkat dalam pengaturan pengembang. Gunakan hanya untuk sasaran uji jarak jauh nyata pada jaringan tepercaya dan tinjau autentikasi. Ini membuka kemampuan pengelolaan jarak jauh; matikan portal setelah digunakan dan pastikan akses sudah berhenti.",
+    "keywords": "tinjau diagnosis pengembangan jarak jauh",
+    "evidence": "Paket fitur pengembang Windows 11 diperlukan; halaman pindah ke Sistem → Lanjutan pada 25H2+. Belum diuji di perangkat."
+  },
+  "CleanupReview": {
+    "title": "Tinjau calon pembersihan penyimpanan",
+    "body": "Buka Pengaturan → Sistem → Penyimpanan → Rekomendasi pembersihan dan periksa setiap calon sebelum menghapus. Cadangkan berkas penting dahulu. Menghapus unduhan atau pemasangan Windows sebelumnya dapat menghilangkan berkas permanen atau opsi kembali ke versi itu.",
+    "keywords": "tinjau calon pembersihan penyimpanan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "WindowsSandbox": {
+    "title": "Siapkan Windows Sandbox sekali pakai",
+    "body": "Cari Aktifkan atau nonaktifkan fitur Windows, pilih Windows Sandbox jika didukung, dan mulai ulang saat diminta. Simpan pekerjaan dahulu. Sandbox memiliki jaringan dan beberapa pengalihan secara bawaan; bukan isolasi mutlak. Ekspor berkas yang diperlukan sebelum menutup karena keadaan internal dibuang.",
+    "keywords": "siapkan windows sandbox sekali pakai",
+    "evidence": "Edisi Windows yang didukung dan virtualisasi perangkat keras diperlukan; RAM ≥4 GB. Dukungan ARM64: Windows 11 22H2+. Perangkat belum diverifikasi."
+  },
+  "MobileHotspot": {
+    "title": "Bagikan koneksi melalui hotspot seluler",
+    "body": "Buka Pengaturan → Jaringan & internet → Hotspot seluler. Pilih koneksi sumber, tinjau nama jaringan dan kata sandi, lalu aktifkan berbagi hanya saat perlu. Perangkat tersambung memakai kuota data Anda. Matikan hotspot sesudahnya dan jangan menyebarkan kata sandinya secara luas.",
+    "keywords": "bagikan koneksi melalui hotspot seluler",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "NetworkDataLimit": {
+    "title": "Pantau kuota data jaringan",
+    "body": "Buka Pengaturan → Jaringan & internet → Wi-Fi → jaringan tersambung → Tetapkan batas data. Masukkan periode tagihan dan kuota. Windows memperingatkan mendekati batas, tetapi tidak menjamin tagihan operator berhenti; bandingkan juga penghitung penggunaan penyedia.",
+    "keywords": "pantau kuota data jaringan",
+    "evidence": "Dokumentasi Windows 11; build minimum tepat tidak disebutkan. Dukungan perangkat dan batasan kebijakan belum diverifikasi."
+  },
+  "SmartAppControl": {
+    "title": "Pahami keadaan Smart App Control",
+    "body": "Buka Keamanan Windows → Kontrol aplikasi & browser → pengaturan Smart App Control. Periksa evaluasi, aktif, atau nonaktif sebelum mengubahnya. Dokumentasi sekarang membatasi ketersediaan pada pemasangan baru yang memenuhi syarat; kembali ke evaluasi dapat memerlukan reset atau pemasangan ulang Windows. Jangan menganggapnya sakelar yang mudah dibatalkan.",
+    "keywords": "pahami keadaan smart app control",
+    "evidence": "Dokumentasi Microsoft Windows 11 saat ini menetapkan batasan pemasangan baru dan mode evaluasi. Keadaan perangkat belum diverifikasi."
+  },
+  "TaskbarAlignment": {
+    "title": "Ratakan ikon bilah tugas ke kiri",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas. Atur perataan ke Kiri untuk posisi peluncuran familier. Ini mengubah perataan ikon, bukan tepi layar tempat bilah tugas berada.",
+    "keywords": "ratakan ikon bilah tugas ke kiri",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarAutoHide": {
+    "title": "Sembunyikan bilah tugas otomatis",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas dan aktifkan persembunyian otomatis. Gerakkan penunjuk ke tepinya untuk menampilkan lagi; hapus opsi agar tetap terlihat.",
+    "keywords": "sembunyikan bilah tugas otomatis",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarSearchStyle": {
+    "title": "Pilih tampilan pencarian bilah tugas",
+    "body": "Buka Personalisasi → Bilah tugas → Item bilah tugas → Pencarian. Pilih kotak, ikon, atau sembunyikan entri untuk menghemat ruang. Ini mengontrol tampilannya, bukan menonaktifkan Windows Search.",
+    "keywords": "pilih tampilan pencarian bilah tugas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarTrayApps": {
+    "title": "Pilih aplikasi baki sistem yang terlihat",
+    "body": "Buka Personalisasi → Bilah tugas → Ikon baki sistem lainnya. Pilih ikon aplikasi yang tetap terlihat alih-alih masuk menu ikon tersembunyi; pertahankan indikator sinkronisasi atau keamanan penting agar mudah dijangkau.",
+    "keywords": "pilih aplikasi baki sistem yang terlihat",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "WidgetsNotifications": {
+    "title": "Pilih tempat pemberitahuan Widget",
+    "body": "Tekan Win+W lalu buka pengaturan Widget → Pengaturan lainnya → Pemberitahuan. Tinjau perilaku pada bilah tugas, area navigasi, dan panel. Menyembunyikan petunjuk dapat menutupi pembaruan berguna tanpa mengubah data aplikasi sumber.",
+    "keywords": "pilih tempat pemberitahuan widget",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarFlashing": {
+    "title": "Kendalikan peringatan aplikasi berkedip",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas lalu ubah opsi aplikasi bilah tugas berkedip. Matikan untuk mengurangi gangguan visual; pulihkan jika permintaan penting mudah terlewat.",
+    "keywords": "kendalikan peringatan aplikasi berkedip",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarTouchTools": {
+    "title": "Tampilkan alat sentuh dan pena di baki",
+    "body": "Buka Personalisasi → Bilah tugas → Ikon baki sistem. Pilih entri papan ketik sentuh, menu pena, atau bidang sentuh virtual sesuai perangkat. Manfaatnya bergantung pada perangkat keras masukan Anda.",
+    "keywords": "tampilkan alat sentuh dan pena di baki",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi. Perangkat keras masukan yang diperlukan harus tersedia."
+  },
+  "WidgetsFeed": {
+    "title": "Sembunyikan umpan penemuan Widget",
+    "body": "Tekan Win+W, buka pengaturan Widget, lalu tinjau kontrol dasbor untuk umpan Temukan. Matikan umpan jika hanya menginginkan widget; nama dan ketersediaan berbeda menurut versi Widget dan wilayah.",
+    "keywords": "sembunyikan umpan penemuan widget",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ClockVisibility": {
+    "title": "Sembunyikan tanggal dan waktu baki",
+    "body": "Klik kanan jam bilah tugas lalu pilih Sesuaikan tanggal dan waktu. Ubah apakah baki sistem menampilkan tanggal serta waktu; pulihkan sakelar ketika jam perlu terlihat lagi.",
+    "keywords": "sembunyikan tanggal dan waktu baki",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarLabels": {
+    "title": "Pisahkan jendela pada bilah tugas",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas. Atur Gabungkan tombol bilah tugas dan sembunyikan label ke Tidak pernah untuk jendela berlabel terpisah. Pulihkan nilai sebelumnya jika bilah tugas terlalu penuh.",
+    "keywords": "pisahkan jendela pada bilah tugas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarPins": {
+    "title": "Sematkan dan susun aplikasi favorit",
+    "body": "Klik kanan aplikasi dalam Pencarian atau ikon aplikasi berjalan di bilah tugas lalu pilih Sematkan ke bilah tugas. Seret ikon untuk mengurutkannya. Melepaskan sematan hanya menghapus pintasan, bukan aplikasi.",
+    "keywords": "sematkan dan susun aplikasi favorit",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarWindowSharing": {
+    "title": "Bagikan jendela lewat tombol bilah tugas",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas dan aktifkan berbagi jendela dari bilah tugas. Diperlukan aplikasi rapat yang mendukungnya. Tinjau isi jendela sebelum memilih untuk berbagi.",
+    "keywords": "bagikan jendela lewat tombol bilah tugas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarBadges": {
+    "title": "Tampilkan lencana aplikasi",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas dan pilih apakah tombol aplikasi menampilkan lencana. Lencana menunjukkan aktivitas tertunda tanpa membuka aplikasi; mematikannya dapat menyembunyikan petunjuk status berguna.",
+    "keywords": "tampilkan lencana aplikasi",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "ClockSeconds": {
+    "title": "Tampilkan detik pada jam baki",
+    "body": "Klik kanan jam bilah tugas lalu buka Sesuaikan tanggal dan waktu. Perluas kontrol tanggal/waktu baki dan aktifkan detik jika tersedia. Pembaruan jam tambahan dapat meningkatkan konsumsi daya.",
+    "keywords": "tampilkan detik pada jam baki",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarDisplays": {
+    "title": "Tampilkan bilah tugas pada semua monitor",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas dan aktifkan bilah tugas pada semua layar. Gunakan untuk susunan beberapa monitor; kembali ke pilihan sebelumnya jika menambah keruwetan.",
+    "keywords": "tampilkan bilah tugas pada semua monitor",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarTaskView": {
+    "title": "Tampilkan tombol Tampilan Tugas",
+    "body": "Buka Personalisasi → Bilah tugas → Item bilah tugas dan alihkan Tampilan tugas. Gunakan tombolnya untuk mengelola jendela dan desktop virtual. Menyembunyikan tombol tetap menyisakan pintasan Win+Tab.",
+    "keywords": "tampilkan tombol tampilan tugas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarWidgets": {
+    "title": "Tampilkan entri Widget pada bilah tugas",
+    "body": "Buka Personalisasi → Bilah tugas → Item bilah tugas dan alihkan Widget. Sembunyikan entrinya untuk mengurangi keruwetan; ini tidak menghapus pengalaman Widget atau komponen dasarnya.",
+    "keywords": "tampilkan entri widget pada bilah tugas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "WidgetsHover": {
+    "title": "Hentikan Widget terbuka saat diarahkan",
+    "body": "Tekan Win+W lalu buka pengaturan Widget. Matikan pembukaan panel saat penunjuk diarahkan untuk menghindari perluasan tak sengaja ketika melintasi bilah tugas. Anda tetap dapat membukanya sengaja melalui tombol atau pintasan.",
+    "keywords": "hentikan widget terbuka saat diarahkan",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "TaskbarTablet": {
+    "title": "Gunakan bilah tugas ramah sentuh",
+    "body": "Pada perangkat konvertibel yang didukung, buka Personalisasi → Bilah tugas → Perilaku bilah tugas lalu aktifkan optimasi saat digunakan sebagai tablet. Opsi bergantung pada kemampuan perangkat dan mungkin tidak muncul pada desktop.",
+    "keywords": "gunakan bilah tugas ramah sentuh",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi. Perangkat keras masukan yang diperlukan harus tersedia."
+  },
+  "TaskbarDesktopCorner": {
+    "title": "Gunakan sudut bilah tugas untuk desktop",
+    "body": "Buka Personalisasi → Bilah tugas → Perilaku bilah tugas dan aktifkan pemilihan sudut terjauh untuk menampilkan desktop. Ini memudahkan akses item desktop tanpa menutup aplikasi.",
+    "keywords": "gunakan sudut bilah tugas untuk desktop",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "Snap": {
+    "title": "Atur tata letak dan bantuan penempelan jendela",
+    "body": "Buka Sistem → Multitugas → Tempelkan jendela. Aktifkan penempelan dan pilih apakah pengarahan ke tombol maksimalkan atau penyeretan ke atas layar menawarkan tata letak, serta apakah Windows menyarankan aplikasi di samping jendela tertempel.",
+    "keywords": "atur tata letak dan bantuan penempelan jendela",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DesktopWindowScope": {
+    "title": "Kendalikan peralihan antar-desktop virtual",
+    "body": "Buka Sistem → Multitugas → Desktop. Pilih apakah bilah tugas dan Alt+Tab menampilkan jendela semua desktop atau hanya desktop aktif. Batasi secara lokal untuk mengurangi keruwetan, atau tampilkan global untuk akses lintas proyek.",
+    "keywords": "kendalikan peralihan antar-desktop virtual",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "DesktopBackgrounds": {
+    "title": "Beri desktop virtual gambar berbeda",
+    "body": "Tekan Win+Tab, klik kanan desktop, lalu pilih latarnya. Pilih Gambar untuk membedakan ruang kerja secara visual. Latar mandiri memerlukan gambar; fitur terdokumentasi tidak mendukung peragaan slide terpisah atau warna solid berbeda.",
+    "keywords": "beri desktop virtual gambar berbeda",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "AltTab": {
+    "title": "Batasi tab peramban pada Alt+Tab",
+    "body": "Buka Sistem → Multitugas dan pilih jumlah tab aplikasi yang muncul saat menempelkan jendela atau memakai Alt+Tab. Pilih tanpa tab agar peralihan berfokus pada jendela. Dukungan peramban diperlukan; dokumentasi mencontohkan Microsoft Edge.",
+    "keywords": "batasi tab peramban pada alt+tab",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "VirtualDesktops": {
+    "title": "Kelompokkan proyek ke desktop virtual",
+    "body": "Tekan Win+Tab lalu pilih Desktop baru. Pilih namanya untuk mengganti nama ruang kerja sesuai proyek. Tutup desktop yang tidak diperlukan melalui Tampilan Tugas setelah memastikan tempat jendelanya akan berada.",
+    "keywords": "kelompokkan proyek ke desktop virtual",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "SnapResize": {
+    "title": "Ubah ukuran jendela tertempel bersama",
+    "body": "Setelah menempelkan dua jendela berdampingan, seret pemisah di antaranya untuk mengubah lebar keduanya. Seret kembali untuk memulihkan keseimbangan, atau lepaskan penempelan agar dapat menata masing-masing secara mandiri.",
+    "keywords": "ubah ukuran jendela tertempel bersama",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  },
+  "SnapGroups": {
+    "title": "Tampilkan grup jendela saat beralih tugas",
+    "body": "Buka Sistem → Multitugas → Tempelkan jendela lalu ubah apakah jendela tertempel ditampilkan bersama dalam pratinjau bilah tugas, Tampilan Tugas, dan Alt+Tab. Ini membantu kembali ke susunan kerja, bukan jendela satu per satu.",
+    "keywords": "tampilkan grup jendela saat beralih tugas",
+    "evidence": "Dokumentasi resmi Windows 11; build minimum tepat tidak disebutkan. Ketersediaan dan batasan kebijakan perangkat ini belum diverifikasi."
+  }
+}

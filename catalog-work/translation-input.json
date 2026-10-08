@@ -1,0 +1,4044 @@
+[
+  {
+    "id": "ClassicMenu",
+    "kind": "NativeShortcut",
+    "category": "ContextMenu",
+    "title": "Open the classic context menu",
+    "body": "Right-click a file and choose Show more options. Shift+right-click opens the full menu on documented builds. This is a per-use shortcut; it does not permanently replace the Windows 11 menu.",
+    "keywords": "open the classic context menu contextmenu",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows",
+      "https://blogs.windows.com/windows-insider/2022/03/09/announcing-windows-11-insider-preview-build-22572/"
+    ],
+    "evidence": "Windows 11 documentation; Shift+right-click introduced in Dev 22572, 2022-03-09. Current device support unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Context"
+  },
+  {
+    "id": "ContextMenu",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Customizable modern context menus",
+    "body": "Inspect the redesigned context menu and its customization settings, including Send to, folder Refresh and a simpler default layout. This is a specific Experimental-build observation, not a permanent Windows 10 menu restoration recipe.",
+    "keywords": "customizable modern context menus right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqs7acvk2x",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mt53myztyn2q"
+    ],
+    "evidence": "Observed: 26340.9212 · Experimental (2026-08-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      60813048
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "ExplorerTabsHistory",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "File Explorer tabs historical implementation",
+    "body": "Historical tabs used 37634385; Beta 22621 also required 39145991. ExplorerPatcher reports TIFE removed in Dev 23575. Disabling 37634385, 36354489 and 39145991 reportedly crashes Explorer on 22621.2361. Never treat that sequence as universal rollback.",
+    "keywords": "file explorer tabs historical implementation explorer",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19",
+      "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev; 22621 · Beta. Current support and complete recipe unverified.",
+    "featureIds": [
+      37634385,
+      39145991
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerNavigationHistory",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "File Explorer navigation redesign",
+    "body": "Historical navigation used 36354489, with 39145991 required on Beta 22621. ExplorerPatcher reports that disabling this pair together with tabs ID 37634385 crashes Explorer on 22621.2361. The mapping provides no safe universal rollback for later builds.",
+    "keywords": "file explorer navigation redesign explorer",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19",
+      "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev; 22621 · Beta. Current support and complete recipe unverified.",
+    "featureIds": [
+      36354489,
+      39145991
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExternalFolderTabs",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "External folders in existing tabs",
+    "body": "Open a desktop folder or external folder link to observe a new tab in an existing Explorer window instead of another window.",
+    "keywords": "external folders in existing tabs explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmz5fh22k2m",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmtr33v7w2j"
+    ],
+    "evidence": "Observed: 22635.4515 · Beta (2024-11-23). Current device support unverified; not a supported range.",
+    "featureIds": [
+      49143212
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "RestoreExplorerTabs",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Restore Explorer tabs at sign-in",
+    "body": "Observe whether Explorer restores its open tabs after signing in. The source also requires the Windows setting to save restartable apps and restart them at sign-in.",
+    "keywords": "restore explorer tabs at sign-in explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcq3jysmj22g"
+    ],
+    "evidence": "Observed: 22635.4580 · Beta (2024-12-07). Current device support unverified; not a supported range.",
+    "featureIds": [
+      54572881
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "StartCustomization",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Start customization combination",
+    "body": "Inspect Start customization for smaller layouts and visibility of Recent, All apps, account name and profile picture. Keep the six IDs grouped as one observed recipe; the original post does not name a channel.",
+    "keywords": "start customization combination start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mmzi7erbxu25"
+    ],
+    "evidence": "Observed: 26300.8553 (2026-05-29). Current device support unverified; not a supported range.",
+    "featureIds": [
+      61754985,
+      61225604,
+      61596616,
+      61596617,
+      61596618,
+      61596619
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "RedesignedStartRecipe",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Redesigned Start menu combination",
+    "body": "Inspect the redesigned Start menu using the six-component combination reported as rollout began. The source gives a date and channels, not full build numbers; do not treat the six IDs as six independent features.",
+    "keywords": "redesigned start menu combination start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lr7llswlxf27"
+    ],
+    "evidence": "Observed: 2025-06-10 · Dev/Beta (2025-06-10). Current device support unverified; not a supported range.",
+    "featureIds": [
+      47205210,
+      49221331,
+      49381526,
+      49402389,
+      49820095,
+      55495322
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "TaskbarPositionHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar position experiment",
+    "body": "Inspect taskbar settings for movable position options. This is the author's May 2026 observed implementation; the command post names a build but no channel, and does not establish support for other builds.",
+    "keywords": "taskbar position experiment taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w"
+    ],
+    "evidence": "Observed: 26300.8493 (2026-05-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      59213768
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "SmallTaskbarHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Small taskbar experiment",
+    "body": "Inspect taskbar settings for the small-taskbar option. This May 2026 implementation is distinct from the older button-only experiment 29785184; the source does not identify a channel or guarantee ongoing support.",
+    "keywords": "small taskbar experiment taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w"
+    ],
+    "evidence": "Observed: 26300.8493 (2026-05-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      61090762
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "SmallTaskbarButtonsHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Smaller taskbar buttons experiment",
+    "body": "Inspect taskbar settings for smaller application buttons. This early implementation reduces button size without reducing the taskbar's height; it is distinct from the later small-taskbar implementation using 61090762.",
+    "keywords": "smaller taskbar buttons experiment taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l5fqg5kefi22"
+    ],
+    "evidence": "Observed: 22635.4291 · Beta (2024-09-30). Current device support unverified; not a supported range.",
+    "featureIds": [
+      29785184
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "ExplorerAiActions",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "AI actions in Explorer context menus",
+    "body": "Inspect a supported file's context menu for AI Actions. The source groups both IDs as one recipe; it does not establish a separate user-facing function for each ID.",
+    "keywords": "ai actions in explorer context menus right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpkladfnbm2a"
+    ],
+    "evidence": "Observed: 26200.5603 · Dev; 26120.4151 · Beta (2025-05-19). Current device support unverified; not a supported range.",
+    "featureIds": [
+      54792954,
+      55345819
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "QuickAccessibilityGroups",
+    "kind": "Historical",
+    "category": "Accessibility",
+    "title": "Grouped accessibility quick settings",
+    "body": "Open Quick Settings and inspect accessibility controls grouped into vision, hearing and motor or mobility sections. This reorganizes existing controls; it does not establish that every device supports every listed capability.",
+    "keywords": "grouped accessibility quick settings accessibility",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnt6zetnd2s"
+    ],
+    "evidence": "Observed: 26200.5570 · Dev; 26120.3941 · Beta (2025-04-25). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56887314
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceVocabulary",
+    "kind": "Historical",
+    "category": "Accessibility",
+    "title": "Voice Access custom vocabulary",
+    "body": "Inspect Voice Access for a vocabulary builder that adds custom dictionary words. Language and installed speech support still matter; a documented feature ID does not guarantee recognition quality on this device.",
+    "keywords": "voice access custom vocabulary accessibility",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k"
+    ],
+    "evidence": "Observed: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56305056
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceQuickSettings",
+    "kind": "Historical",
+    "category": "Accessibility",
+    "title": "Voice Access in Quick Settings",
+    "body": "Inspect the accessibility section of Quick Settings for a Voice Access toggle. This adds a convenient entry point; it does not replace initial Voice Access setup or download required speech components.",
+    "keywords": "voice access in quick settings accessibility",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k"
+    ],
+    "evidence": "Observed: 26200.5562 · Dev; 26120.3872 · Beta (2025-04-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56724497
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SettingsAnimatedIcons",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Animated Settings navigation icons",
+    "body": "Inspect navigation icons in the Settings application for animation. The historical mapping identifies the visual treatment, but supplies no performance evidence or complete dependency recipe; it should not be described as a speed optimization.",
+    "keywords": "animated settings navigation icons appearance",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25188 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      34878152
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "HdrSettingsHistory",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Improved HDR settings experiment",
+    "body": "Inspect Display settings for revised capability wording, HDR video-streaming controls and Dolby Vision modes. Available choices still depend on compatible display hardware; the override cannot add missing hardware capabilities.",
+    "keywords": "improved hdr settings experiment appearance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3loidxv5kpg2s"
+    ],
+    "evidence": "Observed: 26200.5581 · Dev; 26120.3950 · Beta (2025-05-06). Current device support unverified; not a supported range.",
+    "featureIds": [
+      49793372
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SpotlightHover",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Spotlight hover flyout",
+    "body": "Hover the desktop Spotlight icon to inspect a smaller flyout; a single click opens the related Bing page. This changes the icon's interaction, rather than providing a new independent wallpaper source.",
+    "keywords": "spotlight hover flyout appearance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ld7p4wyjqc2m"
+    ],
+    "evidence": "Observed: 22635.4655 · Beta (2024-12-13). Current device support unverified; not a supported range.",
+    "featureIds": [
+      48656084
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SpotlightCaption",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Spotlight icon and dynamic caption",
+    "body": "Inspect the desktop Spotlight icon. Variant 1 adds a dynamic image caption; variant 2 keeps the static caption with the updated icon. Choose one alternative, never both sequentially; the source also changes background away and back after reboot.",
+    "keywords": "spotlight icon and dynamic caption appearance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leuzgadpaj22",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leureqyswy22"
+    ],
+    "evidence": "Observed: 22635.4660 · Beta (2025-01-04). Current device support unverified; not a supported range.",
+    "featureIds": [
+      52145430
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SpotlightThemeHistory",
+    "kind": "Historical",
+    "category": "Appearance",
+    "title": "Windows Spotlight theme",
+    "body": "The mapping identifies Spotlight integration as a Windows theme. Inspect the theme choices on the observed build; this is distinct from later desktop-icon interactions and does not establish offline image availability or service permanence.",
+    "keywords": "windows spotlight theme appearance",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25169 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39258685
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FluentOpenWithHistory",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Fluent app picker",
+    "body": "The historical mapping associates this ID with a Fluent-design app picker. Inspect Open With presentation in the recorded build; changing the picker appearance is separate from deliberately selecting or changing a default application.",
+    "keywords": "fluent app picker contextmenu",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25174 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      36302090
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "ExplorerSendPhone",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Send Explorer files to a phone",
+    "body": "Inspect a file's context menu for Send to My Phone. The two IDs form the reported combination; a compatible phone connection is still needed to complete an actual transfer.",
+    "keywords": "send explorer files to a phone right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4mbixargj2a"
+    ],
+    "evidence": "Observed: 22635.4225 · Beta (2024-09-20). Current device support unverified; not a supported range.",
+    "featureIds": [
+      45286369,
+      52800817
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "ExplorerShareApps",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Share directly to apps from Explorer",
+    "body": "Inspect file and desktop context menus for Share with and supported application targets. The source gives 45286384 and 52800817 together as the observed recipe; it does not establish a separate user-facing function for each ID.",
+    "keywords": "share directly to apps from explorer right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l6axfmgf7q2f"
+    ],
+    "evidence": "Observed: 22635.4367 · Beta (2024-10-11). Current device support unverified; not a supported range.",
+    "featureIds": [
+      45286384,
+      52800817
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "OpenWithStore",
+    "kind": "Historical",
+    "category": "ContextMenu",
+    "title": "Store recommendations in Open With",
+    "body": "Inspect Open With for Microsoft Store application recommendations. Main ID: 55805655. The redesigned picker using 41118774 is required if not already present; recommendations do not automatically install applications.",
+    "keywords": "store recommendations in open with right click context menu",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpuuu6u64r2m"
+    ],
+    "evidence": "Observed: 26120.4161 · Beta (2025-05-24). Current device support unverified; not a supported range.",
+    "featureIds": [
+      55805655,
+      41118774
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Context"
+  },
+  {
+    "id": "DarkFolderOptions",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Dark Folder Options dialog",
+    "body": "Inspect Explorer's Folder Options dialog in dark mode. Main ID: 59203365; the source requires 58383338. The abbreviated build 26x20.6972 is an observation label, not an unlimited compatibility range.",
+    "keywords": "dark folder options dialog explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3m3fxb5srcu2h"
+    ],
+    "evidence": "Observed: 26x20.6972 · Dev/Beta (2025-10-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      59203365,
+      58383338
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "DarkFileDialogs",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Dark file-operation dialogs",
+    "body": "Observe copy and access-denied dialogs under dark mode. Main pair: 57857165 and 57994323. Source conditionally adds 48433719, and 49453572 on Release Preview; these broad prerequisites are not independent features.",
+    "keywords": "dark file-operation dialogs explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwhfsly7gn2s",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwh7rkfkt52d"
+    ],
+    "evidence": "Observed: .5751 · Dev/Beta; Release Preview (2025-08-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      57857165,
+      57994323,
+      48433719,
+      49453572
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerHomeRecommendations",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Local files in Home recommendations",
+    "body": "Inspect Explorer Home for recommended local files with personal Microsoft or local accounts. Main ID: 51721485; 48895801 is an optional card-appearance dependency, not a required unlock.",
+    "keywords": "local files in home recommendations explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lg2efctnle2x",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lg2df5lxnp2o"
+    ],
+    "evidence": "Observed: 22635.4800 · Beta (2025-01-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      51721485,
+      48895801
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "BackupReminderSnooze",
+    "kind": "Historical",
+    "category": "Explorer",
+    "title": "Snooze Explorer backup reminders",
+    "body": "Inspect the Start backup reminder in Explorer's address bar for options to turn it off or postpone it for one month.",
+    "keywords": "snooze explorer backup reminders explorer",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lbmtr33v7w2j"
+    ],
+    "evidence": "Observed: 22635.4515 · Beta (2024-11-23). Current device support unverified; not a supported range.",
+    "featureIds": [
+      47944061
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "VoiceTypingFilter",
+    "kind": "Historical",
+    "category": "Input",
+    "title": "Voice typing profanity filter option",
+    "body": "Open voice typing settings to inspect the option for disabling its profanity filter. Review dictated text before submitting it; this affects transcription filtering rather than microphone permissions or speech accuracy.",
+    "keywords": "voice typing profanity filter option input",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnsubw5wq2c"
+    ],
+    "evidence": "Observed: 26200.5570 · Dev; 26120.3941 / 22635.5305 · Beta (2025-04-25). Current device support unverified; not a supported range.",
+    "featureIds": [
+      33289874
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NotificationClock",
+    "kind": "Historical",
+    "category": "Notifications",
+    "title": "Clock in Notification Center",
+    "body": "Inspect Date & time settings for the Notification Center clock option after an Explorer restart. Main ID: 42651849; 48433719 is conditional. This clock is separate from seconds in the taskbar tray.",
+    "keywords": "clock in notification center notifications",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ln4gqjbnuw2c",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ln47pbliz62s"
+    ],
+    "evidence": "Observed: 22635.5240 · Beta (2025-04-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      42651849,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SecondaryNotificationCenter",
+    "kind": "Historical",
+    "category": "Notifications",
+    "title": "Notification Center on secondary monitors",
+    "body": "Inspect Notification Center on a secondary monitor. The source explicitly calls for a reboot but only gives build suffix .5722, so the exact full-build compatibility remains unestablished.",
+    "keywords": "notification center on secondary monitors notifications",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lv2l7uuwjk2q"
+    ],
+    "evidence": "Observed: .5722 · Dev/Beta (2025-07-28). Current device support unverified; not a supported range.",
+    "featureIds": [
+      38762814
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "BatteryGraphLabels",
+    "kind": "Historical",
+    "category": "Performance",
+    "title": "Battery usage graph labels",
+    "body": "Inspect labels below the battery-usage graph in Settings for explanations of its icons. Main ID: 53092139; broad prerequisite 48433719 is conditional. This affects presentation, not battery capacity or runtime.",
+    "keywords": "battery usage graph labels performance",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof6ie2yb27",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof5ufktr2f",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcof57mgdy2b"
+    ],
+    "evidence": "Observed: 26120.2510 · Dev (2024-12-06). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53092139,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Energy",
+    "kind": "Historical",
+    "category": "Performance",
+    "title": "Energy recommendations experiment",
+    "body": "The mapping identifies energy-recommendation controls with 39427030 and their dark theme with 41249924. They are grouped as one feature archive; the exact dependency is unknown. Applying native recommendations can change several power preferences.",
+    "keywords": "energy recommendations experiment performance",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39427030,
+      41249924
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "StartFolderCommands",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Create Start folders from context menus",
+    "body": "Right-click a pinned Start app to inspect commands for creating an app folder or moving the pin into an existing folder. The source describes these actions separately from moving pins sideways.",
+    "keywords": "create start folders from context menus start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lko7fhslc22d",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkm6xavslg2g"
+    ],
+    "evidence": "Observed: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      50472600
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "MoveStartPins",
+    "kind": "Historical",
+    "category": "Start",
+    "title": "Move Start pins with context commands",
+    "body": "Right-click a pinned Start app to inspect commands that move it one position left or right. This archive concerns keyboard-friendly pin arrangement, not the later complete Start-menu redesign.",
+    "keywords": "move start pins with context commands start",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lko7fhslc22d",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkm6xavslg2g"
+    ],
+    "evidence": "Observed: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-18). Current device support unverified; not a supported range.",
+    "featureIds": [
+      50472543
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "AboutFaq",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "About-page hardware FAQs",
+    "body": "Inspect Settings About for a frequently asked questions section explaining the Windows version and device specifications. This is explanatory content; it neither upgrades hardware nor verifies compatibility of unrelated applications.",
+    "keywords": "about-page hardware faqs systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lkmdy5p35s2g"
+    ],
+    "evidence": "Observed: 26120.3576 · Dev; 22635.5090 · Beta (2025-03-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      55305888
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AboutHardwareCards",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "About-page hardware summary cards",
+    "body": "Inspect Settings About for storage, graphics-memory and RAM summary cards. Main pair: 51784082 and 54618938; 48433719 is conditional. The source requests reboot; later About redesigns may use different recipes.",
+    "keywords": "about-page hardware summary cards systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leuzqwnye62d",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3leulochoc62f"
+    ],
+    "evidence": "Observed: 22635.4660 · Beta (2025-01-04). Current device support unverified; not a supported range.",
+    "featureIds": [
+      51784082,
+      54618938,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AdvancedCameraHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Advanced camera settings experiment",
+    "body": "Inspect advanced camera settings for media-type and resolution choices. Dev 26120.2702 used the pair 49575624/50292326; Canary 27744 used 52142480. These are separate build observations, not a three-ID combination. Camera hardware support remains necessary.",
+    "keywords": "advanced camera settings experiment systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ld7idxgkcv23",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcj4icczc62j"
+    ],
+    "evidence": "Observed: 26120.2702 · Dev; 27744 · Canary (2024-12-13). Current device support unverified; not a supported range.",
+    "featureIds": [
+      49575624,
+      50292326,
+      52142480
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ModernSettingsDialogs",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Modern Settings dialog styling",
+    "body": "The historical mapping groups visual updates to Rename PC (38228963), date and time (39811196), and reset (41598133), alongside master ID 36390579. Dependencies and activation order are unknown. This research-only archive does not rename, change the clock, or reset the PC; reset operations can remove apps and data.",
+    "keywords": "modern settings dialogs rename date time reset styling master dependency",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      38228963,
+      39811196,
+      41598133,
+      36390579
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerDisconnectDialog",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Modern disconnect-user dialog",
+    "body": "Inspect the appearance of Task Manager's disconnect-user confirmation dialog. This archive concerns styling only; actually disconnecting another session can interrupt work and is not performed by this catalog.",
+    "keywords": "modern disconnect-user dialog systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4onfs7tu32p",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4oneqfdf72o"
+    ],
+    "evidence": "Observed: 22635.4225 · Beta (2024-09-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53330962
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerCpuCalculation",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager CPU calculation update",
+    "body": "Inspect Task Manager's changed CPU-utilization calculation and CPU utility column. The observation changes how metrics are displayed; it is not a processor speed boost, and readings may differ from earlier builds.",
+    "keywords": "task manager cpu calculation update systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ljbhicqat72j"
+    ],
+    "evidence": "Observed: 26120.3360 · Dev/Beta (2025-02-28). Current device support unverified; not a supported range.",
+    "featureIds": [
+      32145346
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerDiskTypes",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager disk connection labels",
+    "body": "Open Task Manager's Performance page to inspect disk connection labels such as NVMe and SATA in lists and graphs. These are descriptive hardware labels, not controls for changing disk performance.",
+    "keywords": "task manager disk connection labels systemtools",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4onijtmsp2s",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3l4ongj5oh72c"
+    ],
+    "evidence": "Observed: 22635.4225 · Beta (2024-09-21). Current device support unverified; not a supported range.",
+    "featureIds": [
+      51978387
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "KernelDumpHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager live kernel dumps",
+    "body": "The historical mapping associates this ID with Task Manager live kernel dumps. Such dumps can contain sensitive memory contents; inspect documentation before collecting or sharing one. This archive does not initiate a dump.",
+    "keywords": "task manager live kernel dumps systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      40430431
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskManagerSearchHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Task Manager process search",
+    "body": "The historical mapping identifies Task Manager's process search field. Inspect process filtering in that build's Task Manager; the mapping does not establish complete prerequisites or continued support on later releases.",
+    "keywords": "task manager process search systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39420424
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ArchiveAppsHistory",
+    "kind": "Historical",
+    "category": "SystemTools",
+    "title": "Updated Archive Apps settings",
+    "body": "Inspect the historical Archive Apps settings-page redesign associated with this ID. The mapping identifies a page update, not a guarantee that an arbitrary installed application can be archived or subsequently restored without downloading it.",
+    "keywords": "updated archive apps settings systemtools",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25231 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      40762871
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AnimatedTaskbarPreviews",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Animated taskbar preview transitions",
+    "body": "Hover taskbar applications to observe animated preview changes, size transitions and dismissal. The source gives an update suffix rather than a complete build number; no performance improvement is established.",
+    "keywords": "animated taskbar preview transitions taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lwhec6ijn22t",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3ltp32qbdzs2y"
+    ],
+    "evidence": "Observed: .5751 · Dev/Beta; KB5064071 (2025-08-15). Current device support unverified; not a supported range.",
+    "featureIds": [
+      56848060
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "BatteryPercentageHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Battery percentage and revised icon",
+    "body": "Inspect the battery icon and its percentage option. This January 2025 recipe concerns build 26120.3000; the source also references an earlier hidden preview, but neither observation guarantees continued compatibility with later Windows updates.",
+    "keywords": "battery percentage and revised icon taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgiylddyvs2p",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lfxqvouore2o"
+    ],
+    "evidence": "Observed: 26120.3000 · Dev (2025-01-24). Current device support unverified; not a supported range.",
+    "featureIds": [
+      48822452
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "EmojiTray",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Emoji and more tray button",
+    "body": "Inspect the system tray for Emoji and more, including its show-while-typing behavior and taskbar-settings shortcut. The source distinguishes a working button in this build from earlier settings-only observations.",
+    "keywords": "emoji and more tray button taskbar",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda7yovs622i",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lcnyiq5nu22z"
+    ],
+    "evidence": "Observed: 22635.4655 · Beta (2024-12-14). Current device support unverified; not a supported range.",
+    "featureIds": [
+      48504539
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "LowerLeftSearchHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Lower-left search box experiment",
+    "body": "The mapping labels this ID as a lower-left search-box experiment. Inspect search placement on the recorded build; the source does not describe every interaction, and the archive does not promise this layout on current taskbars.",
+    "keywords": "lower-left search box experiment taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      37010913
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarAnimationHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar animation experiment",
+    "body": "Inspect the taskbar animation experiment recorded by the maintainer for this build. The mapping does not specify a complete activation recipe or every animation affected; this archive deliberately avoids claiming identical behavior on modern taskbars.",
+    "keywords": "taskbar animation experiment taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25182 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39072097
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarOverflowHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar overflow combination",
+    "body": "The maintainer lists two parts of the taskbar-overflow implementation. Keep 35620393 and 35620394 together as one feature archive, not two features. Inspect overflow behavior when many apps occupy the recorded build's taskbar.",
+    "keywords": "taskbar overflow combination taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 22622.436 · Beta. Current support and complete recipe unverified.",
+    "featureIds": [
+      35620393,
+      35620394
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarStartupHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Taskbar startup experiment",
+    "body": "The maintainer labels this a faster-taskbar-startup experiment. No benchmark or current compatibility evidence accompanies the mapping. Keep it as a historical implementation note rather than a promised performance improvement or recommended optimization.",
+    "keywords": "taskbar startup experiment taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25182 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      39751186
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTrayHistory",
+    "kind": "Historical",
+    "category": "Taskbar",
+    "title": "Updated taskbar tray area",
+    "body": "The maintainer maps this ID to an updated taskbar tray area. Inspect the tray presentation on the recorded build; finer behavioral changes and complete dependencies are unspecified, so this remains a read-only historical observation.",
+    "keywords": "updated taskbar tray area taskbar",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25193 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      26008830
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "DarkRun",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Dark Run dialog",
+    "body": "Open Run with Win+R to inspect its dark appearance. Main ID: 59270880; required prerequisite: 58383338. The source abbreviates the build as 26x20.6972 rather than establishing an exact full-build compatibility range.",
+    "keywords": "dark run dialog windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3m3fxb5srcu2h"
+    ],
+    "evidence": "Observed: 26x20.6972 · Dev/Beta (2025-10-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      59270880,
+      58383338
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "DragShareTray",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Drag-to-share tray experiment",
+    "body": "Drag a file toward the screen top to inspect a sharing tray with application targets and the full Share sheet. Main pair: 45624564 and 53397005; 48433719 is conditional, and the source requests reboot.",
+    "keywords": "drag-to-share tray experiment windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgjoyivfw22b",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lgjgs3die22z"
+    ],
+    "evidence": "Observed: 22635.4805 · Beta (2025-01-25). Current device support unverified; not a supported range.",
+    "featureIds": [
+      45624564,
+      53397005,
+      48433719
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "EdgeDesktopSearchHistory",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Edge desktop search box",
+    "body": "The maintainer identifies an Edge desktop search box associated with this ID. Inspect that historical desktop surface; the mapping does not establish independence from installed Edge components or support on current Windows releases.",
+    "keywords": "edge desktop search box windows",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25136 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      37969115
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "WidgetExpansionHistory",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Expanded Widgets board",
+    "body": "The historical mapping associates this ID with an expanded Widgets view. Inspect the board's layout in the observed build; content availability still depends on installed widgets and services, and current compatibility is unverified.",
+    "keywords": "expanded widgets board windows",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25201 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      34300186
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "ModernAutoPlay",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Modern AutoPlay dialog",
+    "body": "Inspect AutoPlay's centered WinUI dialog for dark-mode support and one-time versus always choices. The source gives an exact build without a channel; actual device actions still require deliberate selection.",
+    "keywords": "modern autoplay dialog windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqshfid22x",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3mt5hpbygmr27"
+    ],
+    "evidence": "Observed: 26340.9212 (2026-08-17). Current device support unverified; not a supported range.",
+    "featureIds": [
+      62141177
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SharePhotoEditing",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Photo editing in Share",
+    "body": "Inspect the Windows Share sheet for photo-editing tools before sharing an image. Both IDs form the reported recipe; preserve the original image and review the result before sending it elsewhere.",
+    "keywords": "photo editing in share windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3llhrij7bn22s",
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda4sgaxqc2y"
+    ],
+    "evidence": "Observed: 26200.5516 · Dev; 26120.3653 · Beta (2025-03-28). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53433910,
+      54475355
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "ShareWebPreview",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Web-link previews in Share",
+    "body": "Inspect the Windows Share sheet for a visual preview of shared web links. This records the recipe observed in Beta 22635.4655; the source does not establish compatibility with arbitrary stable releases or every sharing application.",
+    "keywords": "web-link previews in share windows",
+    "sources": [
+      "https://bsky.app/profile/phantomofearth.bsky.social/post/3lda4sgaxqc2y"
+    ],
+    "evidence": "Observed: 22635.4655 · Beta (2024-12-14). Current device support unverified; not a supported range.",
+    "featureIds": [
+      53871483
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "GamePassWidgetHistory",
+    "kind": "Historical",
+    "category": "Windows",
+    "title": "Xbox Game Pass widget",
+    "body": "The mapping identifies an Xbox Game Pass widget, while leaving its internal feature name unknown. Inspect the Widgets board for this content; the feature flag does not confer a subscription or game entitlement.",
+    "keywords": "xbox game pass widget windows",
+    "sources": [
+      "https://github.com/PeterStrick/ViVeTool-GUI/issues/19"
+    ],
+    "evidence": "Historical maintainer mapping: 25201 · Dev. Current support and complete recipe unverified.",
+    "featureIds": [
+      36094217
+    ],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "ToggleKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Audible lock-key feedback",
+    "body": "Enable Toggle keys under Accessibility → Keyboard to hear Caps Lock, Num Lock and Scroll Lock changes. Consider nearby people before enabling audible feedback in a quiet room.",
+    "keywords": "audible lock-key feedback",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "CaptionMicrophone",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Caption an in-person conversation",
+    "body": "In the live captions window, open settings and include microphone audio. This adds nearby speech to captions; confirm microphone access and inform other participants before captioning a conversation.",
+    "keywords": "caption an in-person conversation",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/use-live-captions-to-better-understand-audio"
+    ],
+    "evidence": "Windows 11 22H2+ live captions; supported language and microphone required. Device unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-closedcaptioning",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "LiveCaptions",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Caption audio playing on the PC",
+    "body": "Press Win+Ctrl+L and complete the initial language download. Live captions processes speech locally after setup. Supported recognition languages vary; translation additionally requires compatible Copilot+ hardware and a supported release.",
+    "keywords": "caption audio playing on the pc",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/use-live-captions-to-better-understand-audio"
+    ],
+    "evidence": "Windows 11 22H2+ for live captions; translation requires Copilot+ PC and 24H2+. Device unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-closedcaptioning",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "ColorFilters",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Color-vision filters",
+    "body": "Open Accessibility → Color filters and choose a filter suited to your vision. Screen colors change, so disable the filter when accurate color judgment matters.",
+    "keywords": "color-vision filters",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-colorfilter",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceAccess",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Control Windows by voice",
+    "body": "Open Accessibility → Speech and enable Voice access. Choose a supported language, download its files and configure your microphone. Recognition then runs on-device; review microphone permissions and practice before relying on it.",
+    "keywords": "control windows by voice",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/voice-access/set-up-voice-access"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-speechrecognition",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "StickyKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Enter key combinations sequentially",
+    "body": "Under Accessibility → Keyboard, enable Sticky keys to enter shortcuts one key at a time. This changes modifier behavior; disable it if normal combinations feel unexpected.",
+    "keywords": "enter key combinations sequentially",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PointerVisibility",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Find the pointer more easily",
+    "body": "Open Accessibility → Mouse pointer and touch. Increase pointer size or choose a contrasting color; check that the pointer does not obscure small controls.",
+    "keywords": "find the pointer more easily",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-mousepointer",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MonoAudio",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Hear both channels in one ear",
+    "body": "Open Accessibility → Audio and enable Mono audio to combine stereo channels. Useful when listening through one ear; disable it to restore stereo positioning for music or games.",
+    "keywords": "hear both channels in one ear",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-audio",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "ContrastTheme",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "High-contrast interface",
+    "body": "Open Accessibility → Contrast themes and apply a suitable palette. Check your usual apps before keeping it; return to None to recover the normal theme.",
+    "keywords": "high-contrast interface",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-highcontrast",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FilterKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Ignore accidental repeated keys",
+    "body": "Open Accessibility → Keyboard → Filter keys and adjust sensitivity. Test typing afterward: excessive filtering can make the keyboard appear unresponsive. Restore the original sensitivity if intended presses disappear.",
+    "keywords": "ignore accidental repeated keys",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NarratorDucking",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Keep speech audible over other audio",
+    "body": "In Narrator settings, enable lowering other apps while Narrator speaks. This helps distinguish spoken controls; music or meeting audio may become quieter temporarily. Restore the setting if distracting.",
+    "keywords": "keep speech audible over other audio",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/narrator/chapter-7-customizing-narrator"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-narrator",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "TextSize",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Larger system text",
+    "body": "Open Accessibility → Text size, adjust the preview slider, then apply. This enlarges text without scaling every interface element; individual apps may ignore the preference.",
+    "keywords": "larger system text",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-display",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Magnifier",
+    "kind": "NativeShortcut",
+    "category": "Accessibility",
+    "title": "Magnify a difficult interface",
+    "body": "Press Win and plus to open Magnifier; use Win with plus or minus to zoom. Choose lens, docked or full-screen view in its settings; Win+Esc exits.",
+    "keywords": "magnify a difficult interface",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-magnifier",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MouseKeys",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Move the pointer from a keypad",
+    "body": "Enable Mouse keys under Accessibility → Mouse to control the pointer using a numeric keypad. This changes keypad behavior; confirm you can return to ordinary number entry when needed.",
+    "keywords": "move the pointer from a keypad",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-mouse",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NarratorStartup",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Narrator before or after sign-in",
+    "body": "Open Narrator settings with Win+Ctrl+N and expand startup options. Choose whether reading begins before or after sign-in; pre-sign-in behavior matters on a shared computer.",
+    "keywords": "narrator before or after sign-in",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/narrator/chapter-7-customizing-narrator"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-narrator",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "CaptionStyle",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Readable caption appearance",
+    "body": "Open Accessibility → Captions and edit the caption style, including text and background. Preview the result against video content; individual players may use their own caption styling instead.",
+    "keywords": "readable caption appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-closedcaptioning",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "AccessKeyUnderlines",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Reveal keyboard access keys",
+    "body": "Enable access-key underlines in Accessibility → Keyboard. Supported menus display their keyboard letters more clearly; applications without access keys will not gain new shortcuts from this setting.",
+    "keywords": "reveal keyboard access keys",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Narrator",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Screen reading with Narrator",
+    "body": "Press Win+Ctrl+Enter to start Narrator. Use Win+Ctrl+N to adjust voice, reading detail and output device together. Check volume in shared spaces; the starting shortcut also stops reading.",
+    "keywords": "screen reading with narrator",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/narrator/chapter-7-customizing-narrator"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-narrator",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "VisualAudioAlerts",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "See sound notifications",
+    "body": "Under Accessibility → Audio, choose a visual flash for audio notifications. Select the title bar, active window or screen; choose carefully if flashing content is uncomfortable for you.",
+    "keywords": "see sound notifications",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-audio",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "TouchIndicator",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Show touch contact points",
+    "body": "Open Accessibility → Mouse pointer and touch, then enable the touch indicator. The larger, darker circle can help demonstrations; this requires a touchscreen.",
+    "keywords": "show touch contact points",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-windows-easier-to-see"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-mousepointer",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "OnScreenKeyboard",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Type without a physical keyboard",
+    "body": "Press Win+Ctrl+O for the accessibility on-screen keyboard, or enable it under Accessibility → Keyboard. It supports pointer input and differs from the touch keyboard; press the shortcut again to close.",
+    "keywords": "type without a physical keyboard",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TextCursorVisibility",
+    "kind": "NativeSettings",
+    "category": "Accessibility",
+    "title": "Visible text insertion point",
+    "body": "Open Accessibility → Text cursor. Adjust thickness and the colored indicator together to locate the insertion point; some editors may render their own cursor instead.",
+    "keywords": "visible text insertion point",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-cursor",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopIconSize",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Adjust desktop icon size",
+    "body": "Right-click an empty desktop area and use View to choose an icon size, or hold Ctrl while turning the mouse wheel. Smaller icons leave more space but can be harder to identify.",
+    "keywords": "adjust desktop icon size appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsAccent",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Apply an accent color to window surfaces",
+    "body": "Open Personalization → Colors, choose an accent, and select where it appears, including window borders and title bars. Applying it to Start and the taskbar requires a dark Windows mode.",
+    "keywords": "apply an accent color to window surfaces appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/personalize-your-colors-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-colors",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MonitorWallpapers",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Assign pictures to individual monitors",
+    "body": "Open Personalization → Background and choose Picture. Right-click a recent picture to assign its target monitor. Microsoft documentation note this per-monitor assignment is unavailable when multiple virtual desktops are in use.",
+    "keywords": "assign pictures to individual monitors appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/change-the-desktop-background-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-background",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DynamicRefreshRate",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Balance smoothness with dynamic refresh",
+    "body": "Open System → Display → Advanced display and enable dynamic refresh where offered. DRR needs VRR and at least 120 Hz; disable it if a game loses its expected maximum refresh rate.",
+    "keywords": "balance smoothness with dynamic refresh",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-the-refresh-rate-on-your-monitor-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display-advanced",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopWallpaper",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Choose a desktop background",
+    "body": "Open Personalization → Background and select a picture, slideshow, solid color, or Windows Spotlight. Configure the fit or slideshow timing there. Spotlight downloads imagery, and multiple virtual desktops impose additional limitations.",
+    "keywords": "choose a desktop background appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/change-the-desktop-background-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-background",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LockScreenAppearance",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Choose a less revealing lock screen",
+    "body": "Open Personalization → Lock screen and choose your background and status content together. Other people can see this surface before sign-in; check whether personal photos or status information should remain visible.",
+    "keywords": "choose a less revealing lock screen",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-lock-screen-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:lockscreen",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsColorMode",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Choose separate app and system color modes",
+    "body": "Open Personalization → Colors and choose Custom mode to configure Windows and applications separately. Select light or dark for each. Some applications use their own theme settings and may not follow this preference.",
+    "keywords": "choose separate app and system color modes appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/personalize-your-colors-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-colors",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AmbientBrightness",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Control ambient-light brightness adjustment",
+    "body": "In System → Display → Brightness, review automatic adjustment when lighting changes. The option requires a compatible light sensor; disable it if sensor-driven changes make the screen hard to read.",
+    "keywords": "control ambient-light brightness adjustment",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ContentAdaptiveBrightness",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Control brightness changes caused by content",
+    "body": "Open System → Display → Brightness and review content-based brightness adjustment. Turning it off can prevent distracting brightness shifts during visual work; only supported displays expose this option.",
+    "keywords": "control brightness changes caused by content",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsTransparency",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Control transparent interface materials",
+    "body": "Open Personalization → Colors and change Transparency effects. Disable the effect if translucent surfaces make content harder to read; enable it again to restore the material appearance in supported Windows surfaces.",
+    "keywords": "control transparent interface materials appearance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/personalize-your-colors-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-colors",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopShortcut",
+    "kind": "Guide",
+    "category": "Appearance",
+    "title": "Create a desktop shortcut",
+    "body": "Right-click an empty desktop area and choose New → Shortcut. Select the intended target and give it a recognizable name. To undo, delete only the newly created shortcut, not its target file.",
+    "keywords": "create a desktop shortcut appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ThemeIconProtection",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Keep desktop icons when changing themes",
+    "body": "Open Personalization → Themes → Desktop icon settings and clear the option allowing themes to change desktop icons. Your chosen icons can then remain consistent when applying another visual theme.",
+    "keywords": "keep desktop icons when changing themes appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:themes",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DisplayColorProfile",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Manage a display color profile",
+    "body": "Open System → Display → Color profile, select the intended display and set its profile. Keep the original profile available: an unsuitable replacement can distort color across supported applications.",
+    "keywords": "manage a display color profile",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AutomaticColorManagement",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Manage application colors automatically",
+    "body": "In System → Display → Color profile, select a display and look for automatic color management. It improves consistency on supported graphics hardware; it does not replace a calibrated display.",
+    "keywords": "manage application colors automatically",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:display",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsThemes",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Save and apply a visual theme",
+    "body": "Open Personalization → Themes to choose an installed theme or save your current combination. Themes can affect several visual and sound settings together; return to your previous theme if the result is unsuitable.",
+    "keywords": "save and apply a visual theme appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/personalize-your-windows-experience-with-themes"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:themes",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NightLight",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Schedule warmer screen colors",
+    "body": "Open System → Display → Night light and set warmth and a schedule together. Colors become less accurate; disable it for color-sensitive work. Sunset timing may depend on location settings.",
+    "keywords": "schedule warmer screen colors",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:nightlight",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopSystemIcons",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Show familiar desktop system icons",
+    "body": "Open Personalization → Themes → Desktop icon settings. Choose system entries such as This PC or Recycle Bin. This controls their desktop shortcuts and does not create or remove the underlying system features.",
+    "keywords": "show familiar desktop system icons appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:themes",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DesktopIconVisibility",
+    "kind": "NativeSettings",
+    "category": "Appearance",
+    "title": "Temporarily hide desktop icons",
+    "body": "Right-click an empty desktop area and use View → Show desktop icons to hide or reveal the complete set. The files remain on disk; this is a presentation change rather than deletion.",
+    "keywords": "temporarily hide desktop icons appearance",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/personalization/customize-the-desktop-icons-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "EndTask",
+    "kind": "NativeSettings",
+    "category": "ContextMenu",
+    "title": "Expose End task on the taskbar",
+    "body": "Open Settings → System → Advanced and enable End Task if available; older releases place it under For developers. Right-click a taskbar app to see the command. Force-ending an app can lose unsaved work. Turning off the setting removes the entry but cannot recover that work.",
+    "keywords": "right click end task taskbar frozen app force close",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Current Advanced documentation; page moved in Windows 11 25H2+. Earlier availability varies; device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "UnsavedWork",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DefaultApps",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Choose file and link handlers",
+    "body": "Open Settings → Apps → Default apps. Search a file extension or protocol, or select an application to inspect its associations. Assign only the types you intend to change. Record previous handlers so you can restore them without resetting every default app.",
+    "keywords": "association default browser extension protocol",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/apps/change-default-apps-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:defaultapps",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ExplorerView",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Choose icons or file details",
+    "body": "In File Explorer, open View and select an icon, list, or details layout. Use details when comparing file information and icons for visual browsing; return to the previous layout whenever needed.",
+    "keywords": "choose icons or file details explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerHome",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Open Explorer at This PC",
+    "body": "In File Explorer, open the three-dot menu → Options. Change Open File Explorer to to This PC instead of Home. Restore the previous choice if you prefer recent and pinned items first.",
+    "keywords": "open explorer at this pc explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerQuickAccess",
+    "kind": "Guide",
+    "category": "Explorer",
+    "title": "Pin a frequently used folder",
+    "body": "Right-click a folder in File Explorer and choose Pin to Quick access. This adds a navigation shortcut without moving the folder. Right-click the entry and unpin it to remove that shortcut.",
+    "keywords": "pin a frequently used folder explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerNavigationPane",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Restore the folder navigation pane",
+    "body": "In File Explorer, choose View → Show → Navigation pane. The left-hand folder tree makes frequent locations easier to reach; toggle it again if you prefer more room for file contents.",
+    "keywords": "restore the folder navigation pane explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "ExplorerSelectionBoxes",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Select files using checkboxes",
+    "body": "In File Explorer, choose View → Show → Item check boxes. Use the boxes to collect multiple selections without holding a modifier key; clear the option to restore the previous presentation.",
+    "keywords": "select files using checkboxes explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "Extensions",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Show file extensions",
+    "body": "In File Explorer, choose View → Show → File name extensions. Seeing the full suffix helps distinguish similar-looking files. Changing this display option does not convert files or alter their underlying formats.",
+    "keywords": "show file extensions explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "Hidden",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Show hidden files",
+    "body": "In File Explorer, choose View → Show → Hidden items. This reveals normally hidden content for inspection. Do not delete unfamiliar system or application files merely because they have become visible.",
+    "keywords": "show hidden files explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "LongPaths",
+    "kind": "Guide",
+    "category": "Explorer",
+    "title": "Understand Win32 long-path support",
+    "body": "In supported editions, open Group Policy → Computer Configuration → Administrative Templates → System → Filesystem → Enable Win32 long paths. Record its prior state. Apps must also declare longPathAware; this does not remove every path limit. Restart affected processes and restore the policy if needed.",
+    "keywords": "MAX_PATH longPathAware path length policy",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation"
+    ],
+    "evidence": "Windows 11; Group Policy editor availability depends on edition. Application opt-in remains required; not device-tested.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ExplorerCompact",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Use denser file rows",
+    "body": "In File Explorer, choose View → Compact view to reduce space between entries. It can show more files on screen, but smaller targets may be less comfortable for touch interaction.",
+    "keywords": "use denser file rows explorer",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "explorer.exe",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Explorer"
+  },
+  {
+    "id": "PenShortcuts",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Assign pen-button actions",
+    "body": "Open Bluetooth & devices → Pen & Windows Ink and configure the pen shortcut button. Group single, double and held presses around your workflow; available actions depend on the pen.",
+    "keywords": "assign pen-button actions",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/use-a-pen-with-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:pen",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsDisplayLanguage",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Change the Windows display language",
+    "body": "Open Time & language → Language & region, install the needed language and select it for Windows. Save work before signing out; single-language editions restrict this change and keyboard layouts may differ afterward.",
+    "keywords": "change the windows display language",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:regionlanguage",
+    "risk": "UnsavedWork",
+    "restart": "SignOut",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TouchpadGestures",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Customize multi-finger touchpad gestures",
+    "body": "Open Bluetooth & devices → Touchpad and expand three-finger or four-finger gestures. Assign useful switching actions together; some gestures require a precision touchpad and may conflict with established habits.",
+    "keywords": "customize multi-finger touchpad gestures",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/touch-gestures-for-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:devices-touchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "VoiceTyping",
+    "kind": "NativeShortcut",
+    "category": "Input",
+    "title": "Dictate text with automatic punctuation",
+    "body": "Place the caret in a text field and press Win+H. Configure automatic punctuation through the gear button and proofread before submitting; voice typing needs a microphone and online speech recognition.",
+    "keywords": "dictate text with automatic punctuation",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/use-voice-typing-to-talk-instead-of-type-on-your-pc"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "CloseView",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MouseClickLock",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Drag without holding the mouse button",
+    "body": "Open Bluetooth & devices → Mouse → Additional mouse settings → Buttons and enable ClickLock. It reduces the need to hold a button while dragging; try it with an expendable selection first.",
+    "keywords": "drag without holding the mouse button",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/change-mouse-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:mousetouchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TypingSuggestions",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Get suggestions while typing",
+    "body": "Open Time & language → Typing and enable hardware-keyboard text suggestions, including multilingual suggestions if useful. Support varies by app and language; review suggestions rather than treating them as corrections.",
+    "keywords": "get suggestions while typing",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/enable-text-suggestions-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:typing",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PointerLocator",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Locate the pointer with Ctrl",
+    "body": "Open additional mouse settings → Pointer Options and enable showing pointer location when Ctrl is pressed. Press Ctrl to check the locator; it does not move or click the pointer.",
+    "keywords": "locate the pointer with ctrl",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/change-mouse-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:mousetouchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TouchscreenGestures",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Manage system touch gestures",
+    "body": "Open Bluetooth & devices → Touch and configure three- and four-finger gestures. Disable them if an app needs the same gestures; the system can otherwise intercept those movements.",
+    "keywords": "manage system touch gestures",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/touch-gestures-for-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:devices-touch",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Clipboard",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Reuse clipboard history safely",
+    "body": "Press Win+V and enable clipboard history to reuse recent copied items. Review sensitive content before enabling sync; System → Clipboard controls history and clearing, while pinned items need separate attention.",
+    "keywords": "reuse clipboard history safely",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/apps/using-the-clipboard"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:clipboard",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "InactiveWindowScroll",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Scroll a window without activating it",
+    "body": "Open Bluetooth & devices → Mouse and enable scrolling inactive windows on hover. Test with overlapping windows: scrolling can affect background content even though keyboard focus remains elsewhere.",
+    "keywords": "scroll a window without activating it",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/change-mouse-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:mousetouchpad",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AppLanguageOrder",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Set preferred languages for apps",
+    "body": "In Time & language → Language & region, reorder preferred languages. Supported apps use this preference when choosing translations; an app cannot display a language it does not provide.",
+    "keywords": "set preferred languages for apps",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:regionlanguage",
+    "risk": "Accessibility",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PenHandedness",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Set the writing hand for pen input",
+    "body": "Under Bluetooth & devices → Pen & Windows Ink, choose your writing hand. This helps supported pen interactions suit your grip; it requires compatible pen hardware and does not recalibrate the screen.",
+    "keywords": "set the writing hand for pen input",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/use-a-pen-with-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:pen",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "KeyboardLayouts",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Switch keyboard layouts deliberately",
+    "body": "Open a language’s options under Language & region and add a keyboard layout. Switch with Win+Space; verify the active layout before typing passwords, then remove unused layouts if needed.",
+    "keywords": "switch keyboard layouts deliberately",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:regionlanguage",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PrintScreenCapture",
+    "kind": "NativeSettings",
+    "category": "Input",
+    "title": "Use PrtSc for screen snipping",
+    "body": "Under Accessibility → Keyboard, enable the Print Screen capture option. PrtSc then opens screen snipping instead of its previous behavior; verify your existing screenshot shortcuts still work as expected.",
+    "keywords": "use prtsc for screen snipping",
+    "sources": [
+      "https://support.microsoft.com/en-us/accessibility/windows/make-your-mouse-keyboard-and-other-input-devices-easier-to-use"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-keyboard",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NotificationDuration",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Allow more time to read banners",
+    "body": "Open Accessibility → Visual effects and increase notification dismissal time. Banners remain visible longer, which helps reading but may cover work; restore the previous duration when no longer needed.",
+    "keywords": "allow more time to read banners",
+    "sources": [
+      "https://support.microsoft.com/en-gb/accessibility/windows/make-windows-easier-to-hear"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:easeofaccess-visualeffects",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Sound"
+  },
+  {
+    "id": "SecurityNotifications",
+    "kind": "Guide",
+    "category": "Notifications",
+    "title": "Reduce informational security notifications",
+    "body": "Open Windows Security → Settings → Manage notifications. Review informational scan notices and network-specific alerts while preserving messages important to your work. Immediate-action warnings are still delivered. Organizational policy may lock controls; restore the previous notification choices if useful context is missing.",
+    "keywords": "security scan notification alert firewall",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/windows-security/windows-security-app-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PerAppNotifications",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Reduce noisy app banners",
+    "body": "Open System → Notifications, select a listed app and configure its banners, sounds and priority together. Keep important alerts visible; these controls change delivery behavior without deleting the app’s data.",
+    "keywords": "reduce noisy app banners",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:notifications",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DoNotDisturb",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Schedule quiet periods with exceptions",
+    "body": "Open System → Notifications and configure automatic Do not disturb conditions plus priority exceptions. Check important apps and calls before relying on silence; disabling a rule does not necessarily end the current quiet period.",
+    "keywords": "schedule quiet periods with exceptions",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:notifications",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Focus",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Start a timed focus session",
+    "body": "Open System → Focus, choose a duration and start the session. Review its notification and taskbar options first; after ending, check whether Do not disturb remains enabled before expecting urgent alerts.",
+    "keywords": "start a timed focus session",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/focus-stay-on-task-without-distractions-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support unverified; checked 2026-10-08.",
+    "featureIds": [],
+    "destination": "ms-settings:",
+    "risk": "Accessibility",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "HibernateEntry",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Add the hibernate power option",
+    "body": "Open Control Panel → Power Options → Choose what the power buttons do → Change settings that are currently unavailable. If offered, select Hibernate and save. Removing the menu option reverses this change; it does not delete the hibernation file.",
+    "keywords": "hibernate sleep power menu suspend",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/shut-down-sleep-or-hibernate-your-pc"
+    ],
+    "evidence": "Windows 11; hibernation requires compatible hardware and configuration. Availability on this device is unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PowerMode",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Balance performance and power",
+    "body": "Open Settings → System → Power & battery → Power mode. Choose the balance appropriate to your workload and record the previous mode. Higher performance can increase heat and battery use; available modes depend on hardware and the active power plan.",
+    "keywords": "performance heat fan battery efficiency",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/power-settings-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:powersleep",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LidPowerActions",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Choose lid and power-button actions",
+    "body": "Open Control Panel → System and Security → Power Options → Choose what the power buttons do. Set battery and plugged-in actions separately, then save. A laptop configured to stay awake can overheat inside a bag; shutdown can discard unsaved work.",
+    "keywords": "close lid power button sleep laptop",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/shut-down-sleep-or-hibernate-your-pc"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "StartupApps",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Choose sign-in startup apps",
+    "body": "Open Settings → Apps → Startup and review registered apps. Task Manager → Startup apps also shows measured startup impact. Disable only optional apps you recognize; essential synchronization or protection may otherwise stop starting. Re-enable an entry to restore its next sign-in behavior.",
+    "keywords": "startup login boot impact autorun",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/startup-boot/configure-startup-applications-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:startupapps",
+    "risk": "Security",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "EnergySaver",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Configure energy saver",
+    "body": "Open Settings → System → Power & battery → Energy saver. Review its activation threshold and brightness behavior together. Restricting background work can delay notifications and synchronization. Restore the previous threshold or turn it off when that tradeoff no longer suits your work.",
+    "keywords": "battery saver threshold brightness background",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/power-settings-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 current documentation; older releases use different names and options. Device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:powersleep",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DeliveryOptimization",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Control update download sharing and bandwidth",
+    "body": "Open Settings → Windows Update → Advanced options → Delivery Optimization. Review peer-sharing scope, then bandwidth limits and activity statistics. Internet sharing can consume upload allowance. Restore recorded limits if downloads become too slow; disabling peer sharing does not disable Windows Update.",
+    "keywords": "peer update upload bandwidth sharing",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/deployment/updates-lifecycle/delivery-optimization-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:delivery-optimization",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SleepDiagnosis",
+    "kind": "Guide",
+    "category": "Performance",
+    "title": "Diagnose sleep blockers and wakeups",
+    "body": "Use a terminal to inspect powercfg /requests for sleep blockers, /lastwake for the last wake source, and /waketimers for scheduled wakeups. Some queries require administrator access. These are diagnostic queries; do not apply request overrides or disable update tasks from this guide.",
+    "keywords": "sleep wake timer power request blocker",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "None",
+    "illustration": "Settings"
+  },
+  {
+    "id": "BatteryReport",
+    "kind": "Guide",
+    "category": "Performance",
+    "title": "Inspect battery capacity history",
+    "body": "In a terminal opened in a writable folder, run powercfg /batteryreport, then open the HTML path printed by the command. Compare design and reported full-charge capacity without treating it as a precise health guarantee. Review usage history before sharing; delete the report when finished.",
+    "keywords": "battery capacity health report degradation",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options"
+    ],
+    "evidence": "Windows powercfg documentation; useful on battery-equipped devices. Report accuracy depends on firmware; not device-tested.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WslResources",
+    "kind": "Guide",
+    "category": "Performance",
+    "title": "Limit WSL 2 resource use",
+    "body": "Use WSL Settings or edit memory and processors under [wsl2] in your user-profile .wslconfig. Preserve the original file. Save all Linux work before restarting WSL; the limits affect every WSL 2 distribution. Restore the old configuration if builds or services lack resources.",
+    "keywords": "WSL Linux memory CPU quota processors",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/wsl/wsl-config"
+    ],
+    "evidence": "WSL 2 only; requires a WSL release supporting the chosen options. No device compatibility test performed.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "UnsavedWork",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "BackgroundApps",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Limit per-app background activity",
+    "body": "Open Settings → System → Power & battery → Battery usage. For a supported app, choose More options → Manage background activity and review its permission. Never can stop its notifications and synchronization; restore the previous choice if updates are missed.",
+    "keywords": "background permission sync battery usage",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/performance-optimization/manage-background-activity-for-apps-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11; Battery usage navigation requires a battery-equipped device and supported apps. Policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:batterysaver-usagedetails",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SearchCloudSources",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose accounts used for cloud search",
+    "body": "Open Privacy & security → Search, or Search permissions on older versions, and review Cloud content search. Control Microsoft and work or school account sources separately. These switches do not represent a general web-search toggle.",
+    "keywords": "choose accounts used for cloud search privacy",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/privacy/windows-search-and-privacy"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search-permissions",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchIndexScope",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose classic or enhanced indexing",
+    "body": "Open Privacy & security → Search, called Searching Windows on some versions, and locate Find my files. Choose Classic or Enhanced coverage. A larger initial index consumes additional disk activity, processing time, and battery.",
+    "keywords": "choose classic or enhanced indexing privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/performance-optimization/search-indexing-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "SearchIndexTypes",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose indexed file types and contents",
+    "body": "Open custom search locations from Privacy & security → Search, then Advanced → File Types. Configure which extensions are indexed and how. Changes may require rebuilding the index and are not immediately reflected in results.",
+    "keywords": "choose indexed file types and contents privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/performance-optimization/search-indexing-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "OptionalDiagnostics",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose optional diagnostic sharing",
+    "body": "Open Settings → Privacy & security → Diagnostics & feedback and review optional diagnostic data. Required diagnostics still apply when optional sharing is off. Optional reports can contain activity and crash-memory details. Choose deliberately; organizational policy may lock the control.",
+    "keywords": "diagnostics telemetry feedback privacy crash",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/diagnostics-feedback-and-privacy-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-feedback",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SearchDeviceHistory",
+    "kind": "Guide",
+    "category": "Privacy",
+    "title": "Clear search history stored on this device",
+    "body": "Open Privacy & security → Search, or Search permissions, and locate the history controls. Clear device search history only when intended: this does not delete cloud Bing records, and local history cannot be restored through Settings.",
+    "keywords": "clear search history stored on this device privacy",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/privacy/windows-search-and-privacy"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search-permissions",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "None",
+    "illustration": "Search"
+  },
+  {
+    "id": "AdvertisingIdentifier",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Control the app advertising identifier",
+    "body": "Open Settings → Privacy & security → Recommendations & offers and review app use of the advertising ID. Turning it off changes personalization, not ad quantity or website cookies. Turning it back on resets the identifier rather than restoring its previous value.",
+    "keywords": "advertising ID tracking privacy cookies",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/privacy-settings-for-recommendations-offers-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-general",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SearchWebSuggestions",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Control web and Store search suggestions",
+    "body": "On the supported preview experience, open Privacy & security → Search and choose whether web and Microsoft Store suggestions appear alongside local results. Region and rollout affect availability; do not substitute an unverified registry recipe if the controls are absent.",
+    "keywords": "control web and store search suggestions privacy",
+    "sources": [
+      "https://blogs.windows.com/windows-insider/2026/07/13/improving-windows-search-box-with-less-clutter-and-more-control/"
+    ],
+    "evidence": "Experimental channel announcement, 2026-07-13; controlled rollout and regional variation. No numerical ViVe ID or current-device support verified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Experimental",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "AppDiagnosticPrivacy",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Limit apps inspecting other apps",
+    "body": "Open Settings → Privacy & security → App diagnostics and review each listed app’s access. Diagnostics can include running app names and memory use. These controls apply to supported apps; traditional desktop applications may remain unaffected. Restore necessary permissions if a diagnostic workflow breaks.",
+    "keywords": "app diagnostics process memory permissions",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-app-diagnostics-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-appdiagnostics",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FileAccessPrivacy",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Review app file-system permissions",
+    "body": "Open Settings → Privacy & security → File system and review access for listed applications. Permission can expose files available to your account; revoking it may break an app’s workflow. Some desktop programs are outside this list and are not constrained by this switch.",
+    "keywords": "file system permissions app documents privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-file-system-access-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-broadfilesystemaccess",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LocationPermissions",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Review per-app location access",
+    "body": "Open Settings → Privacy & security → Location. Review the location service, listed app permissions and recent access before changing them. Location-dependent apps may lose functionality. Desktop apps and websites can have additional controls; this page does not guarantee complete location anonymity.",
+    "keywords": "GPS location app permission recent access",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-location-service-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-location",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PersonalizedOffers",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Review personalized Windows offers",
+    "body": "Open Settings → Privacy & security and locate Personalized offers or Recommendations & offers, depending on release. Review permission to use Windows activity for tailored suggestions. This controls that personalization mechanism, not all advertising in Windows, browsers or third-party apps.",
+    "keywords": "ads suggestions recommendations activity",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/privacy-settings-for-recommendations-offers-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-general",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SearchIndexFolders",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Select folders included in the index",
+    "body": "Open Privacy & security → Search and follow the custom search locations link. Choose Modify to select folders. Removing a location can make its files slower to find or absent from indexed results.",
+    "keywords": "select folders included in the index privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/performance-optimization/search-indexing-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "DefaultLocation",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Set a fallback device location",
+    "body": "Open Settings → Privacy & security → Location → Default location → Set default. Choose the device’s location for use when precise positioning is unavailable. It can reveal that address to eligible services; clear the address and save to remove the fallback.",
+    "keywords": "fallback location map weather address",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-location-service-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-location",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SearchSafeFilter",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Set the search safety filter",
+    "body": "Open Privacy & security → Search, or Search permissions, and select a SafeSearch level. Filtering affects web content in search; family or organizational policies may restrict which level you are allowed to choose.",
+    "keywords": "set the search safety filter privacy",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/privacy/windows-search-and-privacy"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:search-permissions",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Search"
+  },
+  {
+    "id": "StartPowerFolders",
+    "kind": "NativeSettings",
+    "category": "Start",
+    "title": "Add folders beside the power button",
+    "body": "Open Personalization → Start → Folders and choose useful destinations such as Downloads or Documents. These shortcuts appear beside the power control; remove unneeded entries from the same settings page.",
+    "keywords": "add folders beside the power button start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-start",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StartPins",
+    "kind": "Guide",
+    "category": "Start",
+    "title": "Pin apps and folders to Start",
+    "body": "Right-click an application or a supported folder and choose Pin to Start. Drag pinned items into a useful order. Use Unpin from Start to remove an entry without deleting its target.",
+    "keywords": "pin apps and folders to start start",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-windows-start-menu"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "StorageSense",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Automatic cleanup rules",
+    "body": "Open Settings → System → Storage → Storage Sense. Review frequency, Recycle Bin and Downloads retention together. Keep Downloads at Never unless backed up. Cloud files may become online-only; disabling cleanup does not restore deleted files.",
+    "keywords": "cleanup recycle bin downloads retention cloud offline",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/manage-drive-space-with-storage-sense",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagepolicies",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DeviceEncryption",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Check device encryption and recovery readiness",
+    "body": "Open Settings → Privacy & security → Device encryption with administrator access. Confirm who holds the recovery key and secure a usable backup before enabling encryption. Supported Home devices can qualify too. Losing recovery access can make data inaccessible; decryption is a separate, potentially lengthy operation.",
+    "keywords": "BitLocker encryption recovery key backup",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/encryption/device-encryption-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SudoMode",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose native sudo isolation",
+    "body": "Open the developer settings or System → Advanced and review Enable sudo. Prefer the default new-window mode unless you understand the added interaction risks of inline execution. UAC authorization still applies. Disabling sudo later cannot undo commands already run with administrator privileges.",
+    "keywords": "sudo elevation administrator UAC terminal",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/sudo/",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 24H2+; settings move to Advanced in 25H2+. Current device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "Security",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NetworkProfile",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose public or private network visibility",
+    "body": "Open Settings → Network & internet → the connection’s properties → Network profile type. Keep Public for untrusted networks; Private allows discoverability useful for sharing. Record the old profile and check sharing requirements before changing it. Restore it if the intended access changes unexpectedly.",
+    "keywords": "public private network discovery sharing",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-status",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DefaultTerminal",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose the default terminal host",
+    "body": "Open Settings → System → Advanced → Terminal and choose the installed terminal host you prefer. Older releases place this under For developers. Test the console applications you rely on; changing the host can alter their presentation and interaction. Restore the previous host if necessary.",
+    "keywords": "terminal console host command prompt",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 25H2+ Advanced page; older releases use For developers. Choices depend on installed terminal apps.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "None",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ContentDrive",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose where new content is saved",
+    "body": "Open Settings → System → Storage → Advanced storage settings → Where new content is saved. Choose a drive for each content category. This does not move existing files or force every installer to use that drive; keep removable drives available.",
+    "keywords": "save location default disk downloads apps",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/storage-settings-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagesense",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WslSystemd",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Configure systemd for a WSL distribution",
+    "body": "Check whether the distribution already uses systemd. If needed, preserve /etc/wsl.conf and add systemd=true under [boot]. Save Linux work before restarting WSL. Service startup behavior changes; restore the old boot configuration to revert and review any services you separately enabled.",
+    "keywords": "WSL Linux systemd service boot init",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/wsl/systemd"
+    ],
+    "evidence": "WSL 2 with WSL 0.67.6+; some distributions already use systemd. Device and distribution support unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "UnsavedWork",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SandboxIsolation",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Constrain Sandbox network and file sharing",
+    "body": "Create a reviewed .wsb configuration with Networking set to Disable; avoid host-folder mappings unless needed and make them read-only. Launch that configuration. Writable mappings expose host data, while sandbox-only changes disappear on closing. Restore the old configuration separately from any damaged host files.",
+    "keywords": "wsb mapped folder read only network sandbox",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-configure-using-wsb-file"
+    ],
+    "evidence": "Windows Sandbox must already be installed. Configuration options depend on Windows release; device behavior unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "App",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "RestorePoint",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Create a restore point before experimenting",
+    "body": "Search Start for Create a restore point. Select the system drive, configure System Protection and its space limit if needed, then choose Create with a meaningful description. Keep separate personal-file backups: restore points expire and cannot guarantee reversal of every feature or third-party change.",
+    "keywords": "restore point recovery registry experiment backup",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/backup-recovery/system-protection"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "None",
+    "restore": "None",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DeveloperMode",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Enable tools for app development",
+    "body": "Search Settings for Developer Mode. On 25H2 or later, use System → Advanced → For developers. Read the prompt before enabling; administrator access is required. Ordinary use does not need this mode. Turning it off does not necessarily remove previously installed apps or development components.",
+    "keywords": "developer sideload debug app deployment",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/developer-mode",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11; Advanced replaces the For developers page in 25H2+. Policy and device availability unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DevDrive",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Plan a Dev Drive for source workloads",
+    "body": "Open Settings → System → Storage → Advanced storage settings → Disks & volumes → Create dev drive. Review a new VHD option after backing up. Existing volumes cannot convert in place. Check ReFS compatibility and keep security filtering; move data out before later removing the drive.",
+    "keywords": "Dev Drive ReFS VHD source code build",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/dev-drive/"
+    ],
+    "evidence": "Microsoft specifies Windows 11 build 22621.2338+, administrator access, ≥8 GB RAM and ≥50 GB free space. Device unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "Varies",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "OfflineScan",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Prepare a Defender offline scan",
+    "body": "Open Windows Security → Virus & threat protection → Scan options and inspect Microsoft Defender Offline. Save work and ensure recovery keys are available before confirming. The scan restarts the PC into recovery; review any quarantine actions afterward rather than assuming every change is automatically reversible.",
+    "keywords": "Defender malware offline scan recovery restart",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/threat-malware-protection/virus-and-threat-protection-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "UnsavedWork",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ActiveHours",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Reduce update restart interruptions",
+    "body": "Open Settings → Windows Update → Advanced options → Active hours. Choose automatic detection or set your working hours manually. This helps schedule update restarts around normal use; it is not a permanent restart block. Save work and review pending restart notices separately.",
+    "keywords": "active hours update restart working schedule",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/deployment/updates-lifecycle/keep-your-pc-up-to-date-with-active-hours",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:windowsupdate-activehours",
+    "risk": "UnsavedWork",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MeteredConnection",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Reduce usage on a limited connection",
+    "body": "Open Settings → Network & internet, select your Wi-Fi or Ethernet connection, then review Metered connection. It can reduce background transfers but also delay synchronization and some updates. Restore the previous setting when appropriate; this is not a guaranteed data cap.",
+    "keywords": "metered bandwidth quota synchronization update",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/metered-connections-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-status",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "RepairApps",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Repair an app before resetting it",
+    "body": "Open Settings → Apps → Installed apps → the app’s menu → Advanced options. Try Repair when available. Reset is a separate fallback that may discard app data and settings; back up first and read its confirmation. Not every desktop program offers these controls.",
+    "keywords": "repair reset broken app data",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/apps/repair-apps-and-programs-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:appsfeatures",
+    "risk": "Files",
+    "restart": "App",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WslNetworking",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review WSL mirrored networking",
+    "body": "In WSL Settings, review mirrored networking, or set networkingMode=mirrored under [wsl2] in .wslconfig. Save running work before restarting WSL. This changes network exposure; retain firewall filtering. To revert, restore the previous network mode and restart WSL again.",
+    "keywords": "WSL mirrored NAT firewall network",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/wsl/wsl-config"
+    ],
+    "evidence": "Windows 11 22H2+ and a compatible WSL 2 release; policy and local networking compatibility unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Network",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "RepairWindows",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review an in-place Windows repair",
+    "body": "Open Settings → System → Recovery → Fix problems using Windows Update. Back up first, keep power and internet connected, then review reinstall and restart confirmation. It is designed to preserve apps, files and settings, but has no immediate undo and is unavailable on some managed devices.",
+    "keywords": "repair reinstall Windows update recovery preserve",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/deployment/install-upgrade/fix-issues-by-reinstalling-the-current-version-of-windows"
+    ],
+    "evidence": "Windows 11 22H2+ with February 2024 optional update or later. Update-management restrictions apply; device unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "Device",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ProxyConfiguration",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review an organization’s proxy configuration",
+    "body": "Open Settings → Network & internet → Proxy. Use only the detection, script or server details supplied by a trusted administrator. Incorrect settings can interrupt access, and the proxy can observe relevant traffic. Record the previous configuration; VPN proxies are configured separately.",
+    "keywords": "proxy PAC script server internet",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/use-a-proxy-server-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-proxy",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ReputationProtection",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review download reputation protection",
+    "body": "Open Windows Security → App & browser control → Reputation-based protection. Review app and file checks, unwanted-app blocking and password warnings together. Keep protection enabled unless resolving a verified issue; a toggle cannot undo malware execution or recover an already exposed password.",
+    "keywords": "SmartScreen unwanted app phishing password",
+    "sources": [
+      "https://support.microsoft.com/en-au/windows/security/windows-security/app-browser-control-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DriveOptimization",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review drive optimization",
+    "body": "Open Settings → System → Storage → Advanced storage settings → Drive optimization. Inspect the media type and optimization status before adjusting the schedule. Let Windows use the appropriate method for SSD or HDD; changing the schedule cannot undo completed optimization.",
+    "keywords": "SSD HDD trim defragment schedule",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/storage-settings-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagesense",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MemoryIntegrity",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review memory-integrity protection",
+    "body": "Open Windows Security → Device security → Core isolation details and inspect Memory integrity. Resolve incompatible drivers with trusted updates before enabling protection. Do not treat disabling it as a general performance tweak. Save work if Windows requests a restart; availability depends on virtualization and drivers.",
+    "keywords": "HVCI core isolation driver virtualization",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/windows-security/device-security-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FirewallExceptions",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review precise firewall app exceptions",
+    "body": "Open Windows Security → Firewall & network protection → Allow an app through firewall. After administrator confirmation, allow only a recognized app you actually need. Prefer a specific app exception over a broad open port; remove obsolete permissions. Existing exposure cannot be undone by removing a rule.",
+    "keywords": "firewall allow app port network access",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/firewall/risks-of-allowing-apps-through-windows-firewall"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Network",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ControlledFolders",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review ransomware folder protection",
+    "body": "Open Windows Security → Virus & threat protection → Manage ransomware protection. Review Controlled folder access and protected folders. It can block legitimate apps from saving; investigate each exception rather than allowing everything. This protection complements backups and cannot restore previously damaged files.",
+    "keywords": "ransomware protected folder blocked save",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/threat-malware-protection/virus-and-threat-protection-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DevicePortal",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review remote development diagnostics",
+    "body": "With Developer Mode configured, inspect Device Portal under the developer settings. Use it only for an actual remote test target on a trusted network and review authentication. It exposes remote management capabilities; disable the portal after use and verify remote access has stopped.",
+    "keywords": "remote diagnostic portal developer authentication",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/developer-mode",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 developer feature package required; page moves to System → Advanced in 25H2+. Not device-tested.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "Network",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "CleanupReview",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review storage cleanup candidates",
+    "body": "Open Settings → System → Storage → Cleanup recommendations and inspect each candidate before removing it. Back up important files first. Removing downloads or a previous Windows installation can permanently lose files or remove the option to return to that version.",
+    "keywords": "temporary files disk space Windows.old rollback",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/storage-settings-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagerecommendations",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsSandbox",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Set up a disposable Windows Sandbox",
+    "body": "Search for Turn Windows features on or off, select Windows Sandbox if supported, and restart when prompted. Save work first. Sandbox has networking and some redirection by default; it is not absolute isolation. Export needed sandbox files before closing because its internal state is discarded.",
+    "keywords": "sandbox disposable virtual machine isolation",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-install"
+    ],
+    "evidence": "Supported Windows editions and hardware virtualization required; ≥4 GB RAM. ARM64 support: Windows 11 22H2+. Device unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MobileHotspot",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Share a connection with a mobile hotspot",
+    "body": "Open Settings → Network & internet → Mobile hotspot. Select the source connection, review the network name and password, then enable sharing only when needed. Connected devices consume your data allowance. Turn the hotspot off afterward and avoid sharing its password broadly.",
+    "keywords": "hotspot share wifi password tethering",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/use-your-windows-device-as-a-mobile-hotspot",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-mobilehotspot",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NetworkDataLimit",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Track a network data allowance",
+    "body": "Open Settings → Network & internet → Wi-Fi → the connected network → Set a data limit. Enter the billing period and allowance. Windows warns near the limit, but this is not a guaranteed carrier billing stop; compare the provider’s usage counter too.",
+    "keywords": "data limit traffic billing allowance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-status",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SmartAppControl",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Understand Smart App Control state",
+    "body": "Open Windows Security → App & browser control → Smart App Control settings. Inspect evaluation, on or off before making changes. Current documentation limits availability to eligible fresh installations; returning to evaluation can require resetting or reinstalling Windows. Do not assume a reversible toggle.",
+    "keywords": "SAC evaluation trusted apps fresh install",
+    "sources": [
+      "https://support.microsoft.com/en-au/windows/security/windows-security/app-browser-control-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 current Microsoft documentation specifies fresh-install and evaluation-mode restrictions. Device state unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "TaskbarAlignment",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Align taskbar icons to the left",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors. Set Taskbar alignment to Left for a familiar launch position. This changes icon alignment, not which screen edge holds the taskbar.",
+    "keywords": "align taskbar icons to the left taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarAutoHide",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Automatically hide the taskbar",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable automatic hiding. Move the pointer to its edge to reveal it again; clear the option to keep it visible.",
+    "keywords": "automatically hide the taskbar taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarSearchStyle",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Choose the taskbar search presentation",
+    "body": "Open Personalization → Taskbar → Taskbar items → Search. Choose a box, an icon, or hide the entry to reclaim space. This controls its presentation rather than disabling Windows Search.",
+    "keywords": "choose the taskbar search presentation taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTrayApps",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Choose visible system tray apps",
+    "body": "Open Personalization → Taskbar → Other system tray icons. Choose which app icons remain visible instead of living in the hidden-icons menu; keep important sync or security indicators accessible.",
+    "keywords": "choose visible system tray apps taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "WidgetsNotifications",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Choose where Widgets notifications appear",
+    "body": "Press Win+W and open Widgets settings → More settings → Notifications. Review notification behavior for the taskbar, navigation area, and board. Suppressing prompts may hide useful updates, without changing the source application data.",
+    "keywords": "choose where widgets notifications appear taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/stay-up-to-date-with-widgets-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarFlashing",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Control flashing app alerts",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and change the option for flashing taskbar apps. Turn it off to reduce visual interruptions, then restore it if important requests become easy to miss.",
+    "keywords": "control flashing app alerts taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTouchTools",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Expose touch and pen tray tools",
+    "body": "Open Personalization → Taskbar → System tray icons. Choose the touch keyboard, pen menu, or virtual touchpad entries needed for your device. Their usefulness depends on your input hardware.",
+    "keywords": "expose touch and pen tray tools taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified. Required input hardware must be present.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "WidgetsFeed",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Hide the Widgets discovery feed",
+    "body": "Press Win+W, open Widgets settings, and review the dashboard controls for the Discover feed. Turn off that feed when you only want widgets; names and availability vary with the Widgets version and region.",
+    "keywords": "hide the widgets discovery feed taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/stay-up-to-date-with-widgets-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "ClockVisibility",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Hide the tray date and time",
+    "body": "Right-click the taskbar clock and select Adjust date and time. Change whether the system tray shows the date and time; restore the switch when you need the clock visible again.",
+    "keywords": "hide the tray date and time taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:dateandtime",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarLabels",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Keep taskbar windows separate",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors. Set Combine taskbar buttons and hide labels to Never when you need individual labeled windows. Restore the former value if the taskbar becomes crowded.",
+    "keywords": "keep taskbar windows separate taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarPins",
+    "kind": "Guide",
+    "category": "Taskbar",
+    "title": "Pin and arrange frequent apps",
+    "body": "Right-click an application in Search or its running taskbar icon and choose Pin to taskbar. Drag icons to arrange them. Unpin an app to remove only its shortcut, not the application.",
+    "keywords": "pin and arrange frequent apps taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarWindowSharing",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Share a window from its taskbar button",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable window sharing from the taskbar. A supported meeting application is required. Review the window contents before choosing to share.",
+    "keywords": "share a window from its taskbar button taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarBadges",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show application badges",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and choose whether app buttons show badges. Badges expose pending activity without opening apps; disabling them may conceal useful status cues.",
+    "keywords": "show application badges taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "ClockSeconds",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show seconds on the tray clock",
+    "body": "Right-click the taskbar clock and open Adjust date and time. Expand the tray date/time controls and enable seconds when available. The extra clock updates can increase power consumption.",
+    "keywords": "show seconds on the tray clock taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:dateandtime",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarDisplays",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show taskbars across monitors",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable the taskbar on all displays. Use this on a multi-monitor setup; return to the previous selection if it adds clutter.",
+    "keywords": "show taskbars across monitors taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTaskView",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show the Task View button",
+    "body": "Open Personalization → Taskbar → Taskbar items and toggle Task view. Use its button to manage windows and virtual desktops. Hiding the button leaves the Win+Tab shortcut available.",
+    "keywords": "show the task view button taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarWidgets",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Show the Widgets taskbar entry",
+    "body": "Open Personalization → Taskbar → Taskbar items and toggle Widgets. Hide its taskbar entry to reduce clutter; this does not uninstall the Widgets experience or remove its underlying components.",
+    "keywords": "show the widgets taskbar entry taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "WidgetsHover",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Stop Widgets opening on hover",
+    "body": "Press Win+W and open Widgets settings. Turn off opening the board on hover to avoid accidental expansion while crossing the taskbar. You can still deliberately open it from its button or shortcut.",
+    "keywords": "stop widgets opening on hover taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/stay-up-to-date-with-widgets-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarTablet",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Use a touch-optimized taskbar",
+    "body": "On a supported convertible, open Personalization → Taskbar → Taskbar behaviors and enable optimization when used as a tablet. This option depends on device capabilities and may not appear on desktops.",
+    "keywords": "use a touch-optimized taskbar taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified. Required input hardware must be present.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "TaskbarDesktopCorner",
+    "kind": "NativeSettings",
+    "category": "Taskbar",
+    "title": "Use the taskbar corner for desktop",
+    "body": "Open Personalization → Taskbar → Taskbar behaviors and enable selecting the far corner to show the desktop. This provides quick access to desktop items without closing your applications.",
+    "keywords": "use the taskbar corner for desktop taskbar",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/personalization/customize-the-taskbar-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:taskbar",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Taskbar"
+  },
+  {
+    "id": "Snap",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Configure Snap layouts and assistance",
+    "body": "Open System → Multitasking → Snap windows. Enable snapping and choose whether hovering over maximize or dragging to the screen top offers layouts, and whether Windows suggests another app beside a snapped window.",
+    "keywords": "configure snap layouts and assistance windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/snap-your-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "DesktopWindowScope",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Control switching across virtual desktops",
+    "body": "Open System → Multitasking → Desktops. Choose whether the taskbar and Alt+Tab show windows from every desktop or only the current one. Keep them local to reduce clutter, or global for easier cross-project access.",
+    "keywords": "control switching across virtual desktops windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/configure-multiple-desktops-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "DesktopBackgrounds",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Give virtual desktops distinct pictures",
+    "body": "Press Win+Tab, right-click a desktop, and choose its background. Select Picture to distinguish workspaces visually. Independent backgrounds require pictures; the documented feature does not support separate slideshows or different solid colors.",
+    "keywords": "give virtual desktops distinct pictures windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/configure-multiple-desktops-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:personalization-background",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "AltTab",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Limit browser tabs in Alt+Tab",
+    "body": "Open System → Multitasking and choose how many application tabs appear when snapping or using Alt+Tab. Select no tabs for a window-focused switcher. Browser support is required; the documentation illustrates Microsoft Edge.",
+    "keywords": "limit browser tabs in alt+tab windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/how-to-multitask-in-windows-b4fa0333-98f8-ef43-e25c-06d4fb1d6960"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  },
+  {
+    "id": "VirtualDesktops",
+    "kind": "NativeShortcut",
+    "category": "Windows",
+    "title": "Organize projects into virtual desktops",
+    "body": "Press Win+Tab and choose New desktop. Select its name to rename the workspace for a project. Close an unwanted desktop from Task View after checking where you want its windows to live.",
+    "keywords": "organize projects into virtual desktops windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/configure-multiple-desktops-in-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SnapResize",
+    "kind": "Guide",
+    "category": "Windows",
+    "title": "Resize neighboring snapped windows together",
+    "body": "After snapping two windows beside each other, drag the divider between them to change their widths together. Drag it back to restore the balance, or unsnap the windows to arrange them independently.",
+    "keywords": "resize neighboring snapped windows together windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/snap-your-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Layout"
+  },
+  {
+    "id": "SnapGroups",
+    "kind": "NativeSettings",
+    "category": "Windows",
+    "title": "Show window groups when switching tasks",
+    "body": "Open System → Multitasking → Snap windows and change whether snapped windows are shown together in taskbar previews, Task View, and Alt+Tab. This helps return to a working arrangement rather than individual windows.",
+    "keywords": "show window groups when switching tasks windows",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/snap-your-windows"
+    ],
+    "evidence": "Windows 11 official documentation; exact minimum build unspecified. Availability and policy restrictions on this device are unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:multitasking",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Layout"
+  }
+]

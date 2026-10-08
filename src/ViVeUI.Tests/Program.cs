@@ -84,7 +84,7 @@ foreach (var language in Localization.Languages)
     {
         var resource = Localization.Resource(language.Code);
         Localization.ValidateResource(language.Code, Localization.English, resource);
-        Assert(resource.Count == 219 && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
+        Assert(resource.Count == 267 && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
         Assert(resource.Keys.All(k => Localization.Get(language.Code, k) == resource[k]));
         foreach (var key in new[] { "ReviewCountFormat", "ReviewIdsFormat", "QueueCountFormat" })
             foreach (var count in new[] { 0, 1, 2, 100 }) Assert(!Localization.Format(language.Code, key, count).Contains('{'));
@@ -201,28 +201,20 @@ Test("Localized feature titles participate in full catalog search", () =>
     Assert(Catalog.Search(Catalog.Load(),"标签页","All",editorial).Single().Id==37634385);
     Assert(Catalog.Search(Catalog.Load(),"Explorer tabs","All",editorial).Single().Id==37634385);
 });
-Test("Fifteen sourced guides are separate from feature overrides", () =>
+Test("Historical feature references cannot enable or disable overrides", () =>
 {
-    Assert(GuideCatalog.All.Count==15 && GuideCatalog.All.Select(g=>g.Key).Distinct().Count()==15);
-    foreach(var guide in GuideCatalog.All)
+    var historicalIds = CuratedCatalog.All.Where(entry => entry.Kind == CuratedKind.Historical).SelectMany(entry => entry.FeatureIds).Distinct().ToArray();
+    Assert(historicalIds.Length > 0);
+    foreach (var id in historicalIds)
     {
-        var uri=new Uri(guide.Source);Assert(uri.Scheme=="https" && new[]{"support.microsoft.com","learn.microsoft.com","blogs.windows.com"}.Contains(uri.Host));
-        Assert(!string.IsNullOrWhiteSpace(guide.Evidence));
-        foreach(var language in Localization.Languages)
-            foreach(var key in new[]{guide.TitleKey,guide.BodyKey,guide.Kind.ToString(),guide.RiskKey,guide.RestoreKey})Assert(!string.IsNullOrWhiteSpace(Localization.Get(language.Code,key)));
+        Assert(CuratedCatalog.IsHistoricalReference(id));
+        Throws<InvalidDataException>(() => CuratedCatalog.ValidateOverrideMutation(id, OverrideState.Enabled));
+        Throws<InvalidDataException>(() => CuratedCatalog.ValidateOverrideMutation(id, OverrideState.Disabled));
+        CuratedCatalog.ValidateOverrideMutation(id, OverrideState.Default);
     }
-    var classic=GuideCatalog.All.Single(g=>g.Key=="ClassicMenu");Assert(classic.Kind==GuideKind.NativeShortcut && classic.Destination==NativeDestination.Explorer && classic.Evidence.Contains("22572"));
-    var preview=GuideCatalog.All.Single(g=>g.Key=="ContextMenu");Assert(preview.Kind==GuideKind.InsiderGuide && preview.Destination==NativeDestination.None && preview.Evidence.Contains("Experimental"));
-});
-Test("Friendly right-click search finds all three relevant guides", () =>
-{
-    foreach(var (query,language) in new[]{("右键","zh-Hans"),("右鍵","zh-Hant"),("context menu","en")})Assert(GuideCatalog.All.Count(g=>GuideCatalog.Matches(g,query,language))>=3);
-    foreach(var language in Localization.Languages)foreach(var guide in GuideCatalog.All)Assert(GuideCatalog.Matches(guide,Localization.Get(language.Code,guide.TitleKey),language.Code));
-});
-Test("Native settings destinations are fixed and cannot become arbitrary commands", () =>
-{
-    foreach(var destination in Enum.GetValues<NativeDestination>())if(GuideCatalog.SettingsUri(destination) is string uri)Assert(uri.StartsWith("ms-settings:",StringComparison.Ordinal) && !uri.Contains('?') && !uri.Contains(' '));
-    Assert(GuideCatalog.SettingsUri((NativeDestination)999)==null);
+    const uint unknown = 4294967201;
+    Assert(!CuratedCatalog.IsHistoricalReference(unknown));
+    foreach (var state in Enum.GetValues<OverrideState>()) CuratedCatalog.ValidateOverrideMutation(unknown, state);
 });
 Test("Scale persistence values are normalized safely", () =>
 {
@@ -230,6 +222,13 @@ Test("Scale persistence values are normalized safely", () =>
     foreach(var value in new[]{double.NaN,double.PositiveInfinity,double.NegativeInfinity,0,-1,10})Assert(ViewScale.Normalize(value)==1);
     Assert(ViewScale.Normalize(1.249)==1.25);
 });
+Test("Historical recovery removes overrides rather than writing explicit defaults", () =>
+{
+    var id = CuratedCatalog.All.First(e => e.Kind == CuratedKind.Historical).FeatureIds[0];
+    CuratedCatalog.ValidateOverrideMutation(id, Snapshot.Default);
+    Throws<InvalidDataException>(() => CuratedCatalog.ValidateOverrideMutation(id, new Snapshot(true, OverrideState.Default)));
+});
+passed += CuratedTests.Run();
 Console.WriteLine($"{passed} tests passed. No Windows settings were accessed or modified.");
 class InlineProgress(Action<double> report) : IProgress<double> { public void Report(double value) => report(value); }
 class Handler(Func<HttpRequestMessage, HttpResponseMessage> handle) : HttpMessageHandler { protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token) => Task.FromResult(handle(request)); }

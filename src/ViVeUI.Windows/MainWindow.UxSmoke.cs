@@ -19,14 +19,14 @@ public partial class MainWindow
         if(!demo || store is not DemoStore fake)throw new Exception("UX validation requires fake feature storage.");
         Root.Width=1440;Root.Height=900;UpdateLayoutMode();ThemeBox.SelectedIndex=1;LanguageBox.SelectedValue="en";
         var icon=IconResources.Validate(this);
-        if(Cards.Count()!=20 || GuideCatalog.All.Count!=15)throw new Exception("Expanded curated catalog is incomplete.");
-        SelectGuide(GuideCatalog.All[0]);ShowPage(ExplorePage);await Capture("ux/classic-menu.png");
+        if(Cards.Count()>CatalogPageSize || CuratedCatalog.All.Count<200)throw new Exception("Expanded curated catalog is incomplete.");
+        SelectGuide(CuratedCatalog.All[0]);ShowPage(ExplorePage);await Capture("ux/classic-menu.png");
         GuideOpenClick(this,new());if(LastGuideDestination!="explorer.exe" || Staged.Count!=0)throw new Exception("Guide crossed into mutation scope.");
         LanguageBox.SelectedValue="zh-Hans";Search="右键";searchTimer.Stop();Filter();
-        if(Cards.Count()<3 || selectedGuide?.Key!="ClassicMenu")throw new Exception("Localized guide search or language preservation failed.");
+        if(Cards.Count()<3 || selectedGuide?.Id!="ClassicMenu")throw new Exception("Localized guide search or language preservation failed.");
         await Capture("ux/right-click-search-zh.png");
         Search="no matching item 012398765";searchTimer.Stop();Filter();if(Cards.Any() || GalleryEmptyVisibility!=Visibility.Visible)throw new Exception("Empty search state missing.");await Capture("ux/empty-search.png");
-        ClearSearchClick(this,new());searchTimer.Stop();if(Cards.Count()!=20)throw new Exception("Clear search did not restore curated results.");
+        ClearSearchClick(this,new());searchTimer.Stop();if(Cards.Count()!=CatalogPageSize)throw new Exception("Clear search did not restore curated results.");
         var dropdowns=new List<object>();
         foreach(var language in new[]{"en","zh-Hans","de","ar"})
         {
@@ -71,25 +71,40 @@ public partial class MainWindow
         var reopened=new MainWindow(true,folder);if(reopened.ScaleSlider.Value!=1.25)throw new Exception("Scale did not survive window recreation.");reopened.Close();
         Root.LayoutTransform=Transform.Identity;Root.Width=1152;Root.Height=720;UpdateLayoutMode();await Capture("ux/settings-scale-125.png",1.25);ScaleSlider.Value=1;Root.Width=1440;Root.Height=900;UpdateLayoutMode();
         Staged.Clear();ExecutionResults.Clear();Search="";searchTimer.Stop();ShowAllIds=false;
-        foreach(var id in new uint[]{37634385,39420424,34300186}){Selected=catalog.Single(f=>f.Id==id);Desired=OverrideState.Enabled;Stage();}
-        fake.FailOn=39420424;await ApplyStaged();
-        if(!Staged.Select(c=>c.Id).SequenceEqual(new uint[]{39420424,34300186}) || !ExecutionResults.Select(r=>r.StatusKey).SequenceEqual(new[]{"Applied","Failed","NotRun"}))throw new Exception("Partial failure lost retry scope or per-item outcomes.");
+        foreach(var id in new uint[]{4294967201,4294967202,4294967203}){Selected=new Feature(id,"Demo UX " + id);Desired=OverrideState.Enabled;Stage();}
+        fake.FailOn=4294967202;await ApplyStaged();
+        if(!Staged.Select(c=>c.Id).SequenceEqual(new uint[]{4294967202,4294967203}) || !ExecutionResults.Select(r=>r.StatusKey).SequenceEqual(new[]{"Applied","Failed","NotRun"}))throw new Exception("Partial failure lost retry scope or per-item outcomes.");
         ShowPage(ChangesPage);await Capture("ux/partial-results.png");fake.FailOn=0;
         await ApplyStaged();if(Staged.Count!=0)throw new Exception("Reviewed retry did not finish remaining items.");
-        Staged.Clear();Selected=catalog.Single(f=>f.Id==36354489);Desired=OverrideState.Enabled;Stage();
+        Staged.Clear();Selected=new Feature(4294967204,"Demo UX unrelated");Desired=OverrideState.Enabled;Stage();
         HistoryList.SelectedItem=History.First(r=>r.Receipt.Results?.Any(x=>x.Applied)==true);UndoClick(this,new());
-        if(!Staged.Any(c=>c.Id==36354489) || Staged.Count<2)throw new Exception("Restore discarded unrelated staged work.");
+        if(!Staged.Any(c=>c.Id==4294967204) || Staged.Count<2)throw new Exception("Restore discarded unrelated staged work.");
+        // A receipt from an older release may restore a now-archived feature to Enabled.
+        // Reject the entire restoration before merging even its otherwise allowed first item.
+        var queueBeforeHistoricalUndo=Staged.ToArray();
+        var allowedOldChange=new Change(4294967205,"Demo legacy allowed",Snapshot.Default,new(true,OverrideState.Enabled));
+        foreach(var previousOverride in new[]{new Snapshot(true,OverrideState.Enabled),new Snapshot(true,OverrideState.Default)})
+        {
+            var historicalOldChange=new Change(37634385,"Demo legacy archived",previousOverride,new(true,OverrideState.Disabled));
+            fake.Write(allowedOldChange.Id,allowedOldChange.After);fake.Write(historicalOldChange.Id,historicalOldChange.After);
+            var legacyReceipt=new Receipt(Guid.NewGuid(),DateTimeOffset.Now,BuildText,[allowedOldChange,historicalOldChange]);
+            var legacyRow=new HistoryRow(legacyReceipt,L);History.Add(legacyRow);HistoryList.SelectedItem=legacyRow;
+            lastError=null;UndoClick(this,new());
+            if(lastError is not InvalidDataException || !Staged.SequenceEqual(queueBeforeHistoricalUndo) ||
+                fake.Read(historicalOldChange.Id)!=historicalOldChange.After || fake.Read(allowedOldChange.Id)!=allowedOldChange.After)
+                throw new Exception("Historical undo was not rejected atomically before staging.");
+        }
         // Slow HTTP runs only in an injected handler. Browsing and review edits remain available.
         var slowFolder=Path.Combine(folder,"slow-update");var slow=new MainWindow(true,slowFolder,new UpdateService(new PausedHandler()));
         slow.release=new(new Version(99,0),new Uri("https://github.com/BlakeLiAFK/ViVeUI/releases/tag/v99.0"),new("ViVeUI-win-x64.exe",new Uri("https://github.com/BlakeLiAFK/ViVeUI/releases/download/v99.0/ViVeUI-win-x64.exe"),new string('0',64),4));
         var download=slow.Download();await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
-        slow.Selected=slow.catalog.Single(f=>f.Id==37634385);slow.Desired=OverrideState.Enabled;slow.Stage();slow.Acknowledged=true;
+        slow.Selected=new Feature(4294967201,"Demo UX slow download");slow.Desired=OverrideState.Enabled;slow.Stage();slow.Acknowledged=true;
         if(!slow.UpdateBusy || !slow.NotBusy || !slow.CanApply || slow.Staged.Count!=1)throw new Exception("Download blocked the independent review workflow.");
         slow.CancelUpdateClick(this,new());await download;
         if(slow.updater.Status!=UpdateStatus.Canceled || slow.UpdateBusy || Directory.GetFiles(slowFolder,"*.partial",SearchOption.AllDirectories).Any())throw new Exception("Canceled download left a ready or partial package.");slow.Close();
         var closeDialog=LocalizedDialog.Create(this,L,L["Review"],L["ClosePending"],true);
         if(!EnumerateLogicalChildren((DependencyObject)closeDialog.Content).OfType<Button>().Any(b=>b.IsDefault && b.IsCancel))throw new Exception("Close guard must default to Cancel.");closeDialog.Close();
-        File.WriteAllText("ux-result.json",JsonSerializer.Serialize(new {passed=true,icon,dropdowns,keyboardF4EndEnterEscape=true,disabled=true,scaleReopened=1.25,partialQueuePreserved=true,restoreMergePreserved=true,updateCancellation=true,reviewEditableDuringDownload=true,closeGuardDefaultsCancel=true,guideWrites=false,noFeatureWrites=true,manualNarratorAndPointerReviewRequired=true},new JsonSerializerOptions{WriteIndented=true}));
+        File.WriteAllText("ux-result.json",JsonSerializer.Serialize(new {passed=true,icon,dropdowns,keyboardF4EndEnterEscape=true,disabled=true,scaleReopened=1.25,partialQueuePreserved=true,restoreMergePreserved=true,historicalUndoRejectedBeforeMerge=true,updateCancellation=true,reviewEditableDuringDownload=true,closeGuardDefaultsCancel=true,guideWrites=false,noFeatureWrites=true,manualNarratorAndPointerReviewRequired=true},new JsonSerializerOptions{WriteIndented=true}));
     }
     static async Task RenderPopup(FrameworkElement element,string filename)
     {

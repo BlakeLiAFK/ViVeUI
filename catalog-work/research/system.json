@@ -1,0 +1,969 @@
+[
+  {
+    "id": "StorageSense",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Automatic cleanup rules",
+    "body": "Open Settings → System → Storage → Storage Sense. Review frequency, Recycle Bin and Downloads retention together. Keep Downloads at Never unless backed up. Cloud files may become online-only; disabling cleanup does not restore deleted files.",
+    "keywords": "cleanup recycle bin downloads retention cloud offline",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/manage-drive-space-with-storage-sense",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagepolicies",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "CleanupReview",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review storage cleanup candidates",
+    "body": "Open Settings → System → Storage → Cleanup recommendations and inspect each candidate before removing it. Back up important files first. Removing downloads or a previous Windows installation can permanently lose files or remove the option to return to that version.",
+    "keywords": "temporary files disk space Windows.old rollback",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/storage-settings-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagerecommendations",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ContentDrive",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose where new content is saved",
+    "body": "Open Settings → System → Storage → Advanced storage settings → Where new content is saved. Choose a drive for each content category. This does not move existing files or force every installer to use that drive; keep removable drives available.",
+    "keywords": "save location default disk downloads apps",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/storage-settings-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagesense",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DriveOptimization",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review drive optimization",
+    "body": "Open Settings → System → Storage → Advanced storage settings → Drive optimization. Inspect the media type and optimization status before adjusting the schedule. Let Windows use the appropriate method for SSD or HDD; changing the schedule cannot undo completed optimization.",
+    "keywords": "SSD HDD trim defragment schedule",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/storage-settings-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:storagesense",
+    "risk": "Files",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PowerMode",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Balance performance and power",
+    "body": "Open Settings → System → Power & battery → Power mode. Choose the balance appropriate to your workload and record the previous mode. Higher performance can increase heat and battery use; available modes depend on hardware and the active power plan.",
+    "keywords": "performance heat fan battery efficiency",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/power-settings-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:powersleep",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "EnergySaver",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Configure energy saver",
+    "body": "Open Settings → System → Power & battery → Energy saver. Review its activation threshold and brightness behavior together. Restricting background work can delay notifications and synchronization. Restore the previous threshold or turn it off when that tradeoff no longer suits your work.",
+    "keywords": "battery saver threshold brightness background",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/power-settings-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 current documentation; older releases use different names and options. Device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:powersleep",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "Energy",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Review energy recommendations",
+    "body": "Open Settings → System → Power & battery → Energy recommendations. Inspect suggestions individually and record settings before applying them. Apply all may change several behaviors at once; undo requires restoring each setting separately. Recommendations vary with hardware and power source.",
+    "keywords": "power energy recommendations battery efficiency",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/learn-more-about-energy-recommendations",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:energyrecommendations",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LidPowerActions",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Choose lid and power-button actions",
+    "body": "Open Control Panel → System and Security → Power Options → Choose what the power buttons do. Set battery and plugged-in actions separately, then save. A laptop configured to stay awake can overheat inside a bag; shutdown can discard unsaved work.",
+    "keywords": "close lid power button sleep laptop",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/shut-down-sleep-or-hibernate-your-pc"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "HibernateEntry",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Add the hibernate power option",
+    "body": "Open Control Panel → Power Options → Choose what the power buttons do → Change settings that are currently unavailable. If offered, select Hibernate and save. Removing the menu option reverses this change; it does not delete the hibernation file.",
+    "keywords": "hibernate sleep power menu suspend",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/power-battery/shut-down-sleep-or-hibernate-your-pc"
+    ],
+    "evidence": "Windows 11; hibernation requires compatible hardware and configuration. Availability on this device is unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "BatteryReport",
+    "kind": "Guide",
+    "category": "Performance",
+    "title": "Inspect battery capacity history",
+    "body": "In a terminal opened in a writable folder, run powercfg /batteryreport, then open the HTML path printed by the command. Compare design and reported full-charge capacity without treating it as a precise health guarantee. Review usage history before sharing; delete the report when finished.",
+    "keywords": "battery capacity health report degradation",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options"
+    ],
+    "evidence": "Windows powercfg documentation; useful on battery-equipped devices. Report accuracy depends on firmware; not device-tested.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SleepDiagnosis",
+    "kind": "Guide",
+    "category": "Performance",
+    "title": "Diagnose sleep blockers and wakeups",
+    "body": "Use a terminal to inspect powercfg /requests for sleep blockers, /lastwake for the last wake source, and /waketimers for scheduled wakeups. Some queries require administrator access. These are diagnostic queries; do not apply request overrides or disable update tasks from this guide.",
+    "keywords": "sleep wake timer power request blocker",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "None",
+    "illustration": "Settings"
+  },
+  {
+    "id": "BackgroundApps",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Limit per-app background activity",
+    "body": "Open Settings → System → Power & battery → Battery usage. For a supported app, choose More options → Manage background activity and review its permission. Never can stop its notifications and synchronization; restore the previous choice if updates are missed.",
+    "keywords": "background permission sync battery usage",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/performance-optimization/manage-background-activity-for-apps-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11; Battery usage navigation requires a battery-equipped device and supported apps. Policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:batterysaver-usagedetails",
+    "risk": "Power",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "StartupApps",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Choose sign-in startup apps",
+    "body": "Open Settings → Apps → Startup and review registered apps. Task Manager → Startup apps also shows measured startup impact. Disable only optional apps you recognize; essential synchronization or protection may otherwise stop starting. Re-enable an entry to restore its next sign-in behavior.",
+    "keywords": "startup login boot impact autorun",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/startup-boot/configure-startup-applications-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:startupapps",
+    "risk": "Security",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "RepairApps",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Repair an app before resetting it",
+    "body": "Open Settings → Apps → Installed apps → the app’s menu → Advanced options. Try Repair when available. Reset is a separate fallback that may discard app data and settings; back up first and read its confirmation. Not every desktop program offers these controls.",
+    "keywords": "repair reset broken app data",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/apps/repair-apps-and-programs-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:appsfeatures",
+    "risk": "Files",
+    "restart": "App",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DefaultApps",
+    "kind": "NativeSettings",
+    "category": "Explorer",
+    "title": "Choose file and link handlers",
+    "body": "Open Settings → Apps → Default apps. Search a file extension or protocol, or select an application to inspect its associations. Assign only the types you intend to change. Record previous handlers so you can restore them without resetting every default app.",
+    "keywords": "association default browser extension protocol",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/apps/change-default-apps-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:defaultapps",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AppNotifications",
+    "kind": "NativeSettings",
+    "category": "Notifications",
+    "title": "Tune notifications by app",
+    "body": "Open Settings → System → Notifications and select an application. Adjust its banner, notification-center and sound options together. Keep alerts needed for important work. Restore that app’s original options if messages become easy to miss; this does not change its underlying data.",
+    "keywords": "notification banner sound priority",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:notifications",
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MeteredConnection",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Reduce usage on a limited connection",
+    "body": "Open Settings → Network & internet, select your Wi-Fi or Ethernet connection, then review Metered connection. It can reduce background transfers but also delay synchronization and some updates. Restore the previous setting when appropriate; this is not a guaranteed data cap.",
+    "keywords": "metered bandwidth quota synchronization update",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/metered-connections-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-status",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NetworkDataLimit",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Track a network data allowance",
+    "body": "Open Settings → Network & internet → Wi-Fi → the connected network → Set a data limit. Enter the billing period and allowance. Windows warns near the limit, but this is not a guaranteed carrier billing stop; compare the provider’s usage counter too.",
+    "keywords": "data limit traffic billing allowance",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-status",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "NetworkProfile",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose public or private network visibility",
+    "body": "Open Settings → Network & internet → the connection’s properties → Network profile type. Keep Public for untrusted networks; Private allows discoverability useful for sharing. Record the old profile and check sharing requirements before changing it. Restore it if the intended access changes unexpectedly.",
+    "keywords": "public private network discovery sharing",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-status",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MobileHotspot",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Share a connection with a mobile hotspot",
+    "body": "Open Settings → Network & internet → Mobile hotspot. Select the source connection, review the network name and password, then enable sharing only when needed. Connected devices consume your data allowance. Turn the hotspot off afterward and avoid sharing its password broadly.",
+    "keywords": "hotspot share wifi password tethering",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/use-your-windows-device-as-a-mobile-hotspot",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-mobilehotspot",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ProxyConfiguration",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review an organization’s proxy configuration",
+    "body": "Open Settings → Network & internet → Proxy. Use only the detection, script or server details supplied by a trusted administrator. Incorrect settings can interrupt access, and the proxy can observe relevant traffic. Record the previous configuration; VPN proxies are configured separately.",
+    "keywords": "proxy PAC script server internet",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/use-a-proxy-server-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:network-proxy",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DeliveryOptimization",
+    "kind": "NativeSettings",
+    "category": "Performance",
+    "title": "Control update download sharing and bandwidth",
+    "body": "Open Settings → Windows Update → Advanced options → Delivery Optimization. Review peer-sharing scope, then bandwidth limits and activity statistics. Internet sharing can consume upload allowance. Restore recorded limits if downloads become too slow; disabling peer sharing does not disable Windows Update.",
+    "keywords": "peer update upload bandwidth sharing",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/deployment/updates-lifecycle/delivery-optimization-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:delivery-optimization",
+    "risk": "Network",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "OptionalDiagnostics",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Choose optional diagnostic sharing",
+    "body": "Open Settings → Privacy & security → Diagnostics & feedback and review optional diagnostic data. Required diagnostics still apply when optional sharing is off. Optional reports can contain activity and crash-memory details. Choose deliberately; organizational policy may lock the control.",
+    "keywords": "diagnostics telemetry feedback privacy crash",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/diagnostics-feedback-and-privacy-in-windows",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-feedback",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "PersonalizedOffers",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Review personalized Windows offers",
+    "body": "Open Settings → Privacy & security and locate Personalized offers or Recommendations & offers, depending on release. Review permission to use Windows activity for tailored suggestions. This controls that personalization mechanism, not all advertising in Windows, browsers or third-party apps.",
+    "keywords": "ads suggestions recommendations activity",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/privacy-settings-for-recommendations-offers-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-general",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AdvertisingIdentifier",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Control the app advertising identifier",
+    "body": "Open Settings → Privacy & security → Recommendations & offers and review app use of the advertising ID. Turning it off changes personalization, not ad quantity or website cookies. Turning it back on resets the identifier rather than restoring its previous value.",
+    "keywords": "advertising ID tracking privacy cookies",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/privacy-settings-for-recommendations-offers-in-windows-11",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-general",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LocationPermissions",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Review per-app location access",
+    "body": "Open Settings → Privacy & security → Location. Review the location service, listed app permissions and recent access before changing them. Location-dependent apps may lose functionality. Desktop apps and websites can have additional controls; this page does not guarantee complete location anonymity.",
+    "keywords": "GPS location app permission recent access",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-location-service-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-location",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DefaultLocation",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Set a fallback device location",
+    "body": "Open Settings → Privacy & security → Location → Default location → Set default. Choose the device’s location for use when precise positioning is unavailable. It can reveal that address to eligible services; clear the address and save to remove the fallback.",
+    "keywords": "fallback location map weather address",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-location-service-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-location",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FileAccessPrivacy",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Review app file-system permissions",
+    "body": "Open Settings → Privacy & security → File system and review access for listed applications. Permission can expose files available to your account; revoking it may break an app’s workflow. Some desktop programs are outside this list and are not constrained by this switch.",
+    "keywords": "file system permissions app documents privacy",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-file-system-access-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-broadfilesystemaccess",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "AppDiagnosticPrivacy",
+    "kind": "NativeSettings",
+    "category": "Privacy",
+    "title": "Limit apps inspecting other apps",
+    "body": "Open Settings → Privacy & security → App diagnostics and review each listed app’s access. Diagnostics can include running app names and memory use. These controls apply to supported apps; traditional desktop applications may remain unaffected. Restore necessary permissions if a diagnostic workflow breaks.",
+    "keywords": "app diagnostics process memory permissions",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/privacy/windows-app-diagnostics-and-privacy",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:privacy-appdiagnostics",
+    "risk": "Privacy",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "MemoryIntegrity",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review memory-integrity protection",
+    "body": "Open Windows Security → Device security → Core isolation details and inspect Memory integrity. Resolve incompatible drivers with trusted updates before enabling protection. Do not treat disabling it as a general performance tweak. Save work if Windows requests a restart; availability depends on virtualization and drivers.",
+    "keywords": "HVCI core isolation driver virtualization",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/windows-security/device-security-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SmartAppControl",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Understand Smart App Control state",
+    "body": "Open Windows Security → App & browser control → Smart App Control settings. Inspect evaluation, on or off before making changes. Current documentation limits availability to eligible fresh installations; returning to evaluation can require resetting or reinstalling Windows. Do not assume a reversible toggle.",
+    "keywords": "SAC evaluation trusted apps fresh install",
+    "sources": [
+      "https://support.microsoft.com/en-au/windows/security/windows-security/app-browser-control-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 current Microsoft documentation specifies fresh-install and evaluation-mode restrictions. Device state unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ReputationProtection",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review download reputation protection",
+    "body": "Open Windows Security → App & browser control → Reputation-based protection. Review app and file checks, unwanted-app blocking and password warnings together. Keep protection enabled unless resolving a verified issue; a toggle cannot undo malware execution or recover an already exposed password.",
+    "keywords": "SmartScreen unwanted app phishing password",
+    "sources": [
+      "https://support.microsoft.com/en-au/windows/security/windows-security/app-browser-control-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ControlledFolders",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review ransomware folder protection",
+    "body": "Open Windows Security → Virus & threat protection → Manage ransomware protection. Review Controlled folder access and protected folders. It can block legitimate apps from saving; investigate each exception rather than allowing everything. This protection complements backups and cannot restore previously damaged files.",
+    "keywords": "ransomware protected folder blocked save",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/threat-malware-protection/virus-and-threat-protection-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "OfflineScan",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Prepare a Defender offline scan",
+    "body": "Open Windows Security → Virus & threat protection → Scan options and inspect Microsoft Defender Offline. Save work and ensure recovery keys are available before confirming. The scan restarts the PC into recovery; review any quarantine actions afterward rather than assuming every change is automatically reversible.",
+    "keywords": "Defender malware offline scan recovery restart",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/threat-malware-protection/virus-and-threat-protection-in-the-windows-security-app"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "UnsavedWork",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "FirewallExceptions",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review precise firewall app exceptions",
+    "body": "Open Windows Security → Firewall & network protection → Allow an app through firewall. After administrator confirmation, allow only a recognized app you actually need. Prefer a specific app exception over a broad open port; remove obsolete permissions. Existing exposure cannot be undone by removing a rule.",
+    "keywords": "firewall allow app port network access",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/firewall/risks-of-allowing-apps-through-windows-firewall"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Network",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DeviceEncryption",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Check device encryption and recovery readiness",
+    "body": "Open Settings → Privacy & security → Device encryption with administrator access. Confirm who holds the recovery key and secure a usable backup before enabling encryption. Supported Home devices can qualify too. Losing recovery access can make data inaccessible; decryption is a separate, potentially lengthy operation.",
+    "keywords": "BitLocker encryption recovery key backup",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/encryption/device-encryption-in-windows"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SecurityNotifications",
+    "kind": "Guide",
+    "category": "Notifications",
+    "title": "Reduce informational security notifications",
+    "body": "Open Windows Security → Settings → Manage notifications. Review informational scan notices and network-specific alerts while preserving messages important to your work. Immediate-action warnings are still delivered. Organizational policy may lock controls; restore the previous notification choices if useful context is missing.",
+    "keywords": "security scan notification alert firewall",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/security/windows-security/windows-security-app-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "None",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DeveloperMode",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Enable tools for app development",
+    "body": "Search Settings for Developer Mode. On 25H2 or later, use System → Advanced → For developers. Read the prompt before enabling; administrator access is required. Ordinary use does not need this mode. Turning it off does not necessarily remove previously installed apps or development components.",
+    "keywords": "developer sideload debug app deployment",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/developer-mode",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11; Advanced replaces the For developers page in 25H2+. Policy and device availability unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "Security",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DevicePortal",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Review remote development diagnostics",
+    "body": "With Developer Mode configured, inspect Device Portal under the developer settings. Use it only for an actual remote test target on a trusted network and review authentication. It exposes remote management capabilities; disable the portal after use and verify remote access has stopped.",
+    "keywords": "remote diagnostic portal developer authentication",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/developer-mode",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 developer feature package required; page moves to System → Advanced in 25H2+. Not device-tested.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "Network",
+    "restart": "Varies",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SudoMode",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose native sudo isolation",
+    "body": "Open the developer settings or System → Advanced and review Enable sudo. Prefer the default new-window mode unless you understand the added interaction risks of inline execution. UAC authorization still applies. Disabling sudo later cannot undo commands already run with administrator privileges.",
+    "keywords": "sudo elevation administrator UAC terminal",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/sudo/",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 24H2+; settings move to Advanced in 25H2+. Current device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "Security",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DefaultTerminal",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Choose the default terminal host",
+    "body": "Open Settings → System → Advanced → Terminal and choose the installed terminal host you prefer. Older releases place this under For developers. Test the console applications you rely on; changing the host can alter their presentation and interaction. Restore the previous host if necessary.",
+    "keywords": "terminal console host command prompt",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 25H2+ Advanced page; older releases use For developers. Choices depend on installed terminal apps.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "None",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "DevDrive",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Plan a Dev Drive for source workloads",
+    "body": "Open Settings → System → Storage → Advanced storage settings → Disks & volumes → Create dev drive. Review a new VHD option after backing up. Existing volumes cannot convert in place. Check ReFS compatibility and keep security filtering; move data out before later removing the drive.",
+    "keywords": "Dev Drive ReFS VHD source code build",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/dev-drive/"
+    ],
+    "evidence": "Microsoft specifies Windows 11 build 22621.2338+, administrator access, ≥8 GB RAM and ≥50 GB free space. Device unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "Varies",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "LongPaths",
+    "kind": "Guide",
+    "category": "Explorer",
+    "title": "Understand Win32 long-path support",
+    "body": "In supported editions, open Group Policy → Computer Configuration → Administrative Templates → System → Filesystem → Enable Win32 long paths. Record its prior state. Apps must also declare longPathAware; this does not remove every path limit. Restart affected processes and restore the policy if needed.",
+    "keywords": "MAX_PATH longPathAware path length policy",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation"
+    ],
+    "evidence": "Windows 11; Group Policy editor availability depends on edition. Application opt-in remains required; not device-tested.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "App",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WindowsSandbox",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Set up a disposable Windows Sandbox",
+    "body": "Search for Turn Windows features on or off, select Windows Sandbox if supported, and restart when prompted. Save work first. Sandbox has networking and some redirection by default; it is not absolute isolation. Export needed sandbox files before closing because its internal state is discarded.",
+    "keywords": "sandbox disposable virtual machine isolation",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-install"
+    ],
+    "evidence": "Supported Windows editions and hardware virtualization required; ≥4 GB RAM. ARM64 support: Windows 11 22H2+. Device unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "Device",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "SandboxIsolation",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Constrain Sandbox network and file sharing",
+    "body": "Create a reviewed .wsb configuration with Networking set to Disable; avoid host-folder mappings unless needed and make them read-only. Launch that configuration. Writable mappings expose host data, while sandbox-only changes disappear on closing. Restore the old configuration separately from any damaged host files.",
+    "keywords": "wsb mapped folder read only network sandbox",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-configure-using-wsb-file"
+    ],
+    "evidence": "Windows Sandbox must already be installed. Configuration options depend on Windows release; device behavior unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Security",
+    "restart": "App",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WslResources",
+    "kind": "Guide",
+    "category": "Performance",
+    "title": "Limit WSL 2 resource use",
+    "body": "Use WSL Settings or edit memory and processors under [wsl2] in your user-profile .wslconfig. Preserve the original file. Save all Linux work before restarting WSL; the limits affect every WSL 2 distribution. Restore the old configuration if builds or services lack resources.",
+    "keywords": "WSL Linux memory CPU quota processors",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/wsl/wsl-config"
+    ],
+    "evidence": "WSL 2 only; requires a WSL release supporting the chosen options. No device compatibility test performed.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "UnsavedWork",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WslNetworking",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review WSL mirrored networking",
+    "body": "In WSL Settings, review mirrored networking, or set networkingMode=mirrored under [wsl2] in .wslconfig. Save running work before restarting WSL. This changes network exposure; retain firewall filtering. To revert, restore the previous network mode and restart WSL again.",
+    "keywords": "WSL mirrored NAT firewall network",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/wsl/wsl-config"
+    ],
+    "evidence": "Windows 11 22H2+ and a compatible WSL 2 release; policy and local networking compatibility unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Network",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "WslSystemd",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Configure systemd for a WSL distribution",
+    "body": "Check whether the distribution already uses systemd. If needed, preserve /etc/wsl.conf and add systemd=true under [boot]. Save Linux work before restarting WSL. Service startup behavior changes; restore the old boot configuration to revert and review any services you separately enabled.",
+    "keywords": "WSL Linux systemd service boot init",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/wsl/systemd"
+    ],
+    "evidence": "WSL 2 with WSL 0.67.6+; some distributions already use systemd. Device and distribution support unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "UnsavedWork",
+    "restart": "App",
+    "restore": "Manual",
+    "illustration": "Settings"
+  },
+  {
+    "id": "RestorePoint",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Create a restore point before experimenting",
+    "body": "Search Start for Create a restore point. Select the system drive, configure System Protection and its space limit if needed, then choose Create with a meaningful description. Keep separate personal-file backups: restore points expire and cannot guarantee reversal of every feature or third-party change.",
+    "keywords": "restore point recovery registry experiment backup",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/experience/backup-recovery/system-protection"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "None",
+    "restore": "None",
+    "illustration": "Settings"
+  },
+  {
+    "id": "RepairWindows",
+    "kind": "Guide",
+    "category": "SystemTools",
+    "title": "Review an in-place Windows repair",
+    "body": "Open Settings → System → Recovery → Fix problems using Windows Update. Back up first, keep power and internet connected, then review reinstall and restart confirmation. It is designed to preserve apps, files and settings, but has no immediate undo and is unavailable on some managed devices.",
+    "keywords": "repair reinstall Windows update recovery preserve",
+    "sources": [
+      "https://support.microsoft.com/en-us/windows/deployment/install-upgrade/fix-issues-by-reinstalling-the-current-version-of-windows"
+    ],
+    "evidence": "Windows 11 22H2+ with February 2024 optional update or later. Update-management restrictions apply; device unverified.",
+    "featureIds": [],
+    "destination": null,
+    "risk": "Files",
+    "restart": "Device",
+    "restore": "Backup",
+    "illustration": "Settings"
+  },
+  {
+    "id": "ActiveHours",
+    "kind": "NativeSettings",
+    "category": "SystemTools",
+    "title": "Reduce update restart interruptions",
+    "body": "Open Settings → Windows Update → Advanced options → Active hours. Choose automatic detection or set your working hours manually. This helps schedule update restarts around normal use; it is not a permanent restart block. Save work and review pending restart notices separately.",
+    "keywords": "active hours update restart working schedule",
+    "sources": [
+      "https://support.microsoft.com/en-gb/windows/deployment/updates-lifecycle/keep-your-pc-up-to-date-with-active-hours",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Windows 11 documentation; exact minimum build unspecified. Device support and policy restrictions unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:windowsupdate-activehours",
+    "risk": "UnsavedWork",
+    "restart": "None",
+    "restore": "PreviousSetting",
+    "illustration": "Settings"
+  },
+  {
+    "id": "EndTask",
+    "kind": "NativeSettings",
+    "category": "ContextMenu",
+    "title": "Expose End task on the taskbar",
+    "body": "Open Settings → System → Advanced and enable End Task if available; older releases place it under For developers. Right-click a taskbar app to see the command. Force-ending an app can lose unsaved work. Turning off the setting removes the entry but cannot recover that work.",
+    "keywords": "right click end task taskbar frozen app force close",
+    "sources": [
+      "https://learn.microsoft.com/en-us/windows/advanced-settings/",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings"
+    ],
+    "evidence": "Current Advanced documentation; page moved in Windows 11 25H2+. Earlier availability varies; device support unverified.",
+    "featureIds": [],
+    "destination": "ms-settings:developers",
+    "risk": "UnsavedWork",
+    "restart": "None",
+    "restore": "Manual",
+    "illustration": "Settings"
+  }
+]

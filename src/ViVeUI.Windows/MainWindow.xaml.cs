@@ -44,7 +44,16 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public IEnumerable<FeatureCard> Cards => CuratedCards();
     ImageSource? FeatureImage(Feature f) => f.Illustrated ? (ImageSource)FindResource((FeatureEditorial.Key(f.Id) == "Navigation" ? "Navigation" : f.Category) + "Illustration") : null;
     public string SelectedTitle => Selected is null ? L["Detail"] : FeatureEditorial.Title(Selected, L);
-    public string SelectedDescription => Selected is null ? L["UnknownDescription"] : FeatureEditorial.Description(Selected, L);
+    public string SelectedDescription
+    {
+        get
+        {
+            if (Selected is null) return L["UnknownDescription"];
+            var references = CuratedCatalog.All.Where(e => e.Kind == CuratedKind.Historical && e.FeatureIds.Contains(Selected.Id))
+                .Select(e => { var text = CuratedCatalog.Text(e, L.Language); return text.Title + "\n" + text.Body + "\n" + text.Evidence; }).ToArray();
+            return references.Length > 0 ? string.Join("\n\n", references) : FeatureEditorial.Description(Selected, L);
+        }
+    }
     public string VersionText => "ViVeUI " + BuildInfo.VersionText;
     string currentPage = "Explore";
     public bool IsExplore => currentPage == "Explore";
@@ -73,17 +82,18 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     bool busy, acknowledged, initialized, autoCheck, autoDownload, compact, detailOpen;
     public Visibility CompactVisibility => compact ? Visibility.Visible : Visibility.Collapsed;
     AppRelease? release;
-    public string Search { get => search; set { search = value; Changed(); Changed(nameof(SearchPlaceholderVisibility)); if (uint.TryParse(value,out var numericId) && numericId > 0) ShowAllIds = true; RefreshCards(); searchTimer.Stop(); searchTimer.Start(); } }
+    public string Search { get => search; set { search = value; Changed(); Changed(nameof(SearchPlaceholderVisibility)); RefreshCards(); searchTimer.Stop(); searchTimer.Start(); } }
     public string Category { get => category; set { category = value ?? "All"; Changed(); Filter(); } }
     public Feature? Selected { get => selected; set { selected = value; if (value is not null && selectedGuide is not null) SelectGuide(null); Changed(); Changed(nameof(Cards)); Changed(nameof(CanStage)); RefreshDetail(); } }
-    public OverrideState Desired { get => desired; set { desired = value; Changed(); Changed(nameof(IsDefault)); Changed(nameof(IsEnabledOverride)); Changed(nameof(IsDisabledOverride)); } }
+    public OverrideState Desired { get => desired; set { desired = value; Changed(); Changed(nameof(IsDefault)); Changed(nameof(IsEnabledOverride)); Changed(nameof(IsDisabledOverride)); Changed(nameof(CanStage)); } }
     public string ModeText => L[demo ? "Demo" : "Local"];
     public string BuildText => demo ? "Windows 11 · " + L["DemoShort"] : $"Windows {Environment.OSVersion.Version} · {RuntimeInformation.OSArchitecture}";
     public string CountText => $"{Filtered.Count.ToString("N0", CultureInfo.CurrentCulture)} / {catalog.Count.ToString("N0", CultureInfo.CurrentCulture)}";
     public Visibility EmptyVisibility => Filtered.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
-    public Visibility HistoricalVisibility => Selected?.Illustrated == true ? Visibility.Visible : Visibility.Collapsed;
+    public Visibility HistoricalImageVisibility => Selected?.Illustrated == true ? Visibility.Visible : Visibility.Collapsed;
+    public Visibility HistoricalVisibility => Selected is not null && CuratedCatalog.IsHistoricalReference(Selected.Id) ? Visibility.Visible : Visibility.Collapsed;
     public string IllustrationAlt => L[Selected?.Illustrated == true ? "Schematic" : "NoPreview"];
-    public string Description => L[Selected?.Illustrated == true ? "Historical" : "UnknownDescription"];
+    public string Description => L[Selected is not null && CuratedCatalog.IsHistoricalReference(Selected.Id) ? "Historical" : "UnknownDescription"];
     public string ObservationText => observationError is not null ? L["ObservationError"] : Selected is not null && observations.TryGetValue(Selected.Id, out var observed) ? LocalizeObservation(observed) : L["NotObserved"];
     public string OverrideText { get; private set; } = "";
     public string QueueText => Staged.Count == 0 ? L["NoChanges"] : L.Format("QueueCountFormat", Staged.Count);
@@ -105,11 +115,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Languages = new[] { new LanguageChoice("system", "", L) }.Concat(Localization.Languages.Select(l => new LanguageChoice(l.Code, l.NativeName, L))).ToArray();
         Categories = new[] { "All", "Explorer", "Widgets", "System", "Catalog" }.Select(key => new Choice<string>(key, L, key)).ToArray();
         States = Enum.GetValues<OverrideState>().Select(key => new Choice<OverrideState>(key, L, key.ToString())).ToArray();
-        CuratedTypes = new[] { "All", "NativeShortcut", "NativeSettings", "InsiderGuide", "HistoricalBadge" }.Select(key => new Choice<string>(key,L,key)).ToArray();
+        InitializeCuratedCatalog();
         InitializeComponent(); DataContext = this;
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); Filter(); };
         Staged.CollectionChanged += (_, _) => { Acknowledged = false; Changed(nameof(QueueText)); Changed(nameof(ReviewRows)); Changed(nameof(ReviewCountText)); Changed(nameof(ReviewIdsText)); Changed(nameof(CanApply)); };
-        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory(); SelectGuide(GuideCatalog.All[0]);
+        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory(); SelectGuide(CuratedCatalog.All[0]);
         SizeChanged += (_, _) => UpdateLayoutMode();
         SystemParameters.StaticPropertyChanged += SystemPreferenceChanged;
         Loaded += async (_, _) => { await RefreshObservations(); if (AutoCheck && !demo) await CheckUpdates(); };
@@ -164,7 +174,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         try { var state = Selected is null ? Snapshot.Default : store.Read(Selected.Id); OverrideText = StateLabel(state); Desired = Staged.FirstOrDefault(c => c.Id == Selected?.Id)?.After.State ?? state.State; }
         catch (Exception e) { OverrideText = L["Error"]; ReportError(e); }
-        foreach (var name in new[] { nameof(SelectedTitle), nameof(SelectedDescription), nameof(Illustration), nameof(OverrideText), nameof(ObservationText), nameof(IllustrationAlt), nameof(Description), nameof(HistoricalVisibility) }) Changed(name);
+        foreach (var name in new[] { nameof(SelectedTitle), nameof(SelectedDescription), nameof(Illustration), nameof(OverrideText), nameof(ObservationText), nameof(IllustrationAlt), nameof(Description), nameof(HistoricalVisibility), nameof(HistoricalImageVisibility) }) Changed(name);
     }
     async Task RefreshObservations()
     {
@@ -198,7 +208,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void CardClick(object sender, RoutedEventArgs e)
     {
         if (sender is not Button { Tag: FeatureCard card }) return;
-        if (card.Guide is WindowsGuide guide) SelectGuide(guide); else if (card.Feature is Feature feature) Selected = feature;
+        if (card.Guide is CuratedEntry guide) SelectGuide(guide); else if (card.Feature is Feature feature) Selected = feature;
         if (compact) { detailOpen = true; UpdateLayoutMode(); }
     }
     void CopyIdClick(object sender, RoutedEventArgs e) => Safe(() => { if (sender is Button { Tag: uint id }) Clipboard.SetText(id.ToString(CultureInfo.InvariantCulture)); });
@@ -211,6 +221,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void Stage()
     {
         if (busy || Selected is null || selectedGuide is not null) return;
+        CuratedCatalog.ValidateOverrideMutation(Selected.Id, Desired);
         var before = store.Read(Selected.Id); var after = Desired == OverrideState.Default ? Snapshot.Default : new Snapshot(true, Desired);
         ReviewQueue.Stage(Staged, new(Selected.Id, Selected.Name, before, after));
         lastError = null; Changed(nameof(DiagnosticVisibility));
@@ -232,6 +243,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         try
         {
             ChangeEngine.Validate(receipt.Changes);
+            foreach (var change in receipt.Changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
             // Persist intentions and exact snapshots BEFORE requesting elevation.
             SaveReceipt(receipt);
             var response = demo ? new WorkerResponse(ChangeEngine.Apply(store, receipt.Changes), null) : await Program.ElevateAsync(receipt.Changes, L.Language);
@@ -281,7 +293,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         {
             var current = store.Read(change.Id);
             if (current == change.Before) continue; // Not applied, or already restored.
-            proposed.Add(ChangeEngine.Undo(change, current)); // Conflict stops the whole staging operation.
+            var restore = ChangeEngine.Undo(change, current); // Conflict stops the whole staging operation.
+            CuratedCatalog.ValidateOverrideMutation(restore.Id, restore.After);
+            proposed.Add(restore);
         }
         if (proposed.Count == 0) { SetStatus(L["Unchanged"]); return; }
         ReviewOperations.Merge(Staged, proposed); ShowPage(ChangesPage);
@@ -306,8 +320,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     void SourceClick(object sender, RoutedEventArgs e) => OpenUrl(Catalog.Source);
     void HistoricalClick(object sender, RoutedEventArgs e)
     {
-        var path = Selected?.Id switch { 37634385 or 36354489 => "2022/06/09/announcing-windows-11-insider-preview-build-25136/", 34300186 => "2022/09/14/announcing-windows-11-insider-preview-build-25201/", 39420424 => "2022/11/10/announcing-windows-11-insider-preview-build-22621-891-and-22623-891/", 40430431 => "2023/01/12/announcing-windows-11-insider-preview-build-25276/", _ => null };
-        if (path is not null) OpenUrl("https://blogs.windows.com/windows-insider/" + path);
+        var source = Selected is null ? null : CuratedCatalog.All
+            .FirstOrDefault(entry => entry.Kind == CuratedKind.Historical && entry.FeatureIds.Contains(Selected.Id))?.Sources.FirstOrDefault();
+        if (source is not null && CuratedCatalog.IsAllowedSource(source) && !demo) OpenUrl(source);
     }
     void OpenUrl(string url) => Safe(() => Process.Start(new ProcessStartInfo(url) { UseShellExecute = true }));
     async void RefreshClick(object sender, RoutedEventArgs e) => await RefreshObservations();
@@ -393,12 +408,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         SidebarLanguage.SelectedValue = "en";
         if (LanguageBox.SelectedValue as string != "en") throw new Exception("Sidebar language synchronization failed.");
         Search = "37634385"; Filter(); if (Filtered.Count != 1) throw new Exception("Search failed.");
-        Selected = Filtered[0]; Desired = OverrideState.Enabled; Stage();
+        Selected = new Feature(4294967201, "Demo smoke one"); Desired = OverrideState.Enabled; Stage();
         Desired = OverrideState.Default; Stage(); if (Staged.Count != 0) throw new Exception("Stale staged override was not canceled.");
         Desired = OverrideState.Enabled; Stage();
-        Selected = catalog.First(f => f.Id == 39420424); Desired = OverrideState.Enabled; Stage();
+        Selected = new Feature(4294967202, "Demo smoke two"); Desired = OverrideState.Enabled; Stage();
         if (Staged.Count != 2) throw new Exception("Two-feature fixture failed.");
-        Search = ""; searchTimer.Stop(); Filter(); IsCurated = true; Selected = catalog.First(f => f.Id == 37634385);
+        Search = ""; searchTimer.Stop(); Filter(); IsCurated = true; Selected = new Feature(4294967201, "Demo smoke one");
         ShowPage(ExplorePage); await Capture("explore.png");
         ShowPage(ChangesPage); await Capture("review.png");
         LanguageBox.SelectedValue = "zh-Hans"; ShowPage(ExplorePage); await Capture("explore-zh.png");
@@ -407,9 +422,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Root.Width = 900; UpdateLayoutMode(); await Capture("compact-review.png");
         if (Grid.GetRow(SummaryPane) != 1) throw new Exception("Compact review summary layout failed.");
         Root.Width = 1440; UpdateLayoutMode();
-        Acknowledged = true; await ApplyStaged(); if (store.Read(37634385).State != OverrideState.Enabled || store.Read(39420424).State != OverrideState.Enabled) throw new Exception("Fake apply failed.");
+        Acknowledged = true; await ApplyStaged(); if (store.Read(4294967201).State != OverrideState.Enabled || store.Read(4294967202).State != OverrideState.Enabled) throw new Exception("Fake apply failed.");
         HistoryList.SelectedIndex = 0; UndoClick(this, new()); if (Staged.Count != 2 || Staged.Any(c => c.After != Snapshot.Default)) throw new Exception("Undo failed.");
-        await ApplyStaged(); if (store.Read(37634385) != Snapshot.Default || store.Read(39420424) != Snapshot.Default) throw new Exception("Fake undo failed.");
+        await ApplyStaged(); if (store.Read(4294967201) != Snapshot.Default || store.Read(4294967202) != Snapshot.Default) throw new Exception("Fake undo failed.");
         LanguageBox.SelectedValue = "es"; ShowPage(SettingsPage); await Capture("settings-es.png");
         ShowPage(UpdatesPage); await Capture("updates.png");
         LanguageBox.SelectedValue = "zh-Hans"; ShowPage(ExplorePage); ShowAllIds = true; await Capture("all-ids-zh.png");
