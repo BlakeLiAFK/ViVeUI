@@ -14,8 +14,9 @@ award-winning screens, imagery, or branding.
 
 ## Decisions
 
-A curated 2×2 illustrated gallery leads into a narrow detail panel with fixed
-segmented state controls and staging action. A separate virtualized all-ID tab
+A two-column illustrated gallery presents 20 curated entries. Historical ViVe
+experiments use fixed segmented state controls and a staging action; native
+Windows guides use source links and documented destinations. A separate virtualized all-ID tab
 keeps all 17,000 entries available. Catalog selection never changes configuration.
 Review pairs illustrated before/after cards with amber guidance, counts and three
 steps, followed by explicit Back and Apply actions.
@@ -31,8 +32,9 @@ Native buttons, lists, text boxes, checkboxes, focus outlines, automation labels
 Ctrl+F, virtualized catalog rows, scalable layout, and system high-contrast brushes
 support basic accessibility. Sixteen UI languages and Arabic RTL are included (see [coverage](LANGUAGES.md));
 identifiers, build strings and original OS diagnostics are intentionally unchanged.
-No image contains translated text. WPF supports flow direction but a full RTL
-translation is not shipped; RTL and Narrator behavior still require human validation.
+Original schematic images contain no translated text. Arabic resources and
+mirrored layout are shipped and exercised by native fixtures; linguistic quality,
+complex shaping and Narrator behavior still require human validation.
 At compact widths the catalog and detail become separate pages with explicit
 Open details / Back controls; minimum width is 900 logical pixels.
 
