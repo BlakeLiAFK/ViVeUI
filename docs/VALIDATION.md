@@ -65,22 +65,18 @@ The byte-level test and `.gitattributes` prevent checkout newline conversion.
 
 ## Recorded release-candidate evidence
 
-[Windows run 37670734723](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37670734723)
-passed all checks for implementation commit
-`6ffc71c0bb4538ec9d7cadc587829c7d40a296d6`: 47 core tests, WPF build and
-ten-render UI interactions, cross-integrity IPC, both single-EXE publications,
-and the x64 clean-folder launch including extracted runtime notices.
-The [checked-in previews and reports](previews/) come from this run.
-The final release includes BUILD.json linking its independently validated exact
-commit and workflow; source and checksums are generated from that same commit.
-The final workflow also repeats the handshake using the bundled EXE itself.
+[Windows run 37708449755](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37708449755) passed for implementation commit
+`7a713a5966a6e9ac9ab7d56560e9a4785f307dc8`: 74 core tests, resource/wiring audit, native WPF interactions,
+128 multilingual renders plus ten regression renders, authenticated cross-integrity
+IPC, both single-EXE packages and the x64 clean-folder launch including bundled IPC.
+[Checked-in previews and reports](previews/) come from this run.
+Final release BUILD.json identifies the independently validated exact release
+commit and workflow. Source and checksums are generated from that same commit.
 
-Version 0.2.1 checks the complete bounds of all four curated cards against their
-scroll viewport at 1440×900 in English and Chinese. It also requires nonempty
-observed/current-override values and the staging action to be visible, and rejects
-state values placed inside optional scroll content. Actual renders were inspected
-to confirm all card titles, statuses and category/details actions remain above the fold.
-Compact windows may scroll. The v0.2.0 release assets are preserved.
+All four curated cards must be fully visible at 1440×900 in English and Simplified
+Chinese. All languages validate current-state values, staging/apply actions and
+context header visibility at their tested layouts. Compact content may scroll.
+The v0.2.0 and v0.2.1 release assets are preserved.
 
 ## Sixteen-language validation (0.3.0)
 

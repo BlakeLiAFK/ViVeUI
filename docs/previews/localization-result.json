@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "humanReviewRequired": true,
+  "glyphAvailabilityDoesNotProveShaping": true,
+  "noFeatureWrites": true,
+  "reports": [
+    {
+      "Code": "en",
+      "NativeName": "English",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "zh-Hans",
+      "NativeName": "\u7B80\u4F53\u4E2D\u6587",
+      "FontFamily": "Microsoft YaHei UI, Microsoft YaHei, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "zh-Hant",
+      "NativeName": "\u7E41\u9AD4\u4E2D\u6587",
+      "FontFamily": "Microsoft JhengHei UI, Microsoft JhengHei, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "ja",
+      "NativeName": "\u65E5\u672C\u8A9E",
+      "FontFamily": "Yu Gothic UI, Meiryo, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "ko",
+      "NativeName": "\uD55C\uAD6D\uC5B4",
+      "FontFamily": "Malgun Gothic, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "fr",
+      "NativeName": "Fran\u00E7ais",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "de",
+      "NativeName": "Deutsch",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "es",
+      "NativeName": "Espa\u00F1ol",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "pt-BR",
+      "NativeName": "Portugu\u00EAs (Brasil)",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "it",
+      "NativeName": "Italiano",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "ru",
+      "NativeName": "\u0420\u0443\u0441\u0441\u043A\u0438\u0439",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "ar",
+      "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629",
+      "FontFamily": "Segoe UI, Tahoma, Global User Interface",
+      "rtl": true,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "hi",
+      "NativeName": "\u0939\u093F\u0928\u094D\u0926\u0940",
+      "FontFamily": "Nirmala UI, Mangal, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "id",
+      "NativeName": "Bahasa Indonesia",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "tr",
+      "NativeName": "T\u00FCrk\u00E7e",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    },
+    {
+      "Code": "vi",
+      "NativeName": "Ti\u1EBFng Vi\u1EC7t",
+      "FontFamily": "Segoe UI, Global User Interface",
+      "rtl": false,
+      "missingSystemGlyphs": [],
+      "renders": 8,
+      "persisted": true,
+      "statePreserved": true,
+      "noFeatureWrites": true
+    }
+  ]
+}

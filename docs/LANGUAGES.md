@@ -34,7 +34,8 @@ fallback; no Microsoft font files are redistributed.
 
 Arabic mirrors navigation and layout. Feature IDs, upstream identifiers, file
 paths, original illustrations and exact privileged change scope retain LTR
-direction. Longer translations wrap and can scroll in compact layouts.
+direction. Privileged confirmations separate ID, before and after into independently
+shaped columns so bidi ordering cannot merge state labels. Longer translations wrap and can scroll in compact layouts.
 Confirmations always default to the translated Cancel button. Before an elevated
 worker authenticates its request, errors use the system language; after
 authentication the selected UI language is used.
