@@ -9,17 +9,17 @@ public partial class MainWindow
     void BeginUpdate()
     {
         updateCancellation = new(); updateBusy = true;
-        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload) }) Changed(name);
+        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload), nameof(CanInstallUpdate) }) Changed(name);
     }
     void EndUpdate()
     {
         updateBusy = false; updateCancellation?.Dispose(); updateCancellation = null;
-        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload) }) Changed(name);
+        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload), nameof(CanInstallUpdate) }) Changed(name);
     }
     void CancelUpdateClick(object sender, RoutedEventArgs e) => updateCancellation?.Cancel();
     void ConfirmClose(object? sender, CancelEventArgs e)
     {
-        if (busy) { e.Cancel = true; SetStatus(L["WaitForApply"]); return; }
+        if (busy || installingUpdate) { e.Cancel = true; SetStatus(L["WaitForApply"]); return; }
         updateCancellation?.Cancel();
     }
 }

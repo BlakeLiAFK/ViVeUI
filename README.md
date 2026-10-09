@@ -3,18 +3,25 @@
 [English](README.md) · [简体中文](README.zh-CN.md) · [Download](https://github.com/BlakeLiAFK/ViVeUI/releases/latest) · [Build status](https://github.com/BlakeLiAFK/ViVeUI/actions/workflows/windows.yml)
 
 **ViVeUI is an open-source C# / WPF Windows desktop app built on the ViVe library.**
-Browse 17,000 known feature IDs offline. For an eligible raw feature ID, check to
-enable or uncheck to disable immediately; Windows default removes its explicit
-user override. There is no staging queue, Review page or extra app confirmation.
-Windows may still request administrator consent through UAC.
+The home page presents **7 sourced feature recipes covering 9 IDs**, with direct
+controls and device-evidence filters. Settings guides, historical references and
+raw-ID inspection remain in a separate Guides area. The embedded 17,000-ID
+upstream dictionary is a pinned snapshot, not a universal Windows feature list.
 
-**v0.6.0:** direct checkbox operations, one filtered card gallery, and manual ID inspection.
+**v0.7 implementation:** recipe-based home page and explicitly requested in-place
+updates. This working-tree documentation does not establish a published v0.7 release
+or a passing v0.7 validation run; the download links below point to the latest
+published release.
 
-![ViVeUI unified paginated gallery on Windows](docs/previews/catalog/full-first-page.png)
-![Direct enable checkbox and actual override state](docs/previews/ux/checkbox-enabled.png)
+[Feature recipes and compatibility limits](docs/RECIPES.md) ·
+[Update installation and recovery](docs/UPDATE-INSTALLATION.md)
 
-Actual WPF renders from Windows CI with simulated feature storage; no system settings were changed.
-[Native preview provenance](docs/previews/README.md) · [Original flow schematic](docs/previews/immediate-toggle-flow.svg)
+![Previous unified gallery on Windows](docs/previews/catalog/full-first-page.png)
+
+The linked previews and validation records document their recorded source commits.
+The existing gallery image is from the previous interface, not evidence of the new
+recipe home page. Native renders use simulated feature storage; they do not prove
+that a Windows experiment works. [Preview provenance](docs/previews/README.md).
 
 ## Download and run
 
@@ -37,50 +44,55 @@ A supported OS version does **not** establish support for a particular feature f
 
 ## What the app does
 
-- **One list:** sourced content and the 17,000-ID pinned dictionary share one searchable list, without a separate All IDs view. The editorial layer contains 213 distinct entries: 124 native settings, 25 guides, four shortcuts and 60 read-only archives—not 213 writable toggles.
-- **Checkbox filters:** Known content (153) and Historical references (60) start checked. Show unknown (16,944) starts unchecked. These three visible filters only change which entries appear; there are no filter dropdowns.
-- **Bounded pages:** every list page contains at most 12 cards, including when unknown entries are visible. Search and filters stay above the cards; page controls sit below them.
-- **Enter ID:** a separate read-only inspection field accepts one decimal, nonzero uint32 ID, including an ID outside the dictionary. Paste it and press Enter. It never runs pasted text as a command or automatically changes a feature.
-- **Direct controls:** check to enable or uncheck to disable an eligible raw ID. Changes run immediately through the privileged worker, with UAC when required; no staging or additional app confirmation.
-- **History:** a read-only record of operation results. It does not replay or undo changes. Use the separate per-feature Windows default action to remove that ID’s explicit override.
-- **Updates:** GitHub release checks and optional automatic EXE downloads with SHA-256 verification. Installation and launch remain manual.
-- **Languages:** 16 UI resource sets plus fully localized catalog titles, instructions, search terms and evidence, native language names, persistent system/manual selection, and Arabic RTL. See [language coverage and review limits](docs/LANGUAGES.md).
+- **Feature home:** seven reviewed recipes, each with a concrete purpose, exact ID group, sources, applicability and separately reported override state. Two recipes contain two IDs; dependencies do not inflate the feature count.
+- **Applicability filters:** Applicable and Unconfirmed start selected; Not applicable starts hidden. These checkboxes filter recipes and do not change Windows. Exact build, update revision (UBR), channel and available prerequisite evidence matter; a nearby or newer build is not automatically compatible.
+- **Direct recipe controls:** enable, disable or return the entire approved recipe group to Windows default. An Unconfirmed recipe can be attempted when its IDs are observed and required reads succeed; a Not applicable recipe is blocked. UAC may still be required.
+- **Guides and reference:** the separate editorial catalog retains 213 entries: 124 native settings, 25 guides, four shortcuts and 60 read-only archives. These are not 213 additional writable recipes. Raw dictionary entries with unknown purpose remain hidden by default, searchable and paginated when explicitly shown.
+- **Manual ID inspection:** enter one decimal, nonzero uint32 ID, including an ID outside the dictionary. Inspection never executes pasted commands or changes a feature by itself. Historical-reference guards still apply to manual/raw operations.
+- **History:** read-only operation receipts and per-ID results. It does not replay changes or restore old snapshots automatically.
+- **Updates:** trusted GitHub release checks and optional automatic verified downloads. A separate user action authorizes replacement at the current EXE path, with a backup and recovery journal. After replacement, choose whether to restart the app now. Automatic download never authorizes installation or launch.
+- **Languages:** 16 UI resource sets, localized catalog content, persistent language selection and Arabic RTL. [Language coverage and review limits](docs/LANGUAGES.md).
 
-Browsing works offline without elevation. A separate worker handles only requested
-user-priority boot overrides. IPC uses a current-user SID ACL, exact process identity
-checks in both directions, and a random handshake challenge. It supports the intended
-unelevated UI / elevated worker boundary without using `CurrentUserOnly` pipe options.
+Browsing works offline without elevation. A separate authenticated worker handles
+requested user-priority boot overrides. It validates an approved recipe's complete
+ID group against its own device observations; caller-supplied recipe metadata cannot
+expand that group. The existing manual-ID historical guard is not removed by adding
+these narrowly scoped recipe operations.
 
-## Find content, then operate
+## Read applicability and override state separately
 
-The three list-filter checkboxes are separate from the selected feature’s Enable
-checkbox. An exact numeric match hidden by a filter prompts you to enable the
-relevant filter; searching never silently exposes it or changes filter choices.
-Manual Enter ID inspection is a separate, explicit request to inspect that one ID;
-it does not change search filters or reveal other hidden matches. IDs outside the
-dictionary have unknown availability; accepting a number does not prove a valid
-or supported Windows feature.
+**Applicable** means the implemented evidence checks match a recorded build,
+revision and channel, with all recipe IDs observed and any declared prerequisites
+satisfied. It is not a device-tested promise that a menu or feature will appear.
+**Unconfirmed** means evidence is incomplete or does not match an exact recorded
+build. **Not applicable** includes an absent required ID, a known unmet prerequisite,
+or a Windows base build below the recipe policy's minimum.
 
-Known purpose does not mean this Windows build supports the feature. Unknown
-purpose describes missing editorial evidence, not an unknown observed system state.
+The feature control reports user overrides separately: enabled, disabled, Windows
+default, mixed states, or a read error. Query success and write/read-back success
+establish configuration facts only; other Windows priorities, rollout state,
+installed apps and hardware can affect visible behavior.
 
-1. Inspect the ID, source and compatibility limits. Save work before experimenting.
-2. For an eligible raw ID, check its control to enable or uncheck it to disable.
-   The request runs immediately; approve Windows UAC if requested.
-3. Read the resulting override state or error. A canceled or failed operation must
-   not be treated as a successful change. Restart Windows manually when appropriate.
-4. Use the separate Windows default action for the selected ID to remove its
-   explicit override. History is view-only; it does not offer scoped undo.
+1. Read a recipe's purpose, sources, complete ID group and caveats.
+2. If eligible, choose enable or disable. The operation runs immediately; approve
+   Windows UAC if requested. There is no staging queue or Review step.
+3. Read the result and every ID's refreshed state. A group can fail partway through;
+   the app does not describe a partial change as a completed feature activation.
+4. Windows default removes the recipe IDs' explicit user overrides. It does not
+   restore a previously captured custom configuration or guarantee visual rollback.
+   Restart Windows manually only when appropriate; unspecified restart evidence is
+   not a guarantee that no restart is needed.
 
-An unchecked control is not proof of Windows default: disabled and default remain
-separate states. The displayed state is a user override, not guaranteed effective
-runtime behavior. Selecting a catalog card or browsing an ID does not write settings.
+The raw/manual path remains separate: known historical IDs reject new enable and
+disable requests there, including IDs offered through an approved recipe. Default
+removal remains a recovery action under the existing policy. Native settings guides
+open Windows settings or explain steps; they do not silently modify settings.
 
-Known historical reference IDs reject new enable/disable requests in both the UI and elevated worker. Removing their user override with Windows default remains available for recovery; this does not guarantee safe OS behavior. Native settings cards navigate to Windows without changing it.
-
-Experiments can destabilize Windows. Prefer one experiment at a time. Advanced
-variant, policy, security, subscription, and Last Known Good settings are outside
-this app's writable scope. Errors remain visible with their operation results; no failed operation is retained in a staging queue. See [safety and recovery](docs/SAFETY.md).
+Recipe groups are not transactional Windows operations. An error can leave some
+IDs changed and others unchanged. The app rereads the complete group and exposes
+per-ID results. Advanced variants, policy, security, subscription and Last Known
+Good changes remain outside its writable scope. [Recipe behavior](docs/RECIPES.md) ·
+[Safety and recovery](docs/SAFETY.md).
 
 ## Frequently asked questions
 
@@ -99,21 +111,25 @@ description. Missing observations do not mean disabled or unsupported.
 
 ### What is the difference between Default, Disable, and History?
 
-**Windows default** removes the selected simple user override. **Disable** sets an
-explicit disabled override. **History** only shows operation records; it cannot
-restore a prior snapshot. Other Windows priorities may supersede this user override.
+**Windows default** removes explicit user overrides for the selected recipe group,
+or the single inspected ID on the manual path. **Disable** writes an explicit off
+state. **History** only shows records; it cannot restore a prior snapshot. Other
+Windows priorities may supersede these overrides.
 
 ### Are the pictures Windows screenshots?
 
 No. They are original, embedded conceptual schematics. Unknown flags have no claimed
 visual preview. The archived v0.5.0 screenshots show ViVeUI itself using a fake backend.
-Current immediate-checkbox UI renders are separately recorded with exact source/run provenance.
+Existing immediate-checkbox renders document the previous interface and carry their
+own source/run provenance; they do not validate the new recipe screen.
 
 ### Does ViVeUI install updates silently?
 
-No. Optional automatic downloads verify trusted GitHub release bytes against the
-release asset's SHA-256 digest. You decide whether to run the downloaded EXE.
-Failed checks, missing digests, and failed verification are explicit errors.
+No. Automatic downloads stop after verification. You must explicitly request
+installation to replace the current EXE; the app keeps the prior EXE for recovery
+and then asks whether to restart now. Choosing later leaves the old process running
+and the new version at the original path. Failed verification prevents replacement.
+[Installation, restart and recovery details](docs/UPDATE-INSTALLATION.md).
 
 ### Does it collect telemetry?
 
@@ -133,12 +149,11 @@ src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe --ipc-smoke
 dotnet publish src/ViVeUI.Windows -c Release -r win-x64 --self-contained true
 ```
 
-Windows CI validates 132 core tests, native WPF interactions, all sixteen languages,
-Arabic RTL, checkbox filters, twelve-card pagination, manual ID inspection and
-read-only historical entries. It packages x64 and ARM64 self-contained EXEs and
-launches the x64 EXE from a clean directory. Authenticated elevation IPC tests
-perform no feature writes. See the exact runs and artifacts in
-[validation evidence](docs/VALIDATION.md).
+The Windows workflow covers core logic, native WPF interactions, localization,
+packaging and authenticated worker boundaries. Refer to [validation evidence](docs/VALIDATION.md)
+for the exact version, commit and run actually tested. Earlier passing counts or
+screenshots do not validate the v0.7 recipe or self-update changes. New test outcomes
+and release artifacts must be recorded after their matching runs complete.
 
 Real feature mutations, ARM64 execution, physical DPI behavior, Narrator,
 high-contrast interaction, native-speaker translation review and secure-desktop

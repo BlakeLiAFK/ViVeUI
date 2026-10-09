@@ -57,6 +57,13 @@ jobs:
           if (-not $p.WaitForExit(180000)) { $p.Kill(); throw 'Catalog validation timed out' }
           if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'Catalog validation failed' }
           Get-Content catalog-result.json
+      - name: Named recipe cards, applicability, grouped execution and sixteen-language UI
+        shell: pwsh
+        run: |
+          $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--recipe-smoke' -PassThru
+          if (-not $p.WaitForExit(240000)) { $p.Kill(); throw 'Recipe validation timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; throw 'Recipe validation failed' }
+          Get-Content recipe-result.json
       - name: Publish standalone self-contained EXEs and corresponding source
         shell: pwsh
         run: |
@@ -77,8 +84,24 @@ jobs:
             }
           }
           Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
-          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.6.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.7.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
           Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
+      - name: Real cross-version self update with isolated official executable copies
+        shell: pwsh
+        run: |
+          $prior = Invoke-RestMethod 'https://api.github.com/repos/BlakeLiAFK/ViVeUI/releases/tags/v0.6.0'
+          $asset = $prior.assets | Where-Object name -eq 'ViVeUI-win-x64.exe'
+          $expected = '242d580f292bd90701914a4ec6896e3c0d4fc00edcc4ce7aee3c2613a7e5d122'
+          if ($asset.digest -ne "sha256:$expected" -or $asset.browser_download_url -ne 'https://github.com/BlakeLiAFK/ViVeUI/releases/download/v0.6.0/ViVeUI-win-x64.exe') { throw 'Prior release identity mismatch' }
+          $previous = Join-Path $env:RUNNER_TEMP 'ViVeUI-official-v060.exe'
+          Invoke-WebRequest $asset.browser_download_url -OutFile $previous
+          if ((Get-FileHash $previous -Algorithm SHA256).Hash.ToLower() -ne $expected) { throw 'Prior executable digest mismatch' }
+          $env:VIVEUI_PREVIOUS_EXE = $previous
+          $env:VIVEUI_PREVIOUS_SHA256 = $expected
+          $p = Start-Process .artifacts/ViVeUI-win-x64.exe -ArgumentList '--update-smoke' -PassThru
+          if (-not $p.WaitForExit(240000)) { $p.Kill(); throw 'Real update validation timed out' }
+          if ($p.ExitCode -ne 0) { Get-Content self-update-error.txt -ErrorAction SilentlyContinue; throw 'Real update validation failed' }
+          Get-Content self-update-result.json
       - name: Verify all shell icon frames in both packaged architectures
         run: python tools/verify_pe_icons.py .artifacts/ViVeUI-win-x64.exe .artifacts/ViVeUI-win-arm64.exe
       - name: Launch only the x64 EXE in a clean directory
@@ -113,6 +136,11 @@ jobs:
             previews/localization/**/*.png
             previews/ux/*.png
             previews/catalog/*.png
+            previews/recipes/**/*.png
+            previews/recipes/*.png
+            recipe-result.json
+            self-update-result.json
+            self-update-error.txt
             catalog-result.json
             catalog-audit.json
             ux-result.json

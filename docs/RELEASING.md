@@ -7,7 +7,7 @@ self-contained .NET 8 single-file executables, SHA256SUMS.txt, complete correspo
 and actual WPF demo screenshots. Publishing a release is a separate deliberate
 maintainer action. CI does not silently publish or install.
 
-For a stable release, use a semantic tag (`v0.6.0`) and GitHub release assets named
+For a stable release, use a semantic tag (`v0.7.0`) and GitHub release assets named
 exactly `ViVeUI-win-x64.exe` and `ViVeUI-win-arm64.exe`, together with source and
 checksums from the same successful commit. The GitHub release API must provide
 `digest: sha256:<64 hex digits>` and a positive size for each binary EXE. Missing
@@ -26,8 +26,12 @@ altered bytes, not a compromised repository/maintainer/GitHub account. Packages 
 not Authenticode signed in this initial build. Do not describe digest checking as
 publisher code signing. SmartScreen may warn for an unsigned application.
 
-The app never extracts, replaces its own executable, launches the package, or
-installs silently. Users open the download folder and run the chosen EXE themselves.
+Clicking Update authorizes replacement of the current executable after trusted
+metadata, SHA-256, size, PE architecture and embedded version verification. A
+fixed-scope helper retains a backup and recovery journal. A separate restart
+question controls whether the new executable launches; Later keeps the current
+process running. Automatic download does not authorize installation. See
+[update installation](UPDATE-INSTALLATION.md) for recovery and test limits.
 Each architecture is one self-contained EXE; .NET extracts bundled native files
 and component notices into its per-user cache at launch. An administrator worker never downloads.
 

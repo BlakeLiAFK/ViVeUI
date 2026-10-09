@@ -10,13 +10,16 @@ public static class Program
     [STAThread]
     public static void Main(string[] args)
     {
+        if (SelfUpdateWorker.TryHandle(args)) return;
         if (args.Length == 4 && args[0] == "--worker" && int.TryParse(args[2], out var parentPid)) { RunWorker(args[1], parentPid, args[3]); return; }
         if (args.Length > 0 && args[0].StartsWith("--ipc-", StringComparison.Ordinal)) { IpcSmoke.Run(args); return; }
         var uxSmoke = args.Contains("--ux-smoke");
         var localizationSmoke = args.Contains("--localization-smoke");
         var catalogSmoke = args.Contains("--catalog-smoke");
-        var smoke = args.Contains("--smoke") || localizationSmoke || uxSmoke || catalogSmoke;
+        var recipeSmoke = args.Contains("--recipe-smoke");
+        var smoke = args.Contains("--smoke") || localizationSmoke || uxSmoke || catalogSmoke || recipeSmoke;
         var testFolder = smoke ? Path.Combine(Path.GetTempPath(), "ViVeUI-smoke-" + Guid.NewGuid().ToString("N")) : null;
+        var recoveryWarning = smoke || args.Contains("--demo") ? null : SelfUpdateWorker.RecoverStartup();
         var app = new Application();
         app.DispatcherUnhandledException += (_, e) => { if (smoke) { File.WriteAllText("smoke-error.txt", e.Exception.ToString()); e.Handled = true; app.Shutdown(1); return; }
             var locale = (app.MainWindow as MainWindow)?.L ?? new Locale(); LocalizedDialog.Show(app.MainWindow, locale, locale["Error"], locale.ErrorSummary(e.Exception), technical: e.Exception.ToString()); e.Handled = true; };
@@ -24,12 +27,14 @@ public static class Program
         MainWindow window;
         try { window = new MainWindow(args.Contains("--demo") || smoke, testFolder); }
         catch (Exception e) { File.WriteAllText(smoke ? "smoke-error.txt" : Path.Combine(Path.GetTempPath(), "ViVeUI-startup-error.txt"), e.ToString()); if (!smoke) { var locale = new Locale(); LocalizedDialog.Show(null, locale, locale["Error"], locale.ErrorSummary(e), technical: e.ToString()); } Environment.ExitCode = 1; return; }
+        if (recoveryWarning is not null)
+            window.Loaded += (_, _) => LocalizedDialog.Show(window, window.L, window.L["Error"], window.L["UpdateRecovered"], technical: recoveryWarning);
         var smokeStarted = false;
         if (smoke)
             window.ContentRendered += async (_, _) =>
             {
                 if (smokeStarted) return; smokeStarted = true;
-                try { if (catalogSmoke) await window.CatalogSmokeAsync(); else if (uxSmoke) await window.UxSmokeAsync(); else if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
+                try { if (recipeSmoke) await window.RecipeSmokeAsync(); else if (catalogSmoke) await window.CatalogSmokeAsync(); else if (uxSmoke) await window.UxSmokeAsync(); else if (localizationSmoke) await window.LocalizationSmokeAsync(); else await window.SmokeAsync(); app.Shutdown(0); }
                 catch (Exception e) { File.WriteAllText("smoke-error.txt", e.ToString()); app.Shutdown(1); }
             };
         try { app.Run(window); } finally { if (testFolder is not null) { try { Directory.Delete(testFolder, true); } catch (IOException) { } } }
@@ -49,7 +54,7 @@ public static class Program
             var changes = request.Changes;
             locale.Set(request.Language);
             ChangeEngine.Validate(changes);
-            foreach (var change in changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
+            ValidateWorkerScope(changes, request.RecipeId);
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
             // OS UAC is the only approval prompt; authenticated IPC carries exact scope.
             List<ChangeResult>? result = null; string? error = null;
@@ -59,10 +64,17 @@ public static class Program
         }
         catch (Exception e) { LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Error"], locale.ErrorSummary(e), technical: e.ToString()); }
     }
-    public static async Task<WorkerResponse> ElevateAsync(List<Change> changes, string language)
+    static void ValidateWorkerScope(IReadOnlyList<Change> changes, string? recipeId)
+    {
+        if (recipeId is null)
+            foreach (var change in changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
+        else
+            FeatureRecipes.ValidateScope(recipeId, changes, WindowsDevice.Read(), WindowsStore.Observe().Keys.ToHashSet());
+    }
+    public static async Task<WorkerResponse> ElevateAsync(List<Change> changes, string language, string? recipeId = null)
     {
         ChangeEngine.Validate(changes);
-        foreach (var change in changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
+        ValidateWorkerScope(changes, recipeId);
         var name = WorkerChannel.NewName(); var secret = WorkerChannel.NewSecret();
         using var pipe = WorkerChannel.Server(name);
         using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(5));
@@ -72,11 +84,11 @@ public static class Program
         if (await Task.WhenAny(connected, exited) == exited && !pipe.IsConnected) throw new IOException("Worker exited before connecting.");
         await connected;
         await WorkerChannel.AuthenticateServer(pipe, process.Id, secret, timeout.Token);
-        await WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerRequest(changes, language)), timeout.Token);
+        await WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerRequest(changes, language, recipeId)), timeout.Token);
         var response = await WorkerChannel.Read(pipe, timeout.Token);
         return JsonSerializer.Deserialize<WorkerResponse>(response) ?? throw new IOException("Invalid worker response.");
     }
 }
 public sealed record WorkerResponse(List<ChangeResult>? Results, string? Error);
 
-public sealed record WorkerRequest(List<Change> Changes, string Language);
+public sealed record WorkerRequest(List<Change> Changes, string Language, string? RecipeId = null);

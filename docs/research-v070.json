@@ -1,0 +1,380 @@
+{
+  "researchDate": "2026-10-09",
+  "scope": "Read-only original-source research for named experimental Windows 11 recipes. No OS writes, runtime promotion, catalog edits, commits, or remote mutations.",
+  "targetDevice": {
+    "reportedDisplay": "26200 / 26200.0",
+    "fullServicingRevisionKnown": false,
+    "channelKnown": false,
+    "currentDeviceTestPerformed": false,
+    "localEvidence": "src/ViVeUI.Windows/MainWindow.xaml.cs BuildText currently formats Environment.OSVersion.Version, without an independent UBR read. Therefore displayed .0 is not evidence of the servicing revision.",
+    "interpretation": "The displayed base build alone cannot match these exact observations; it also does not distinguish older Dev flights from the 25H2 servicing branch."
+  },
+  "provenanceRule": "Feature purpose and exact numeric recipes are supported by the original discoverer posts, re-read through the public API with CID and author captured. Official Microsoft announcements independently corroborate purpose and build context, not the numeric override mechanism.",
+  "candidateCount": 7,
+  "uniqueFeatureIdCount": 9,
+  "candidates": [
+    {
+      "id": "VoiceTypingFilter",
+      "title": "Voice typing profanity-filter choice",
+      "reviewPriority": 1,
+      "featureIds": [
+        33289874
+      ],
+      "recipeKind": "single-id",
+      "observedBuilds": [
+        {
+          "build": "26200.5570",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.3941",
+          "channel": "Beta"
+        },
+        {
+          "build": "22635.5305",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "Win+H voice typing settings gains a user-selectable profanity filter.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnsubw5wq2c",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnnsubw5wq2c",
+        "cid": "bafyreigo5jwlgpszza6nmwppz7f7pgjaj3a4b7a5gmfr6b3kpv5yqqbcbu",
+        "publishedAt": "2025-04-25T18:07:13.343Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:33289874"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/04/25/announcing-windows-11-insider-preview-build-26200-5570-dev-channel/",
+        "supports": "Microsoft describes both filter states: masking profanity when enabled and retaining words when disabled.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "Enabling the feature exposes a choice; it does not itself mean the profanity filter is turned off.",
+        "No restart or dependency requirement is supplied by the original post.",
+        "No compatible-build range or current-device result was established."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false
+    },
+    {
+      "id": "QuickAccessibilityGroups",
+      "title": "Grouped accessibility Quick Settings",
+      "reviewPriority": 2,
+      "featureIds": [
+        56887314
+      ],
+      "recipeKind": "single-id",
+      "observedBuilds": [
+        {
+          "build": "26200.5570",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.3941",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "Quick Settings accessibility controls gain vision, hearing, and motor/mobility sections.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnnt6zetnd2s",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnnt6zetnd2s",
+        "cid": "bafyreiclyembdi2gxzdfj3jjlwxjxge5ppob6u45dbv7lawulhbmygpsrq",
+        "publishedAt": "2025-04-25T18:13:12.082Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:56887314"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/04/25/announcing-windows-11-insider-preview-build-26200-5570-dev-channel/",
+        "supports": "Microsoft confirms the regrouping in this exact Dev build.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "This is a navigation reorganization, not additional hardware capabilities.",
+        "Original post names a single ID without extra dependencies or restart instructions.",
+        "Current-device behavior is untested."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false
+    },
+    {
+      "id": "VoiceVocabulary",
+      "title": "Voice Access custom vocabulary",
+      "reviewPriority": 3,
+      "featureIds": [
+        56305056
+      ],
+      "recipeKind": "single-id",
+      "observedBuilds": [
+        {
+          "build": "26200.5562",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.3872",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "Voice Access gains a builder for adding custom dictionary words.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnebixohct2k",
+        "cid": "bafyreib6fn56kodnucdw4vcbv2w2jos7hqywmp4wdczq7qf6jrjbxdlbsm",
+        "publishedAt": "2025-04-21T23:02:42.718Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:56305056"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/04/21/announcing-windows-11-insider-preview-build-26200-5562-dev-channel/",
+        "supports": "Microsoft documents adding words through correction/spelling, an Add to Vocabulary command, or Voice Access settings.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "Original post assigns this ID specifically to vocabulary, separately from the Quick Settings toggle.",
+        "Voice Access language setup and recognition remain distinct from exposing the builder.",
+        "Current-device behavior and additional unlisted dependencies are unverified."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false
+    },
+    {
+      "id": "VoiceQuickSettings",
+      "title": "Voice Access shortcut in Quick Settings",
+      "reviewPriority": 4,
+      "featureIds": [
+        56724497
+      ],
+      "recipeKind": "single-id",
+      "observedBuilds": [
+        {
+          "build": "26200.5562",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.3872",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "The accessibility flyout in Quick Settings gains a Voice Access toggle.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lnebixohct2k",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lnebixohct2k",
+        "cid": "bafyreib6fn56kodnucdw4vcbv2w2jos7hqywmp4wdczq7qf6jrjbxdlbsm",
+        "publishedAt": "2025-04-21T23:02:42.718Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:56724497"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/04/21/announcing-windows-11-insider-preview-build-26200-5562-dev-channel/",
+        "supports": "Microsoft separately confirms Voice Access as a Quick Settings accessibility entry in this build.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "This exposes a shortcut and does not itself initialize Voice Access or language components.",
+        "Do not combine with the vocabulary ID as a required pair: the discoverer assigns different purposes.",
+        "Original post specifies no restart; device behavior is untested."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false
+    },
+    {
+      "id": "SharePhotoEditing",
+      "title": "Image editing inside Windows Share",
+      "reviewPriority": 5,
+      "featureIds": [
+        53433910,
+        54475355
+      ],
+      "recipeKind": "all-ids-together",
+      "observedBuilds": [
+        {
+          "build": "26200.5516",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.3653",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "Windows Share gains image editing and compression before sharing.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3llhrij7bn22s",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3llhrij7bn22s",
+        "cid": "bafyreibvvyldoffynllednuxtpvhkf363tsdgdxrebeb5pk2bydseq2rqy",
+        "publishedAt": "2025-03-28T21:36:28.347Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:53433910,54475355"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/03/28/announcing-windows-11-insider-preview-build-26200-5516-dev-channel/",
+        "supports": "Microsoft describes crop, rotate, filters, and compression for local images.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "The original command enables both IDs together; preserve the pair as one recipe.",
+        "Microsoft limits this to local images and lists .jpg, .jpeg, .dib, .png, .tif, .tiff, and .bmp.",
+        "Separate linked post maps web-link previews to 53871483; do not mistake that ID for part of image editing.",
+        "Original post specifies no restart; current-device result is untested."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false
+    },
+    {
+      "id": "HdrSettingsHistory",
+      "title": "Expanded HDR display settings",
+      "reviewPriority": 6,
+      "featureIds": [
+        49793372
+      ],
+      "recipeKind": "single-id",
+      "observedBuilds": [
+        {
+          "build": "26200.5581",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.3950",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "HDR settings add clarified capabilities, streaming with HDR otherwise off, and an independent Dolby Vision mode.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3loidxv5kpg2s",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3loidxv5kpg2s",
+        "cid": "bafyreicosyhtxed6udefoi5hszr5tl36uyjysh773vum2kxroq7rjmzlty",
+        "publishedAt": "2025-05-06T07:22:43.164Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:49793372"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/05/05/announcing-windows-11-insider-preview-build-26200-5581-dev-channel/",
+        "supports": "Microsoft documents these three behavior changes in this exact Dev build.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "HDR streaming requires a capable HDR display. Dolby Vision mode requires a Dolby Vision display.",
+        "An override does not create missing display capabilities.",
+        "The Microsoft announcement is dated 2025-05-05; the mapping post is 2025-05-06.",
+        "Original post specifies no dependencies or restart; actual device support is untested."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false
+    },
+    {
+      "id": "ExplorerAiActions",
+      "title": "File Explorer image AI actions",
+      "reviewPriority": 7,
+      "featureIds": [
+        54792954,
+        55345819
+      ],
+      "recipeKind": "all-ids-together",
+      "observedBuilds": [
+        {
+          "build": "26200.5603",
+          "channel": "Dev"
+        },
+        {
+          "build": "26120.4151",
+          "channel": "Beta"
+        }
+      ],
+      "minimumBuild": null,
+      "maximumBuild": null,
+      "observedBehavior": "File context menus gain AI actions linked to image features in Photos/Paint and Bing.",
+      "primaryDiscovery": {
+        "author": "phantomofearth.bsky.social",
+        "url": "https://bsky.app/profile/phantomofearth.bsky.social/post/3lpkladfnbm2a",
+        "atUri": "at://did:plc:lld3hsasiketetu767uagr6m/app.bsky.feed.post/3lpkladfnbm2a",
+        "cid": "bafyreihn6wlag3jaxngubt3ajautn3vssefnmdt4kzmv4b3ce73gbvgjre",
+        "publishedAt": "2025-05-19T22:03:13.701Z",
+        "readMethod": "Public app.bsky.feed.getPostThread API; source record and author checked on 2026-10-09",
+        "commandExcerpt": "vivetool /enable /id:54792954,55345819"
+      },
+      "microsoftCorroboration": {
+        "url": "https://blogs.windows.com/windows-insider/2025/05/19/announcing-windows-11-insider-preview-build-26200-5603-dev-channel/",
+        "supports": "Microsoft confirms the menu and .jpg/.jpeg/.png support for four initial image actions.",
+        "doesNotSupport": "Microsoft does not publish or endorse the numerical ViVe recipe in this announcement."
+      },
+      "constraints": [
+        "Preserve both IDs as one reported recipe; independent per-ID effects were not established.",
+        "Do not promise Microsoft 365 document actions: those have separate Copilot/subscription/Insider requirements.",
+        "Microsoft later says the rollout restarted in 26200.5661 after the menu had disappeared for some Insiders.",
+        "This is positive evidence against treating 26200.5603 and every higher revision as a guaranteed supported range.",
+        "Original post specifies no restart; installed app capabilities and current-device result are unverified."
+      ],
+      "restartEvidence": "Not specified by original discovery post; do not invent a guaranteed no-restart claim.",
+      "deviceVerification": "Not performed",
+      "approvalForDisplayed26200Dot0": false,
+      "laterCounterevidence": {
+        "url": "https://blogs.windows.com/windows-insider/2025/06/23/announcing-windows-11-insider-preview-build-26200-5661-dev-channel/",
+        "fact": "Microsoft explicitly resumed the rollout that started in 26200.5603 and noted some Insiders had lost the feature."
+      }
+    }
+  ],
+  "buildContext": {
+    "source": "https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information",
+    "fact": "The Microsoft release table lists 25H2 general availability at 26200.6584 on 2025-09-30 and many subsequent serviced revisions. The same 26200 base is not a single immutable runtime.",
+    "inference": "An exact reported Dev observation is neither a minimum build nor proof of continuing support on later 25H2 revisions."
+  },
+  "rejectedForThisTarget": [
+    {
+      "ids": [
+        37634385,
+        36354489,
+        39145991
+      ],
+      "reason": "Known obsolete/fragile Explorer tabs and navigation rollback combination. Original ExplorerPatcher discussion reports Explorer crashes on 22621.2361; maintainer reports TIFE removed in Dev 23575. Do not promote these for 26200.",
+      "source": "https://github.com/valinet/ExplorerPatcher/discussions/2197"
+    },
+    {
+      "ids": [
+        59213768,
+        61090762
+      ],
+      "reason": "Movable/smaller taskbar original post explicitly reports 26300.8493, not 26200. Two independently named functions, not a required pair.",
+      "source": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mlwadx2yyd2w",
+      "cid": "bafyreig7ygdgxmp5fmrnr3kdhku66khm272ki5r2pbsfifv35de5wsxvza",
+      "independentlyRead": "2026-10-09 public Bluesky API"
+    },
+    {
+      "ids": [
+        60813048
+      ],
+      "reason": "Customizable context-menu original post explicitly reports Experimental 26340.9212, not 26200; not a Windows 10 classic-menu replacement.",
+      "source": "https://bsky.app/profile/phantomofearth.bsky.social/post/3mtcqs7acvk2x",
+      "cid": "bafyreif75hnbwhvwdze5mvzdem75xwf7f7dp4heyv3p7uscqoiqswwi65y",
+      "independentlyRead": "2026-10-09 public Bluesky API"
+    }
+  ],
+  "unresolved": [
+    "Full target build including servicing revision, actual channel/edition, architecture and relevant hardware/app prerequisites.",
+    "Whether each feature has already rolled out natively on the target and whether its ID remains honored there.",
+    "A current-build activation/deactivation result; the original posts establish enable recipes only, not universally safe disable behavior.",
+    "Current historical classification must not be promoted merely because source ID names exist in the dictionary."
+  ]
+}

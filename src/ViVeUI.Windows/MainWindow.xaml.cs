@@ -61,7 +61,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
     }
     public string VersionText => "ViVeUI " + BuildInfo.VersionText;
-    string currentPage = "Explore";
+    string currentPage = "Recipes";
+    public bool IsRecipes => currentPage == "Recipes";
+    internal DeviceBuild? demoDeviceBuild;
+    internal DeviceBuild CurrentDeviceBuild => demo ? demoDeviceBuild ?? new(26200, null, "Demo") : WindowsDevice.Read();
     public bool IsExplore => currentPage == "Explore";
     public bool IsChanges => currentPage == "Changes";
     public bool IsUpdates => currentPage == "Updates";
@@ -78,7 +81,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public string Category { get => category; set { category = value ?? "All"; Changed(); Filter(); } }
     public Feature? Selected { get => selected; set { selected = value; if (value is not null && selectedGuide is not null) SelectGuide(null); Changed(); Changed(nameof(Cards)); Changed(nameof(CanToggle)); RefreshDetail(); } }
     public string ModeText => L[demo ? "Demo" : "Local"];
-    public string BuildText => demo ? "Windows 11 · " + L["DemoShort"] : $"Windows {Environment.OSVersion.Version} · {RuntimeInformation.OSArchitecture}";
+    public string BuildText => demo ? "Windows 11 · " + L["DemoShort"] : $"Windows 10.0.{CurrentDeviceBuild.Build}.{CurrentDeviceBuild.Ubr?.ToString(CultureInfo.InvariantCulture) ?? "?"} · {CurrentDeviceBuild.Channel ?? "?"} · {RuntimeInformation.OSArchitecture}";
     public string CountText => $"{Filtered.Count.ToString("N0", CultureInfo.CurrentCulture)} / {catalog.Count.ToString("N0", CultureInfo.CurrentCulture)}";
     public Visibility EmptyVisibility => Filtered.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
     public Visibility HistoricalImageVisibility => Selected?.Illustrated == true ? Visibility.Visible : Visibility.Collapsed;
@@ -90,7 +93,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public string StatusText { get; private set; } = "";
     public bool NotBusy => !busy;
     public bool CanDownload => !updateBusy && release is not null;
-    public string UpdateText => L[updater.Status.ToString()];
+    public string UpdateText => L[updateInstalled ? "UpdateInstalled" : installingUpdate ? "UpdateInstalling" : updater.Status.ToString()];
     public string UpdateDetails { get; private set; } = "";
     public double DownloadProgress { get; private set; }
     public bool AutoCheck { get => autoCheck; set { autoCheck = value; Changed(); SaveSettings(); } }
@@ -104,9 +107,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         folder = testFolder ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), demo ? "ViVeUI-Demo" : "ViVeUI");
         Languages = new[] { new LanguageChoice("system", "", L) }.Concat(Localization.Languages.Select(l => new LanguageChoice(l.Code, l.NativeName, L))).ToArray();
         InitializeCuratedCatalog();
+        InitializeRecipes();
         InitializeComponent(); DataContext = this;
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); Filter(); };
-        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory(); SelectGuide(CuratedCatalog.All[0]);
+        LoadSettings(); L.Set(LanguagePreference); initialized = true; ApplyContrast(); Filter(); LoadHistory(); SelectGuide(CuratedCatalog.All[0]); RefreshRecipes();
         SizeChanged += (_, _) => UpdateLayoutMode();
         SystemParameters.StaticPropertyChanged += SystemPreferenceChanged;
         Loaded += async (_, _) => { await RefreshObservations(); if (!closed && AutoCheck && !demo) await CheckUpdates(); };
@@ -163,10 +167,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     async Task RefreshObservations()
     {
         if (busy || refreshing || closed) return;
-        refreshing = true; RefreshDetail();
+        refreshing = true; RefreshDetail(); RefreshRecipes();
         try
         {
-            if (demo) observations = new() { [37634385] = "Enabled · Demo", [39420424] = "Default · Demo" };
+            if (demo) observations = FeatureRecipes.All.SelectMany(r => r.FeatureIds).Append(37634385u).Append(39420424u).Distinct().ToDictionary(id => id, _ => "Default · Demo");
             else { if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer required."); observations = await Task.Run(WindowsStore.Observe); }
             observationError = null;
             var known = catalog.Select(f => f.Id).ToHashSet();
@@ -175,10 +179,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception e) { observationError = e.Message; ReportError(e); SetStatus(L["ObservationError"]); }
         refreshing = false;
-        if (!closed) RefreshDetail();
+        if (!closed) { RefreshDetail(); RefreshRecipes(); }
     }
     void SetStatus(string text) { statusKey = Localization.English.Keys.FirstOrDefault(key => L[key] == text); StatusText = text; Changed(nameof(StatusText)); }
-    void SetBusy(bool value) { busy = value; Changed(nameof(NotBusy)); Changed(nameof(CanRestoreDefault)); Changed(nameof(ToggleStateText)); Changed(nameof(CanDownload)); Changed(nameof(CanToggle)); }
+    void SetBusy(bool value) { busy = value; Changed(nameof(NotBusy)); Changed(nameof(CanRestoreDefault)); Changed(nameof(ToggleStateText)); Changed(nameof(CanDownload)); Changed(nameof(CanToggle)); Changed(nameof(CanInstallUpdate)); RefreshRecipes(); }
     string LocalizeObservation(string observed)
     {
         var parts = observed.Split(" · ");
@@ -188,9 +192,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     void ShowPage(UIElement page)
     {
-        foreach (var p in new UIElement[] { ExplorePage, ChangesPage, UpdatesPage, SettingsPage }) p.Visibility = p == page ? Visibility.Visible : Visibility.Collapsed;
-        currentPage = page == ExplorePage ? "Explore" : page == ChangesPage ? "Changes" : page == UpdatesPage ? "Updates" : "Settings";
-        foreach (var name in new[] { nameof(IsExplore), nameof(IsChanges), nameof(IsUpdates), nameof(IsSettings) }) Changed(name);
+        foreach (var p in new UIElement[] { RecipePage, ExplorePage, ChangesPage, UpdatesPage, SettingsPage }) p.Visibility = p == page ? Visibility.Visible : Visibility.Collapsed;
+        currentPage = page == RecipePage ? "Recipes" : page == ExplorePage ? "Explore" : page == ChangesPage ? "Changes" : page == UpdatesPage ? "Updates" : "Settings";
+        foreach (var name in new[] { nameof(HeaderCatalogCount), nameof(IsRecipes), nameof(IsExplore), nameof(IsChanges), nameof(IsUpdates), nameof(IsSettings) }) Changed(name);
     }
     void CardClick(object sender, RoutedEventArgs e)
     {
@@ -199,6 +203,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (compact) { detailOpen = true; UpdateLayoutMode(); }
     }
     void CopyIdClick(object sender, RoutedEventArgs e) => Safe(() => { if (sender is Button { Tag: uint id }) Clipboard.SetText(id.ToString(CultureInfo.InvariantCulture)); });
+    void RecipeClick(object sender, RoutedEventArgs e) => ShowPage(RecipePage);
     void ExploreClick(object sender, RoutedEventArgs e) => ShowPage(ExplorePage);
     void ChangesClick(object sender, RoutedEventArgs e) => ShowPage(ChangesPage);
     void UpdatesClick(object sender, RoutedEventArgs e) => ShowPage(UpdatesPage);
@@ -347,8 +352,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (selectedId is uint id) Selected = catalog.FirstOrDefault(f => f.Id == id) ?? discovered.FirstOrDefault(f => f.Id == id) ?? new Feature(id, L["UnknownId"]);
         SelectGuide(previousGuide);
         foreach(var result in ExecutionResults.ToArray()) { var index = ExecutionResults.IndexOf(result); ExecutionResults[index] = result with { Locale = L }; }
-        foreach (var name in new[] { nameof(Cards), nameof(BuildText), nameof(ModeText), nameof(UpdateText), nameof(CountText), nameof(ExecutionNotice) }) Changed(name);
-        RefreshDetail(); LoadHistory(); SaveSettings();
+        foreach (var name in new[] { nameof(HeaderCatalogCount), nameof(Cards), nameof(BuildText), nameof(ModeText), nameof(UpdateText), nameof(CountText), nameof(ExecutionNotice) }) Changed(name);
+        RefreshDetail(); RefreshRecipes(); LoadHistory(); SaveSettings();
         if (previousStatus is not null) SetStatus(L[previousStatus]);
         else if (lastError is not null) SetStatus(L.ErrorSummary(lastError));
     }
@@ -463,7 +468,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             host.Measure(size); host.Arrange(new Rect(size)); host.UpdateLayout();
             await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
             host.UpdateLayout();
-            var activeNav = IsExplore ? ExploreNavigation : IsChanges ? ChangesNavigation : IsUpdates ? UpdatesNavigation : SettingsNavigation;
+            var activeNav = IsRecipes ? RecipeNavigation : IsExplore ? ExploreNavigation : IsChanges ? ChangesNavigation : IsUpdates ? UpdatesNavigation : SettingsNavigation;
             if (activeNav.Background is not SolidColorBrush navBrush || navBrush.Color != ((SolidColorBrush)FindResource("SelectionBrush")).Color) throw new Exception("Active navigation highlight missing.");
             if (Math.Abs(Root.ActualWidth - size.Width) > 1 || Math.Abs(Root.ActualHeight - size.Height) > 1) throw new InvalidOperationException("Preview viewport was clipped.");
             if (IsExplore && size.Width == 1440 && size.Height == 900 && (L.Language is "en" or "zh-Hans"))

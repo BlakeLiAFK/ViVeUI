@@ -84,7 +84,7 @@ foreach (var language in Localization.Languages)
     {
         var resource = Localization.Resource(language.Code);
         Localization.ValidateResource(language.Code, Localization.English, resource);
-        Assert(resource.Count == 289 && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
+        Assert(resource.Count == Localization.English.Count && resource.Values.All(v => !string.IsNullOrWhiteSpace(v)));
         Assert(resource.Keys.All(k => Localization.Get(language.Code, k) == resource[k]));
         foreach (var key in new[] { "ReviewCountFormat", "ReviewIdsFormat", "QueueCountFormat" })
             foreach (var count in new[] { 0, 1, 2, 100 }) Assert(!Localization.Format(language.Code, key, count).Contains('{'));
@@ -232,6 +232,8 @@ passed += CuratedTests.Run();
 passed += await ImmediateToggleTests.RunAsync();
 passed += UnifiedCatalogTests.Run();
 passed += await ManualIdInspectorTests.RunAsync();
+passed += await RecipeTests.RunAsync();
+passed += SelfUpdateTests.Run();
 Console.WriteLine($"{passed} tests passed. No Windows settings were accessed or modified.");
 class InlineProgress(Action<double> report) : IProgress<double> { public void Report(double value) => report(value); }
 class Handler(Func<HttpRequestMessage, HttpResponseMessage> handle) : HttpMessageHandler { protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token) => Task.FromResult(handle(request)); }

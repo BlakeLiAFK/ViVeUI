@@ -34,7 +34,7 @@ for arch, machine in [('x64', 0x8664), ('arm64', 0xaa64)]:
 with zipfile.ZipFile(assets / 'ViVeUI-source.zip') as source:
     assert source.comment.decode() == head and source.testzip() is None
     names = source.namelist()
-    for path in ['LICENSE', 'THIRD-PARTY-NOTICES.md', 'src/ViVeUI.Core/ImmediateToggleController.cs', 'src/ViVeUI.Core/UnifiedCatalog.cs', 'src/ViVeUI.Core/ManualIdInspector.cs', 'src/ViVeUI.Windows/WorkerChannel.cs']:
+    for path in ['LICENSE', 'THIRD-PARTY-NOTICES.md', 'src/ViVeUI.Core/ImmediateToggleController.cs', 'src/ViVeUI.Core/UnifiedCatalog.cs', 'src/ViVeUI.Core/ManualIdInspector.cs', 'src/ViVeUI.Windows/WorkerChannel.cs', 'src/ViVeUI.Core/FeatureRecipes.cs', 'src/ViVeUI.Core/SelfUpdateInstaller.cs', 'src/ViVeUI.Windows/SelfUpdateWorker.cs']:
         assert path in names
     assert any(name.startswith('vendor/ViVe/') for name in names)
     for prefix in ['src/ViVeUI.Core/Localization/', 'src/ViVeUI.Core/Catalog/Locales/']:
@@ -62,6 +62,15 @@ assert catalog['passed'] and catalog['entryCount'] == 213 and catalog['pageSize'
 assert len(catalog['visitedIds']) == len(set(catalog['visitedIds'])) == 213
 assert len(catalog['languages']) == 16
 assert not read_json(validation / 'catalog-audit.json')['errors']
+recipes = read_json(validation / 'recipe-result.json')
+assert recipes['passed'] and recipes['recipeCount'] == 7 and recipes['fakeBackendOnly'] and recipes['noNativeSettingsModified']
+assert len(recipes['languages']) == 16
+for capture in recipes['captures']:
+    assert (validation / capture).is_file(), capture
+update = read_json(validation / 'self-update-result.json')
+for key in ['passed', 'nativeWindowsFileOperations', 'sameDirectoryRunningExeRename', 'originalNamePreserved', 'oldStillRunningWhenRestartDeclined', 'authorizedNonceProbe', 'exactOriginalRollback', 'lockedOriginal', 'lockedReplacement', 'crashJournalRecovery', 'pathsWithSpacesAndUnicode', 'noWindowsFeatureWrites', 'crossVersion']:
+    assert update[key], key
+assert not update['installedVersionMetadataSimulated'] and update['previousVersion'].startswith('0.6.0') and update['replacementVersion'].startswith(version)
 for name in ['smoke-result.txt', 'standalone-result.txt']:
     assert (validation / name).read_text(encoding='utf-8-sig').startswith('PASS:')
 print(json.dumps({'passed': True, 'commit': head, 'version': version, 'assets': verified,
