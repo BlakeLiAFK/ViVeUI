@@ -149,6 +149,9 @@ public partial class MainWindow
                 Query("");
                 var direction = language.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
                 Require(Root.FlowDirection == direction && FlowDirection == direction, "Catalog layout direction mismatch: " + language.Code);
+                // Collapsed source details are intentionally absent from the visual tree.
+                var details = Descendants(GuideDetailPane).OfType<Expander>().Single();
+                details.IsExpanded = true; await Idle();
                 var referenceText = Descendants(GuideDetailPane).OfType<TextBlock>().Single(t => t.GetBindingExpression(TextBlock.TextProperty)?.ParentBinding.Path?.Path == nameof(GuideReferenceIds));
                 Require(referenceText.FlowDirection == FlowDirection.LeftToRight && referenceText.Text == string.Join(" · ", reference.FeatureIds.Select(id => id.ToString(CultureInfo.InvariantCulture))), "Reference IDs lost LTR invariant formatting.");
                 await Shot("detail-" + language.Code + ".png");
