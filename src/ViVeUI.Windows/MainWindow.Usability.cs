@@ -5,7 +5,6 @@ namespace ViVeUI.Windows;
 public partial class MainWindow
 {
     public string ExecutionNotice => L[ExecutionResults.Any(r=>r.StatusKey!="Applied") ? "RetryReview" : "Restart"];
-    public bool CanStage => !busy && Selected is not null && selectedGuide is null && (Desired == OverrideState.Default || !CuratedCatalog.IsHistoricalReference(Selected.Id));
     void ClearSearchClick(object sender, RoutedEventArgs e) { Search = ""; searchTimer.Stop(); Filter(); }
     void BeginUpdate()
     {
@@ -20,9 +19,7 @@ public partial class MainWindow
     void CancelUpdateClick(object sender, RoutedEventArgs e) => updateCancellation?.Cancel();
     void ConfirmClose(object? sender, CancelEventArgs e)
     {
-        if (demo) return;
         if (busy) { e.Cancel = true; SetStatus(L["WaitForApply"]); return; }
-        if (Staged.Count > 0 && !LocalizedDialog.Show(this,L,L["Review"],L["ClosePending"],true)) { e.Cancel = true; return; }
         updateCancellation?.Cancel();
     }
 }

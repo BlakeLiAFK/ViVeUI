@@ -16,9 +16,38 @@ cannot establish whether an ID is supported or disabled.
 Names remain original identifiers in every language. The curated catalog is a separate,
 source-backed editorial layer; categories are never guessed from opaque ID names.
 
-## Curated catalog in 0.5.0
+## Unified list and evidence visibility
 
-The gallery contains **213 distinct entries**, not 213 ViVe toggles:
+The local revision uses one list for source-backed content and raw dictionary IDs,
+without a separate All IDs view. Known content and Historical references are
+checked by default. Their counts are 153 known content entries and 60 historical
+archives. Show unknown (16,944) is unchecked by default. These three
+visible checkbox filters replace filter dropdowns and never execute a feature
+change. The separate Enable checkbox acts only on the selected eligible raw ID.
+
+The archives reference 89 distinct IDs, of which 56 appear in the 17,000-ID pinned
+dictionary. The remaining 16,944 dictionary rows have unknown editorial purpose.
+Do not subtract all 89 references from the dictionary count: 33 are outside it.
+Known-content and archive counts count editorial entries, not distinct raw IDs.
+
+Every page has at most twelve cards, even with unknown entries enabled. Search and
+filters appear above the cards and the pager below them.
+
+A separate Enter ID field accepts one decimal, nonzero uint32 ID: paste a value
+and press Enter for read-only inspection, including unlisted IDs. It executes no
+shell command and requests no feature change. Syntax acceptance does not establish
+that an ID corresponds to an existing or supported feature; availability is unknown.
+This deliberate single-ID inspection does not alter filters or expose other hidden
+search results.
+
+An exact numeric search whose match is hidden prompts for the relevant filter;
+it does not auto-enable a filter or reveal a hidden entry. Known content describes
+the evidence about purpose, not current Windows compatibility. Unknown purpose
+and unknown observed system state are different concepts and must stay distinct.
+
+## Source-backed editorial dataset
+
+The editorial dataset contains **213 distinct entries**, not 213 ViVe toggles:
 
 | Mechanism | Entries | Action |
 |---|---:|---|
@@ -28,9 +57,9 @@ The gallery contains **213 distinct entries**, not 213 ViVe toggles:
 | Feature archives | 60 | Read-only source/build/dependency evidence |
 | Verified actionable feature flags | 0 | No current-device verifier exists |
 
-There are 12 categories and at most 12 cards per page. Search includes localized
-titles, complete bodies, keywords, stable entry IDs and numeric feature references.
-Category and mechanism filters show facet counts. Leading/trailing whitespace is
+There are 12 editorial categories. Search includes localized titles, complete
+bodies, keywords, stable entry IDs and numeric feature references. The unified
+list’s evidence-visibility checkbox filters are described above. Leading/trailing whitespace is
 ignored. Each entry includes sources, observed build/channel or explicit unknowns,
 risk, restart and restoration boundaries. All four narrative fields are translated
 in 16 languages; technical identifiers and source URLs remain literal.
@@ -67,8 +96,9 @@ sensitive memory. No current-build support is inferred for any of these archives
 Images are original vector schematics compiled into the WPF UI, under the same
 GPL license. They label conceptual categories; no third-party Windows screenshots
 or trademark assets are bundled. Unknown flags show “No verified visual preview”.
-UI screenshot previews in docs are renders of ViVeUI's own demo mode, not Windows
-Insider feature screenshots. Microsoft screenshot usage restrictions informed this
+Archived UI previews document the old v0.5.0 demo interface, not Windows Insider
+feature screenshots or the current immediate-checkbox revision. New native previews
+are pending; see [preview status](previews/README.md). Microsoft screenshot usage restrictions informed this
 choice: https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions
 
 Upstream coverage explanation:

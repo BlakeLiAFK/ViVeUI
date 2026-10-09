@@ -1,101 +1,65 @@
-# Validation and honest limits
+# Validation status for the local immediate-operation revision
 
-Core tests use the real pinned catalog, fake feature storage, and fake HTTP
-handlers. The regression tests cover catalog integrity, override semantics, staged-change
-cancellation, scoped undo, preflight/conflicts, partial failure, read-back failure,
-history serialization, assembly-derived version metadata, trusted update origins,
-digest absence/mismatch, redirects, size limits, traversal, truncation,
-cancellation, and verified downloads.
+Native Windows rendering and interaction validation for the new checkbox flow are
+**pending**. Historical v0.5.0 passes do not validate the current working tree.
+This local task does not authorize or perform a commit, push, GitHub Actions run,
+release, or actual Windows feature mutation.
 
-Windows Actions builds actual WPF markup and code, then runs `--smoke` against
-an in-memory backend. It exercises search, selection, staging and cancellation,
-fake apply/read-back, scoped restore, language switching, and ten PNG renders
-from the actual control tree at fixed 1440×900 and 900×900 logical viewports.
-These are offscreen renders, not physical desktop captures. Mutation fixtures use explicitly synthetic Demo IDs 4294967201–4294967204.
-Known historical IDs are exercised only for search and rejection checks.
+The intended flow is immediate enable/disable for eligible raw IDs, with Windows
+UAC where required. There is no staging queue, Review page or extra app confirmation.
+Windows default remains separate from explicit disable. Historical reference IDs
+remain restricted; native cards only navigate to documented destinations.
 
-A separate `--ipc-smoke` exchanges a handshake-only message through the same
-ACL/authentication/framing code used by the worker. The server is a same-user
-medium-integrity process without effective Administrators membership; the client
-is a high-integrity administrator. The fixture verifies both peer PIDs/executable
-paths, a random challenge, and rejection of a wrong expected peer PID. It records
-raw integrity, elevation and token-filtering facts in `ipc-result.json`.
+## Local checks and reproducible previews
 
-Hosted runners without a UAC linked token use a restricted token with the
-Administrators SID denied and maximum privileges removed, then lower its integrity.
-Such a token can retain the raw elevation flag. Assertions require medium
-integrity, no effective administrator membership, and token filtering or a
-non-elevated token. This proves the IPC integrity boundary, not an interactive UAC
-consent session. See Microsoft's [restricted-token documentation](https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-createrestrictedtoken).
-Neither IPC diagnostics nor UI smoke instantiate a real mutation request.
+Validated locally on macOS on 2026-10-08:
 
-CI publishes self-contained x64 and ARM64 single EXEs, exact-commit source and
-license archives, checksums and BUILD.json. It copies only the x64 EXE into a
-clean directory, hides external .NET discovery, reruns the ten-render smoke,
-and checks runtime notices extracted from the bundle. ARM64 is cross-published;
-native ARM64 execution is not claimed.
+- 132 core tests passed, including immediate state changes, cancellation and concurrency; unified filters, deduplication and 17,000-ID queries; strict manual-ID parsing and late-result/close suppression. All storage and network test fixtures were fake.
+- Release WPF cross-compilation passed with zero warnings and errors. This does not execute the controls.
+- Sixteen common locales passed with 289 keys each. The 213-entry localized catalog passed structural validation with zero errors and eight pre-existing editorial wording warnings.
+- XAML/SVG parsing, source links and `git diff --check` passed.
+- A local self-contained x64 package attempt stopped at `NETSDK1047`: cached restore assets lack the Windows runtime target. No new standalone package is claimed. Windows x64/ARM64 packaging remains pending.
 
-## Remaining manual checks
+Logs from this work are in the ignored `.artifacts/immediate-local-tests.txt` and
+`.artifacts/immediate-catalog-audit.txt`. No new commit was made; the base remains
+`c0fc319b75887c84d6edbbb6099066a818effb98` with local changes.
 
-The authoring host is macOS. Cross-compilation and Windows hosted rendering do
-not establish full interactive usability. Real feature writes, UAC consent/secure
-desktop, recovery from unbootable Windows, Narrator, real high-contrast themes,
-ARM64 native execution and build-specific feature behavior require suitable
-Windows machines. Automated tests intentionally never change real OS settings.
+After Windows execution is authorized, use
+`pwsh tools/New-WindowsPreviews.ps1 -Run`. It builds without an implicit restore,
+runs fake-backend native fixtures, and preserves new images and machine-readable
+reports in a fresh local artifact directory. It does not start real mutations,
+elevation diagnostics, publication or a remote workflow. See
+[preview instructions](previews/README.md).
 
-Before broad distribution, manually check keyboard-only operation, Narrator,
-125/150/200% scaling, high contrast, translated narrow layouts, UAC cancel/deny and
-different-account elevation, changed-since-review conflicts, and interrupted
-batches. Test actual mutations only in a disposable VM with a snapshot and
-explicit operator consent.
+Required interaction coverage includes immediate single-operation success/failure,
+UAC cancellation, correct displayed state after rejected or uncertain writes,
+read-only history, per-feature default removal, historical enable/disable rejection,
+one unified list, default filter selections and counts, exact numeric hidden-match
+prompts without auto-exposure, separate read-only Enter ID inspection with a single
+decimal nonzero uint32 value, no execution of pasted text, twelve-card pagination
+even with unknown entries visible, pager placement below cards, and separation of
+visibility filters from execution,
+read-only browsing and guide navigation, language switching, compact layout, RTL,
+keyboard-only control and cancelable verified downloads. No test should change real
+Windows feature settings. Any old fixture still expecting a queue must be updated
+before its result can count as evidence for this flow.
 
-Original Library mockup transfer failed in this environment (HTTP 403 after one
-retry; no native pixels in image reads). The originating session supplied concrete
-visual comparison findings, which informed the final layout. Actual app renders
-were inspected; exact pixel equivalence is not claimed.
+## Evidence that remains historical
 
-No universal Windows default or compatibility matrix has been inferred. Missing
-query results remain unknown; unsupported APIs and advanced override keys are
-reported rather than converted into invented default states.
+[Archived v0.5.0 validation](previews/archive/v0.5.0/VALIDATION.md) and
+[its renders and reports](previews/archive/v0.5.0/README.md) retain the exact old
+implementation and run provenance. They cover the previous queued interaction,
+not current checkbox behavior. Old image counts and pass totals are not reused as
+new validation claims.
 
-Pinned dictionary SHA-256:
-`8ee86b7abd13390d06f251de998fb578e149cc42e7ea9114212ff6af4c956828`.
-The byte-level test and `.gitattributes` prevent checkout newline conversion.
+## Limits
 
+The authoring host is macOS. Cross-compilation does not execute WPF. Offscreen
+Windows control-tree renders do not establish pointer ergonomics, physical monitor
+DPI behavior, native-speaker translation quality, screen-reader behavior, secure
+Windows UAC consent, or ARM64 execution. Real OS writes and recovery behavior require
+a separately authorized disposable Windows environment with a recovery snapshot.
 
-## Release validation (0.5.0)
-
-The release workflow validates 98 core regressions and all 16 resources with 267
-keys each. `--localization-smoke` produces nine renders per language (144 total):
-Explore, Review, Settings, Updates, compact detail/review, a 150% raster render,
-a confirmation dialog and a native Windows guide. It verifies persisted language,
-staged-work preservation, Arabic RTL, safe-default Cancel and installed glyphs.
-The raster fixture does not establish physical monitor DPI behavior or shaping.
-
-`--ux-smoke` uses actual WPF controls and fake feature/HTTP backends. It checks
-the expanded curated catalog, Chinese right-click search, empty-search recovery, language
-popup expansion/collapse through UI Automation, scrolling, RTL and palette
-inheritance, F4/End/Enter/Escape handling, disabled state, scale persistence across
-window recreation, partial-batch retry scope, history merge, cancelable downloads
-while review remains editable, and the close guard's default Cancel button.
-These programmatic input checks supplement rather than replace pointer/Narrator
-and full desktop usability review. No real feature settings are modified.
-
-The app and clean-folder EXE validate nine embedded icon sizes, Window.Icon and
-shell extraction. `tools/verify_pe_icons.py` also reads both final PE resource
-trees and compares every icon frame byte-for-byte with the source ICO.
-
-[Checked-in previews and reports](previews/) identify their implementation commit
-and Windows run. The final release BUILD.json identifies the independently
-validated exact release commit and workflow. Source and checksums are generated
-from that same commit. Previous releases and their assets remain preserved.
-
-`--catalog-smoke` traverses every production entry exactly once across twelve-card
-pages, checks all category/type intersections and count badges, numeric and trimmed
-localized search, empty-state recovery, historical read-only behavior, all 16
-localized bound detail bodies, Arabic RTL with LTR numeric references, and compact
-versus split-pane layouts. It emits `catalog-result.json` plus 22 native renders.
-`tools/check_catalog.py` separately verifies at least 200 unique entries, strict
-metadata, literal safe navigation, exact 16-language coverage, and untranslated
-body/duplicate detection. These audits do not certify natural-language fluency or
-current-device feature compatibility.
+The pinned dictionary is not universal feature coverage or a compatibility matrix.
+Unknown observations remain unknown. An override is not proof of effective runtime
+behavior, and removing one is not a guarantee of successful recovery.

@@ -1,7 +1,7 @@
 # Languages
 
-Version 0.5.0 embeds 267 common resource keys per language, covering navigation,
-settings, state explanations, review/confirmation,
+The app includes 16 common UI resource sets covering navigation,
+settings, immediate-operation state explanations, history,
 update states and actionable error summaries. Original upstream identifiers and
 technical diagnostics remain unchanged and are displayed left-to-right.
 
@@ -34,11 +34,9 @@ fallback; no Microsoft font files are redistributed.
 
 Arabic mirrors navigation and layout. Feature IDs, upstream identifiers, file
 paths, original illustrations and exact privileged change scope retain LTR
-direction. Privileged confirmations separate ID, before and after into independently
-shaped columns so bidi ordering cannot merge state labels. Longer translations wrap and can scroll in compact layouts.
-Confirmations always default to the translated Cancel button. Before an elevated
-worker authenticates its request, errors use the system language; after
-authentication the selected UI language is used.
+direction. Longer translations wrap and can scroll in compact layouts. The local
+revision has no additional app confirmation dialog. Native rendering and RTL
+interaction of its immediate-checkbox controls remain pending Windows validation.
 
 ## Maintenance and verification
 
@@ -50,9 +48,10 @@ when adding a language. Do not translate numeric IDs or upstream symbol names.
 
 Run `python3 tools/check_localization.py` and
 `dotnet run --project src/ViVeUI.Tests -c Release`. On Windows, run
-`pwsh tools/Test-Localization.ps1` for isolated native renders and assertions.
-GitHub Actions runs the same native fixture before packaging both architectures.
-It performs no real feature writes, updater download or UAC request.
+`pwsh tools/New-WindowsPreviews.ps1 -Run` after Windows execution is authorized.
+It produces isolated native renders and assertions without real feature writes,
+publication or a remote workflow. Historical v0.5.0 language screenshots do not
+validate the new immediate-operation interface.
 
 Translations were authored for this implementation and have **not been certified
 by native speakers**. Native review of terminology, grammar, Arabic/Hindi shaping
@@ -60,4 +59,4 @@ and accessibility remains required. Automated key coverage and installed glyph
 checks are not linguistic approval. Windows renders are offscreen control-tree
 renders, not an end-user desktop usability study.
 
-The sourced guide titles, instructions, risks, restore boundaries, type filters and recovery messages are also localized. Each of the 213 catalog entries has localized title, full body, keywords and narrative evidence in all 16 languages. Exact build/channel identifiers and source URLs remain verbatim technical metadata. Catalog text lives in `Catalog/Locales/`, separate from common UI strings. Simplified Chinese was authored with the research; Traditional Chinese was converted with OpenCC terminology conversion and reviewed for resource integrity. This is not native-speaker certification.
+The sourced guide titles, instructions, risks, restore boundaries, visibility filters and operation messages are also localized. Each of the 213 catalog entries has localized title, full body, keywords and narrative evidence in all 16 languages. Exact build/channel identifiers and source URLs remain verbatim technical metadata. Catalog text lives in `Catalog/Locales/`, separate from common UI strings. Simplified Chinese was authored with the research; Traditional Chinese was converted with OpenCC terminology conversion and reviewed for resource integrity. This is not native-speaker certification.

@@ -3,10 +3,19 @@
 [English](README.md) · [简体中文](README.zh-CN.md) · [Download](https://github.com/BlakeLiAFK/ViVeUI/releases/latest) · [Build status](https://github.com/BlakeLiAFK/ViVeUI/actions/workflows/windows.yml)
 
 **ViVeUI is an open-source C# / WPF Windows desktop app built on the ViVe library.**
-Browse 17,000 known feature IDs offline, review Windows default / enable / disable
-changes before applying them, and restore recorded user overrides with conflict checks.
+Browse 17,000 known feature IDs offline. For an eligible raw feature ID, check to
+enable or uncheck to disable immediately; Windows default removes its explicit
+user override. There is no staging queue, Review page or extra app confirmation.
+Windows may still request administrator consent through UAC.
 
-![ViVeUI Explore, native WPF demo](docs/previews/localization/en/guide.png)
+**Local revision, not yet published:** the download links below point to the last
+released build, which still uses the older queued workflow. New Windows renders
+and native validation for the immediate-checkbox UI are pending.
+
+![Original operation-flow schematic — not an actual UI screenshot](docs/previews/immediate-toggle-flow.svg)
+
+Original conceptual diagram; native screenshots of this revision are pending.
+[Current preview status and local Windows regeneration](docs/previews/README.md)
 
 ## Download and run
 
@@ -29,34 +38,50 @@ A supported OS version does **not** establish support for a particular feature f
 
 ## What the app does
 
-- **Discover:** 213 distinct sourced entries: 124 native settings, 25 instruction guides, four shortcuts and 60 read-only feature archives. Category/type counts, localized search and twelve-card pages keep the catalog usable. These are not 213 writable toggles.
-- **All IDs:** all 17,000 pinned catalog IDs, search, and inspection of custom unknown IDs.
-- **Review:** exact IDs and before/after states, two-step confirmation, and an explicit UAC request.
-- **Restore:** recorded snapshots scoped to the affected IDs; conflicting current states block undo.
+- **One list:** sourced content and the 17,000-ID pinned dictionary share one searchable list, without a separate All IDs view. The editorial layer contains 213 distinct entries: 124 native settings, 25 guides, four shortcuts and 60 read-only archives—not 213 writable toggles.
+- **Checkbox filters:** Known content (153) and Historical references (60) start checked. Show unknown (16,944) starts unchecked. These three visible filters only change which entries appear; there are no filter dropdowns.
+- **Bounded pages:** every list page contains at most 12 cards, including when unknown entries are visible. Search and filters stay above the cards; page controls sit below them.
+- **Enter ID:** a separate read-only inspection field accepts one decimal, nonzero uint32 ID, including an ID outside the dictionary. Paste it and press Enter. It never runs pasted text as a command or automatically changes a feature.
+- **Direct controls:** check to enable or uncheck to disable an eligible raw ID. Changes run immediately through the privileged worker, with UAC when required; no staging or additional app confirmation.
+- **History:** a read-only record of operation results. It does not replay or undo changes. Use the separate per-feature Windows default action to remove that ID’s explicit override.
 - **Updates:** GitHub release checks and optional automatic EXE downloads with SHA-256 verification. Installation and launch remain manual.
 - **Languages:** 16 UI resource sets plus fully localized catalog titles, instructions, search terms and evidence, native language names, persistent system/manual selection, and Arabic RTL. See [language coverage and review limits](docs/LANGUAGES.md).
 
-Browsing works offline without elevation. A separate worker handles only reviewed
+Browsing works offline without elevation. A separate worker handles only requested
 user-priority boot overrides. IPC uses a current-user SID ACL, exact process identity
 checks in both directions, and a random handshake challenge. It supports the intended
 unelevated UI / elevated worker boundary without using `CurrentUserOnly` pipe options.
 
-![Review two feature changes, native WPF demo](docs/previews/review-zh.png)
+## Find content, then operate
 
-## A deliberate workflow
+The three list-filter checkboxes are separate from the selected feature’s Enable
+checkbox. An exact numeric match hidden by a filter prompts you to enable the
+relevant filter; searching never silently exposes it or changes filter choices.
+Manual Enter ID inspection is a separate, explicit request to inspect that one ID;
+it does not change search filters or reveal other hidden matches. IDs outside the
+dictionary have unknown availability; accepting a number does not prove a valid
+or supported Windows feature.
 
-1. Inspect a feature, its provenance, and the limits of what is known.
-2. For an eligible advanced raw-ID operation, choose **Windows default**, **Enable**, or **Disable**, then add it to review.
-   Returning to the current state cancels any older queued change for that ID.
-3. Check every ID and state in the review. Save your work and prepare a recovery path.
-4. Approve the reviewed changes and the administrator prompt. Restart manually when ready.
-5. Use history to review a scoped restoration if needed.
+Known purpose does not mean this Windows build supports the feature. Unknown
+purpose describes missing editorial evidence, not an unknown observed system state.
+
+1. Inspect the ID, source and compatibility limits. Save work before experimenting.
+2. For an eligible raw ID, check its control to enable or uncheck it to disable.
+   The request runs immediately; approve Windows UAC if requested.
+3. Read the resulting override state or error. A canceled or failed operation must
+   not be treated as a successful change. Restart Windows manually when appropriate.
+4. Use the separate Windows default action for the selected ID to remove its
+   explicit override. History is view-only; it does not offer scoped undo.
+
+An unchecked control is not proof of Windows default: disabled and default remain
+separate states. The displayed state is a user override, not guaranteed effective
+runtime behavior. Selecting a catalog card or browsing an ID does not write settings.
 
 Known historical reference IDs reject new enable/disable requests in both the UI and elevated worker. Removing their user override with Windows default remains available for recovery; this does not guarantee safe OS behavior. Native settings cards navigate to Windows without changing it.
 
 Experiments can destabilize Windows. Prefer one experiment at a time. Advanced
 variant, policy, security, subscription, and Last Known Good settings are outside
-this app's writable scope. Failed or unattempted items remain queued; restoring history preserves unrelated review items. See [safety and recovery](docs/SAFETY.md).
+this app's writable scope. Errors remain visible with their operation results; no failed operation is retained in a staging queue. See [safety and recovery](docs/SAFETY.md).
 
 ## Frequently asked questions
 
@@ -73,16 +98,17 @@ No. The embedded 17,000-ID dictionary is a March 2025 upstream snapshot, pinned 
 description. Missing observations do not mean disabled or unsupported.
 [Catalog provenance and historical references](docs/CATALOG.md).
 
-### What is the difference between Default, Disable, and Restore?
+### What is the difference between Default, Disable, and History?
 
 **Windows default** removes the selected simple user override. **Disable** sets an
-explicit disabled override. **Restore** returns to a recorded previous snapshot.
-Other Windows priorities may still supersede this user override.
+explicit disabled override. **History** only shows operation records; it cannot
+restore a prior snapshot. Other Windows priorities may supersede this user override.
 
 ### Are the pictures Windows screenshots?
 
 No. They are original, embedded conceptual schematics. Unknown flags have no claimed
-visual preview. Repository screenshots show ViVeUI itself using a fake backend.
+visual preview. The archived v0.5.0 screenshots show ViVeUI itself using a fake backend.
+Current immediate-checkbox screenshots have not yet been produced.
 
 ### Does ViVeUI install updates silently?
 
@@ -108,10 +134,15 @@ src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe --ipc-smoke
 dotnet publish src/ViVeUI.Windows -c Release -r win-x64 --self-contained true
 ```
 
-Windows CI runs regression tests, native WPF demo interactions, dropdown keyboard/automation checks, shell/window icon extraction, cross-integrity IPC,
-and a clean-folder launch containing only the published x64 EXE. ARM64 is built and
-packaged; native ARM64 execution, actual feature mutations, Narrator, high-contrast
-interaction, and the secure-desktop UAC experience still require manual validation.
+The released v0.5.0 build has historical Windows validation. Those results do not
+validate this local UI revision. No new Actions run, package, push or release is
+part of this change. To regenerate native images after Windows execution is
+authorized, use `pwsh tools/New-WindowsPreviews.ps1 -Run`; it uses isolated fake
+backends and writes local artifacts without committing or publishing anything.
+
+Native Windows rendering for this revision, ARM64 execution, actual feature
+mutations, Narrator, high-contrast interaction and secure-desktop UAC still need
+appropriate Windows validation. Automated tests must not change real settings.
 [Validation evidence and limits](docs/VALIDATION.md) · [Original design and references](docs/DESIGN.md).
 
 ## License and source

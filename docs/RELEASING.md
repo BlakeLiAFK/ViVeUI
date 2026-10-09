@@ -1,11 +1,13 @@
 # Release process and update trust
 
+Publication of this revision was explicitly authorized on 2026-10-09. Require fresh native validation for the exact release commit; historical validation is not sufficient.
+
 The Windows workflow builds and tests the pushed commit and emits two portable,
 self-contained .NET 8 single-file executables, SHA256SUMS.txt, complete corresponding source,
 and actual WPF demo screenshots. Publishing a release is a separate deliberate
 maintainer action. CI does not silently publish or install.
 
-For a stable release, use a semantic tag (`v0.5.0`) and GitHub release assets named
+For a stable release, use a semantic tag (`v0.6.0`) and GitHub release assets named
 exactly `ViVeUI-win-x64.exe` and `ViVeUI-win-arm64.exe`, together with source and
 checksums from the same successful commit. The GitHub release API must provide
 `digest: sha256:<64 hex digits>` and a positive size for each binary EXE. Missing

@@ -51,10 +51,7 @@ public static class Program
             ChangeEngine.Validate(changes);
             foreach (var change in changes) CuratedCatalog.ValidateOverrideMutation(change.Id, change.After);
             if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963)) throw new PlatformNotSupportedException("Windows build 18963 or newer is required.");
-            // The elevated process also displays the exact scope. IPC never accepts file paths,
-            // registry paths, commands, executables or download locations.
-            if (!LocalizedDialog.Show(null, locale, "ViVeUI · " + locale["Review"], locale["UserOverride"] + "\n\n" + locale["DefaultHelp"], confirm: true, scope: changes))
-            { WorkerChannel.Write(pipe, JsonSerializer.Serialize(new WorkerResponse(null, locale["Canceled"])), timeout.Token).GetAwaiter().GetResult(); return; }
+            // OS UAC is the only approval prompt; authenticated IPC carries exact scope.
             List<ChangeResult>? result = null; string? error = null;
             // Preserve raw worker diagnostics; the UI localizes the summary and exposes original details.
             try { result = ChangeEngine.Apply(new WindowsStore(), changes); } catch (Exception e) { error = e.Message; }

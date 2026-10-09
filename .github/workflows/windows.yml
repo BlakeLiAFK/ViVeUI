@@ -29,7 +29,7 @@ jobs:
           if (-not $p.WaitForExit(90000)) { $p.Kill(); throw 'IPC test timed out' }
           if ($p.ExitCode -ne 0) { Get-Content ipc-error-*.txt -ErrorAction SilentlyContinue; throw 'IPC test failed' }
           Get-Content ipc-result.json
-      - name: Actual WPF interactions and Chinese two-feature fixtures
+      - name: Actual WPF immediate checkbox interactions and Chinese fixtures
         shell: pwsh
         run: |
           $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--smoke' -PassThru
@@ -43,7 +43,7 @@ jobs:
           if (-not $p.WaitForExit(300000)) { $p.Kill(); throw 'Localization validation timed out' }
           if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt -ErrorAction SilentlyContinue; Get-Content localization-result.json -ErrorAction SilentlyContinue; throw 'Localization validation failed' }
           Get-Content localization-result.json
-      - name: Native dropdown, icon, guide and recovery workflow validation
+      - name: Native checkbox, manual ID, keyboard, icon and guide validation
         shell: pwsh
         run: |
           $p = Start-Process src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe -ArgumentList '--ux-smoke' -PassThru
@@ -77,7 +77,7 @@ jobs:
             }
           }
           Compress-Archive .artifacts/licenses/* .artifacts/ViVeUI-licenses.zip
-          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.5.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
+          @{ commit = $env:GITHUB_SHA; workflow = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"; version = '0.6.0'; selfContained = $true; singleExe = $true } | ConvertTo-Json | Set-Content .artifacts/BUILD.json
           Get-FileHash .artifacts/ViVeUI-*.exe,.artifacts/ViVeUI-*.zip -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $([IO.Path]::GetFileName($_.Path))" } | Set-Content .artifacts/SHA256SUMS.txt
       - name: Verify all shell icon frames in both packaged architectures
         run: python tools/verify_pe_icons.py .artifacts/ViVeUI-win-x64.exe .artifacts/ViVeUI-win-arm64.exe

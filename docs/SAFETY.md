@@ -1,6 +1,9 @@
 # Safety and recovery
 
-The main process runs asInvoker. Browse/search/observe never elevate. Applying
+This document describes the local immediate-operation revision. Native Windows
+validation of its new UI is pending; see [validation status](VALIDATION.md).
+
+The main process runs asInvoker. Browse/search/observe never elevate. An immediate checkbox request
 spawns the same installed executable in a narrowly scoped worker mode via UAC.
 The worker accepts at most 100 unique nonzero uint IDs and typed before/after
 snapshots over a randomized named pipe whose protected ACL grants only the current
@@ -8,8 +11,9 @@ user SID access. Both ends verify the peer PID and executable path, then authent
 a random 256-bit challenge before accepting a request. This supports same-user
 cross-integrity elevation without the incompatible CurrentUserOnly pipe option. It accepts no shell
 commands, registry paths, filenames, download URLs, or arbitrary executables.
-It independently validates the request, displays the exact IDs/states with a
-No-default confirmation, preflights the batch, and exits after applying.
+It independently validates the request, checks current versus expected state,
+and exits after applying. The immediate flow has no additional app confirmation
+or staging queue; Windows UAC still controls elevation.
 A different administrator account during UAC cannot access the original user's
 pipe: use an administrator account with same-user elevation. Cancellation is safe.
 
@@ -22,15 +26,16 @@ The unelevated UI writes a durable intent journal before starting the worker,
 then writes per-item verification results after the worker replies. Journals
 live in `%LOCALAPPDATA%\ViVeUI\history`; demo data uses `ViVeUI-Demo` separately.
 They include full IDs, previous/desired snapshots, timestamps, and Windows build.
-Do not delete your history before restoring a change.
+History is view-only; it does not replay operations or restore earlier snapshots.
+Keep records when investigating a change. Restore default is a separate action for
+the selected feature and removes only that feature’s explicit user override.
 
 If the process crashes, the UAC prompt is declined, the worker disconnects, or
 saving results fails, the entry remains **pending / outcome uncertain**. Review
-current state. Restore only proposes changes where current values exactly match
-the recorded desired values; already-original values are skipped, and a different
-value blocks the entire restore proposal. Pending is never called successful.
-A changed state can have been produced by another program: a matching value is
-not proof of ownership, so review pending restores carefully.
+current state before making another immediate request. Pending is never called
+successful. A changed state may have been produced by another program; a matching
+value is not proof of ownership. History does not offer scoped undo, and removing
+an override with Restore default does not recreate an earlier explicit override.
 
 The registry API does not provide compare-and-swap for these boot keys. There is
 a residual external-writer race between last comparison and write. Do not run
@@ -52,8 +57,8 @@ No automated test writes real feature settings, including Windows CI smoke tests
 ## Historical references and native instructions
 
 All 60 source-linked feature archives are read-only. Known reference IDs, including
-conditional dependencies, reject new Enabled/Disabled mutations at staging, apply,
-pre-elevation and worker validation. Default removal is allowed for recovery only;
+conditional dependencies, reject new Enabled/Disabled mutations at the UI request, application,
+pre-elevation and worker validation boundaries. Default removal is allowed for recovery only;
 removing an override is not proof that Windows will boot or behave correctly.
 Unmapped raw IDs remain an explicitly advanced, unverified workflow.
 

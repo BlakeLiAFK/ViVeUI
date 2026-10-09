@@ -21,7 +21,9 @@ public partial class MainWindow
         var icon=IconResources.Validate(this);
         if(Cards.Count()>CatalogPageSize || CuratedCatalog.All.Count<200)throw new Exception("Expanded curated catalog is incomplete.");
         SelectGuide(CuratedCatalog.All[0]);ShowPage(ExplorePage);await Capture("ux/classic-menu.png");
-        GuideOpenClick(this,new());if(LastGuideDestination!="explorer.exe" || Staged.Count!=0)throw new Exception("Guide crossed into mutation scope.");
+        var guideStates=catalog.ToDictionary(feature=>feature.Id,feature=>fake.Read(feature.Id));
+        GuideOpenClick(this,new());
+        if(LastGuideDestination!="explorer.exe" || CanToggle || CanRestoreDefault || guideStates.Any(pair=>fake.Read(pair.Key)!=pair.Value))throw new Exception("Guide crossed into immediate mutation scope.");
         LanguageBox.SelectedValue="zh-Hans";Search="右键";searchTimer.Stop();Filter();
         if(Cards.Count()<3 || selectedGuide?.Id!="ClassicMenu")throw new Exception("Localized guide search or language preservation failed.");
         await Capture("ux/right-click-search-zh.png");
@@ -70,41 +72,117 @@ public partial class MainWindow
         if(saved.Scale!=1.25)throw new Exception("Scale was not persisted.");
         var reopened=new MainWindow(true,folder);if(reopened.ScaleSlider.Value!=1.25)throw new Exception("Scale did not survive window recreation.");reopened.Close();
         Root.LayoutTransform=Transform.Identity;Root.Width=1152;Root.Height=720;UpdateLayoutMode();await Capture("ux/settings-scale-125.png",1.25);ScaleSlider.Value=1;Root.Width=1440;Root.Height=900;UpdateLayoutMode();
-        Staged.Clear();ExecutionResults.Clear();Search="";searchTimer.Stop();ShowAllIds=false;
-        foreach(var id in new uint[]{4294967201,4294967202,4294967203}){Selected=new Feature(id,"Demo UX " + id);Desired=OverrideState.Enabled;Stage();}
-        fake.FailOn=4294967202;await ApplyStaged();
-        if(!Staged.Select(c=>c.Id).SequenceEqual(new uint[]{4294967202,4294967203}) || !ExecutionResults.Select(r=>r.StatusKey).SequenceEqual(new[]{"Applied","Failed","NotRun"}))throw new Exception("Partial failure lost retry scope or per-item outcomes.");
-        ShowPage(ChangesPage);await Capture("ux/partial-results.png");fake.FailOn=0;
-        await ApplyStaged();if(Staged.Count!=0)throw new Exception("Reviewed retry did not finish remaining items.");
-        Staged.Clear();Selected=new Feature(4294967204,"Demo UX unrelated");Desired=OverrideState.Enabled;Stage();
-        HistoryList.SelectedItem=History.First(r=>r.Receipt.Results?.Any(x=>x.Applied)==true);UndoClick(this,new());
-        if(!Staged.Any(c=>c.Id==4294967204) || Staged.Count<2)throw new Exception("Restore discarded unrelated staged work.");
-        // A receipt from an older release may restore a now-archived feature to Enabled.
-        // Reject the entire restoration before merging even its otherwise allowed first item.
-        var queueBeforeHistoricalUndo=Staged.ToArray();
-        var allowedOldChange=new Change(4294967205,"Demo legacy allowed",Snapshot.Default,new(true,OverrideState.Enabled));
-        foreach(var previousOverride in new[]{new Snapshot(true,OverrideState.Enabled),new Snapshot(true,OverrideState.Default)})
+        Search="";searchTimer.Stop();ShowKnown=true;ShowHistorical=true;ShowUnknown=true;ShowPage(ExplorePage);
+        const uint immediateId=4294967201, failingId=4294967202, unrelatedId=4294967203;
+        discovered=[new Feature(immediateId,"Demo immediate checkbox"),new Feature(failingId,"Demo immediate failure"),new Feature(unrelatedId,"Demo unrelated feature")];Filter();
+        var enabled=new Snapshot(true,OverrideState.Enabled);var disabled=new Snapshot(true,OverrideState.Disabled);
+        fake.Write(unrelatedId,disabled);
+        async Task ToggleThroughControl()
         {
-            var historicalOldChange=new Change(37634385,"Demo legacy archived",previousOverride,new(true,OverrideState.Disabled));
-            fake.Write(allowedOldChange.Id,allowedOldChange.After);fake.Write(historicalOldChange.Id,historicalOldChange.After);
-            var legacyReceipt=new Receipt(Guid.NewGuid(),DateTimeOffset.Now,BuildText,[allowedOldChange,historicalOldChange]);
-            var legacyRow=new HistoryRow(legacyReceipt,L);History.Add(legacyRow);HistoryList.SelectedItem=legacyRow;
-            lastError=null;UndoClick(this,new());
-            if(lastError is not InvalidDataException || !Staged.SequenceEqual(queueBeforeHistoricalUndo) ||
-                fake.Read(historicalOldChange.Id)!=historicalOldChange.After || fake.Read(allowedOldChange.Id)!=allowedOldChange.After)
-                throw new Exception("Historical undo was not rejected atomically before staging.");
+            var provider=(IToggleProvider)new CheckBoxAutomationPeer(EnableCheckBox).GetPattern(PatternInterface.Toggle)!;
+            provider.Toggle();
+            await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+            if(EnableCheckBox.GetBindingExpression(ToggleButton.IsCheckedProperty) is null)throw new Exception("Toggling the checkbox removed its actual-state binding.");
         }
-        // Slow HTTP runs only in an injected handler. Browsing and review edits remain available.
+        Selected=new Feature(immediateId,"Demo immediate checkbox");
+        if(ToggleState is not null || !CanToggle)throw new Exception("A default feature must expose an indeterminate editable checkbox.");
+        SetBusy(true);
+        try
+        {
+            await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+            if(CanToggle || CanRestoreDefault || EnableCheckBox.IsEnabled)throw new Exception("Busy state left immediate controls enabled.");
+            var busyClose=new System.ComponentModel.CancelEventArgs();ConfirmClose(this,busyClose);
+            if(!busyClose.Cancel)throw new Exception("Closing was allowed while an immediate change was busy.");
+            await ChangeSelectedAsync(enabled);
+            if(fake.Read(immediateId)!=Snapshot.Default || fake.Read(unrelatedId)!=disabled)throw new Exception("Busy reentry modified fake storage.");
+        }
+        finally { SetBusy(false);RefreshDetail(); }
+        await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+        var idleClose=new System.ComponentModel.CancelEventArgs();ConfirmClose(this,idleClose);
+        if(idleClose.Cancel)throw new Exception("Idle window was blocked by a removed review-queue close guard.");
+        await ToggleThroughControl();
+        if(fake.Read(immediateId)!=enabled || ToggleState!=true || EnableCheckBox.IsChecked!=true || !CanRestoreDefault)throw new Exception("Immediate enable did not update fake storage and checkbox.");
+        await Capture("ux/checkbox-enabled.png");
+        await ToggleThroughControl();
+        if(fake.Read(immediateId)!=disabled || ToggleState!=false || EnableCheckBox.IsChecked!=false)throw new Exception("Immediate disable did not update fake storage and checkbox.");
+        await Capture("ux/checkbox-disabled.png");
+        var defaultButton=Descendants(DetailPane).OfType<Button>().Single(button=>System.Windows.Automation.AutomationProperties.GetAutomationId(button)=="RestoreFeatureDefault");
+        ((IInvokeProvider)new ButtonAutomationPeer(defaultButton).GetPattern(PatternInterface.Invoke)!).Invoke();
+        await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+        if(fake.Read(immediateId)!=Snapshot.Default || ToggleState is not null || EnableCheckBox.IsChecked is not null)throw new Exception("Restore-default did not restore the indeterminate checkbox.");
+        await Capture("ux/checkbox-default.png");
+        Keyboard.Focus(EnableCheckBox);
+        var checkboxSource=PresentationSource.FromVisual(EnableCheckBox) ?? throw new Exception("Checkbox keyboard test has no presentation source.");
+        foreach(var routedEvent in new[]{Keyboard.KeyDownEvent,Keyboard.KeyUpEvent})
+            EnableCheckBox.RaiseEvent(new KeyEventArgs(Keyboard.PrimaryDevice,checkboxSource,Environment.TickCount,System.Windows.Input.Key.Space){RoutedEvent=routedEvent});
+        await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+        if(fake.Read(immediateId)!=enabled || ToggleState!=true || EnableCheckBox.GetBindingExpression(ToggleButton.IsCheckedProperty) is null)throw new Exception("Space did not use the verified immediate-toggle path.");
+        await ChangeSelectedAsync(Snapshot.Default);
+        Selected=new Feature(failingId,"Demo immediate failure");fake.FailOn=failingId;lastError=null;
+        await ChangeSelectedAsync(enabled);await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+        if(lastError is null || fake.Read(failingId)!=Snapshot.Default || ToggleState is not null || fake.Read(unrelatedId)!=disabled)throw new Exception("Failed immediate change did not preserve observed and unrelated state.");
+        await Capture("ux/checkbox-failed.png");fake.FailOn=0;
+        await ChangeSelectedAsync(enabled);
+        if(fake.Read(failingId)!=enabled || ToggleState!=true || fake.Read(unrelatedId)!=disabled)throw new Exception("Immediate retry failed or changed an unrelated feature.");
+        if(!History.Any(row=>row.Receipt.Changes.Any(change=>change.Id==immediateId)))throw new Exception("Immediate changes did not produce history.");
+        ShowPage(ChangesPage);await Capture("ux/immediate-history.png");
+        // Manual inspection is an explicit read path, independent from catalog visibility.
+        ShowKnown=true;ShowHistorical=true;ShowUnknown=false;
+        Search=uint.MaxValue.ToString(System.Globalization.CultureInfo.InvariantCulture);searchTimer.Stop();Filter();
+        var dictionaryBefore=catalog.Select(feature=>feature.Id).ToArray();
+        var discoveryBefore=discovered.Select(feature=>feature.Id).ToArray();
+        var manualStates=catalog.Concat(discovered).Select(feature=>feature.Id).Append(uint.MaxValue).Concat(CuratedCatalog.All.SelectMany(entry=>entry.FeatureIds)).Distinct().ToDictionary(id=>id,id=>fake.Read(id));
+        var historyBeforeManual=History.Count;
+        bool ManualStorageUnchanged()=>manualStates.All(pair=>fake.Read(pair.Key)==pair.Value);
+        if(catalog.Any(feature=>feature.Id==uint.MaxValue) || catalogMatches.Any(item=>item.Feature?.Id==uint.MaxValue))throw new Exception("Unlisted manual-ID fixture unexpectedly exists in the searchable dictionary.");
+        ManualIdText=" 4294967295 ";await InspectManualIdAsync();
+        if(Selected?.Id!=uint.MaxValue || ToggleState is not null || ShowUnknown || IsFeatureVisible(uint.MaxValue) || SelectedProvenanceText!=L["InputIdNotCatalog"] || SelectedAvailabilityText!=L["InputIdNotObserved"])throw new Exception("Explicit unlisted-ID inspection confused provenance, observation or search visibility.");
+        await Capture("ux/manual-unlisted-id.png");
+        foreach(var invalid in new[]{"", "0", "-1", "+1", "1.0", "4294967296", "not-an-id", "١٢٣"})
+        {
+            var previousSelection=Selected;lastError=null;ManualIdText=invalid;await InspectManualIdAsync();
+            if(lastError is not FormatException || Selected!=previousSelection || !ManualStorageUnchanged())throw new Exception("Invalid manual ID changed selection or storage: " + invalid);
+        }
+        ManualIdText=immediateId.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        SetBusy(true);
+        try
+        {
+            var previousSelection=Selected;await InspectManualIdAsync();
+            if(Selected!=previousSelection || !ManualStorageUnchanged())throw new Exception("Manual inspection bypassed an active mutation guard.");
+        }
+        finally{SetBusy(false);}
+        var manualExpander=EnumerateLogicalChildren(Root).OfType<Expander>().Single(expander=>EnumerateLogicalChildren(expander).Contains(ManualIdInput));
+        manualExpander.IsExpanded=true;await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+        var knownProbe=catalog.First(feature=>!CuratedCatalog.IsHistoricalReference(feature.Id));
+        ManualIdInput.Text=knownProbe.Id.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ManualIdInput.GetBindingExpression(TextBox.TextProperty)!.UpdateSource();
+        Keyboard.Focus(ManualIdInput);
+        var manualSource=PresentationSource.FromVisual(ManualIdInput) ?? throw new Exception("Manual-ID keyboard input has no native presentation source.");
+        var enter=new KeyEventArgs(Keyboard.PrimaryDevice,manualSource,Environment.TickCount,System.Windows.Input.Key.Enter){RoutedEvent=Keyboard.PreviewKeyDownEvent};
+        ManualIdInput.RaiseEvent(enter);
+        var inspectionWait=System.Diagnostics.Stopwatch.StartNew();
+        while(inspectingId && inspectionWait.Elapsed<TimeSpan.FromSeconds(10))await Task.Delay(10);
+        await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
+        if(inspectingId || !enter.Handled || Selected?.Id!=knownProbe.Id || Selected.Name!=knownProbe.Name || SelectedProvenanceText!=L["InputIdKnown"] || ShowUnknown)throw new Exception("Enter-key manual inspection lost the known technical name or changed filters.");
+        await Capture("ux/manual-known-id.png");
+        var historicalProbe=CuratedCatalog.All.Where(entry=>entry.Kind==CuratedKind.Historical).SelectMany(entry=>entry.FeatureIds).First();
+        ManualIdText=historicalProbe.ToString(System.Globalization.CultureInfo.InvariantCulture);await InspectManualIdAsync();
+        if(Selected?.Id!=historicalProbe || CanToggle || CanRestoreDefault)throw new Exception("Manual historical-ID inspection exposed mutation controls.");
+        await ChangeSelectedAsync(enabled);
+        if(!ManualStorageUnchanged() || History.Count!=historyBeforeManual || !catalog.Select(feature=>feature.Id).SequenceEqual(dictionaryBefore) || !discovered.Select(feature=>feature.Id).SequenceEqual(discoveryBefore) || ShowUnknown)throw new Exception("Manual inspection mutated storage, history, dictionary or filter state.");
+        await Capture("ux/manual-historical-id.png");
+        manualExpander.IsExpanded=false;Search="";searchTimer.Stop();Filter();
+        // Slow HTTP runs only in an injected handler. Immediate feature controls remain available.
         var slowFolder=Path.Combine(folder,"slow-update");var slow=new MainWindow(true,slowFolder,new UpdateService(new PausedHandler()));
         slow.release=new(new Version(99,0),new Uri("https://github.com/BlakeLiAFK/ViVeUI/releases/tag/v99.0"),new("ViVeUI-win-x64.exe",new Uri("https://github.com/BlakeLiAFK/ViVeUI/releases/download/v99.0/ViVeUI-win-x64.exe"),new string('0',64),4));
         var download=slow.Download();await Dispatcher.InvokeAsync(()=>{},DispatcherPriority.ApplicationIdle);
-        slow.Selected=new Feature(4294967201,"Demo UX slow download");slow.Desired=OverrideState.Enabled;slow.Stage();slow.Acknowledged=true;
-        if(!slow.UpdateBusy || !slow.NotBusy || !slow.CanApply || slow.Staged.Count!=1)throw new Exception("Download blocked the independent review workflow.");
+        slow.discovered=[new Feature(4294967201,"Demo UX slow download")];slow.ShowUnknown=true;slow.Filter();slow.Selected=slow.discovered[0];
+        if(!slow.UpdateBusy || !slow.NotBusy || !slow.CanToggle)throw new Exception("Download blocked the independent checkbox controls.");
+        await slow.ChangeSelectedAsync(enabled);
+        if(slow.store.Read(4294967201)!=enabled || slow.ToggleState!=true)throw new Exception("Immediate fake change failed during download.");
         slow.CancelUpdateClick(this,new());await download;
         if(slow.updater.Status!=UpdateStatus.Canceled || slow.UpdateBusy || Directory.GetFiles(slowFolder,"*.partial",SearchOption.AllDirectories).Any())throw new Exception("Canceled download left a ready or partial package.");slow.Close();
-        var closeDialog=LocalizedDialog.Create(this,L,L["Review"],L["ClosePending"],true);
-        if(!EnumerateLogicalChildren((DependencyObject)closeDialog.Content).OfType<Button>().Any(b=>b.IsDefault && b.IsCancel))throw new Exception("Close guard must default to Cancel.");closeDialog.Close();
-        File.WriteAllText("ux-result.json",JsonSerializer.Serialize(new {passed=true,icon,dropdowns,keyboardF4EndEnterEscape=true,disabled=true,scaleReopened=1.25,partialQueuePreserved=true,restoreMergePreserved=true,historicalUndoRejectedBeforeMerge=true,updateCancellation=true,reviewEditableDuringDownload=true,closeGuardDefaultsCancel=true,guideWrites=false,noFeatureWrites=true,manualNarratorAndPointerReviewRequired=true},new JsonSerializerOptions{WriteIndented=true}));
+        File.WriteAllText("ux-result.json",JsonSerializer.Serialize(new {passed=true,icon,dropdowns,keyboardF4EndEnterEscape=true,disabled=true,scaleReopened=1.25,immediateEnableDisableDefault=true,checkboxAutomationToggle=true,checkboxSpaceKey=true,busyReentryBlocked=true,closeBlockedOnlyWhileBusy=true,defaultButtonAutomationInvoke=true,failedWritePreservesState=true,unrelatedFeaturePreserved=true,immediateHistory=true,manualUnlistedReadOnly=true,manualInvalidPreservesSelection=true,manualKeyboardEnter=true,manualBusyGuard=true,manualHistoricalReadOnly=true,manualDoesNotChangeCatalogOrFilters=true,updateCancellation=true,checkboxUsableDuringDownload=true,guideWrites=false,noNativeSettingsModified=true,manualNarratorAndPointerReviewRequired=true},new JsonSerializerOptions{WriteIndented=true}));
     }
     static async Task RenderPopup(FrameworkElement element,string filename)
     {

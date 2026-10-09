@@ -26,7 +26,7 @@ public partial class MainWindow
     {
         selectedGuide = guide;
         foreach(var name in new[] { nameof(SelectedGuide),nameof(GuideTitle),nameof(GuideBody),nameof(GuideType),nameof(GuideEvidence),nameof(GuideRisk),nameof(GuideRestore),nameof(GuideRestart),nameof(GuideOpenLabel),nameof(GuideImage),nameof(GuideSources),nameof(GuideReferenceIds),nameof(GuideReferenceVisibility),nameof(CanOpenGuide) }) Changed(name);
-        RefreshCards(); Changed(nameof(CanStage));
+        RefreshCards(); Changed(nameof(CanToggle)); Changed(nameof(CanRestoreDefault));
         if (Root is not null) UpdateLayoutMode();
     }
     void GuideSourceClick(object sender,RoutedEventArgs e) => Safe(() =>
