@@ -8,14 +8,13 @@ enable or uncheck to disable immediately; Windows default removes its explicit
 user override. There is no staging queue, Review page or extra app confirmation.
 Windows may still request administrator consent through UAC.
 
-**Local revision, not yet published:** the download links below point to the last
-released build, which still uses the older queued workflow. New Windows renders
-and native validation for the immediate-checkbox UI are pending.
+**v0.6.0:** direct checkbox operations, one filtered card gallery, and manual ID inspection.
 
-![Original operation-flow schematic — not an actual UI screenshot](docs/previews/immediate-toggle-flow.svg)
+![ViVeUI unified paginated gallery on Windows](docs/previews/catalog/full-first-page.png)
+![Direct enable checkbox and actual override state](docs/previews/ux/checkbox-enabled.png)
 
-Original conceptual diagram; native screenshots of this revision are pending.
-[Current preview status and local Windows regeneration](docs/previews/README.md)
+Actual WPF renders from Windows CI with simulated feature storage; no system settings were changed.
+[Native preview provenance](docs/previews/README.md) · [Original flow schematic](docs/previews/immediate-toggle-flow.svg)
 
 ## Download and run
 
@@ -108,7 +107,7 @@ restore a prior snapshot. Other Windows priorities may supersede this user overr
 
 No. They are original, embedded conceptual schematics. Unknown flags have no claimed
 visual preview. The archived v0.5.0 screenshots show ViVeUI itself using a fake backend.
-Current immediate-checkbox screenshots have not yet been produced.
+Current immediate-checkbox UI renders are separately recorded with exact source/run provenance.
 
 ### Does ViVeUI install updates silently?
 
@@ -134,16 +133,18 @@ src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe --ipc-smoke
 dotnet publish src/ViVeUI.Windows -c Release -r win-x64 --self-contained true
 ```
 
-The released v0.5.0 build has historical Windows validation. Those results do not
-validate this local UI revision. No new Actions run, package, push or release is
-part of this change. To regenerate native images after Windows execution is
-authorized, use `pwsh tools/New-WindowsPreviews.ps1 -Run`; it uses isolated fake
-backends and writes local artifacts without committing or publishing anything.
+Windows CI validates 132 core tests, native WPF interactions, all sixteen languages,
+Arabic RTL, checkbox filters, twelve-card pagination, manual ID inspection and
+read-only historical entries. It packages x64 and ARM64 self-contained EXEs and
+launches the x64 EXE from a clean directory. Authenticated elevation IPC tests
+perform no feature writes. See the exact runs and artifacts in
+[validation evidence](docs/VALIDATION.md).
 
-Native Windows rendering for this revision, ARM64 execution, actual feature
-mutations, Narrator, high-contrast interaction and secure-desktop UAC still need
-appropriate Windows validation. Automated tests must not change real settings.
-[Validation evidence and limits](docs/VALIDATION.md) · [Original design and references](docs/DESIGN.md).
+Real feature mutations, ARM64 execution, physical DPI behavior, Narrator,
+high-contrast interaction, native-speaker translation review and secure-desktop
+UAC consent remain outside this automated validation. Reproduce the fake-storage
+renders with `pwsh tools/New-WindowsPreviews.ps1 -Run` on Windows.
+[Original design and references](docs/DESIGN.md).
 
 ## License and source
 

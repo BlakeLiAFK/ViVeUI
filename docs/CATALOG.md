@@ -85,7 +85,7 @@ posts with abbreviated build suffixes retain that limitation. Spotlight variants
 are alternatives; camera recipes observed on different builds are not one combined
 recipe. Archives have no launch/mutation destination. Known historical reference IDs
 are also blocked from enable/disable through the raw-ID pane and elevated worker;
-Default removal remains available for recovery.
+The UI keeps these historical IDs read-only, including the default-removal action.
 
 The old five examples were re-audited against the community mapping and contextual
 sources. TIFE (37634385) is reported removed in Dev 23575. A reported disable sequence
@@ -97,8 +97,8 @@ Images are original vector schematics compiled into the WPF UI, under the same
 GPL license. They label conceptual categories; no third-party Windows screenshots
 or trademark assets are bundled. Unknown flags show “No verified visual preview”.
 Archived UI previews document the old v0.5.0 demo interface, not Windows Insider
-feature screenshots or the current immediate-checkbox revision. New native previews
-are pending; see [preview status](previews/README.md). Microsoft screenshot usage restrictions informed this
+feature screenshots or the current immediate-checkbox revision. Current native previews
+and their source/run provenance are in [previews](previews/README.md). Microsoft screenshot usage restrictions informed this
 choice: https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions
 
 Upstream coverage explanation:

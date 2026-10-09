@@ -1,0 +1,38 @@
+{
+  "entries": 213,
+  "locale_files": 16,
+  "by_kind": {
+    "Guide": 25,
+    "Historical": 60,
+    "NativeSettings": 124,
+    "NativeShortcut": 4
+  },
+  "by_category": {
+    "Accessibility": 25,
+    "Appearance": 23,
+    "ContextMenu": 8,
+    "Explorer": 18,
+    "Input": 15,
+    "Notifications": 7,
+    "Performance": 12,
+    "Privacy": 14,
+    "Start": 6,
+    "SystemTools": 39,
+    "Taskbar": 31,
+    "Windows": 15
+  },
+  "errors": [],
+  "warnings": [
+    "WindowsTransparency: review destructive/negative wording against risk=None",
+    "DesktopSystemIcons: review destructive/negative wording against risk=None",
+    "ExplorerQuickAccess: review destructive/negative wording against risk=None",
+    "SleepDiagnosis: review destructive/negative wording against risk=None",
+    "StartPowerFolders: review destructive/negative wording against risk=None",
+    "StartPins: review destructive/negative wording against risk=None",
+    "TaskbarPins: review destructive/negative wording against risk=None",
+    "TaskbarWidgets: review destructive/negative wording against risk=None"
+  ],
+  "error_count": 0,
+  "warning_count": 8,
+  "scope": "Offline structural checks only; source support and translation fluency require editorial review."
+}

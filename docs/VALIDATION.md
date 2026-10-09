@@ -1,65 +1,72 @@
-# Validation status for the local immediate-operation revision
+# ViVeUI 0.6.0 validation
 
-Native Windows rendering and interaction validation for the new checkbox flow are
-**pending**. Historical v0.5.0 passes do not validate the current working tree.
-This local task does not authorize or perform a commit, push, GitHub Actions run,
-release, or actual Windows feature mutation.
+The immediate checkbox, unified card gallery and manual-ID implementation was
+validated by [Windows run 37889154249](https://github.com/BlakeLiAFK/ViVeUI/actions/runs/37889154249)
+at source commit `850798ab335504a28ab65999b7342dc20d47e950`.
+Screenshots and reports committed under `docs/previews` come from that run.
+The later release commit adds only documentation and captured evidence; its exact
+commit and successful packaging workflow are recorded in the release `BUILD.json`.
 
-The intended flow is immediate enable/disable for eligible raw IDs, with Windows
-UAC where required. There is no staging queue, Review page or extra app confirmation.
-Windows default remains separate from explicit disable. Historical reference IDs
-remain restricted; native cards only navigate to documented destinations.
+## Executed checks
 
-## Local checks and reproducible previews
+- 132 core tests: override conflict/read-back, cancellation, duplicate suppression,
+  isolated feature scope, historical guards, trusted update downloads, unified
+  search/filter deduplication, 17,000-ID performance, strict manual-ID parsing,
+  repeated/latest-query handling, invalid input and close/cancellation suppression.
+- Native WPF direct enable/disable/default operations through real checkbox automation
+  and Space-key events using fake feature storage. Failure/retry, history, busy-state
+  and close guards, and update cancellation without blocking feature operations.
+- Eight filter combinations, accurate counts, numeric hidden matches, explicit
+  unknown-item reveal, twelve-card pages, page resets, empty states and stable
+  traversal of all 213 curated entries. Filters never modify feature storage.
+- Manual unlisted ID inspection, paste-compatible text binding and Enter-key query,
+  invalid-input preservation, historical read-only handling and unchanged filters,
+  dictionary, history and fake feature state.
+- Sixteen languages with 289 common keys each and complete catalog translations:
+  persisted selection, Arabic RTL, LTR numeric references, installed glyph coverage,
+  scale/compact layouts and actual offscreen WPF renders.
+- Authenticated medium-to-high-integrity IPC, peer rejection, and bundled IPC without
+  feature writes. Native settings destinations are not launched in fixtures.
+- x64 and ARM64 self-contained packaging, nine icon-frame comparisons in each PE,
+  full corresponding source and runtime license archives, and SHA-256 manifests.
+  Only the x64 EXE is launched from a clean directory with no separate DLL/runtime files.
 
-Validated locally on macOS on 2026-10-08:
+The first run found an outdated native test that searched for source text while
+its details expander was collapsed. The test now opens the real expander before
+checking the reference IDs; no assertion was removed.
 
-- 132 core tests passed, including immediate state changes, cancellation and concurrency; unified filters, deduplication and 17,000-ID queries; strict manual-ID parsing and late-result/close suppression. All storage and network test fixtures were fake.
-- Release WPF cross-compilation passed with zero warnings and errors. This does not execute the controls.
-- Sixteen common locales passed with 289 keys each. The 213-entry localized catalog passed structural validation with zero errors and eight pre-existing editorial wording warnings.
-- XAML/SVG parsing, source links and `git diff --check` passed.
-- A local self-contained x64 package attempt stopped at `NETSDK1047`: cached restore assets lack the Windows runtime target. No new standalone package is claimed. Windows x64/ARM64 packaging remains pending.
+## Reproduction and artifacts
 
-Logs from this work are in the ignored `.artifacts/immediate-local-tests.txt` and
-`.artifacts/immediate-catalog-audit.txt`. No new commit was made; the base remains
-`c0fc319b75887c84d6edbbb6099066a818effb98` with local changes.
+Run `pwsh tools/New-WindowsPreviews.ps1 -Run` on Windows for isolated fake-storage
+renders. The script records source hashes and working-tree status and does not
+publish or modify real feature settings. The repository Windows workflow also
+performs packaging and write-free elevation IPC validation.
 
-After Windows execution is authorized, use
-`pwsh tools/New-WindowsPreviews.ps1 -Run`. It builds without an implicit restore,
-runs fake-backend native fixtures, and preserves new images and machine-readable
-reports in a fresh local artifact directory. It does not start real mutations,
-elevation diagnostics, publication or a remote workflow. See
-[preview instructions](previews/README.md).
+Download both CI artifacts under one directory and run:
 
-Required interaction coverage includes immediate single-operation success/failure,
-UAC cancellation, correct displayed state after rejected or uncertain writes,
-read-only history, per-feature default removal, historical enable/disable rejection,
-one unified list, default filter selections and counts, exact numeric hidden-match
-prompts without auto-exposure, separate read-only Enter ID inspection with a single
-decimal nonzero uint32 value, no execution of pasted text, twelve-card pagination
-even with unknown entries visible, pager placement below cards, and separation of
-visibility filters from execution,
-read-only browsing and guide navigation, language switching, compact layout, RTL,
-keyboard-only control and cancelable verified downloads. No test should change real
-Windows feature settings. Any old fixture still expecting a queue must be updated
-before its result can count as evidence for this flow.
+```text
+python tools/verify_release.py ARTIFACT_ROOT EXACT_COMMIT 0.6.0
+```
 
-## Evidence that remains historical
-
-[Archived v0.5.0 validation](previews/archive/v0.5.0/VALIDATION.md) and
-[its renders and reports](previews/archive/v0.5.0/README.md) retain the exact old
-implementation and run provenance. They cover the previous queued interaction,
-not current checkbox behavior. Old image counts and pass totals are not reused as
-new validation claims.
+This checks build identity, all four package digests, both PE architectures,
+corresponding source, bundled-runtime license coverage and native reports without
+executing downloaded binaries. Release `UPDATE-VERIFICATION.json` records real
+Core updater checks and verified downloads for both architectures; it does not
+execute or install the downloaded files.
 
 ## Limits
 
-The authoring host is macOS. Cross-compilation does not execute WPF. Offscreen
-Windows control-tree renders do not establish pointer ergonomics, physical monitor
-DPI behavior, native-speaker translation quality, screen-reader behavior, secure
-Windows UAC consent, or ARM64 execution. Real OS writes and recovery behavior require
-a separately authorized disposable Windows environment with a recovery snapshot.
+Windows tests run on an x64 GitHub-hosted Windows runner. WPF images are native
+control-tree renders with simulated feature storage, not physical desktop captures
+or screenshots of the underlying experimental Windows features. They do not prove
+physical DPI behavior, pointer ergonomics, Narrator/high-contrast interaction,
+native-speaker translation quality, secure-desktop UAC consent or ARM64 execution.
+Real Windows feature writes and recovery are deliberately not tested.
 
-The pinned dictionary is not universal feature coverage or a compatibility matrix.
-Unknown observations remain unknown. An override is not proof of effective runtime
-behavior, and removing one is not a guarantee of successful recovery.
+The catalog audit has zero structural errors and eight existing editorial wording
+warnings. Original feature illustrations are schematics. The pinned 17,000-ID
+dictionary is neither universal coverage nor a compatibility matrix. Unknown
+observations remain unknown; an override is not proof of effective runtime behavior.
+
+[Archived v0.5.0 validation](previews/archive/v0.5.0/VALIDATION.md) documents only the
+previous interaction and is not reused as evidence for this release.

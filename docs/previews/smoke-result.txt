@@ -1,0 +1,1 @@
+PASS: WPF startup, all-ID search, curated cards, immediate checkbox enable/disable/default, fake readback, history, localized selection retention, 10 native renders. No feature settings modified.

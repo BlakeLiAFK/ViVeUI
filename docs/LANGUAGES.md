@@ -34,9 +34,10 @@ fallback; no Microsoft font files are redistributed.
 
 Arabic mirrors navigation and layout. Feature IDs, upstream identifiers, file
 paths, original illustrations and exact privileged change scope retain LTR
-direction. Longer translations wrap and can scroll in compact layouts. The local
-revision has no additional app confirmation dialog. Native rendering and RTL
-interaction of its immediate-checkbox controls remain pending Windows validation.
+direction. Longer translations wrap and can scroll in compact layouts. The
+revision has no additional app confirmation dialog. Native renders and RTL state
+assertions for its checkbox controls passed the documented Windows workflow;
+linguistic and screen-reader review remain separate requirements.
 
 ## Maintenance and verification
 
@@ -48,10 +49,10 @@ when adding a language. Do not translate numeric IDs or upstream symbol names.
 
 Run `python3 tools/check_localization.py` and
 `dotnet run --project src/ViVeUI.Tests -c Release`. On Windows, run
-`pwsh tools/New-WindowsPreviews.ps1 -Run` after Windows execution is authorized.
+`pwsh tools/New-WindowsPreviews.ps1 -Run` to reproduce the published fixtures.
 It produces isolated native renders and assertions without real feature writes,
-publication or a remote workflow. Historical v0.5.0 language screenshots do not
-validate the new immediate-operation interface.
+publication or a remote workflow. Current language renders and exact Windows validation provenance are recorded in
+[previews](previews/README.md); v0.5.0 images remain separately archived.
 
 Translations were authored for this implementation and have **not been certified
 by native speakers**. Native review of terminology, grammar, Arabic/Hindi shaping

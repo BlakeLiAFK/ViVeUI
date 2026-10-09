@@ -1,7 +1,7 @@
 # Safety and recovery
 
-This document describes the local immediate-operation revision. Native Windows
-validation of its new UI is pending; see [validation status](VALIDATION.md).
+This document describes v0.6.0 immediate operations. See the exact native Windows
+validation evidence and remaining limits in [validation status](VALIDATION.md).
 
 The main process runs asInvoker. Browse/search/observe never elevate. An immediate checkbox request
 spawns the same installed executable in a narrowly scoped worker mode via UAC.
@@ -30,10 +30,10 @@ History is view-only; it does not replay operations or restore earlier snapshots
 Keep records when investigating a change. Restore default is a separate action for
 the selected feature and removes only that feature’s explicit user override.
 
-If the process crashes, the UAC prompt is declined, the worker disconnects, or
-saving results fails, the entry remains **pending / outcome uncertain**. Review
-current state before making another immediate request. Pending is never called
-successful. A changed state may have been produced by another program; a matching
+A declined UAC prompt or worker error is recorded as an unsuccessful or unverified
+operation, and the UI re-reads actual state. If the process crashes or saving results
+fails, the intent can remain **pending / outcome uncertain**. Check current state
+before making another request. Pending is never called successful. A changed state may have been produced by another program; a matching
 value is not proof of ownership. History does not offer scoped undo, and removing
 an override with Restore default does not recreate an earlier explicit override.
 

@@ -43,8 +43,8 @@ The original icon, conceptual illustrations, cobalt/pale surfaces and consistent
 native controls are retained. Schematics are original illustrations, not screenshots
 of a Windows experiment. Updates download verified files but never install silently.
 
-New native Windows screenshots are pending. [Preview status](previews/README.md)
+Current native Windows screenshots are recorded with source/run provenance. [Previews](previews/README.md)
 explains regeneration and [the archived design research](previews/archive/v0.5.0/DESIGN.md)
 retains the original design-award references and older interaction decisions. Those
 references do not imply that ViVeUI won an award, and the old queued workflow is no
-longer a description of this local revision.
+longer a description of this revision.
