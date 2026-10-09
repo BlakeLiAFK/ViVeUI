@@ -15,6 +15,7 @@ public partial class MainWindow
     int recipePage;
     string recipeSearch = "";
     bool showApplicable = true, showNotApplicable, showUnconfirmed = true;
+    public Visibility RecipeSearchPlaceholderVisibility => string.IsNullOrEmpty(recipeSearch) ? Visibility.Visible : Visibility.Collapsed;
     public string RecipeSearch { get => recipeSearch; set { recipeSearch=value ?? ""; recipePage=0; RefreshRecipeView(); } }
     public bool ShowApplicable { get=>showApplicable; set {showApplicable=value;recipePage=0;RefreshRecipeView();} }
     public bool ShowNotApplicable { get=>showNotApplicable; set {showNotApplicable=value;recipePage=0;RefreshRecipeView();} }
@@ -53,7 +54,7 @@ public partial class MainWindow
     void RefreshRecipeView()
     {
         recipePage=Math.Min(recipePage,RecipePageCount-1);
-        foreach(var property in new[]{nameof(RecipeSearch),nameof(ShowApplicable),nameof(ShowNotApplicable),nameof(ShowUnconfirmed),nameof(RecipeCards),nameof(RecipeCountText),nameof(RecipeApplicableText),nameof(RecipeNotApplicableText),nameof(RecipeUnconfirmedText),nameof(RecipePageText),nameof(CanPreviousRecipePage),nameof(CanNextRecipePage),nameof(RecipeEmptyVisibility)})Changed(property);
+        foreach(var property in new[]{nameof(RecipeSearch),nameof(RecipeSearchPlaceholderVisibility),nameof(ShowApplicable),nameof(ShowNotApplicable),nameof(ShowUnconfirmed),nameof(RecipeCards),nameof(RecipeCountText),nameof(RecipeApplicableText),nameof(RecipeNotApplicableText),nameof(RecipeUnconfirmedText),nameof(RecipePageText),nameof(CanPreviousRecipePage),nameof(CanNextRecipePage),nameof(RecipeEmptyVisibility)})Changed(property);
     }
     async void RecipeRefreshClick(object sender,RoutedEventArgs e){await RefreshObservations();RefreshRecipes();}
     public string? LastCopiedRecipeIds {get;private set;}

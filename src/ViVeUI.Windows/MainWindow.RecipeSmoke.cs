@@ -145,7 +145,25 @@ public partial class MainWindow
             var checkbox = CardVisuals(Card(group.Id)).OfType<ImmediateCheckBox>().Single();
             ((IToggleProvider)new CheckBoxAutomationPeer(checkbox).GetPattern(PatternInterface.Toggle)!).Toggle(); await Settled();
             Require(calls == 1 && lastRecipe == group.Id && lastScope.Select(change => change.Id).SequenceEqual(group.FeatureIds), "A grouped recipe did not use exactly one executor call with every ID.");
-            Require(group.FeatureIds.All(id => fake.Read(id) == new Snapshot(true, OverrideState.Enabled)) && Card(group.Id).State == true && checkbox.IsChecked == true, "Successful grouped readback did not drive the checkbox.");
+            // RefreshRecipeView publishes a new ItemsSource; the clicked control may
+            // have been detached while its replacement receives the verified state.
+            var liveCard = Card(group.Id);
+            var liveCheckbox = CardVisuals(liveCard).OfType<ImmediateCheckBox>().Single();
+            var liveBinding = liveCheckbox.GetBindingExpression(ToggleButton.IsCheckedProperty);
+            var actualGroup = group.FeatureIds.Select(id => new { id, snapshot = fake.Read(id) }).ToArray();
+            var readbackDiagnostics = JsonSerializer.Serialize(new
+            {
+                actual = actualGroup, modelState = liveCard.State, liveCheckboxState = liveCheckbox.IsChecked,
+                clickedCheckboxState = checkbox.IsChecked, controlReplaced = !ReferenceEquals(checkbox, liveCheckbox),
+                bindingPath = liveBinding?.ParentBinding.Path?.Path, bindingStatus = liveBinding?.Status.ToString(),
+                dataContextMatches = ReferenceEquals(liveCheckbox.DataContext, liveCard), tagMatches = ReferenceEquals(liveCheckbox.Tag, liveCard)
+            });
+            Require(actualGroup.All(item => item.snapshot == new Snapshot(true, OverrideState.Enabled)) &&
+                liveCard.State == true && liveCheckbox.IsChecked == true && liveBinding is not null &&
+                liveBinding.ParentBinding.Path?.Path == nameof(RecipeCardModel.State) &&
+                liveBinding.Status == System.Windows.Data.BindingStatus.Active &&
+                ReferenceEquals(liveCheckbox.DataContext, liveCard) && ReferenceEquals(liveCheckbox.Tag, liveCard),
+                "Successful grouped readback did not drive the live checkbox: " + readbackDiagnostics);
             Require(Card(group.Id).Applicability == RecipeApplicability.Applicable && Card(group.Id).CurrentOverride == L["Enabled"], "Enabling an override overwrote its independent applicability state.");
             await Shot("group-enabled.png");
             demoDeviceBuild = group.ObservedBuilds[0] with { Ubr = null }; RefreshRecipes();

@@ -39,8 +39,8 @@ The implemented evaluator uses these rules:
 
 | Result | Evidence rule |
 |---|---|
-| Not applicable | Windows base build is below `22000`, a recipe ID is absent from current discovery, or a declared prerequisite is known false. |
-| Unconfirmed | UBR/channel evidence or prerequisite evidence is missing, or the complete build/revision/channel does not match a recorded observation. |
+| Not applicable | Windows base build is below `22000`, or a declared prerequisite is known false. |
+| Unconfirmed | A recipe ID has no observed configuration, UBR/channel or prerequisite evidence is missing, or the complete build/revision/channel does not match a recorded observation. |
 | Applicable | All recipe IDs are observed, declared prerequisites are satisfied, and build, UBR and channel exactly match one recorded observation. |
 
 UBR is the update revision after the build number: `5570` in `26200.5570`. A base

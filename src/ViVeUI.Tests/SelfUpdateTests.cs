@@ -80,6 +80,17 @@ public static class SelfUpdateTests
                 Assert(f.Fs.Moves == 0 && !f.Fs.Exists(Target + SelfUpdateInstaller.JournalSuffix));
             }
         });
+        Test("Copied package is verified again before any rename", () =>
+        {
+            var f = Fixture(); f.Fs.CorruptCopy = true; Throws<InvalidDataException>(() => Prepare(f));
+            Assert(f.Fs.Moves == 0 && f.Fs.VersionOf(Target) == OldVersion && !f.Fs.Exists(Target + SelfUpdateInstaller.StageSuffix));
+        });
+        Test("Unrecognized backup is preserved rather than overwritten", () =>
+        {
+            var f = Fixture(); f.Fs.Put(Target + SelfUpdateInstaller.BackupSuffix, new byte[] { 9 }, OldVersion);
+            Throws<IOException>(() => Prepare(f));
+            Assert(f.Fs.Data[Target + SelfUpdateInstaller.BackupSuffix].Bytes.SequenceEqual(new byte[] { 9 }) && f.Fs.Moves == 0);
+        });
         Test("Second rename failure restores original", () =>
         {
             var f = Fixture(); f.Fs.FailMove = (_, destination) => destination == Target && f.Fs.Moves == 2;
@@ -145,13 +156,13 @@ public static class SelfUpdateTests
     sealed class MemoryFiles : IUpdateFileSystem
     {
         public readonly Dictionary<string, Entry> Data = new();
-        public int Moves; public bool FailCopy; public Func<string, string, bool>? FailMove;
+        public int Moves; public bool FailCopy; public bool CorruptCopy; public Func<string, string, bool>? FailMove;
         readonly HashSet<string> locks = new();
         public void Put(string path, byte[] bytes, Version version) => Data[path] = new(bytes, version);
         public bool Exists(string path) => Data.ContainsKey(path);
         public Stream OpenRead(string path) => new MemoryStream(Data[path].Bytes, false);
         public Version VersionOf(string path) => Data[path].Version;
-        public void CopyNew(string source, string target) { if (FailCopy) throw new IOException("Disk full"); Data.Add(target, Data[source] with { Bytes = Data[source].Bytes.ToArray() }); }
+        public void CopyNew(string source, string target) { if (FailCopy) throw new IOException("Disk full"); Data.Add(target, Data[source] with { Bytes = Data[source].Bytes.ToArray() }); if (CorruptCopy) Data[target].Bytes[^1] ^= 1; }
         public void Move(string source, string target) { Moves++; if (FailMove?.Invoke(source, target) == true) throw new IOException("Locked"); Data.Add(target, Data[source]); Data.Remove(source); }
         public void Delete(string path) => Data.Remove(path);
         public string ReadText(string path) => Encoding.UTF8.GetString(Data[path].Bytes);

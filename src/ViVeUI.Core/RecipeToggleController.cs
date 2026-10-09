@@ -78,7 +78,7 @@ public sealed class RecipeToggleController(IFeatureStore store,
                         throw new InvalidDataException("Recipe response changed scope or continued after a failure.");
                 results = Array.AsReadOnly(returned.ToArray());
                 if (results.Count != changes.Count || results.Any(result => !result.Applied))
-                    failure = new IOException(results.FirstOrDefault(result => !result.Applied)?.Error ?? "Recipe execution did not complete every feature ID.");
+                    failure = new InvalidOperationException(results.FirstOrDefault(result => !result.Applied)?.Error ?? "Recipe execution did not complete every feature ID.");
             }
         }
         catch (Exception error) { failure = error; }
@@ -91,7 +91,7 @@ public sealed class RecipeToggleController(IFeatureStore store,
         }
         if (failure is null) failure = actual.FirstOrDefault(state => !state.ReadSucceeded)?.Error;
         if (failure is null && changes.Any(change => actual.Single(state => state.Id == change.Id).Snapshot != change.After))
-            failure = new IOException("Recipe read-back conflict: one or more overrides differ from the requested state.");
+            failure = new InvalidOperationException("Recipe read-back conflict: one or more overrides differ from the requested state.");
         return new(recipe, changes, results, actual, failure);
     }
 }

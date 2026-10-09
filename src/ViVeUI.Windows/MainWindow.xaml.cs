@@ -316,7 +316,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (closed || updateBusy) return; BeginUpdate(); UpdateDetails = ""; Changed(nameof(UpdateDetails));
         try
         {
-            var pending = updater.CheckAsync(BuildInfo.Version, RuntimeInformation.OSArchitecture == Architecture.Arm64 ? "arm64" : "x64", updateCancellation!.Token); Changed(nameof(UpdateText));
+            var pending = updater.CheckAsync(BuildInfo.Version, SelfUpdateWorker.Architecture, updateCancellation!.Token); Changed(nameof(UpdateText));
             release = await pending; UpdateDetails = release is null ? "" : $"{release.Version} · {release.Asset.Size / 1024 / 1024} MB\n{release.Page}";
         }
         catch (OperationCanceledException) { release = null; UpdateDetails = L["Canceled"]; }
