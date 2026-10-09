@@ -119,7 +119,7 @@
   "Current": "You have the latest published version",
   "Available": "A newer version is available",
   "Downloading": "Downloading and verifying…",
-  "Ready": "Verified package ready · open folder to install manually",
+  "Ready": "Verified package ready",
   "Failed": "Check or download failed · see details below",
   "SettingsTitle": "Make it feel like home.",
   "Language": "Interface language",

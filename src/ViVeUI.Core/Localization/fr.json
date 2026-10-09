@@ -119,7 +119,7 @@
   "Current": "Vous disposez de la dernière version publiée",
   "Available": "Une nouvelle version est disponible",
   "Downloading": "Téléchargement et vérification…",
-  "Ready": "Package vérifié · ouvrir le dossier pour installer manuellement",
+  "Ready": "Package vérifié",
   "Failed": "Échec de la recherche ou du téléchargement · détails ci-dessous",
   "SettingsTitle": "Adaptez l’application à vos habitudes.",
   "Language": "Langue de l’interface",
