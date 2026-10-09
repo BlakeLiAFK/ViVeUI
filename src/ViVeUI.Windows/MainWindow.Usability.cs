@@ -9,12 +9,14 @@ public partial class MainWindow
     void BeginUpdate()
     {
         updateCancellation = new(); updateBusy = true;
-        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload), nameof(CanInstallUpdate) }) Changed(name);
+        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload), nameof(CanInstallUpdate), nameof(CanToggle), nameof(CanRestoreDefault) }) Changed(name);
+        RefreshRecipes();
     }
     void EndUpdate()
     {
         updateBusy = false; updateCancellation?.Dispose(); updateCancellation = null;
-        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload), nameof(CanInstallUpdate) }) Changed(name);
+        foreach (var name in new[] { nameof(UpdateBusy), nameof(UpdateIdle), nameof(CanDownload), nameof(CanInstallUpdate), nameof(CanToggle), nameof(CanRestoreDefault) }) Changed(name);
+        RefreshRecipes();
     }
     void CancelUpdateClick(object sender, RoutedEventArgs e) => updateCancellation?.Cancel();
     void ConfirmClose(object? sender, CancelEventArgs e)

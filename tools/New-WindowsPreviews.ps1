@@ -49,7 +49,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'WPF build failed; no current native preview is validated.' }
         $app = (Resolve-Path 'src/ViVeUI.Windows/bin/Release/net8.0-windows/ViVeUI.exe').Path
         $manifest.appSha256 = (Get-FileHash $app -Algorithm SHA256).Hash.ToLowerInvariant()
-        foreach ($fixture in @('smoke', 'localization-smoke', 'ux-smoke', 'catalog-smoke')) {
+        foreach ($fixture in @('smoke', 'localization-smoke', 'ux-smoke', 'catalog-smoke', 'recipe-smoke')) {
             $folder = Join-Path $output $fixture
             New-Item -ItemType Directory -Path $folder | Out-Null
             # These flags select DemoStore and per-run temporary preferences in Program.cs.
@@ -68,6 +68,7 @@ try {
                 'localization-smoke' { 'localization-result.json' }
                 'ux-smoke' { 'ux-result.json' }
                 'catalog-smoke' { 'catalog-result.json' }
+                'recipe-smoke' { 'recipe-result.json' }
                 default { 'smoke-result.txt' }
             }
             $reportPath = Join-Path $folder $report

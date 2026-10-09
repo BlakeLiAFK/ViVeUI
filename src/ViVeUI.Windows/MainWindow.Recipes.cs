@@ -47,7 +47,7 @@ public partial class MainWindow
         {
             var actual=recipeToggle.Read(card.Recipe.Id);
             card.Update(actual,FeatureRecipes.Evaluate(card.Recipe,CurrentDeviceBuild,observed),
-                SupportsOverrides && !busy && !refreshing && !closed && observationError is null);
+                SupportsOverrides && !busy && !installingUpdate && !refreshing && !closed && observationError is null);
         }
         RefreshRecipeView();
     }

@@ -94,6 +94,17 @@ public partial class MainWindow
             checks.Add("Default main view contains seven named recipes with purpose, actual ID group, copy action and bound checkbox; native Settings tasks are excluded.");
 
             ObserveAll();
+            installingUpdate = true;
+            try
+            {
+                RefreshRecipes();
+                Require(AllRecipeCards.All(card => !card.CanToggle), "Feature execution remained enabled during executable replacement.");
+                var closing = new System.ComponentModel.CancelEventArgs(); ConfirmClose(this, closing);
+                Require(closing.Cancel, "Closing during executable replacement was not blocked.");
+            }
+            finally { installingUpdate = false; RefreshRecipes(); }
+            checks.Add("Executable replacement blocks feature writes and closing; download-only behavior remains independently covered.");
+
             var exactRecipe = FeatureRecipes.Get("VoiceTypingFilter");
             demoDeviceBuild = exactRecipe.ObservedBuilds[0]; RefreshRecipes();
             Require(Card(exactRecipe.Id).Applicability == RecipeApplicability.Applicable, "Exact build, UBR and channel were not recognized.");

@@ -30,8 +30,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     Receipt? activeReceipt;
     public bool? ToggleState => toggleActual?.State;
     bool SupportsOverrides => demo || OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18963);
-    public bool CanToggle => SupportsOverrides && !busy && !refreshing && !inspectingId && selectedGuide is null && Selected is not null && toggleActual?.ReadSucceeded == true && !CuratedCatalog.IsHistoricalReference(Selected.Id);
-    public bool CanRestoreDefault => SupportsOverrides && !busy && !refreshing && !inspectingId && selectedGuide is null && Selected is not null && toggleActual?.ReadSucceeded == true && toggleActual.Snapshot != Snapshot.Default && !CuratedCatalog.IsHistoricalReference(Selected.Id);
+    public bool CanToggle => SupportsOverrides && !busy && !installingUpdate && !refreshing && !inspectingId && selectedGuide is null && Selected is not null && toggleActual?.ReadSucceeded == true && !CuratedCatalog.IsHistoricalReference(Selected.Id);
+    public bool CanRestoreDefault => SupportsOverrides && !busy && !installingUpdate && !refreshing && !inspectingId && selectedGuide is null && Selected is not null && toggleActual?.ReadSucceeded == true && toggleActual.Snapshot != Snapshot.Default && !CuratedCatalog.IsHistoricalReference(Selected.Id);
     public string ToggleStateText => L[busy ? "ToggleBusy" : !SupportsOverrides ? "FailureUnsupported" : Selected is not null && CuratedCatalog.IsHistoricalReference(Selected.Id) ? "ToggleReadOnly" : toggleActual?.ReadSucceeded != true ? "ToggleUnknownState" : ToggleState is null ? "ToggleDefaultState" : ToggleState == true ? "Enabled" : "Disabled"];
     IReadOnlyList<Feature> discovered = [];
     readonly bool demo;
@@ -233,7 +233,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     async Task ChangeSelectedAsync(Snapshot target)
     {
-        if (!SupportsOverrides || busy || refreshing || inspectingId || closed || Selected is null || selectedGuide is not null) return;
+        if (!SupportsOverrides || busy || installingUpdate || refreshing || inspectingId || closed || Selected is null || selectedGuide is not null) return;
         var feature = Selected;
         if (CuratedCatalog.IsHistoricalReference(feature.Id)) { RefreshDetail(); return; }
         SetBusy(true); activeReceipt = null;
