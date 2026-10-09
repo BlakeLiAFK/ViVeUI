@@ -11,11 +11,11 @@
     "compact-detail.png": "b6c1d5afa2a3f44b3be8c4d27caa7fdf1ed61d134e91592dfdf51b2c08d4a24c",
     "explore-zh.png": "d2752cd79eb178aef00ab6459e40aaf398904a318867914af372a713a8205dd4",
     "standalone-result.txt": "773d4035c75b3f1e31e64a2ed24cdbcf55891b59833dd42339cea65764bab017",
-    "localization-result.json": "0ea9676640ff53d957aa246810d277cf4adf7a9ef5b0dc33238c436842592bfa",
+    "localization-result.json": "1623a8ce3c4a9cb74e9f9ad6e19f2a560c6f8787d76a19fa5611aa76f86fc411",
     "compact-history.png": "4fad247c0a4fc2379cc7e99e620029db00bab2f4cc66c2f900a5fa9389383850",
     "standalone-icon-result.json": "54fc1e755d9dd0606462a381fa0e5caa9d764ef4555b3501cfe31a3ca9ed1fee",
-    "ux-result.json": "0421c3f94fbc34310868088b2c48a138fa230d31b839431fceefefa7984ad58f",
-    "catalog-audit.json": "43dcd2089d9b5d9f52ff9d750cc6a9bc18ad6e6adab705598fabffbde7369422",
+    "ux-result.json": "4fbc4d5a36b617c5fd1932f997f94d66258cbba462ae41ccd6ef01200e14c763",
+    "catalog-audit.json": "fab2793370c0e903a5907c15836b8633982611d262dcb5a20408ce82b4e3dd2d",
     "icon-result.json": "54fc1e755d9dd0606462a381fa0e5caa9d764ef4555b3501cfe31a3ca9ed1fee",
     "unified-unknown-zh.png": "2f351e691d904d21d73aa418495d8205bd3e8b582df4650a1a40a5aaa0d995ae",
     "history.png": "46d67754166df59e6ac4389932d7c24930def2b45d3fe7258a48a5d4b85206ad",
@@ -26,7 +26,7 @@
     "smoke-result.txt": "773d4035c75b3f1e31e64a2ed24cdbcf55891b59833dd42339cea65764bab017",
     "explore.png": "241ea1ea1f6104c2867c84c2ce36b82a38a12018c0173accf6a889abb53b173f",
     "ipc-result.json": "3d5469698700e00441623ccbe116716fdcc5f3db9155b69304876908dc222a39",
-    "catalog-result.json": "0458e35d0bd58a0f4cf5934630a2c3f84a4026b974d4369e68ea43f73a44cf45",
+    "catalog-result.json": "fd2266a6af88f74780f7b6cfbc75d5d830cea2e210403172c777953c160b6e40",
     "catalog/detail-tr.png": "da1254b211b0d6861155cb6ac987958991050fbf808550d43f0dcf5c650550f0",
     "catalog/compact-detail.png": "3503fe3912f161d96f8301b51be73860a2d172129762257fdda93b5876d62761",
     "catalog/detail-ar.png": "296ce2fa1ec528c4b143ae55b664d992b149eedcf90bf15e001f4dc651afcd36",
@@ -197,5 +197,6 @@
     "localization/tr/scale-150.png": "fb762121efd6aced0ac8394f006b81b6169856b6348d71c23dcd6eeff05ad0b2",
     "localization/tr/updates.png": "24c347cdc8c858f65a98b875b31d7dc9b5c5073367121279fdd4ddf866c0a261",
     "localization/tr/explore.png": "81449fd79586e767f847c2a474990ae18c5644b99539d5f8ba65da7ac0b1ae5f"
-  }
+  },
+  "digestScope": "Git repository bytes; native artifact text is normalized to LF by Git. PNG bytes are unchanged."
 }
