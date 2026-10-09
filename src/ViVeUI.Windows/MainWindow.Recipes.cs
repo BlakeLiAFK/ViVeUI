@@ -90,7 +90,7 @@ public partial class MainWindow
             if(activeReceipt is not null)SaveReceipt(activeReceipt with {Results=results});
             card.SetResult(outcome.Succeeded?"RecipeResultSuccess":"RecipeResultFailed",results);
             if(outcome.Error is not null)ReportError(outcome.Error is IOException ? new InvalidOperationException(outcome.Error.Message,outcome.Error) : outcome.Error);
-            else SetStatus(L["RecipeResultSuccess"]);
+            else { lastError=null;Changed(nameof(DiagnosticVisibility));SetStatus(L["RecipeResultSuccess"]); }
         }
         catch(Exception error){card.SetResult("RecipeResultFailed",[]);ReportError(error);}
         finally

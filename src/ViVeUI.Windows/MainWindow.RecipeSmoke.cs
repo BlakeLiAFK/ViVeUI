@@ -216,6 +216,7 @@ public partial class MainWindow
             await Shot("group-partial.png"); fake.FailOn = 0;
             await ChangeRecipeAsync(Card(group.Id), Snapshot.Default);
             Require(group.FeatureIds.All(id => fake.Read(id) == Snapshot.Default), "The fake partial-write fixture could not be restored.");
+            Require(lastError is null && DiagnosticVisibility == Visibility.Collapsed, "Successful recipe recovery retained stale failure diagnostics.");
             checks.Add("Readback conflicts, cancellation and partial failures show actual Default/mixed states, with every ID retained in the details.");
 
             demoDeviceBuild = new DeviceBuild(26200, null, "Demo"); ObserveAll(); RecipeSearch = "";
