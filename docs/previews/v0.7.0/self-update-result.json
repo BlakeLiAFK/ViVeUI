@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "nativeWindowsFileOperations": true,
+  "sameDirectoryRunningExeRename": true,
+  "originalNamePreserved": true,
+  "oldStillRunningWhenRestartDeclined": true,
+  "authorizedNonceProbe": true,
+  "packageHash": "682A14B3C53ACF244B45E4E1058103D26E1171E0E19618FCBAB23949180C3159",
+  "exactOriginalRollback": true,
+  "lockedOriginal": true,
+  "lockedReplacement": true,
+  "launchFailureRollback": true,
+  "crashJournalRecovery": true,
+  "pathsWithSpacesAndUnicode": true,
+  "noWindowsFeatureWrites": true,
+  "crossVersion": true,
+  "previousVersion": "0.6.0.0",
+  "replacementVersion": "0.7.0.0",
+  "previousHash": "242D580F292BD90701914A4EC6896E3C0D4FC00EDCC4CE7AEE3C2613A7E5D122",
+  "sameBuildCopies": false,
+  "installedVersionMetadataSimulated": false,
+  "trustedNetworkMetadataAndUacNotExercised": true
+}

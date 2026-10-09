@@ -1,0 +1,285 @@
+{
+  "passed": true,
+  "failure": null,
+  "recipeCount": 7,
+  "recipeIds": [
+    "VoiceTypingFilter",
+    "QuickAccessibilityGroups",
+    "VoiceVocabulary",
+    "VoiceQuickSettings",
+    "SharePhotoEditing",
+    "HdrSettingsHistory",
+    "ExplorerAiActions"
+  ],
+  "checks": [
+    "Default main view contains seven named recipes with purpose, actual ID group, copy action and bound checkbox; native Settings tasks are excluded.",
+    "Executable replacement blocks feature writes and closing; download-only behavior remains independently covered.",
+    "All eight applicability filter combinations and labels match on supported/unsupported build fixtures; exact UBR differs from unknown/newer UBR; absent configuration observations remain explicitly unconfirmed.",
+    "The two-ID recipe uses one executor call for the full group; verified readback controls On/Default independently from applicability.",
+    "Readback conflicts, cancellation and partial failures show actual Default/mixed states, with every ID retained in the details.",
+    "All sixteen locales show localized purpose and state labels, invariant LTR IDs, copy controls, trimmed search and full/compact WPF captures."
+  ],
+  "executions": [
+    {
+      "mode": "apply",
+      "recipe": "SharePhotoEditing",
+      "ids": [
+        53433910,
+        54475355
+      ],
+      "targets": [
+        "Enabled",
+        "Enabled"
+      ]
+    },
+    {
+      "mode": "apply",
+      "recipe": "SharePhotoEditing",
+      "ids": [
+        53433910,
+        54475355
+      ],
+      "targets": [
+        "Default",
+        "Default"
+      ]
+    },
+    {
+      "mode": "reported-success-without-write",
+      "recipe": "SharePhotoEditing",
+      "ids": [
+        53433910,
+        54475355
+      ],
+      "targets": [
+        "Enabled",
+        "Enabled"
+      ]
+    },
+    {
+      "mode": "canceled",
+      "recipe": "SharePhotoEditing",
+      "ids": [
+        53433910,
+        54475355
+      ],
+      "targets": [
+        "Enabled",
+        "Enabled"
+      ]
+    },
+    {
+      "mode": "partial-failure",
+      "recipe": "SharePhotoEditing",
+      "ids": [
+        53433910,
+        54475355
+      ],
+      "targets": [
+        "Enabled",
+        "Enabled"
+      ]
+    },
+    {
+      "mode": "partial-failure",
+      "recipe": "SharePhotoEditing",
+      "ids": [
+        53433910,
+        54475355
+      ],
+      "targets": [
+        "Default",
+        "Default"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "en",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "zh-Hans",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "zh-Hant",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "ja",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "ko",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "fr",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "de",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "es",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "pt-BR",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "it",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "ru",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "ar",
+      "recipes": 7,
+      "rtl": true,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "hi",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "id",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "tr",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    },
+    {
+      "language": "vi",
+      "recipes": 7,
+      "rtl": false,
+      "idsLeftToRight": true,
+      "copyVerified": true,
+      "localizedPurpose": true,
+      "compactRender": true
+    }
+  ],
+  "captures": [
+    "previews/recipes/default-seven.png",
+    "previews/recipes/default-seven-last.png",
+    "previews/recipes/group-enabled.png",
+    "previews/recipes/group-readback-conflict.png",
+    "previews/recipes/group-canceled.png",
+    "previews/recipes/group-partial.png",
+    "previews/recipes/en/full.png",
+    "previews/recipes/en/compact.png",
+    "previews/recipes/zh-Hans/full.png",
+    "previews/recipes/zh-Hans/compact.png",
+    "previews/recipes/zh-Hant/full.png",
+    "previews/recipes/zh-Hant/compact.png",
+    "previews/recipes/ja/full.png",
+    "previews/recipes/ja/compact.png",
+    "previews/recipes/ko/full.png",
+    "previews/recipes/ko/compact.png",
+    "previews/recipes/fr/full.png",
+    "previews/recipes/fr/compact.png",
+    "previews/recipes/de/full.png",
+    "previews/recipes/de/compact.png",
+    "previews/recipes/es/full.png",
+    "previews/recipes/es/compact.png",
+    "previews/recipes/pt-BR/full.png",
+    "previews/recipes/pt-BR/compact.png",
+    "previews/recipes/it/full.png",
+    "previews/recipes/it/compact.png",
+    "previews/recipes/ru/full.png",
+    "previews/recipes/ru/compact.png",
+    "previews/recipes/ar/full.png",
+    "previews/recipes/ar/compact.png",
+    "previews/recipes/hi/full.png",
+    "previews/recipes/hi/compact.png",
+    "previews/recipes/id/full.png",
+    "previews/recipes/id/compact.png",
+    "previews/recipes/tr/full.png",
+    "previews/recipes/tr/compact.png",
+    "previews/recipes/vi/full.png",
+    "previews/recipes/vi/compact.png"
+  ],
+  "fakeBackendOnly": true,
+  "noNativeSettingsModified": true,
+  "humanVisualReviewRequired": true
+}

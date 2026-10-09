@@ -8,20 +8,14 @@ controls and device-evidence filters. Settings guides, historical references and
 raw-ID inspection remain in a separate Guides area. The embedded 17,000-ID
 upstream dictionary is a pinned snapshot, not a universal Windows feature list.
 
-**v0.7 implementation:** recipe-based home page and explicitly requested in-place
-updates. This working-tree documentation does not establish a published v0.7 release
-or a passing v0.7 validation run; the download links below point to the latest
-published release.
+**v0.7.0:** direct feature controls, precise applicability evidence and user-authorized in-place updates. [Validation and limitations](docs/VALIDATION.md).
 
 [Feature recipes and compatibility limits](docs/RECIPES.md) ·
 [Update installation and recovery](docs/UPDATE-INSTALLATION.md)
 
-![Previous unified gallery on Windows](docs/previews/catalog/full-first-page.png)
+![Direct feature homepage on Windows](docs/previews/v0.7.0/recipes/en/full.png)
 
-The linked previews and validation records document their recorded source commits.
-The existing gallery image is from the previous interface, not evidence of the new
-recipe home page. Native renders use simulated feature storage; they do not prove
-that a Windows experiment works. [Preview provenance](docs/previews/README.md).
+These are native Windows control-tree renders with simulated feature storage. They do not prove that a Windows experiment works. [Preview provenance](docs/previews/v0.7.0/README.md).
 
 ## Download and run
 
